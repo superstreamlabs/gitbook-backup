@@ -1,0 +1,229 @@
+---
+description: Memphis SDKs for Node.js and Typescript. Producers/Consumers examples
+---
+
+# Node.js / Typescript
+
+{% content-ref url="example-producer.js.md" %}
+[example-producer.js.md](example-producer.js.md)
+{% endcontent-ref %}
+
+{% content-ref url="example-consumer.js.md" %}
+[example-consumer.js.md](example-consumer.js.md)
+{% endcontent-ref %}
+
+{% content-ref url="example-producer.ts.md" %}
+[example-producer.ts.md](example-producer.ts.md)
+{% endcontent-ref %}
+
+{% content-ref url="example-consumer.ts.md" %}
+[example-consumer.ts.md](example-consumer.ts.md)
+{% endcontent-ref %}
+
+## Installation
+
+{% hint style="info" %}
+First, install Memphis via [K8S](../../deployment/kubernetes.md) / [Docker](../../deployment/docker-compose.md).
+{% endhint %}
+
+```
+npm install memphis-dev
+```
+
+## Importing
+
+For javascript, you can choose to use the import or required keyword
+
+```
+const memphis = require("memphis-dev");
+
+/*------for Typescript, use the import keyword to aid typechecking assistance----------*/
+
+import memphis from "memphis-dev" 
+```
+
+### Connecting to Memphis
+
+```
+await memphis.connect({
+            host: "<memphis-host>",
+            managementPort: <management-port>, // defaults to 5555
+            tcpPort: <tcp-port>, // defaults to 6666
+            dataPort: <data-port>, // defaults to 7766
+            username: "<username>", // (root/application type user)
+            connectionToken: "<broker-token>", // you will get it on application type user creation
+            reconnect: true, // defaults to false
+            maxReconnect: 10, // defaults to 10
+            reconnectIntervalMs: 1500, // defaults to 1500
+            timeoutMs: 1500 // defaults to 1500
+});
+```
+
+Once connected, all features offered by Memphis are available.
+
+### Disconnecting from Memphis
+
+To disconnect from Memphis, call `close()` on the Memphis object.
+
+```
+memphis.close();
+```
+
+### Creating a Factory
+
+```
+const factory = await memphis.factory({
+            name: "<factory-name>",
+            description: ""
+});
+```
+
+### Destroying a Factory
+
+Destroying a factory will remove all its resources (including stations, producers, and consumers).
+
+```
+await factory.destroy();
+```
+
+### Creating a Station
+
+```
+const station = await memphis.station({
+            name: "<station-name>",
+            factoryName: "<factory-name>",
+            retentionType: memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS, // defaults to memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS
+            retentionValue: 604800, // defaults to 604800
+            storageType: memphis.storageTypes.FILE, // defaults to memphis.storageTypes.FILE
+            replicas: 1, // defaults to 1
+            dedupEnabled: false, // defaults to  false
+            dedupWindowMs: 0 // defaults to 0
+});
+```
+
+### Retention Types
+
+Memphis currently supports the following types of retention:
+
+```
+memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS
+```
+
+The above means that every message persists for the value set in the retention value field (in seconds).
+
+```
+memphis.retentionTypes.MESSAGES
+```
+
+The above means that after the maximum number of saved messages (set in retention value) has been reached, the oldest messages will be deleted.
+
+```
+memphis.retentionTypes.BYTES
+```
+
+The above means that after maximum number of saved bytes (set in retention value) has been reached, the oldest messages will be deleted.
+
+### Storage Types
+
+Memphis currently supports the following types of messages storage:
+
+```
+memphis.storageTypes.FILE
+```
+
+The above means that messages persist on the file system.
+
+```
+memphis.storageTypes.MEMORY
+```
+
+The above means that messages persist on the main memory.
+
+### Destroying a Station
+
+Destroying a station will remove all its resources (including producers and consumers).
+
+```
+await station.destroy();
+```
+
+### Produce and Consume Messages
+
+The most common client operations are producing messages and consuming messages.
+
+Messages are published to a station and consumed from it by creating a consumer. Consumers are pull-based and consume all the messages in a station unless you are using a consumers group, in which case messages are spread across all members in this group.
+
+Memphis messages are payload agnostic. Payloads are `Uint8Arrays`.
+
+In order to stop receiving messages, you have to call `consumer.destroy()`. The consumer will terminate regardless of whether there are messages in flight for the client.
+
+### Creating a Producer
+
+```
+const producer = await memphis.producer({
+            stationName: "<station-name>",
+            producerName: "<producer-name>"
+});
+```
+
+### Producing a Message
+
+```
+await producer.produce({
+            message: "<bytes array>", // Uint8Arrays
+            ackWaitSec: 15 // defaults to 15
+});
+```
+
+### Destroying a Producer
+
+```
+await producer.destroy();
+```
+
+### Creating a Consumer
+
+```
+const consumer = await memphis.consumer({
+            stationName: "<station-name>",
+            consumerName: "<consumer-name>",
+            consumerGroup: "<group-name>", // defaults to the consumer name
+            pullIntervalMs: 1000, // defaults to 1000
+            batchSize: 10, // defaults to 10
+            batchMaxTimeToWaitMs: 5000, // defaults to 5000
+            maxAckTimeMs: 30000, // defaults to 30000
+            maxMsgDeliveries: 10 // defaults to 10
+});
+```
+
+### Processing Messages
+
+```
+consumer.on("message", message => {
+        // processing
+        console.log(message.getData());
+        message.ack();
+});
+```
+
+### Acknowledging a Message
+
+Acknowledging a message indicates to the Memphis server to not re-send the same message again to the same consumer or consumers group.
+
+```
+message.ack();
+```
+
+### Catching Async Errors
+
+```
+consumer.on("error", error => {
+        // error handling
+});
+```
+
+### Destroying a Consumer
+
+```
+await consumer.destroy();
+```
