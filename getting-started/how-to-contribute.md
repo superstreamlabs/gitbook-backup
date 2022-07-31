@@ -26,8 +26,6 @@ Whether it’s coding, user interface design, graphic design, writing, or organi
 
 The UI is written in React, therefore you would need [node.js](https://nodejs.org/) and [npm](https://npmjs.com) installed on your local machine.
 
-
-
 Let's start by <mark style="color:blue;">**forking**</mark> the UI repo.
 
 Now clone it
@@ -61,11 +59,113 @@ npm start
 {% endtab %}
 
 {% tab title="Backend developer" %}
-#### Soon...
+#### 0. Join to Memphis [discord](https://discord.gg/WZpysvAeTf) channel
+
+#### 1. Establish a dev environment
+
+The backend components of Memphis are written in Go and node.js, therefore you would need [Go](https://go.dev/dl/) compiler, [node.js](https://nodejs.org), and [vscode](https://code.visualstudio.com/download) IDE installed.
+
+There are several components you can work on:
+
+* [Broker](https://github.com/memphisdev/memphis-broker)
+* [CLI](https://github.com/memphisdev/memphis-cli)
+* SDKs: [Go](https://github.com/memphisdev/memphis.go) / [Node](https://github.com/memphisdev/memphis.js) / [Python](https://github.com/memphisdev/memphis.py)
+
+Let's start by <mark style="color:blue;">**forking**</mark> the desired repo.
+
+Now clone it.
+
+For example -&#x20;
+
+```
+git clone https://github.com/<username>/memphis.py.git
+```
+
+#### 2.1. For working over the _<mark style="color:purple;">**broker**</mark>_
+
+Run the following docker command
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-broker.yaml -o docker-compose.yaml && \
+docker compose -f docker-compose.yaml -p memphis up
+```
+
+Install dependecies
+
+```
+go get -d -v .
+go install -v .
+```
+
+Click F5 to enter debug mode
+
+#### 2.2. For working over the _<mark style="color:purple;">**CLI**</mark>_
+
+Start a local Memphis cluster over docker
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-ui.yaml -o docker-compose.yaml && \
+docker compose -f docker-compose.yaml -p memphis up
+```
+
+#### 3. Start with a ["Good first issue"](https://github.com/memphisdev/memphis-ui/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+
+#### 4. Grab more tasks from the [Open Tasks Board](https://github.com/orgs/memphisdev/projects/1)
 {% endtab %}
 
 {% tab title="Data Engineer" %}
-#### Soon...
+#### 0. Join to Memphis [discord](https://discord.gg/WZpysvAeTf) channel
+
+#### 1. Establish a dev environment
+
+The backend components of Memphis are written in Go and node.js, therefore you would need [Go](https://go.dev/dl/) compiler, [node.js](https://nodejs.org), and [vscode](https://code.visualstudio.com/download) IDE installed.
+
+There are several components you can work on:
+
+* [Broker](https://github.com/memphisdev/memphis-broker)
+* [CLI](https://github.com/memphisdev/memphis-cli)
+* SDKs: [Go](https://github.com/memphisdev/memphis.go) / [Node](https://github.com/memphisdev/memphis.js) / [Python](https://github.com/memphisdev/memphis.py)
+
+Let's start by <mark style="color:blue;">**forking**</mark> the desired repo.
+
+Now clone it.
+
+For example -&#x20;
+
+```
+git clone https://github.com/<username>/memphis.py.git
+```
+
+#### 2.1. For working over the _<mark style="color:purple;">**broker**</mark>_
+
+Run the following docker command
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-broker.yaml -o docker-compose.yaml && \
+docker compose -f docker-compose.yaml -p memphis up
+```
+
+Install dependecies
+
+```
+go get -d -v .
+go install -v .
+```
+
+Click F5 to enter debug mode
+
+#### 2.2. For working over the _<mark style="color:purple;">**CLI**</mark>_
+
+Start a local Memphis cluster over docker
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-ui.yaml -o docker-compose.yaml && \
+docker compose -f docker-compose.yaml -p memphis up
+```
+
+#### 3. Start with a ["Good first issue"](https://github.com/memphisdev/memphis-ui/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+
+#### 4. Grab more tasks from the [Open Tasks Board](https://github.com/orgs/memphisdev/projects/1)
 {% endtab %}
 
 {% tab title="DevOps" %}
@@ -76,6 +176,14 @@ npm start
 #### Soon...
 {% endtab %}
 {% endtabs %}
+
+
+
+
+
+
+
+
 
 ### Merge your changes
 
