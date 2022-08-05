@@ -2,9 +2,7 @@
 
 ### What is Memphis{dev}?
 
-A message broker for developers made out of devs' struggles with using message brokers,\
-building complex data/event-driven apps, and troubleshooting them.\
-Allowing developers to achieve all other message brokers' benefits in a fraction of the time
+Memphis{dev} **is** the only low-code messaging platform that provides a full ecosystem **for** streaming use cases over a cloud-native message broker **that** supports modern streaming pipelines and use-cases **by** removing frictions of management, cost, resources, language barriers, and time **for** data-oriented developers and data engineers, **unlike** other message brokers and queues that requires a great amount of code, optimizations, adjustments, and mainly time.
 
 ### What struggles does Memphis solve?
 
