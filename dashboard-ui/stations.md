@@ -37,7 +37,7 @@ All the required information for a specific station is presented here.
 All "Coming Soon" features will be added in versions.
 {% endhint %}
 
-![](<../.gitbook/assets/Screen Shot 2022-06-15 at 10.53.19.png>)
+![](<../.gitbook/assets/memphis station overview.jpeg>)
 
 ### Code Example - How to connect an app
 
