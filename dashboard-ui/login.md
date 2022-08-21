@@ -4,14 +4,15 @@
 For instructions on how to reach the UI, visit the [general section](general.md#how-to-accsess-to-the-ui-after-installation).
 {% endhint %}
 
-### The first login will be with the following details:
+### Docker:
 
 * **Username:** root
-* **Password:** memphis for Docker environments or run the following for k8s environments&#x20;
+* **Password:** memphis
 
-```
-kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
-```
+### Kubernetes:
+
+* **Username:** root
+* **Password (Command to generate):** `kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode`
 
 ![](<../.gitbook/assets/Screen Shot login>)
 
