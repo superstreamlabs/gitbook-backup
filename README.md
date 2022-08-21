@@ -3,19 +3,10 @@
 [For more information on Memphis.](memphis/overview.md)
 
 {% hint style="info" %}
-Sandbox [https://sandbox.memphis.dev](https://sandbox.memphis.dev)
+If you prefer not to install - Sandbox [https://sandbox.memphis.dev](https://sandbox.memphis.dev)
 {% endhint %}
 
-Memphis is deployed by one of the following methods based on the required environment.
+Choose your preferred environment -&#x20;
 
-{% content-ref url="deployment/kubernetes.md" %}
-[kubernetes.md](deployment/kubernetes.md)
-{% endcontent-ref %}
-
-{% embed url="https://youtu.be/OmUJXqvFK4M" %}
-
-{% content-ref url="deployment/docker-compose.md" %}
-[docker-compose.md](deployment/docker-compose.md)
-{% endcontent-ref %}
-
-{% embed url="https://youtu.be/cXAk60hMtHs" %}
+* [Kubernetes](deployment/kubernetes.md)
+* [Docker-Compose](deployment/docker-compose.md#step-1-download-compose.yaml-file)
