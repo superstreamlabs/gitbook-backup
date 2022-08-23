@@ -2,7 +2,7 @@
 
 ### What is Memphis{dev}?
 
-Memphis{dev} **is** the only low-code messaging platform that provides a full ecosystem **for** in-app streaming use cases over a cloud-native message broker with a paradigm of produce-consume **that** supports modern in-app streaming pipelines and async communication **by** removing frictions of management, cost, resources, language barriers, and time **for** data-oriented developers and data engineers, **unlike** other message brokers and queues that requires a great amount of code, optimizations, adjustments, and mainly time.
+Memphis{dev} **is** the only low-code messaging platform that provides a full ecosystem **for** in-app streaming use cases over a distributed message broker with a paradigm of produce-consume **that** supports modern in-app streaming pipelines and async communication **by** removing frictions of management, cost, resources, language barriers, and time **for** data-oriented developers and data engineers, **unlike** other message brokers and queues that requires a great amount of code, optimizations, adjustments, and mainly time.
 
 ### What struggles does Memphis solve?
 
