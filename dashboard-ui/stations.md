@@ -33,10 +33,6 @@ A modal will appear with customization options.
 
 All the required information for a specific station is presented here.
 
-{% hint style="info" %}
-All "Coming Soon" features will be added in versions.
-{% endhint %}
-
 ![](<../.gitbook/assets/memphis station overview.jpeg>)
 
 ### Code Example - How to connect an app
