@@ -48,6 +48,11 @@ Update Complete. ⎈Happy Helming!⎈
 
 ### Step 2: Install
 
+```
+helm repo add memphis https://k8s.memphis.dev/charts/ && 
+helm install my-memphis memphis/memphis --create-namespace --namespace memphis
+```
+
 #### Helm Install Options
 
 | Option          | Description                                                              | Default Value |
