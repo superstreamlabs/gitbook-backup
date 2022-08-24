@@ -30,7 +30,7 @@ To install Memphis, you need to have Docker installed. If you don’t have Docke
 
 Run the following command in your terminal to install Memphis. It'll fetch the Docker compose file for Memphis set up and set up Memphis appropriately.
 
-```
+```shell
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
 ```
 
@@ -46,7 +46,7 @@ Carry out the following instructions to complete the Memphis setup in the UI:&#x
 * Enter `chat` as the application user name. Click “Create app user”. It should show you “memphis” as the connection token (password). This is the default.&#x20;
 * Skip through the next steps and access the dashboard.
 
-> > > Insert GIF recording of setting up UI
+<figure><img src="../../.gitbook/assets/memphis_ui_setup.gif" alt=""><figcaption></figcaption></figure>
 
 **Note**: You can use different factory, station, and username instead of `chat` above. We are using `chat` to keep things simple. Use names that are meaningful to your project. The Memphis UI permits you to manage factories, stations, and users. You can create more users with varying passwords/token. This ensures security.
 
@@ -124,39 +124,79 @@ export class AppModule {}Here, we are importing the ConfigModule and setting the
 
 How to setup Memphis broker in NestJS Run the following command to install Memphis in FastChat:
 
+```javascript
 npm install --save memphis-dev
+```
 
 Generate the BrokerModule (to set up Memphis) with the following command:
 
+```javascript
 nest generate module broker
+```
 
 This will create a new broker.module.ts file inside a new broker folder. Delete the contents of this new broker.module.ts file and paste the following:
 
-import { Module } from '@nestjs/common'; import { MemphisModule } from 'memphis-dev/nest';
-
-@Module({ imports: \[MemphisModule.register()], exports: \[BrokerService], }) export class BrokerModule {}
+```javascript
+import { Module } from '@nestjs/common'; 
+import { MemphisModule } from 'memphis-dev/nest';
+@Module({ imports: [MemphisModule.register()], exports: [BrokerService], }) 
+export class BrokerModule {}
+```
 
 The above imports and registers the MemphisModule. It also exports a BrokerService (which we will create right away. This BrokerService connects the app to Memphis (when NestJS starts up). This BrokerService is what other parts of the Nest app will use to interact with Memphis.
 
-Run the following command to create the BrokerService:
+Run the following command to create the `BrokerService`:
 
+```
 nest generate service broker
+```
 
 This will create a new broker.service.ts file inside the broker folder. Delete its contents and paste the following:
 
-import { Injectable, OnModuleInit } from '@nestjs/common'; import { ConfigService } from '@nestjs/config'; import { MemphisService } from 'memphis-dev/nest';
+```javascript
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { MemphisService } from 'memphis-dev/nest';
 
-@Injectable() export class BrokerService implements OnModuleInit { consumer; producer;
+@Injectable()
+export class BrokerService implements OnModuleInit {
+  consumer;
+  producer;
 
-constructor( private configService: ConfigService, private memphisService: MemphisService, ) {}
+  constructor(
+    private configService: ConfigService,
+    private memphisService: MemphisService,
+  ) {}
 
-async onModuleInit(): Promise { try { await this.memphisService.connect({ host: this.configService.get('MEMPHIS\_HOST'), username: this.configService.get('MEMPHIS\_USERNAME'), connectionToken: this.configService.get('MEMPHIS\_TOKEN'), }); this.consumer = await this.memphisService.consumer({ stationName: 'chat', consumerName: 'chatConsumer', consumerGroup: 'chatConsumers', }); this.producer = await this.memphisService.producer({ stationName: 'chat', producerName: 'chatProducer', }); } catch (error) { console.error(error); this.memphisService.close(); } } }
+  async onModuleInit(): Promise<void> {
+    try {
+      await this.memphisService.connect({
+        host: this.configService.get<string>('MEMPHIS_HOST'),
+        username: this.configService.get<string>('MEMPHIS_USERNAME'),
+        connectionToken: this.configService.get<string>('MEMPHIS_TOKEN'),
+      });
+      this.consumer = await this.memphisService.consumer({
+        stationName: 'chat',
+        consumerName: 'chatConsumer',
+        consumerGroup: 'chatConsumers',
+      });
+      this.producer = await this.memphisService.producer({
+        stationName: 'chat',
+        producerName: 'chatProducer',
+      });
+    } catch (error) {
+      console.error(error);
+      this.memphisService.close();
+    }
+  }
+}
+```
 
 The BrokerService imports the ConfigService and the MemphisService. NestJS injects these services using its automatic dependency injection.
 
 The BrokerService implements the OnModuleInit lifecycle method. This is the right place to connect Memphis broker. It is the right place because NestJS calls this method when initialising dependencies. Notice that it connects to Memphis using environment variables from the ConfigService.
 
-The BrokerService also exposes references to the producer and consumer entities of Memphis broker. Other services will use this references to produce or consume "messages" (or events).
+The BrokerService also exposes references to the producer and consumer entities of Memphis broker. Other services will use these references to produce or consume "messages" (or events).
 
 Note: Use meaningful consumer and producer names. Use meaningful names that can distinguish in which project a particular producer is producing from or from which is a consumer consuming.
 
