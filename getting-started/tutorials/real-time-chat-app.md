@@ -30,7 +30,9 @@ To install Memphis, you need to have Docker installed. If you don’t have Docke
 
 Run the following command in your terminal to install Memphis. It'll fetch the Docker compose file for Memphis set up and set up Memphis appropriately.
 
-`curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up`
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
 
 If the command completes successfully, Memphis should be up and running in Docker. If you encounter any issues, consider checking your internet connection.
 
@@ -216,100 +218,208 @@ Next, create a ChatMessagesModule that will contain the AllMessages and SendMess
 
 nest generate module chat-message
 
-This will create a new chat-message.module.ts file inside the chat-message folder. Given that we will use Memphis broker in the services, import the BrokerModule into this newly generated ChatMessageModule. Delete the contents of the chat-message.module.ts file and paste the following:
+This will create a new `chat-message.module.ts` file inside the `chat-message` folder. Given that we will use Memphis broker in the services, import the BrokerModule into this newly generated ChatMessageModule. Delete the contents of the `chat-message.module.ts` file and paste the following:
 
-import { Module } from '@nestjs/common'; import { BrokerModule } from 'src/broker/broker.module';
+```
+import { Module } from '@nestjs/common';
+import { BrokerModule } from 'src/broker/broker.module';
 
-@Module({ imports: \[BrokerModule] }) export class ChatMessageModule {}
+@Module({
+  imports: [BrokerModule]
+})
+export class ChatMessageModule {}
+```
 
 gRPC requires that NestJS code implments the methods and services defined in the protobuf file. To implement these services, we will use a controller. A controller in NestJS holds logic for API endpoints. But given that FastChat uses gRPC, the controller will rather hold gRPC functions and services.
 
 Create a new ChatMessageController. Run the following command:
 
+```
 nest generate controller chat-message
+```
 
-It will create a new chat-message.controller.ts file inside the chat-message folder. Replace the contents of this file with the following:
+It will create a new `chat-message.controller.ts` file inside the `chat-message` folder. Replace the contents of this file with the following:
 
-import { Controller } from '@nestjs/common'; import { GrpcMethod } from '@nestjs/microservices'; import { Observable, ReplaySubject } from 'rxjs'; import { BrokerService } from 'src/broker/broker.service'; import { ChatMessage } from './chat-message.interface';
+```
+import { Controller } from '@nestjs/common';
+import { GrpcMethod } from '@nestjs/microservices';
+import { Observable, ReplaySubject } from 'rxjs';
+import { BrokerService } from 'src/broker/broker.service';
+import { ChatMessage } from './chat-message.interface';
 
-@Controller('chat-message') export class ChatMessageController { private readonly chatMessages$ = new ReplaySubject();
+@Controller('chat-message')
+export class ChatMessageController {
+  private readonly chatMessages$ = new ReplaySubject<ChatMessage>();
 
-constructor(private brokerService: BrokerService) {}
+  constructor(private brokerService: BrokerService) {}
 
-onModuleInit(): void { this.brokerService.consumer.on('message', (message) => { this.chatMessages$.next( JSON.parse(message.getData().toString()) as ChatMessage ); message.ack(); }); }
+  onModuleInit(): void {
+    this.brokerService.consumer.on('message', (message) => {
+      this.chatMessages$.next(
+        JSON.parse(message.getData().toString()) as ChatMessage
+      );
+      message.ack();
+    });
+  }
 
-@GrpcMethod('AllMessagesService', 'all') all(): Observable { return this.chatMessages$.asObservable(); }
+  @GrpcMethod('AllMessagesService', 'all')
+  all(): Observable<ChatMessage> {
+    return this.chatMessages$.asObservable();
+  }
 
-@GrpcMethod('SendMessageService', 'send') async send(chatMessage: ChatMessage): Promise { await this.brokerService.producer.produce({ message: Buffer.from(JSON.stringify(chatMessage)) }); } }
+  @GrpcMethod('SendMessageService', 'send')
+  async send(chatMessage: ChatMessage): Promise<void> {
+    await this.brokerService.producer.produce({
+      message: Buffer.from(JSON.stringify(chatMessage))
+    });
+  }
+}
+```
 
-ChatMessageController declares a chatMessages$ ReplaySubject. This is an entity that we can push values to and listen to values from.
+ChatMessageController declares a `chatMessages$` [ReplaySubject](https://rxjs.dev/api/index/class/ReplaySubject). This is an entity that we can push values to and listen to values from.
 
-ChatMessageController obtains the BrokerService via dependency injection. In the OnModuleInit lifecycle hook, we consume “messages” from the BrokerService’s consumer, and emit them to chatMessages$ ReplaySubject. message.ack(); tells Memphis that the “message” is acknowledged (so that it won’t send that “message” again).
+ChatMessageController obtains the BrokerService via dependency injection. In the OnModuleInit lifecycle hook, we consume “messages” from the BrokerService’s consumer, and emit them to `chatMessages$` ReplaySubject. `message.ack();` tells Memphis that the “message” is acknowledged (so that it won’t send that “message” again).
 
-ChatMessageController also implements the two communicating services of this real-time app. SendMessageService takes a ChatMessage and produces it to the BrokerService. In turn, AllMessagesService provides as chatMessages$ ReplaySubject as an Observable.
+ChatMessageController also implements the two communicating services of this real-time app. SendMessageService takes a ChatMessage and produces it to the BrokerService. In turn, AllMessagesService provides as `chatMessages$` ReplaySubject as an Observable.
 
 Production and Consumption of broker messages can only be done with strings. This is why we convert ChatMessages to and fro strings when sending and receiving them from the BrokerService’s producer and consumer.
 
 At this point, we’ve successfully setup a simple real-time app with NestJS and Memphis broker.
 
-\[Optional]: Test the Real-time chat app with gRPC client With the way gRPC works, you technically don't make REST API requests. You have to access your backend services from another gRPC SDK (client or server).
+### \[Optional]: Test the Real-time chat app with gRPC client&#x20;
+
+With the way gRPC works, you technically don't make REST API requests. You have to access your backend services from another gRPC SDK (client or server).
 
 We can test the above chat services. One way is to create another gRPC client inside the NestJS project folder. This client will make calls to the services. In turn, you can observe their action in the Memphis Broker UI.
 
-Update the AppModule to import the gRPC ClientsModule. Replace the contents of src/app.module.ts with the following:
+Update the AppModule to import the gRPC ClientsModule. Replace the contents of `src/app.module.ts` with the following:
 
-import { Module } from '@nestjs/common'; import { ConfigModule } from '@nestjs/config'; import { ClientsModule, Transport } from '@nestjs/microservices'; import { join } from 'path'; import { AppController } from './app.controller'; import { AppService } from './app.service'; import { BrokerModule } from './broker/broker.module'; import { ChatMessageModule } from './chat-message/chat-message.module';
+```
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { ClientsModule, Transport } from '@nestjs/microservices';
+import { join } from 'path';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { BrokerModule } from './broker/broker.module';
+import { ChatMessageModule } from './chat-message/chat-message.module';
 
-@Module({ imports: \[ ConfigModule.forRoot({ isGlobal: true }), BrokerModule, ChatMessageModule, ClientsModule.register(\[ { name: 'CHAT\_MESSAGE', transport: Transport.GRPC, options: { package: 'ChatMessage', protoPath: join(\_\_dirname, 'chat-message/chat-message.proto') } } ]), ], controllers: \[AppController], providers: \[AppService] }) export class AppModule {}
+@Module({
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    BrokerModule,
+    ChatMessageModule,
+    ClientsModule.register([
+      {
+        name: 'CHAT_MESSAGE',
+        transport: Transport.GRPC,
+        options: {
+          package: 'ChatMessage',
+          protoPath: join(__dirname, 'chat-message/chat-message.proto')
+        }
+      }
+    ]),
+  ],
+  controllers: [AppController],
+  providers: [AppService]
+})
+export class AppModule {}
+```
 
 Generate a new ClientController that will call the gRPC methods. Run the following command in the terminal:
 
+```
 nest generate controller client
-
-This will create a new client.controller.ts inside a new client folder. Replace the contents of this new file with the following:
-
-import { Body, Controller, Inject, OnModuleInit, Post, Res } from '@nestjs/common'; import { ClientGrpc } from '@nestjs/microservices'; import { Response } from 'express'; import { firstValueFrom, Observable } from 'rxjs'; import { ChatMessage } from '../chat-message/chat-message.interface';
-
-interface AllMessagesService { all(): Observable; }
-
-interface SendMessageService { send(chatMessage: ChatMessage): Observable; }
-
-@Controller('client') export class ClientController implements OnModuleInit { private allMessagesService: AllMessagesService; private sendMessageService: SendMessageService;
-
-constructor(@Inject('CHAT\_MESSAGE') private readonly client: ClientGrpc) {}
-
-onModuleInit(): void { this.allMessagesService = this.client.getService('AllMessagesService'); this.sendMessageService = this.client.getService('SendMessageService');
-
-```
-this.allMessagesService.all().subscribe((chatMessage: ChatMessage) => {
-  console.log(chatMessage);
-});
 ```
 
+This will create a new `client.controller.ts` inside a new `client` folder. Replace the contents of this new file with the following:
+
+```
+  import {
+  Body,
+  Controller,
+  Inject,
+  OnModuleInit,
+  Post,
+  Res
+} from '@nestjs/common';
+import { ClientGrpc } from '@nestjs/microservices';
+import { Response } from 'express';
+import { firstValueFrom, Observable } from 'rxjs';
+import { ChatMessage } from '../chat-message/chat-message.interface';
+
+interface AllMessagesService {
+  all(): Observable<ChatMessage>;
 }
 
-@Post('') async sendMessage( @Body() chatMessage: ChatMessage, @Res() res: Response ): Promise { await firstValueFrom(this.sendMessageService.send(chatMessage)); res.json({ status: true, message: 'Acknowledged' }); } }
+interface SendMessageService {
+  send(chatMessage: ChatMessage): Observable<void>;
+}
 
-This ClientController subscribes to the all method of the AllMessagesService and prints every ChatMessage to the console. It also exposes a /client POST endpoint to receive messages and send them to Memphis broker (through the send method of SendMessageService).
+@Controller('client')
+export class ClientController implements OnModuleInit {
+  private allMessagesService: AllMessagesService;
+  private sendMessageService: SendMessageService;
 
-Run nest start to start the NestJS application.
+  constructor(@Inject('CHAT_MESSAGE') private readonly client: ClientGrpc) {}
 
-Use any API tester (cURL, Postman, ThunderClient extension on VS Code, etc.) to send a post request to localhost:3000/client. The body of the post request should reflect a valid ChatMessage like:
+  onModuleInit(): void {
+    this.allMessagesService =
+      this.client.getService<AllMessagesService>('AllMessagesService');
+    this.sendMessageService =
+      this.client.getService<SendMessageService>('SendMessageService');
 
-{ "author": "UserA", "text": "Test Chat Message", "time": 1661096069756 }
+    this.allMessagesService.all().subscribe((chatMessage: ChatMessage) => {
+      console.log(chatMessage);
+    });
+  }
 
-You should receive an acknowledgement feedback. Check the Memphis UI at localhost:9000, you should notice the sent message (event). Check the NestJS logs and notice that it printed your ChatMessage. Send more POST requests and notice the more messages and logs. The final codebase for FastChat is here on GitHub.
+  @Post('')
+  async sendMessage(
+    @Body() chatMessage: ChatMessage,
+    @Res() res: Response
+  ): Promise<void> {
+    await firstValueFrom(this.sendMessageService.send(chatMessage));
+    res.json({ status: true, message: 'Acknowledged' });
+  }
+}
+```
 
-Why did we use Memphis broker? In a message broker (like Memphis), messages are like events. They are what services use to communicate.
+This ClientController subscribes to the `all` method of the AllMessagesService and prints every ChatMessage to the console. It also exposes a `/client` POST endpoint to receive messages and send them to Memphis broker (through the `send` method of SendMessageService).
 
-FastChat above is a simple usecase of a message broker. You might not see the essence of producing and consuming messages if this is the only thing you want to build. Besides we placed the two services in the same .proto file. We also implemented both services with the same controller. These were because of simplicity.
+Run `nest start` to start the NestJS application.
+
+Use any API tester (cURL, Postman, ThunderClient extension on VS Code, etc.) to send a post request to `localhost:3000/client`. The body of the post request should reflect a valid ChatMessage like:
+
+```
+{
+  "author": "UserA",
+  "text": "Test Chat Message",
+  "time": 1661096069756
+}
+```
+
+You should receive an acknowledgement feedback. Check the Memphis UI at `localhost:9000`, you should notice the sent message (event). Check the NestJS logs and notice that it printed your ChatMessage. Send more POST requests and notice the more messages and logs.
+
+[The final codebase for FastChat is here on GitHub.](https://github.com/obumnwabude/fast-chat/tree/article)
+
+### Why did we use Memphis broker?&#x20;
+
+In a message broker (like Memphis), messages are like events. They are what services use to communicate.
+
+FastChat above is a simple usecase of a message broker. You might not see the essence of producing and consuming messages if this is the only thing you want to build. Besides we placed the two services in the same `.proto` file. We also implemented both services with the same controller. These were because of simplicity.
 
 In a big project, you will separate your services. They might be in different NestJS projects and deployed from different servers. Yet, they will be communicating via Memphis broker. If you were building a chat infrastructure, other services like notifications, authentication, security, etc. are reasons why you should use Memphis broker.
 
 You will use a Memphis broker because it ensures many-to-many (N:N) communication across your application’s services. It also ensures that every service receives the events or “messages”.
 
-Summary Memphis broker stands out in its speed and ease-of-use among other message brokers. You can install it with Docker. It has a UI and CLI through which you can manage your projects. You can also manage factories, stations, and users with Memphis broker.
+### Summary&#x20;
 
-The above FastChat is a simple real-time app to get you started with Memphis broker in NestJS. In summary, to build a real-time app with NestJS and Memphis broker: Connect to Memphis broker using the MemphisService and the connection parameters. Then produce and consume messages as you need in your application.
+Memphis broker stands out in its speed and ease-of-use among other message brokers. You can install it with Docker. It has a UI and CLI through which you can manage your projects. You can also manage factories, stations, and users with Memphis broker.
+
+The above FastChat is a simple real-time app to get you started with Memphis broker in NestJS. In summary, to build a real-time app with NestJS and Memphis broker:&#x20;
+
+* Connect to Memphis broker using the MemphisService and the connection parameters.&#x20;
+* Then produce and consume messages as you need in your application.
 
 Happy Coding!
