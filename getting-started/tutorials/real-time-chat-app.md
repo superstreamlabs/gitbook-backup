@@ -41,8 +41,8 @@ This is a one-time installation of Memphis. In consequent times, when you need t
 Carry out the following instructions to complete the Memphis setup in the UI:&#x20;
 
 * Open `localhost:9000` in the browser, it should show you the Memphis UI.&#x20;
-* Sign in with `root` and `memphis`. These are the default credentials of the “root” user when you set up Memphis with Docker. Enter chat as the factory name.&#x20;
-* Enter `chat` as the station name. Click “Next”.&#x20;
+* Sign in with `root` and `memphis`. These are the default credentials of the “root” user when you set up Memphis with Docker.&#x20;
+* Enter `chat` as the factory name. Enter `chat` as the station name. Click “Next”.&#x20;
 * Enter `chat` as the application user name. Click “Create app user”. It should show you “memphis” as the connection token (password). This is the default.&#x20;
 * Skip through the next steps and access the dashboard.
 
