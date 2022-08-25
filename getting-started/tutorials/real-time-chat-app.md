@@ -108,7 +108,7 @@ Add the NestJS’ ConfigModule to the `fast-chat` project. Run the following com
 
 Import the ConfigModule in AppModule. NestJS auto-created the `src/app.module.ts` file among other files when we created the project. This file contains the declaration of AppModule. Replace the contents of AppModule with the following:
 
-```
+```javascript
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
@@ -119,10 +119,14 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}Here, we are importing the ConfigModule and setting the isGlobal to true. Doing this will auto-import the ConfigModule in all other modules we wil create (which is what we want). In consequent files that need any values from the .env file, you will only access them from ConfigService (coming later on).
+export class AppModule {}
 ```
 
-How to setup Memphis broker in NestJS Run the following command to install Memphis in FastChat:
+Here, we are importing the ConfigModule and setting the `isGlobal` to true. Doing this will auto-import the ConfigModule in all other modules we wil create (which is what we want). In consequent files that need any values from the `.env` file, you will only access them from ConfigService (coming later on)
+
+### How to setup Memphis broker in NestJS&#x20;
+
+Run the following command to install Memphis in FastChat:
 
 ```javascript
 npm install --save memphis-dev
@@ -218,7 +222,7 @@ FastChat uses gRPC because gRPC is the go-to way for client-server communication
 
 To set up gRPC, run the following command while inside the fast-chat directory:
 
-```
+```javascript
 npm i --save @grpc/grpc-js @grpc/proto-loader @nestjs/microservices
 ```
 
@@ -226,7 +230,7 @@ It adds necessary dependencies for using gRPC in NestJS. Next, create the protob
 
 Create a new folder in the `src` folder, name this new folder `chat-message`. Create a new file inside this new folder. Name the new file `chat-message.proto`. Paste the following into this `src/chat-message/chat-message.proto`
 
-```
+```javascript
 syntax = "proto3";
 
 package ChatMessage;
@@ -256,7 +260,7 @@ This protobuf file is not a TypeScript file. By default, NestJS includes all Typ
 
 The `src/chat-message/chat-message`.proto above file is an example. To tell Nest about it, add it to the `nest-cli.json` file. This file is directly inside the `fast-chat` project folder. Include the following into the JSON file:
 
-```
+```javascript
   "compilerOptions": {
     "assets": ["**/*.proto"],
     "watchAssets": true
@@ -265,7 +269,7 @@ The `src/chat-message/chat-message`.proto above file is an example. To tell Nest
 
 One more config step for gRPC involves adding gRPC as a microservice into NestJS. Delete the contents of `src/main.ts` file and paste the following:
 
-```
+```javascript
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
@@ -293,7 +297,7 @@ Now that gRPC is properly set up, let's implement our AllMessages and SendMessag
 
 Create a new `chat-message.interface.ts` file inside the `chat-message` folder. Paste the following inside.
 
-```
+```javascript
 export interface ChatMessage {
   author: string;
   text: string;
@@ -309,7 +313,7 @@ nest generate module chat-message
 
 This will create a new `chat-message.module.ts` file inside the `chat-message` folder. Given that we will use Memphis broker in the services, import the BrokerModule into this newly generated ChatMessageModule. Delete the contents of the `chat-message.module.ts` file and paste the following:
 
-```
+```javascript
 import { Module } from '@nestjs/common';
 import { BrokerModule } from 'src/broker/broker.module';
 
@@ -329,7 +333,7 @@ nest generate controller chat-message
 
 It will create a new `chat-message.controller.ts` file inside the `chat-message` folder. Replace the contents of this file with the following:
 
-```
+```javascript
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { Observable, ReplaySubject } from 'rxjs';
@@ -383,7 +387,7 @@ We can test the above chat services. One way is to create another gRPC client in
 
 Update the AppModule to import the gRPC ClientsModule. Replace the contents of `src/app.module.ts` with the following:
 
-```
+```javascript
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
@@ -423,7 +427,7 @@ nest generate controller client
 
 This will create a new `client.controller.ts` inside a new `client` folder. Replace the contents of this new file with the following:
 
-```
+```javascript
   import {
   Body,
   Controller,
@@ -480,7 +484,7 @@ Run `nest start` to start the NestJS application.
 
 Use any API tester (cURL, Postman, ThunderClient extension on VS Code, etc.) to send a post request to `localhost:3000/client`. The body of the post request should reflect a valid ChatMessage like:
 
-```
+```javascript
 {
   "author": "UserA",
   "text": "Test Chat Message",
