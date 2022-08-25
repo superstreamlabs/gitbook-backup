@@ -198,65 +198,114 @@ The BrokerService implements the OnModuleInit lifecycle method. This is the righ
 
 The BrokerService also exposes references to the producer and consumer entities of Memphis broker. Other services will use these references to produce or consume "messages" (or events).
 
-Note: Use meaningful consumer and producer names. Use meaningful names that can distinguish in which project a particular producer is producing from or from which is a consumer consuming.
+**Note**: Use meaningful consumer and producer names. Use meaningful names that can distinguish in which project a particular producer is producing from or from which is a consumer consuming.
 
 Now we've successfully set up Memphis broker. We now need to create the ChatMessages services and link them with Memphis.
 
 But Before we head over to creating services let's review another useful tool. Servers usually expose REST APIs that clients will call. However, there are alternative methods for server-to-client communication. One of such methods is gRPC.
 
-About gRPC RPC means Remote Procedure Call. It means calling a function that is located remotely (in the server).
+### About gRPC&#x20;
+
+[RPC](https://en.wikipedia.org/wiki/Remote\_procedure\_call) means Remote Procedure Call. It means calling a function that is located remotely (in the server).
 
 gRPC is an open-source RPC framework for client-server communication. gRPC exposes server functions or microservices to clients. The clients too use gRPC to access data from the server(s). gRPC is available for all programming languages.
 
-gRPC is faster than REST APIs. It is faster because it uses Protocol Buffers to exchange data (rather than JSON or XML). Protocol Buffers (ProtoBuf) is a neutral way of expressing structured data. ProtoBuf is easy to understand.
+[gRPC](https://grpc.io/) is faster than REST APIs. It is faster because it uses Protocol Buffers to exchange data (rather than JSON or XML). [Protocol Buffers (ProtoBuf)](https://developers.google.com/protocol-buffers) is a neutral way of expressing structured data. ProtoBuf is easy to understand.
 
 FastChat uses gRPC because gRPC is the go-to way for client-server communication in a Service Oriented Architecture (SOA).
 
-How to set up gRPC in NestJS To set up gRPC, run the following command while inside the fast-chat directory:
+### How to set up gRPC in NestJS&#x20;
 
+To set up gRPC, run the following command while inside the fast-chat directory:
+
+```
 npm i --save @grpc/grpc-js @grpc/proto-loader @nestjs/microservices
+```
 
-It adds necessary dependencies for using gRPC in NestJS. Next, create the protobuf (.proto) file for the services in FastChat.
+It adds necessary dependencies for using gRPC in NestJS. Next, create the protobuf (`.proto`) file for the services in FastChat.
 
-Create a new folder in the src folder, name this new folder chat-message. Create a new file inside this new folder. Name the new file chat-message.proto. Paste the following into this src/chat-message/chat-message.proto
+Create a new folder in the `src` folder, name this new folder `chat-message`. Create a new file inside this new folder. Name the new file `chat-message.proto`. Paste the following into this `src/chat-message/chat-message.proto`
 
+```
 syntax = "proto3";
 
 package ChatMessage;
 
 message Empty { }
 
-message ChatMessage { string author = 1; string text = 2; int64 time = 3; }
+message ChatMessage {
+  string author = 1;
+  string text = 2;
+  int64 time = 3;
+}
 
-service SendMessageService { rpc send (ChatMessage) returns (Empty) {} }
+service SendMessageService {
+  rpc send (ChatMessage) returns (Empty) {}
+}
 
-service AllMessagesService { rpc all (Empty) returns (stream ChatMessage) {} }
+service AllMessagesService {
+  rpc all (Empty) returns (stream ChatMessage) {}
+}
+```
 
-This is what protobuf looks like. It is language agnostic. The first line is mandatory and it tells the version of protobuf in use. In this case, "proto3", (the latest version).
+This is what protobuf looks like. It is language agnostic. The first line is mandatory and it tells the version of protobuf in use. In this case, `"proto3"`, (the latest version).
 
-message in protobuf refers to a custom type we create. ChatMessage contains an author (a string), the message’s text (string) and when the time the message was sent. int64 is a safe way of representing time as a timestamp.
+`message` in protobuf refers to a custom type we create. `ChatMessage` contains an author (a string), the message’s text (string) and when the time the message was sent. `int64` is a safe way of representing time as a timestamp.
 
 This protobuf file is not a TypeScript file. By default, NestJS includes all TypeScript files when building the server. If a given NestJS project needs to monitor or include non-TypeScript files into the building process, Nest has to be aware of those files.
 
-The src/chat-message/chat-message.proto above file is an example. To tell Nest about it, add it to the nest-cli.json file. This file is directly inside the fast-chat project folder. Include the following into the JSON file:
+The `src/chat-message/chat-message`.proto above file is an example. To tell Nest about it, add it to the `nest-cli.json` file. This file is directly inside the `fast-chat` project folder. Include the following into the JSON file:
 
-"compilerOptions": { "assets": \["\*\*/\*.proto"], "watchAssets": true }
+```
+  "compilerOptions": {
+    "assets": ["**/*.proto"],
+    "watchAssets": true
+  }
+```
 
-One more config step for gRPC involves adding gRPC as a microservice into NestJS. Delete the contents of src/main.ts file and paste the following:
+One more config step for gRPC involves adding gRPC as a microservice into NestJS. Delete the contents of `src/main.ts` file and paste the following:
 
-import { NestFactory } from '@nestjs/core'; import { MicroserviceOptions, Transport } from '@nestjs/microservices'; import { join } from 'path'; import { AppModule } from './app.module';
+```
+import { NestFactory } from '@nestjs/core';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { join } from 'path';
+import { AppModule } from './app.module';
 
-async function bootstrap() { const app = await NestFactory.create(AppModule); app.connectMicroservice({ transport: Transport.GRPC, options: { package: 'ChatMessage', protoPath: join(\_\_dirname, 'chat-message/chat-message.proto'), }, }); await app.startAllMicroservices(); await app.listen(3000); console.log(`Application is running on: ${await app.getUrl()}`); } bootstrap();
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.GRPC,
+    options: {
+      package: 'ChatMessage',
+      protoPath: join(__dirname, 'chat-message/chat-message.proto'),
+    },
+  });
+  await app.startAllMicroservices();
+  await app.listen(3000);
+  console.log(`Application is running on: ${await app.getUrl()}`);
+}
+bootstrap();
+```
 
-How to create a service with NestJS Now that gRPC is properly set up, let's implement our AllMessages and SendMessage services. These services will interact with the ChatMessage type or interface. We need an equivalent of these type in TypeScript (separate from what we declared in protobuf).
+### How to create a service with NestJS&#x20;
 
-Create a new chat-message.interface.ts file inside the chat-message folder. Paste the following inside.
+Now that gRPC is properly set up, let's implement our AllMessages and SendMessage services. These services will interact with the ChatMessage type or interface. We need an equivalent of these type in TypeScript (separate from what we declared in protobuf).
 
-export interface ChatMessage { author: string; text: string; time: number; }
+Create a new `chat-message.interface.ts` file inside the `chat-message` folder. Paste the following inside.
+
+```
+export interface ChatMessage {
+  author: string;
+  text: string;
+  time: number;
+}
+```
 
 Next, create a ChatMessagesModule that will contain the AllMessages and SendMessage services. Run the following command to create the module.
 
+```
 nest generate module chat-message
+```
 
 This will create a new `chat-message.module.ts` file inside the `chat-message` folder. Given that we will use Memphis broker in the services, import the BrokerModule into this newly generated ChatMessageModule. Delete the contents of the `chat-message.module.ts` file and paste the following:
 
