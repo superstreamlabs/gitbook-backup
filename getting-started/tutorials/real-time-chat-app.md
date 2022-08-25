@@ -496,6 +496,8 @@ You should receive an acknowledgement feedback. Check the Memphis UI at `localho
 
 [The final codebase for FastChat is here on GitHub.](https://github.com/obumnwabude/fast-chat/tree/article)
 
+<figure><img src="../../.gitbook/assets/memphis_ui_screenshot.png" alt="Station Overview"><figcaption><p>Station Overview</p></figcaption></figure>
+
 ### Why did we use Memphis broker?&#x20;
 
 In a message broker (like Memphis), messages are like events. They are what services use to communicate.
