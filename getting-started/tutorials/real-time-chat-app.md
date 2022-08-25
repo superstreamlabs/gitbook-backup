@@ -94,11 +94,11 @@ The above three are sensitive information. For security purposes, they shouldnâ€
 
 NestJS provides a [ConfigModule](https://docs.nestjs.com/techniques/configuration) for providing environment variables. It uses [dotenv](https://github.com/motdotla/dotenv) internally. Create a file with `.env` as name directly inside the `fast-chat` project folder. Paste the following inside:
 
-`MEMPHIS_HOST=localhost`&#x20;
-
-`MEMPHIS_USERNAME=chat`&#x20;
-
-`MEMPHIS_TOKEN=memphis`
+```javascript
+MEMPHIS_HOST=localhost
+MEMPHIS_USERNAME=chat
+MEMPHIS_TOKEN=memphis
+```
 
 These are the default credentials. You should use more secure credentials in production. That is the very reason of use the ConfigModule in the first place.
 
@@ -138,7 +138,7 @@ Generate the BrokerModule (to set up Memphis) with the following command:
 nest generate module broker
 ```
 
-This will create a new broker.module.ts file inside a new broker folder. Delete the contents of this new broker.module.ts file and paste the following:
+This will create a new `broker.module.ts` file inside a new `broker` folder. Delete the contents of this new `broker.module.ts` file and paste the following:
 
 ```javascript
 import { Module } from '@nestjs/common'; 
@@ -149,13 +149,13 @@ export class BrokerModule {}
 
 The above imports and registers the MemphisModule. It also exports a BrokerService (which we will create right away. This BrokerService connects the app to Memphis (when NestJS starts up). This BrokerService is what other parts of the Nest app will use to interact with Memphis.
 
-Run the following command to create the `BrokerService`:
+Run the following command to create the BrokerService:
 
 ```
 nest generate service broker
 ```
 
-This will create a new broker.service.ts file inside the broker folder. Delete its contents and paste the following:
+This will create a new `broker.service.ts` file inside the `broker` folder. Delete its contents and paste the following:
 
 ```javascript
 import { Injectable, OnModuleInit } from '@nestjs/common';
@@ -220,7 +220,7 @@ FastChat uses gRPC because gRPC is the go-to way for client-server communication
 
 ### How to set up gRPC in NestJS&#x20;
 
-To set up gRPC, run the following command while inside the fast-chat directory:
+To set up gRPC, run the following command **while inside the fast-chat directory**:
 
 ```javascript
 npm i --save @grpc/grpc-js @grpc/proto-loader @nestjs/microservices
