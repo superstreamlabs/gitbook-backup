@@ -71,3 +71,6 @@
   * [Example: Producer](sdks/python/example-producer.md)
   * [Example: Consumer](sdks/python/example-consumer.md)
 * [Rust](sdks/rust.md)
+* [.NET](sdks/.net.md)
+* [Java](sdks/java.md)
+* [Scala](sdks/scala.md)
