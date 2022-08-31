@@ -116,8 +116,8 @@ Documentations: https://docs.memphis.dev
 Deployment Information
 -------------------------
 ## Secrets ##
-UI/CLI root username        - root
-UI/CLI root Password            - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
+UI/CLI root username    - root
+UI/CLI root Password    - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
 
 ## Components ##
 3 Brokers - MQ
@@ -147,9 +147,16 @@ Expose the UI in a **localhost** environment using "port-forward":
 $# kubectl port-forward service/memphis-ui 9000:80 --namespace memphis & >/dev/null
 ```
 
+Credentials
+
 ```
-http://localhost:9000
+UI/CLI root username - root
+UI/CLI root Password - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
 ```
+
+
+
+[http://localhost:9000](http://localhost:9000)
 
 
 
