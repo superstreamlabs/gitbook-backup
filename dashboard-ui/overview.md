@@ -6,7 +6,7 @@ The dashboard was designed to provide you with a quick snapshot of the cluster h
 
 ![](<../.gitbook/assets/Screen Shot 2022-06-15 at 10.51.18.png>)
 
-### Create a [station](broken-reference)
+### Create a [station](stations.md)
 
 To create a station, use the "Create new station" button.
 
