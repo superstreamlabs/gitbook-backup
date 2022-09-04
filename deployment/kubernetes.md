@@ -105,7 +105,8 @@ To access Memphis from localhost, run the below commands:
   2. kubectl port-forward service/memphis-cluster 7766:7766 6666:6666 5555:5555 --namespace memphis > /dev/null &
 
 Dashboard: http://localhost:9000
-Memphis broker: localhost:5555 (Management Port) / 7766 (Data Port) / 6666 (TCP Port)
+Memphis broker: localhost:6666 (Client connections)
+Memphis broker: localhost:5555 (CLI connection)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Read more about networking options here: https://docs.memphis.dev/deployment/kubernetes
@@ -116,7 +117,7 @@ Documentations: https://docs.memphis.dev
 Deployment Information
 -------------------------
 ## Secrets ##
-UI/CLI root username    - root
+UI/CLI/SDK root username    - root
 UI/CLI root Password    - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
 
 ## Components ##

@@ -11,13 +11,13 @@ import (
 )
 
 func main() {
-	conn, err := memphis.Connect("<memphis-host>", "<application type username>", "<broker-token>")
+	c, err := memphis.Connect("<memphis-host>", "<application type username>", "<broker-token>")
 	if err != nil {
 		os.Exit(1)
 	}
-	defer conn.Close()
+	defer c.Close()
 
-	p, err := conn.CreateProducer("<station-name>", "<producer-name>")
+	p, err := c.CreateProducer("<station-name>", "<producer-name>")
 	err = p.Produce([]byte("You have a message!"))
 
 	if err != nil {

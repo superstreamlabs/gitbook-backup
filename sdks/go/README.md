@@ -41,7 +41,9 @@ It is possible to pass connection configuration parameters, as function-paramete
 c, err := memphis.Connect("<memphis-host>", 
 	"<application type username>", 
 	"<broker-token>",
-	Port(<int>),       
+	ManagementPort(<int>),
+	TcpPort(<int>),
+	DataPort(<int>),        
 	Reconnect(<bool>),
 	MaxReconnect(<int>)
 	)
