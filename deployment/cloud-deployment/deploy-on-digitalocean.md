@@ -104,3 +104,21 @@ The above will create a digitalocean load balancer with a public ip.
 
 Run the following YAML
 
+```
+ kubectl expose deployment memphis-ui --port=80 --target-port=80 \
+        --name=memphis-ui --type=LoadBalancer
+```
+
+### Step 6: Connect your 1st app
+
+To get the public IPs of the load balancers we created before, run
+
+```
+kubectl get svc
+```
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-09-04 at 23.40.09.png" alt=""><figcaption></figcaption></figure>
+
+{% content-ref url="../../getting-started/tutorials/" %}
+[tutorials](../../getting-started/tutorials/)
+{% endcontent-ref %}
