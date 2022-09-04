@@ -27,7 +27,8 @@ Create a new factory by clicking the "Create new factory" button.
 
 
 
-Next, just Fill in the factory details.
 
+
+Next, just Fill in the factory details.\
 \
 ![](<../.gitbook/assets/Create factory details.png>)
