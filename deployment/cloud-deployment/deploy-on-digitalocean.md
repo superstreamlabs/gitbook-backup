@@ -44,4 +44,50 @@ Follow the below instructions to communicate with the newly created cluster
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-08-31 at 12.41.24.png" alt=""><figcaption></figcaption></figure>
 
-A
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: memphis
+    meta.helm.sh/release-namespace: memphis
+  creationTimestamp: "2022-07-19T16:25:00Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app.kubernetes.io/instance: memphis
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: memphis
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: memphis-0.1.0
+  name: memphis-cluster
+  namespace: memphis
+spec:
+  allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: memphis-cp-management
+    nodePort: 30794
+    port: 5555
+    protocol: TCP
+    targetPort: 5555
+  - name: memphis-cp-tcp
+    nodePort: 31534
+    port: 6666
+    protocol: TCP
+    targetPort: 6666
+  - name: client
+    nodePort: 30363
+    port: 7766
+    protocol: TCP
+    targetPort: 7766
+  selector:
+    app.kubernetes.io/instance: memphis
+    app.kubernetes.io/name: memphis
+  sessionAffinity: None
+  type: LoadBalancer
+```
