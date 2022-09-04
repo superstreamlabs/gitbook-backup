@@ -21,13 +21,13 @@
 
 ## Release notes
 
+* [How to upgrade](release-notes/how-to-upgrade.md)
 * [Releases](release-notes/releases/README.md)
   * [v0.3.0 - beta](release-notes/releases/v0.3.0-beta.md)
   * [v0.2.2 - beta](release-notes/releases/v0.2.2-beta.md)
   * [v0.2.1 - beta](release-notes/releases/v0.2.1-beta.md)
   * [v0.2.0 - beta](release-notes/releases/v0.2.0-beta.md)
   * [v0.1.0 - beta](release-notes/releases/v0.1.0-beta.md)
-* [How to upgrade](release-notes/how-to-upgrade.md)
 
 ## Deployment
 

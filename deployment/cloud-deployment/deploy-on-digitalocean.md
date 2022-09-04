@@ -44,6 +44,12 @@ Follow the below instructions to communicate with the newly created cluster
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-08-31 at 12.41.24.png" alt=""><figcaption></figcaption></figure>
 
+We need to create two different load balancers, one for <mark style="color:blue;">**data**</mark> (the broker itself) and one for the <mark style="color:green;">**UI**</mark>.
+
+### Step 4: Expose Memphis for <mark style="color:blue;">data</mark> using a load balancer
+
+Run the following YAML
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -91,3 +97,10 @@ spec:
   sessionAffinity: None
   type: LoadBalancer
 ```
+
+The above will create a digitalocean load balancer with a public ip.
+
+### Step 5: Expose Memphis <mark style="color:green;">UI</mark> using a load balancer
+
+Run the following YAML
+
