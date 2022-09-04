@@ -1,3 +1,5 @@
 # Rust
 
-Coming soon on our next major release :)
+Upvote if interesting 👇
+
+{% embed url="https://github.com/memphisdev/memphis-broker/issues/291" %}

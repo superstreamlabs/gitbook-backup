@@ -35,11 +35,18 @@ npm install memphis-dev
 For javascript, you can choose to use the import or required keyword
 
 ```
+for javascript, you can choose to use the import or required keyword
+
 const memphis = require("memphis-dev");
 
-/*------for Typescript, use the import keyword to aid typechecking assistance----------*/
+for Typescript, use the import keyword to aid for typechecking assistance
 
-import memphis from "memphis-dev" 
+import memphis from "memphis-dev";
+
+To leverage Nestjs dependency injection feature
+
+import { Module } from "@nestjs/common";
+import { MemphisModule, MemphisService } from "memphis-dev/nest";
 ```
 
 ### Connecting to Memphis
@@ -47,9 +54,7 @@ import memphis from "memphis-dev"
 ```
 await memphis.connect({
             host: "<memphis-host>",
-            managementPort: <management-port>, // defaults to 5555
-            tcpPort: <tcp-port>, // defaults to 6666
-            dataPort: <data-port>, // defaults to 7766
+            port: <port>, // defaults to 6666
             username: "<username>", // (root/application type user)
             connectionToken: "<broker-token>", // you will get it on application type user creation
             reconnect: true, // defaults to false

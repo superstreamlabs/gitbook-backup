@@ -8,14 +8,15 @@ description: For Typescript
 import memphis from "memphis-dev"
 
 (async function () {
+    let memphisConnection
     try {
-        await memphis.connect({
+        memphisConnection = await memphis.connect({
             host: "<memphis-host>",
             username: "<application type username>",
             connectionToken: "<broker-token>"
         });
 
-        const producer = await memphis.producer({
+        const producer = await memphisConnection.producer({
             stationName: "<station-name>",
             producerName: "<producer-name>"
         });
@@ -28,10 +29,10 @@ import memphis from "memphis-dev"
         }
 
         console.log("All messages sent");
-        memphis.close();
+        memphisConnection.close();
     } catch (ex) {
         console.log(ex);
-        memphis.close();
+        memphisConnection.close();
     }
 })();
 ```
