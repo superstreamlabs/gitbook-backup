@@ -23,9 +23,11 @@ Also, you can quickly edit your factory by clicking the box shown below.
 
 Create a new factory by clicking the "Create new factory" button.
 
-
-
 ![](<../.gitbook/assets/Create factory button>)
 
-Next, just Fill in the factory details.\
+
+
+Next, just Fill in the factory details.
+
+\
 ![](<../.gitbook/assets/Create factory details.png>)
