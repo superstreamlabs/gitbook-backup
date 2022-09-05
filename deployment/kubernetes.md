@@ -12,48 +12,14 @@ More information about Helm can be found [here](https://helm.sh/docs/topics/char
 
 Memphis is cloud-native and agnostic to any Kubernetes on any cloud.  This means it can be deployed over production environments with Helm.
 
-### Step 1: Adding Memphis Helm Repo
-
-The following command will add the Memphis repo to the user's repo list:
+### Step 1: Install
 
 ```
-helm repo add memphis https://k8s.memphis.dev/charts/
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
+helm install memphis memphis/memphis --create-namespace --namespace memphis
 ```
 
-Running "help repo list" will show the user if Memphis has been added correctly.
-
-```
-$# helm repo list
-NAME            	URL
-descheduler     	https://kubernetes-sigs.github.io/descheduler/
-loki            	https://grafana.github.io/loki/charts
-ingress-nginx   	https://kubernetes.github.io/ingress-nginx
-nginx-stable    	https://helm.nginx.com/stable
-memphis         	https://k8s.memphis.dev/charts/
-```
-
-To make sure the local version of Helm is fully updated, please run the following:
-
-```
-$# helm repo update
-Hang tight while we grab the latest from your chart repositories...
-...Successfully got an update from the "descheduler" chart repository
-...Successfully got an update from the "memphis" chart repository
-...Successfully got an update from the "nginx-stable" chart repository
-...Successfully got an update from the "loki" chart repository
-...Successfully got an update from the "grafana" chart repository
-...Successfully got an update from the "yugabytedb" chart repository
-Update Complete. ⎈Happy Helming!⎈
-```
-
-### Step 2: Install
-
-```
-helm repo add memphis https://k8s.memphis.dev/charts/ && 
-helm install my-memphis memphis/memphis --create-namespace --namespace memphis
-```
-
-#### Helm Install Options
+#### Optional: Helm Install Options
 
 | Option          | Description                                                              | Default Value |
 | --------------- | ------------------------------------------------------------------------ | ------------- |
@@ -70,19 +36,19 @@ helm install <name of the deployment> memphis/memphis --create-namespace --names
 An example of a command with real values:
 
 ```
-helm install my-memphis memphis/memphis --create-namespace --namespace memphis
+helm install memphis memphis/memphis --create-namespace --namespace memphis
 ```
 
 An example with configured options:
 
 ```
-helm install my-memphis --set cluster.replicas=1,rootPwd="rootpassword" memphis/memphis --create-namespace --namespace memphis
+helm install memphis --set cluster.replicas=1,rootPwd="rootpassword" memphis/memphis --create-namespace --namespace memphis
 ```
 
 **Successful deployment** should print the following notes. If not, please raise an issue over [Github](https://github.com/Memphis-OS/memphis-k8s).
 
 ```
-NAME: my-memphis
+NAME: memphis
 LAST DEPLOYED: Thu May  5 17:05:40 2022
 NAMESPACE: memphis
 STATUS: deployed
@@ -129,7 +95,7 @@ MongoDB - Internal Database for management
 If the output did not save, or regeneration is needed, please use the following command:
 
 ```
-helm get notes my-memphis -n memphis
+helm get notes memphis -n memphis
 ```
 
 #### Deployed Pods
