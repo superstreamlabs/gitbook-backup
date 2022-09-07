@@ -14,10 +14,21 @@
 
 * [Overview](memphis/overview.md)
 * [Architecture](memphis/architecture.md)
+* [Concepts](memphis/concepts/README.md)
+  * [Message broker](memphis/concepts/message-broker.md)
+  * [Producer](memphis/concepts/producer.md)
+  * [Consumer](memphis/concepts/consumer.md)
+  * [Consumer Groups](memphis/concepts/consumer-groups.md)
+  * [Persistency](memphis/concepts/persistency.md)
+  * [Security](memphis/concepts/security.md)
+  * [Scaling](memphis/concepts/scaling.md)
+  * [Ordering](memphis/concepts/ordering.md)
+  * [Stream files](memphis/concepts/stream-files.md)
+  * [Dead-Letter-Station](memphis/concepts/dead-letter-station.md)
 * [Roadmap](memphis/roadmap.md)
-* [Privacy](memphis/privacy.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [RabbitMQ](memphis/comparisons/rabbitmq.md)
+* [Privacy](memphis/privacy.md)
 
 ## Release notes
 
