@@ -51,7 +51,7 @@ The NATS streaming protocol sits atop the core NATS protocol and uses [Google's 
 
 **Recommended Requirements (HA)**
 
-| Resource  | Quantity          |
+| Resource  | Minimum Quantity  |
 | --------- | ----------------- |
 | K8S Nodes | 3                 |
 | CPU       | 4 CPU             |
