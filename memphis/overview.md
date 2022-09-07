@@ -6,13 +6,6 @@ Memphis{dev} **is** the only low-code messaging platform that provides a full ec
 
 [memphis.dev](https://memphis.dev/) started as a fork of the [nats.io](http://nats.io/) project (since 2011), written in GoLang, and creating its own stream on top. Instead of topics and queues, Memphis uses stations, which will become an entity with embedded logic in the future.
 
-**Memphis focuses on four pillars**
-
-1. Performance - Enhancing cache usage
-2. Resiliency - Never lose a message and 99.99995% uptime
-3. Observability - Out-of-the-box observability that makes sense and reduces troubleshooting time
-4. Developer Experience - Modularity, inline processing, schema management, gitops ability
-
 ### What struggles does Memphis solve?
 
 1. Too many data sources become too complicated to handle.

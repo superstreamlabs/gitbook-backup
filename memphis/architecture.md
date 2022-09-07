@@ -33,3 +33,45 @@ In order to ensure data consistency and zero loss within complete broker’s res
 Memphis forked and modified [NATS](https://nats.io) as its core queue.
 
 The NATS streaming protocol sits atop the core NATS protocol and uses [Google's Protocol Buffers](https://developers.google.com/protocol-buffers/). Protocol buffer messages are marshaled into bytes and published as Memphis messages on the specific station.
+
+### Requirements
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+**Minimum Requirements (No HA)**
+
+| Resource  | Quantity |   |
+| --------- | -------- | - |
+| K8S Nodes | 1        |   |
+| CPU       | 2 CPU    |   |
+| Memory    | 4GB RAM  |   |
+| Storage   | 12GB PVC |   |
+
+****
+
+**Recommended Requirements (HA)**
+
+| Resource  | Quantity          |
+| --------- | ----------------- |
+| K8S Nodes | 3                 |
+| CPU       | 4 CPU             |
+| Memory    | 8GB RAM           |
+| Storage   | 12GB PVC Per node |
+{% endtab %}
+
+{% tab title="Docker" %}
+**Requirements (No HA)**
+
+| Resource | Quantity               |
+| -------- | ---------------------- |
+| OS       | Mac / Windows / Linux  |
+| CPU      | 1 CPU                  |
+| Memory   | 4GB                    |
+| Storage  | 6GB                    |
+{% endtab %}
+{% endtabs %}
+
+
+
+
+
