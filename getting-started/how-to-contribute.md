@@ -10,11 +10,11 @@ Memphis is and always will be open-source and community-driven. Our community is
 
 ### Why you should become a contributor?
 
-"Working on \[Memphis] helped me earn many of the skills I later used for my studies in university and my actual job. I think working on open source projects helps me as much as it helps the project!"
+"Working on Memphis helped me earn many of the skills I later used for my studies in university and my actual job. I think working on open source projects helps me as much as it helps the project!"
 
 Contributing to open source can be a rewarding way to learn, teach, and build experience in just about any skill you can imagine.
 
-Whether it’s coding, user interface design, graphic design, writing, or organizing, if you’re looking for practice, there’s a task for you on an open source project.
+Whether it’s coding, user interface design, graphic design, writing, or organizing, if you’re looking for practice, there’s a task for you on an open-source project.
 
 ### You are
 
@@ -176,14 +176,6 @@ docker compose -f docker-compose.yaml -p memphis up
 #### Soon...
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-
-
-
 
 ### Merge your changes
 
