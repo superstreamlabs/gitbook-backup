@@ -111,7 +111,7 @@ helm get notes memphis -n memphis
 Expose the UI in a **localhost** environment using "port-forward":
 
 ```
-$# kubectl port-forward service/memphis-ui 9000:80 --namespace memphis & >/dev/null
+kubectl port-forward service/memphis-ui 9000:80 --namespace memphis & >/dev/null
 ```
 
 Credentials
@@ -138,11 +138,11 @@ Expose the UI in a **production** environment:
 *   Nodeport
 
     ```
-    $# kubectl patch svc memphis-ui --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]'
+    kubectl patch svc memphis-ui --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]'
     ```
 
     ```
-    $# kubectl describe svc memphis-ui | grep -i Endpoints
+    kubectl describe svc memphis-ui | grep -i Endpoints
     Endpoints:                192.150.201.138:80
     ```
 
@@ -153,11 +153,11 @@ Expose the UI in a **production** environment:
 * Load Balancer
 
 ```
-$# kubectl patch svc memphis-ui --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
+kubectl patch svc memphis-ui --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
 ```
 
 ```
-$# kubectl describe svc memphis-ui | grep -i "LoadBalancer Ingress"
+kubectl describe svc memphis-ui | grep -i "LoadBalancer Ingress"
 LoadBalancer Ingress:     a2d0fd26a0d7941a29d444ac4d03acd3-1181102898.eu-central-1.elb.amazonaws.com
 ```
 
