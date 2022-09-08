@@ -4,11 +4,13 @@ No installation is needed!
 
 For this tutorial, we will use [sandbox.memphis.dev](https://sandbox.memphis.dev)
 
-You can also use this link for a [glitch](https://memphis-demo.glitch.me/) demo.
+You can also use this link for a live [demo app](https://demo.memphis.dev).
+
+
 
 {% tabs %}
 {% tab title="Node.JS / Typescript" %}
-Please make sure you have node [installed](https://nodejs.org/en/download/)
+Please make sure you have node.js [installed](https://nodejs.org/en/download/)
 
 
 
