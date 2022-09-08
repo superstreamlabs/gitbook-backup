@@ -23,10 +23,9 @@ docker compose -f docker-compose.yml -p memphis up
 Output:
 
 ```
-[+] Running 4/4
+[+] Running 3/3
  ⠿ Container memphis-cluster-1        Creating                                                      0.2s
- ⠿ Container memphis-ui-1             Creating                                                      0.2s
- ⠿ Container memphis-control-plane-1  Creating                                                      0.2s
+ ⠿ Container memphis-ui-1             Creating                                                      0.2s                                                  0.2s
  ⠿ Container memphis-mongo-1          Creating                                                      0.2s
 ```
 
@@ -34,7 +33,6 @@ Output:
 
 * **memphis-cluster-1:** Three (default) MQ workers (Jetstream- and Memphis-made replicas). Responsible for data ingestion and processing, just like Kafka's brokers.
 * **memphis-ui-1:** UI. Responsible for delivering a graphical user interface for managing the cluster.
-* **memphis-control-plane-1:** Control plane. The engine behind Memphis. Responsible for orchestrating the different components and acting as the single source of management.
 * **memphis-mongo-1:** MongoDB, for Memphis internal usage.
 
 ### Step 3: Access via UI / CLI / SDK
@@ -86,7 +84,7 @@ Options:
 
 
 ```
-$# mem connect -u root -p memphis -s http://localhost:9000
+$# mem connect -u root -p memphis -s http://localhost:5555
 Connected successfully to Memphis control plane.
 ```
 {% endtab %}
@@ -105,6 +103,7 @@ For more detailed information, head to the SDKs section below.
 ```
 await memphis.connect({
             host: "broker.sandbox.memphis.dev",
+            port: <port>, // defaults to 6666
             username: "<application type username>",
             connectionToken: "<connection_token>"
 });

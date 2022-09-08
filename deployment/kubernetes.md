@@ -68,10 +68,10 @@ A dev first event-processing platform.
 Memphis UI can be accessed on the following DNS name from within your cluster: memphis-ui.memphis.svc.cluster.local
 To access Memphis from localhost, run the below commands:
   1. kubectl port-forward service/memphis-ui 9000:80 --namespace memphis > /dev/null &
-  2. kubectl port-forward service/memphis-cluster 7766:7766 6666:6666 5555:5555 --namespace memphis > /dev/null &
+  2. kubectl port-forward service/memphis-cluster 6666:6666 5555:5555 --namespace memphis > /dev/null &
 
 Dashboard: http://localhost:9000
-Memphis broker: localhost:6666 (Client connections)
+Memphis broker: localhost:6666 (Client/SDK connections)
 Memphis broker: localhost:5555 (CLI connection)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -83,8 +83,8 @@ Documentations: https://docs.memphis.dev
 Deployment Information
 -------------------------
 ## Secrets ##
-UI/CLI/SDK root username    - root
-UI/CLI root Password    - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
+UI/CLI/SDK root username - root
+UI/CLI root Password     - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
 
 ## Components ##
 3 Brokers - MQ
@@ -251,9 +251,7 @@ For more detailed information, please head to the SDKs section below.
 ```
 await memphis.connect({
             host: "<memphis-host>",
-            managementPort: <management-port>, // defaults to 5555
-            tcpPort: <tcp-port>, // defaults to 6666
-            dataPort: <data-port>, // defaults to 7766
+            port: <port>, // defaults to 6666
             username: "<username>", // (application type user)
             connectionToken: "<broker-token>", // you will get it on application type user creation
             reconnect: true, // defaults to false
@@ -264,8 +262,6 @@ await memphis.connect({
 ```
 
 * **host:** Usually "memphis-cluster" or the UI URL.
-* **managementPort:** Usually 5555. For management purposes.
-* **tcpPort:** For enabling Memphis UI and CLI to display the consumers and producers.
 * **username:** Usually "root". Head to the users' section via the UI or CLI to add more.
 * **connectionToken:** Each app that produces and/or consumer data with Memphis uses token authentication. **To display the initial one, please run the following:**
 
