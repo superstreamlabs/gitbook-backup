@@ -63,7 +63,7 @@ npm start
 
 #### 1. Establish a dev environment
 
-The backend components of Memphis are written in Go and node.js, therefore you would need [Go](https://go.dev/dl/) compiler, [node.js](https://nodejs.org), and [vscode](https://code.visualstudio.com/download) IDE installed.
+The backend components of Memphis are written in Go and node.js, therefore you would need [Go](https://go.dev/dl/) compiler, [node.js](https://nodejs.org), and an IDE ([vscode](https://code.visualstudio.com/download) preferred) installed.
 
 There are several components you can work on:
 
@@ -71,24 +71,24 @@ There are several components you can work on:
 * [CLI](https://github.com/memphisdev/memphis-cli)
 * SDKs: [Go](https://github.com/memphisdev/memphis.go) / [Node](https://github.com/memphisdev/memphis.js) / [Python](https://github.com/memphisdev/memphis.py)
 
-Let's start by <mark style="color:blue;">**forking**</mark> the desired repo.
-
-Now clone it.
-
-For example -&#x20;
-
-```
-git clone https://github.com/<username>/memphis.py.git
-```
-
 #### 2.1. For working over the _<mark style="color:purple;">**broker**</mark>_
 
-Run the following docker command
+#### 2.1.1 Fork the [_<mark style="color:purple;">**broker**</mark>_](https://github.com/memphisdev/memphis-broker) _<mark style="color:purple;">****</mark>_** repo**
+
+#### **2.1.2 Clone the fork**
 
 ```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-broker.yaml -o docker-compose.yaml && \
-docker compose -f docker-compose.yaml -p memphis up
+git clone https://github.com/<username>/memphis-broker.git
 ```
+
+**2.1.3 Run local MongoDB**
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-broker.yaml -o docker-compose-dev-mongo.yaml && \
+docker compose -f docker-compose-dev-mongo.yaml -p memphis up
+```
+
+**2.1.4 Run local MongoDB**
 
 Install dependecies
 
