@@ -1,6 +1,6 @@
 ---
 cover: ../../.gitbook/assets/do+memphis.jpeg
-coverY: 0
+coverY: 75.39376359680928
 ---
 
 # Deploy on DigitalOcean
