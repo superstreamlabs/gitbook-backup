@@ -42,9 +42,8 @@ go get -d -v .
 
 * [Frontend Developer](how-to-contribute.md#frontend-contributions)
 * [Backend Developer](how-to-contribute.md#frontend-contributions-1)
-* Data Engineer
-* DevOps
-* QA
+* [Data Engineer](how-to-contribute.md#data-engineer)
+* [DevOps](how-to-contribute.md#data-engineer-1)
 
 ### Frontend Contributions
 
@@ -65,3 +64,16 @@ go get -d -v .
 Once you have established [memphis dev environment](how-to-contribute.md#1.-establish-memphis-dev-environment), you can start coding.
 
 Grab a ["Good first issue"](https://github.com/memphisdev/memphis-broker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22), and once done - push your changes and open a "pull request"
+
+### Data Engineer
+
+As a data engineer, it would be great to get your feedback, potential use cases, QA, and push memphis to the limit in terms of data workloads would be an amazing contribution, as at the end of the day, you are our champion!
+
+### DevOps
+
+As a DevOps engineer, you can find multiple paths of contribution
+
+1. [Helm deployment](https://github.com/memphisdev/memphis-k8s)
+2. [Terraform](https://github.com/memphisdev/memphis-terraform)&#x20;
+3. [Docker](https://github.com/memphisdev/memphis-docker)
+4. DevOps [Roadmap](https://github.com/orgs/memphisdev/projects/2/views/1?filterQuery=label%3A%22epic%3A+deployment%22)
