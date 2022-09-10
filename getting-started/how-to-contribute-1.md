@@ -18,23 +18,25 @@ Whether it’s coding, user interface design, graphic design, writing, or organi
 
 &#x20; 0\. Join to Memphis [discord](https://discord.gg/WZpysvAeTf) channel
 
-&#x20; 1\. Fork Memphis [broker](https://github.com/memphisdev/memphis-broker)
+&#x20; 1\. Install [Golang](https://go.dev/doc/install)
 
-&#x20; 2\. Clone the forked repo to your local station
+&#x20; 2\. Fork Memphis [broker](https://github.com/memphisdev/memphis-broker)
 
-&#x20; 3\. Run a local memphis-mongodb using docker
+&#x20; 3\. Clone the forked repo to your local station
+
+&#x20; 4\. Run a local memphis-mongodb using docker
 
 ```
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose-mongo.yml -o docker-compose-mongo.yml && docker compose -f docker-compose-mongo.yml -p memphis up
 ```
 
-&#x20; 4\. Install broker dependencies - enter the cloned directory and run
+&#x20; 5\. Install broker dependencies - enter the cloned directory and run
 
 ```
 go get -d -v .
 ```
 
-&#x20; 5\. Run the broker in debug mode (If you're using an IDE like vscode, click F5)
+&#x20; 6\. Run the broker in debug mode (If you're using an IDE like vscode, click F5)
 
 ### 2. You are
 
@@ -54,6 +56,12 @@ go get -d -v .
 
 &#x20; 4\. Run the UI locally by running `npm start`
 
-&#x20; 5\. Start coding!
+&#x20; 5\. Start coding! Here are some ["Good first issues"](https://github.com/memphisdev/memphis-broker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 &#x20; 6\. Once done - push your code and create a pull request to merge your updates with memphis main repo
+
+### Backend Contributions
+
+Once you have established [memphis dev environment](how-to-contribute-1.md#1.-establish-memphis-dev-environment), you can start coding.
+
+Grab a ["Good first issue"](https://github.com/memphisdev/memphis-broker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22), and once done - push your changes and open a "pull request"
