@@ -1,7 +1,3 @@
----
-description: A manual for the new community members!
----
-
 # How to contribute?
 
 That's amazing that you reached this page!
@@ -10,209 +6,62 @@ Memphis is and always will be open-source and community-driven. Our community is
 
 ### Why you should become a contributor?
 
+{% hint style="info" %}
 "Working on Memphis helped me earn many of the skills I later used for my studies in university and my actual job. I think working on open source projects helps me as much as it helps the project!"
+{% endhint %}
 
 Contributing to open source can be a rewarding way to learn, teach, and build experience in just about any skill you can imagine.
 
 Whether it’s coding, user interface design, graphic design, writing, or organizing, if you’re looking for practice, there’s a task for you on an open-source project.
 
-### You are
+### 1. Establish memphis dev environment
 
-{% tabs %}
-{% tab title="Frontend developer" %}
-#### 0. Join to Memphis [discord](https://discord.gg/WZpysvAeTf) channel
+&#x20; 0\. Join to Memphis [discord](https://discord.gg/WZpysvAeTf) channel
 
-#### 1. Establish a dev environment
+&#x20; 1\. Install [Golang](https://go.dev/doc/install)
 
-The UI is written in React, therefore you would need [node.js](https://nodejs.org/) and [npm](https://npmjs.com) installed on your local machine.
+&#x20; 2\. Fork Memphis [broker](https://github.com/memphisdev/memphis-broker)
 
-Let's start by <mark style="color:blue;">**forking**</mark> the UI repo.
+&#x20; 3\. Clone the forked repo to your local station
 
-Now clone it
+&#x20; 4\. Run a local memphis-mongodb using docker
 
 ```
-git clone https://github.com/<username>/memphis-ui.git
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-mongo.yml -o docker-compose-mongo.yml && docker compose -f docker-compose-mongo.yml -p memphis up
 ```
 
-Run the broker using this docker in the background
-
-```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-ui.yaml -o docker-compose.yaml && \
-docker compose -f docker-compose.yaml -p memphis up
-```
-
-Install dependencies
-
-```
-npm install
-```
-
-Run the UI
-
-```
-npm start
-```
-
-#### 2. Start with a ["Good first issue"](https://github.com/memphisdev/memphis-ui/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
-
-#### 3. Grab more tasks from the [Open Tasks Board](https://github.com/orgs/memphisdev/projects/1)
-{% endtab %}
-
-{% tab title="Backend developer" %}
-#### 0. Join to Memphis [discord](https://discord.gg/WZpysvAeTf) channel
-
-#### 1. Establish a dev environment
-
-The backend components of Memphis are written in Go and node.js, therefore you would need [Go](https://go.dev/dl/) compiler, [node.js](https://nodejs.org), and an IDE ([vscode](https://code.visualstudio.com/download) preferred) installed.
-
-There are several components you can work on:
-
-* [Broker](https://github.com/memphisdev/memphis-broker)
-* [CLI](https://github.com/memphisdev/memphis-cli)
-* SDKs: [Go](https://github.com/memphisdev/memphis.go) / [Node](https://github.com/memphisdev/memphis.js) / [Python](https://github.com/memphisdev/memphis.py)
-
-#### 2.1. For working over the _<mark style="color:purple;">**broker**</mark>_
-
-#### 2.1.1 Fork the [_<mark style="color:purple;">**broker**</mark>_](https://github.com/memphisdev/memphis-broker) _<mark style="color:purple;">****</mark>_** repo**
-
-#### **2.1.2 Clone the fork**
-
-```
-git clone https://github.com/<username>/memphis-broker.git
-```
-
-**2.1.3 Run local MongoDB**
-
-```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-broker.yaml -o docker-compose-dev-mongo.yaml && \
-docker compose -f docker-compose-dev-mongo.yaml -p memphis up
-```
-
-**2.1.4 Run local MongoDB**
-
-Install dependecies
+&#x20; 5\. Install broker dependencies - enter the cloned directory and run
 
 ```
 go get -d -v .
-go install -v .
 ```
 
-Click F5 to enter debug mode
+&#x20; 6\. Run the broker in debug mode (If you're using an IDE like vscode, click F5)
 
-#### 2.2. For working over the _<mark style="color:purple;">**CLI**</mark>_
+### 2. You are
 
-Start a local Memphis cluster over docker
+* [Frontend Developer](how-to-contribute.md#frontend-contributions)
+* [Backend Developer](how-to-contribute.md#frontend-contributions-1)
+* Data Engineer
+* DevOps
+* QA
 
-```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-ui.yaml -o docker-compose.yaml && \
-docker compose -f docker-compose.yaml -p memphis up
-```
+### Frontend Contributions
 
-#### 3. Start with a ["Good first issue"](https://github.com/memphisdev/memphis-ui/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+&#x20; 1\. The source files of the UI can be found in a directory called ״[ui\_src](https://github.com/memphisdev/memphis-broker/tree/master/ui\_src)״
 
-#### 4. Grab more tasks from the [Open Tasks Board](https://github.com/orgs/memphisdev/projects/1)
-{% endtab %}
+&#x20; 2\. Navigate to "ui\_src" dir
 
-{% tab title="Data Engineer" %}
-#### 0. Join to Memphis [discord](https://discord.gg/WZpysvAeTf) channel
+&#x20; 3\. Install dependencies by running `npm install`
 
-#### 1. Establish a dev environment
+&#x20; 4\. Run the UI locally by running `npm start`
 
-The backend components of Memphis are written in Go and node.js, therefore you would need [Go](https://go.dev/dl/) compiler, [node.js](https://nodejs.org), and [vscode](https://code.visualstudio.com/download) IDE installed.
+&#x20; 5\. Start coding! Here are some ["Good first issues"](https://github.com/memphisdev/memphis-broker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
-There are several components you can work on:
+&#x20; 6\. Once done - push your code and create a pull request to merge your updates with memphis main repo
 
-* [Broker](https://github.com/memphisdev/memphis-broker)
-* [CLI](https://github.com/memphisdev/memphis-cli)
-* SDKs: [Go](https://github.com/memphisdev/memphis.go) / [Node](https://github.com/memphisdev/memphis.js) / [Python](https://github.com/memphisdev/memphis.py)
+### Backend Contributions
 
-Let's start by <mark style="color:blue;">**forking**</mark> the desired repo.
+Once you have established [memphis dev environment](how-to-contribute.md#1.-establish-memphis-dev-environment), you can start coding.
 
-Now clone it.
-
-For example -&#x20;
-
-```
-git clone https://github.com/<username>/memphis.py.git
-```
-
-#### 2.1. For working over the _<mark style="color:purple;">**broker**</mark>_
-
-Run the following docker command
-
-```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-broker.yaml -o docker-compose.yaml && \
-docker compose -f docker-compose.yaml -p memphis up
-```
-
-Install dependecies
-
-```
-go get -d -v .
-go install -v .
-```
-
-Click F5 to enter debug mode
-
-#### 2.2. For working over the _<mark style="color:purple;">**CLI**</mark>_
-
-Start a local Memphis cluster over docker
-
-```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-dev-ui.yaml -o docker-compose.yaml && \
-docker compose -f docker-compose.yaml -p memphis up
-```
-
-#### 3. Start with a ["Good first issue"](https://github.com/memphisdev/memphis-ui/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
-
-#### 4. Grab more tasks from the [Open Tasks Board](https://github.com/orgs/memphisdev/projects/1)
-{% endtab %}
-
-{% tab title="DevOps" %}
-#### Soon...
-{% endtab %}
-
-{% tab title="QA" %}
-#### Soon...
-{% endtab %}
-{% endtabs %}
-
-### Merge your changes
-
-Create a new branch (from the <mark style="color:purple;">**"staging"**</mark> branch) for your fix.
-
-```
-git checkout -b branch-name-here staging
-```
-
-Commit and Push your changes
-
-```
-git add .
-```
-
-```
-git commit -m "[issue-fix/feature] <Description of what you did>"
-```
-
-```
-git push
-```
-
-The "push" will create a pull request in the source repo you forked.
-
-Describe exactly what you did and mention (using a hashtag) the issue/feature related to your PR&#x20;
-
-and that's it!
-
-### Write about it
-
-Like this for example\
-![](../.gitbook/assets/image.png)
-
-### Get a sweet swag pack!
-
-\
-![Image](https://media.discordapp.net/attachments/963333392844328964/999672120344850452/WhatsApp\_Image\_2022-07-21\_at\_15.00.16.jpeg?width=332\&height=300)
-
-We will reach out for delivery address :)
+Grab a ["Good first issue"](https://github.com/memphisdev/memphis-broker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22), and once done - push your changes and open a "pull request"

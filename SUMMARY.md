@@ -9,7 +9,6 @@
   * [Event-driven app](getting-started/tutorials/event-driven-app.md)
   * [Real-time chat app](getting-started/tutorials/real-time-chat-app.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
-* [How to contribute?](getting-started/how-to-contribute-1.md)
 
 ## Memphis
 
