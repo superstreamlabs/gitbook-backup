@@ -30,17 +30,6 @@
   * [RabbitMQ](memphis/comparisons/rabbitmq.md)
 * [Privacy](memphis/privacy.md)
 
-## 🗒 Release notes
-
-* [How to upgrade](release-notes/how-to-upgrade.md)
-* [Releases](release-notes/releases/README.md)
-  * [v0.3.5 - beta](release-notes/releases/v0.3.5-beta.md)
-  * [v0.3.0 - beta](release-notes/releases/v0.3.0-beta.md)
-  * [v0.2.2 - beta](release-notes/releases/v0.2.2-beta.md)
-  * [v0.2.1 - beta](release-notes/releases/v0.2.1-beta.md)
-  * [v0.2.0 - beta](release-notes/releases/v0.2.0-beta.md)
-  * [v0.1.0 - beta](release-notes/releases/v0.1.0-beta.md)
-
 ## 📦 Deployment
 
 * [Cloud Deployment](deployment/cloud-deployment/README.md)
@@ -50,6 +39,24 @@
   * [Deploy on Azure](deployment/cloud-deployment/deploy-on-azure.md)
 * [Kubernetes](deployment/kubernetes.md)
 * [Docker Compose](deployment/docker-compose.md)
+
+## SDKs
+
+* [Node.js / Typescript](sdks/node.js-typescript/README.md)
+  * [Example: Consumer.ts](sdks/node.js-typescript/example-consumer.ts.md)
+  * [Example: Producer.js](sdks/node.js-typescript/example-producer.js.md)
+  * [Example: Consumer.js](sdks/node.js-typescript/example-consumer.js.md)
+  * [Example: Producer.ts](sdks/node.js-typescript/example-producer.ts.md)
+* [Go](sdks/go/README.md)
+  * [Example: Producer](sdks/go/example-producer.md)
+  * [Example: Consumer](sdks/go/example-consumer.md)
+* [Python](sdks/python/README.md)
+  * [Example: Producer](sdks/python/example-producer.md)
+  * [Example: Consumer](sdks/python/example-consumer.md)
+* [Rust](sdks/rust.md)
+* [.NET](sdks/.net.md)
+* [Java](sdks/java.md)
+* [Scala](sdks/scala.md)
 
 ## Dashboard (UI)
 
@@ -69,20 +76,13 @@
 * [Installation](cli/installation.md)
 * [Usage](cli/usage.md)
 
-## SDKs
+## 🗒 Release notes
 
-* [Node.js / Typescript](sdks/node.js-typescript/README.md)
-  * [Example: Consumer.ts](sdks/node.js-typescript/example-consumer.ts.md)
-  * [Example: Producer.js](sdks/node.js-typescript/example-producer.js.md)
-  * [Example: Consumer.js](sdks/node.js-typescript/example-consumer.js.md)
-  * [Example: Producer.ts](sdks/node.js-typescript/example-producer.ts.md)
-* [Go](sdks/go/README.md)
-  * [Example: Producer](sdks/go/example-producer.md)
-  * [Example: Consumer](sdks/go/example-consumer.md)
-* [Python](sdks/python/README.md)
-  * [Example: Producer](sdks/python/example-producer.md)
-  * [Example: Consumer](sdks/python/example-consumer.md)
-* [Rust](sdks/rust.md)
-* [.NET](sdks/.net.md)
-* [Java](sdks/java.md)
-* [Scala](sdks/scala.md)
+* [How to upgrade](release-notes/how-to-upgrade.md)
+* [Releases](release-notes/releases/README.md)
+  * [v0.3.5 - beta](release-notes/releases/v0.3.5-beta.md)
+  * [v0.3.0 - beta](release-notes/releases/v0.3.0-beta.md)
+  * [v0.2.2 - beta](release-notes/releases/v0.2.2-beta.md)
+  * [v0.2.1 - beta](release-notes/releases/v0.2.1-beta.md)
+  * [v0.2.0 - beta](release-notes/releases/v0.2.0-beta.md)
+  * [v0.1.0 - beta](release-notes/releases/v0.1.0-beta.md)
