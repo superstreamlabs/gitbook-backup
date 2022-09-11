@@ -63,6 +63,12 @@ go get -d -v .
 
 Once you have established [memphis dev environment](how-to-contribute.md#1.-establish-memphis-dev-environment), you can start coding.
 
+Memphis backend opportunities are -&#x20;
+
+1. Memphis Broker
+2. SDKs: [Python](https://github.com/memphisdev/memphis.py), [Go](https://github.com/memphisdev/memphis.go), [Node.js](https://github.com/memphisdev/memphis.js), or [future SDKs](https://github.com/orgs/memphisdev/projects/2/views/1?filterQuery=label%3A%22epic%3A+sdk%22)
+3. [Memphis CLI](https://github.com/memphisdev/memphis-cli)
+
 Grab a ["Good first issue"](https://github.com/memphisdev/memphis-broker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22), and once done - push your changes and open a "pull request"
 
 ### Data Engineer
