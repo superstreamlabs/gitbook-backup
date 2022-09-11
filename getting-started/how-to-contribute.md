@@ -36,7 +36,7 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose-mongo.yml -o 
 go get -d -v .
 ```
 
-&#x20; 6\. Run the broker in debug mode (If you're using an IDE like vscode, click F5)
+&#x20; 6\. Run the broker in debug mode (If you're using vscode, click F5)
 
 ### 2. You are
 
