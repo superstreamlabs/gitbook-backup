@@ -1,6 +1,6 @@
 # Table of contents
 
-## Getting Started
+## 👉 Getting Started
 
 * [1 - Installation](README.md)
 * [2 - Hello World](getting-started/2-hello-world.md)
@@ -10,7 +10,7 @@
   * [Real-time chat app](getting-started/tutorials/real-time-chat-app.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
 
-## Memphis
+## ⭐ Memphis
 
 * [Overview](memphis/overview.md)
 * [Architecture](memphis/architecture.md)
@@ -30,7 +30,7 @@
   * [RabbitMQ](memphis/comparisons/rabbitmq.md)
 * [Privacy](memphis/privacy.md)
 
-## Release notes
+## 🗒 Release notes
 
 * [How to upgrade](release-notes/how-to-upgrade.md)
 * [Releases](release-notes/releases/README.md)
@@ -41,7 +41,7 @@
   * [v0.2.0 - beta](release-notes/releases/v0.2.0-beta.md)
   * [v0.1.0 - beta](release-notes/releases/v0.1.0-beta.md)
 
-## Deployment
+## 📦 Deployment
 
 * [Cloud Deployment](deployment/cloud-deployment/README.md)
   * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
