@@ -1,5 +1,5 @@
 ---
-description: Using Terra
+description: Using Terraform
 cover: ../../.gitbook/assets/AWS and Memphis (1).jpeg
 coverY: 0
 ---
@@ -60,35 +60,52 @@ $ aws configure
 
 <figure><img src="../../.gitbook/assets/aws memphis terraform (1).png" alt=""><figcaption></figcaption></figure>
 
+### Step 0: Clone Memphis-Terraform repo
+
+```
+git clone git@github.com:memphisdev/memphis-terraform.git && \
+cd memphis-terraform/AWS/EKS
+```
+
 ### Step 1: Deploy EKS Cluster using Terraform
 
 ```bash
 make infra
 ```
 
-1. Deploy Memphis App. Once deployment is complete. You can find Application Load Balancer URL.
+{% hint style="info" %}
+Instead of running three terraform commands
+{% endhint %}
+
+### Step 2: Deploy Memphis
 
 ```bash
 make app
 ```
 
-**You can view status of load balancer from AWS Account EC2->Load Balancers once its stats is active. You can hit the URL to view Memphis UI**
+Once deployment is complete, the Application Load Balancer URL **** will be revealed.
 
-1. Login Details for root user
+### Step 3: Login to Memphis
 
-```bash
-kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
+Display memphis load balancer public IP by running the following -
+
+```
+kubectl get svc -n memphis
 ```
 
-1. Destroy Memphis App.
+### Appendix A: Clean (Remove) Memphis Terraform deployment
+
+Destroy Memphis App -&#x20;
 
 ```bash
 make destroyapp
 ```
 
-**Wait for ALB to be deleted from AWS Console**
+{% hint style="info" %}
+**It might take a few minutes for the ELB to be deleted.**
+{% endhint %}
 
-1. Destroy Memphis EKS Cluster.
+Destroy Memphis EKS Cluster -&#x20;
 
 ```bash
 make destroyinfra
