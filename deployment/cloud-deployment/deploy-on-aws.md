@@ -5,13 +5,21 @@ coverY: 0
 
 # Deploy on AWS
 
-![Memphis light logo](https://github.com/memphisdev/memphis-broker/blob/master/logo-white.png?raw=true#gh-dark-mode-only)
+### Introduction
 
-![Memphis light logo](https://github.com/memphisdev/memphis-broker/blob/master/logo-black.png?raw=true#gh-light-mode-only)
+_**Amazon Web Services**_, one of the world's three most popular cloud providers, offers reliable and scalable cloud computing services. Free to join. Pay only for what you use.
 
-## A powerful messaging platform for modern developers
+At the moment, memphis utilizing [Terraform](https://www.terraform.io/) to automate the entire deployment process from VPC creation, to K8S, to memphis deployment.
 
-### Memphis Deployment on AWS EKS
+Terraform codifies cloud APIs into declarative configuration files.
+
+### Prerequisites
+
+
+
+
+
+Memphis Deployment on AWS EKS
 
 #### Installation
 
