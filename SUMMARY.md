@@ -33,9 +33,9 @@
 ## 📦 Deployment
 
 * [Cloud Deployment](deployment/cloud-deployment/README.md)
-  * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
   * [Deploy on AWS](deployment/cloud-deployment/deploy-on-aws.md)
   * [Deploy on GCP](deployment/cloud-deployment/deploy-on-gcp.md)
+  * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
   * [Deploy on Azure](deployment/cloud-deployment/deploy-on-azure.md)
 * [Kubernetes](deployment/kubernetes.md)
 * [Docker Compose](deployment/docker-compose.md)

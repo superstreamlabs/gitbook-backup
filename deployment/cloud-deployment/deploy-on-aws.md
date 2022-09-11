@@ -8,7 +8,7 @@ coverY: 0
 
 ### Introduction
 
-_**Amazon Web Services**_, one of the world's three most popular cloud providers, offers reliable and scalable cloud computing services. Free to join. Pay only for what you use.
+_****_[_**Amazon Web Services**_](https://aws.amazon.com/), one of the world's three most popular cloud providers, offers reliable and scalable cloud computing services. Free to join. Pay only for what you use.
 
 At the moment, memphis utilizing [Terraform](https://www.terraform.io/) to automate the entire deployment process from VPC creation, to K8S, to memphis deployment.
 
