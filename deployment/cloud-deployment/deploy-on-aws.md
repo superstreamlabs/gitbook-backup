@@ -1,4 +1,5 @@
 ---
+description: Using Terra
 cover: ../../.gitbook/assets/AWS and Memphis (1).jpeg
 coverY: 0
 ---
@@ -15,25 +16,51 @@ Terraform codifies cloud APIs into declarative configuration files.
 
 ### Prerequisites
 
+* [AWS account](https://aws.amazon.com/free/)
+* AWS CLI [installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+* Make sure your local station is connected with [AWS Account](https://portal.aws.amazon.com/billing/signup?nc2=h\_ct\&src=default\&redirect\_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start) using an AWS IAM user which has access to create resources (EKS, VPC, EC2)
 
+IAM Policy to use -
 
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "iam:*",
+                "kms:*",
+                "logs:*",
+                "ec2:*",
+                "eks:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
+How to configure AWS CLI -
 
-Memphis Deployment on AWS EKS
+```bash
+$ aws configure
+  AWS Access Key ID [****************EF66]: 
+  AWS Secret Access Key [****************Fzna]: 
+  Default region name [eu-central-1]:
+  Default output format [json]:
+```
 
-#### Installation
+* Terraform is [installed](https://www.terraform.io/downloads)
+* Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* helm is [installed](https://helm.sh/docs/intro/install/)
 
-**Prerequisites**
+### Terraform Installation Flow
 
-1. Make sure your machine is connected with [AWS Account](https://portal.aws.amazon.com/billing/signup?nc2=h\_ct\&src=default\&redirect\_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start) using a AWS IAM User which has access to create resources(EKS,VPC,EC2)
-2. AWS CLI, [installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
-3. Terraform is [installed](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started)
-4. Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-5. heml is [installed](https://helm.sh/docs/intro/install/)
+<figure><img src="../../.gitbook/assets/aws memphis terraform (1).png" alt=""><figcaption></figcaption></figure>
 
-**Steps**
-
-1. Deploy EKS Cluster using Terraform
+### Step 1: Deploy EKS Cluster using Terraform
 
 ```bash
 make infra
