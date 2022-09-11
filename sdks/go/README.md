@@ -170,7 +170,7 @@ p1, err := s.CreateProducer("<producer-name>")
 
 ```go
 p.Produce("<message in []byte>",
-            ackWait(<ack time.Duration>)) // defaults to 15 seconds
+            AckWaitSec(<ack time.Duration>)) // defaults to 15 seconds
 ```
 
 ### Destroying a Producer
