@@ -93,6 +93,8 @@ Display memphis load balancer public IP by running the following -
 kubectl get svc -n memphis
 ```
 
+The UI will be available through **https://\<Public IP>:9000**
+
 ### Appendix A: Clean (Remove) Memphis Terraform deployment
 
 Destroy Memphis App -&#x20;
