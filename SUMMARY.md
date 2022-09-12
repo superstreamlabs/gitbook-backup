@@ -43,7 +43,7 @@
 
 ## SDKs
 
-* [Node.js / Typescript](sdks/node.js-typescript/README.md)
+* [Node.js / Typescript / NestJS](sdks/node.js-typescript/README.md)
   * [Example: Consumer.ts](sdks/node.js-typescript/example-consumer.ts.md)
   * [Example: Producer.js](sdks/node.js-typescript/example-producer.js.md)
   * [Example: Consumer.js](sdks/node.js-typescript/example-consumer.js.md)

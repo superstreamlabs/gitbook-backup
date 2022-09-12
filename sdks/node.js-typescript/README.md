@@ -2,7 +2,7 @@
 description: Memphis SDKs for Node.js and Typescript. Producers/Consumers examples
 ---
 
-# Node.js / Typescript
+# Node.js / Typescript / NestJS
 
 {% content-ref url="example-producer.js.md" %}
 [example-producer.js.md](example-producer.js.md)
@@ -32,19 +32,21 @@ npm install memphis-dev
 
 ## Importing
 
-For javascript, you can choose to use the import or required keyword
+For <mark style="color:green;">**javascript**</mark>, you can choose to use the `import` or `required` keyword
 
 ```
-for javascript, you can choose to use the import or required keyword
-
 const memphis = require("memphis-dev");
+```
 
-for Typescript, use the import keyword to aid for typechecking assistance
+For <mark style="color:blue;">**Typescript**</mark>, use the import keyword to aid for `typechecking` assistance
 
+```
 import memphis from "memphis-dev";
+```
 
-To leverage Nestjs dependency injection feature
+To leverage the <mark style="color:red;">**NestJS**</mark> dependency injection feature
 
+```
 import { Module } from "@nestjs/common";
 import { MemphisModule, MemphisService } from "memphis-dev/nest";
 ```
