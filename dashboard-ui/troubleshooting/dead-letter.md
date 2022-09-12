@@ -1,4 +1,4 @@
-# Poison messages
+# Dead-letter-Station
 
 ![Message Journey on 10x](<../../.gitbook/assets/Message Journey.gif>)
 
@@ -58,7 +58,7 @@ Once poison messages start to pile up - the dead-letter-station will take place 
 
 (1) Ignore = Removes a message from the DLS.
 
-(2) Resend = Resends the poisoned message back to the **same CGs** that flagged it as poisoned without any intervention from the consumer side.
+(2) **Resend** = Resends the poisoned message back to the **same CGs** that flagged it as poisoned without any intervention from the consumer side.
 
 (3) Ability to resend/ignore multiple poisoned messages at once.
 
@@ -66,14 +66,16 @@ Once poison messages start to pile up - the dead-letter-station will take place 
 
 ![Resend Mechanism](<../../.gitbook/assets/image (1).png>)
 
+###
+
 ### Message Journey
 
 ![Message Journey](../../.gitbook/assets/3.jpg)
 
 After clicking on "Message Journey", the user will be redirected to this screen which is in the context of a single message.
 
-On the left, the user can find the producer which produced the message.
+**On the left**, the user can find the producer which produced the message.
 
-In the middle is the message and its metadata itself.
+**In the middle** are the message and its metadata itself.
 
-On the right, the consumers that consume the message and didn't acknowledge it, which cause the message to be flagged as "poison"
+**On the right**, the consumers that consume the message and do not acknowledge it, which cause the message to be flagged as "poison".

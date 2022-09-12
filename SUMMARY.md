@@ -67,7 +67,7 @@
 * [Factories](dashboard-ui/factories.md)
 * [Stations](dashboard-ui/stations.md)
 * [Troubleshooting](dashboard-ui/troubleshooting/README.md)
-  * [Dead-letter](dashboard-ui/troubleshooting/dead-letter.md)
+  * [Dead-letter-Station](dashboard-ui/troubleshooting/dead-letter.md)
   * [System Logs](dashboard-ui/troubleshooting/system-logs.md)
 * [Users](dashboard-ui/users.md)
 * [Settings](dashboard-ui/settings.md)
