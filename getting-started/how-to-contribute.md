@@ -61,7 +61,7 @@ go get -d -v .
 
 ### Backend Contributions
 
-Once you have established [memphis dev environment](how-to-contribute.md#1.-establish-memphis-dev-environment), you can start coding.
+Once you have established[ memphis dev environment](how-to-contribute.md#1.-establish-memphis-dev-environment), you can start coding.
 
 Memphis backend opportunities are -&#x20;
 
