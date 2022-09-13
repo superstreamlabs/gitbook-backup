@@ -41,9 +41,9 @@ go get -d -v .
 ### 2. You are
 
 * [Frontend Developer](how-to-contribute.md#frontend-contributions)
-* [Backend Developer](how-to-contribute.md#frontend-contributions-1)
+* [Backend Developer](how-to-contribute.md#backend-contributions)
 * [Data Engineer](how-to-contribute.md#data-engineer)
-* [DevOps](how-to-contribute.md#data-engineer-1)
+* [DevOps](how-to-contribute.md#devops)
 
 ### Frontend Contributions
 
