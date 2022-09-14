@@ -13,7 +13,7 @@ Memphis{dev} **is** the only low-code real-time data processing platform that pr
 3. Observability - Out-of-the-box observability that makes sense and reduces troubleshooting time
 4. Developer Experience - Modularity, inline processing, schema management, gitops ability
 
-**Choose your preferred environment -**&#x20;
+### **Start here: Choose your preferred environment -**&#x20;
 
 * ****[Kubernetes](deployment/kubernetes.md)
 * [Docker-Compose](deployment/docker-compose.md#step-1-download-compose.yaml-file)
