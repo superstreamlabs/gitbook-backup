@@ -17,12 +17,23 @@ Terraform codifies cloud APIs into declarative configuration files.
 ### Prerequisites
 
 1. A [GCP Account](https://console.cloud.google.com/)
-2. Your local station is connected with your [GCP Account](https://console.cloud.google.com/)
-3. A [GCP Project](https://console.cloud.google.com/projectcreate) + GCP [Service Account Key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
-4. gcloud SDK + CLI [installed](https://cloud.google.com/sdk/docs/quickstarts), configuration depends on station OS.
-5. Terraform is [installed](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started)
-6. Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-7. helm is [installed](https://helm.sh/docs/intro/install/)
+2. A [GCP Project](https://console.cloud.google.com/projectcreate) + GCP [Service Account Key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-console)
+3. gcloud SDK + CLI [installed](https://cloud.google.com/sdk/docs/quickstarts), configuration depends on station OS.
+4. Authorize the SDK to access GCP using your user account credentials
+```
+gcloud auth application-default login
+```
+5. Enable API services:
+```
+gcloud config set project YOUR_PROJECT_ID
+```
+```
+gcloud services enable compute.googleapis.com container.googleapis.com
+```
+6. [Adjust the "N2_CPUS"](https://cloud.google.com/docs/quota) quota according to your region. (Default is 8, increase to at least 12)
+7. Terraform is [installed](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started)
+8. Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+9. helm is [installed](https://helm.sh/docs/intro/install/)
 
 ### Terraform Installation Flow
 
@@ -35,11 +46,10 @@ git clone git@github.com:memphisdev/memphis-terraform.git && \
 cd memphis-terraform/GCP/GKE
 ```
 
-### Step 1: Define GCP project-id
-
-Change `projectID` variable in _`terraform.tfvars`_ file.
-
-### Step 2: Deploy GKE Cluster using Terraform
+### Step 1: Deploy GKE Cluster using Terraform
+{% hint style="info" %}
+**In this step you will need your projectID.**
+{% endhint %}
 
 ```bash
 make infra
@@ -49,7 +59,7 @@ make infra
 Instead of running three terraform commands
 {% endhint %}
 
-### Step 3: Deploy Memphis
+### Step 2: Deploy Memphis
 
 ```bash
 make app
