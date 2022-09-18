@@ -16,24 +16,29 @@ Terraform codifies cloud APIs into declarative configuration files.
 
 ### Prerequisites
 
-1. A [GCP Account](https://console.cloud.google.com/)
-2. A [GCP Project](https://console.cloud.google.com/projectcreate) + GCP [Service Account Key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-console)
-3. gcloud SDK + CLI [installed](https://cloud.google.com/sdk/docs/quickstarts), configuration depends on station OS.
-4. Authorize the SDK to access GCP using your user account credentials
+* A [GCP Account](https://console.cloud.google.com/)
+* A [GCP Project](https://console.cloud.google.com/projectcreate) + GCP [Service Account Key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-console)
+* gcloud SDK + CLI [installed](https://cloud.google.com/sdk/docs/quickstarts), configuration depends on station OS.
+* Authorize the SDK to access GCP using your user account credentials
+
 ```
 gcloud auth application-default login
 ```
-5. Enable API services:
+
+* Enable API services:
+
 ```
 gcloud config set project YOUR_PROJECT_ID
 ```
+
 ```
 gcloud services enable compute.googleapis.com container.googleapis.com
 ```
-6. [Adjust the "N2_CPUS"](https://cloud.google.com/docs/quota) quota according to your region. (Default is 8, increase to at least 12)
-7. Terraform is [installed](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started)
-8. Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-9. helm is [installed](https://helm.sh/docs/intro/install/)
+
+* [Adjust the "N2\_CPUS"](https://cloud.google.com/docs/quota) quota according to your region. (Default is 8, increase to at least 12)
+* Terraform is [installed](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started)
+* Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* helm is [installed](https://helm.sh/docs/intro/install/)
 
 ### Terraform Installation Flow
 
@@ -47,8 +52,9 @@ cd memphis-terraform/GCP/GKE
 ```
 
 ### Step 1: Deploy GKE Cluster using Terraform
+
 {% hint style="info" %}
-**In this step you will need your projectID.**
+**In this step, you will need your `projectID`.**
 {% endhint %}
 
 ```bash
@@ -56,7 +62,7 @@ make infra
 ```
 
 {% hint style="info" %}
-Instead of running three terraform commands
+Memphis uses "`makefile`" instead of running three terraform commands
 {% endhint %}
 
 ### Step 2: Deploy Memphis
@@ -65,7 +71,7 @@ Instead of running three terraform commands
 make app
 ```
 
-Once deployment is complete, the Application Load Balancer URL **** will be revealed.
+Once deployment is complete, the Memphis Load Balancer URL will be revealed.
 
 ### Step 3: Login to Memphis
 
@@ -79,7 +85,7 @@ The UI will be available through **https://\<Public IP>:9000**
 
 ### Appendix A: Clean (Remove) Memphis Terraform deployment
 
-Destroy Memphis App -&#x20;
+Destroy Memphis App -
 
 ```bash
 make destroyapp
@@ -89,7 +95,7 @@ make destroyapp
 **It might take a few minutes for the ALB to be deleted.**
 {% endhint %}
 
-Destroy Memphis GKE Cluster -&#x20;
+Destroy Memphis GKE Cluster -
 
 ```bash
 make destroyinfra
