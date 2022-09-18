@@ -64,7 +64,6 @@
 * [General](dashboard-ui/general.md)
 * [Login](dashboard-ui/login.md)
 * [Overview](dashboard-ui/overview.md)
-* [Factories](dashboard-ui/factories.md)
 * [Stations](dashboard-ui/stations.md)
 * [Troubleshooting](dashboard-ui/troubleshooting/README.md)
   * [Dead-letter-Station](dashboard-ui/troubleshooting/dead-letter.md)

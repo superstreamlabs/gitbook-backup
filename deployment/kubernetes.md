@@ -66,13 +66,12 @@ A dev first event-processing platform.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Memphis UI can be accessed on the following DNS name from within your cluster: memphis-ui.memphis.svc.cluster.local
-To access Memphis from localhost, run the below commands:
-  1. kubectl port-forward service/memphis-ui 9000:80 --namespace memphis > /dev/null &
-  2. kubectl port-forward service/memphis-cluster 6666:6666 5555:5555 --namespace memphis > /dev/null &
+To access Memphis from localhost, run the below command:
+  1. kubectl port-forward service/memphis-cluster 6666:6666 9000:9000 --namespace memphis > /dev/null &
 
 Dashboard: http://localhost:9000
 Memphis broker: localhost:6666 (Client/SDK connections)
-Memphis broker: localhost:5555 (CLI connection)
+Memphis broker: localhost:9000 (CLI connection)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Read more about networking options here: https://docs.memphis.dev/deployment/kubernetes
@@ -111,7 +110,7 @@ helm get notes memphis -n memphis
 Expose the UI in a **localhost** environment using "port-forward":
 
 ```
-kubectl port-forward service/memphis-ui 9000:80 --namespace memphis & >/dev/null
+kubectl port-forward service/memphis-cluster 9000:9000 --namespace memphis & >/dev/null
 ```
 
 Credentials

@@ -13,7 +13,7 @@ The UI is designed to simplify your work with Memphis and give you a graphical u
 *   Expose the UI in a **localhost** environment using "port-forward":
 
     ```
-    $# kubectl port-forward service/memphis-ui 9000:80 --namespace memphis & >/dev/null
+    $# kubectl port-forward service/memphis-cluster 9000:9000 --namespace memphis & >/dev/null
     ```
 
     ```

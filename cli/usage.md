@@ -15,7 +15,7 @@ Once connected, all features offered by Memphis are available.
 #### Connection to Memphis control plane:
 
 ```powershell
-$ mem connect -s <control-plane> -u root -p memphis
+$ mem connect -s <cmemphis broker> -u root -p memphis
 ```
 
 #### Required parameters:
@@ -23,14 +23,14 @@ $ mem connect -s <control-plane> -u root -p memphis
 ```powershell
 -u, --user                 User
 -p, --password <password>  Password
--s, --server <server>      Memphis control plane
+-s, --server <server>      Memphis broker
 -h, --help                 display help for command
 ```
 
 #### Example:
 
 ```powershell
-$ mem connect -u root -p memphis -s http://control-plane                          
+$ mem connect -u root -p memphis -s http://localhost:9000                       
 Connected successfully to Memphis control plane.
 ```
 

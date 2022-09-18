@@ -24,15 +24,13 @@ Output:
 
 ```
 [+] Running 3/3
- ⠿ Container memphis-cluster-1        Creating                                                      0.2s
- ⠿ Container memphis-ui-1             Creating                                                      0.2s                                                  0.2s
+ ⠿ Container memphis-cluster-1        Creating                                                      0.2s                                                      0.2s                                                  0.2s
  ⠿ Container memphis-mongo-1          Creating                                                      0.2s
 ```
 
 #### Deployed Containers
 
 * **memphis-cluster-1:** Three (default) MQ workers (Jetstream- and Memphis-made replicas). Responsible for data ingestion and processing, just like Kafka's brokers.
-* **memphis-ui-1:** UI. Responsible for delivering a graphical user interface for managing the cluster.
 * **memphis-mongo-1:** MongoDB, for Memphis internal usage.
 
 ### Step 3: Access via UI / CLI / SDK
@@ -84,7 +82,7 @@ Options:
 
 
 ```
-$# mem connect -u root -p memphis -s http://localhost:5555
+$# mem connect -u root -p memphis -s http://localhost:9000
 Connected successfully to Memphis control plane.
 ```
 {% endtab %}
