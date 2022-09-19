@@ -14,7 +14,7 @@ Its true power lies in offloading the business logic from the producers and cons
 
 Instead of endless amounts of producers, consumers, orchestrations, manual scaling, and scattered monitoring - just create a station.
 
-![Station list](../.gitbook/assets/Stationlist)
+<figure><img src="../.gitbook/assets/Screen Shot 2022-09-19 at 12.10.45.png" alt=""><figcaption></figcaption></figure>
 
 ### Create a station
 
@@ -33,23 +33,24 @@ A modal will appear with customization options.
 
 All the required information for a specific station is presented here.
 
-![](<../.gitbook/assets/memphis station overview.jpeg>)
+<figure><img src="../.gitbook/assets/Screen Shot 2022-09-19 at 12.12.24.png" alt=""><figcaption></figcaption></figure>
 
 ### Code Example - How to connect an app
 
 Press the SDK button to display the station's connection details.
 
-![](<../.gitbook/assets/Screen Shot 2022-06-15 at 10.55.14.png>)
+![](<../.gitbook/assets/Screen Shot 2022-09-19 at 12.14.38.png>)
 
-* ![](<../.gitbook/assets/SDK modal>)
-  * **Language** - The user can change the SDK details per their desired language (for now, Memphis supports Node.js).
-  * **Installation** - Before the user can use the SDK, they must install Memphis.
-  * **Code Example -** The example demonstrates how to connect Memphis and create a factory, station, consumer, and producer.
+<figure><img src="../.gitbook/assets/Screen Shot 2022-09-19 at 12.15.41.png" alt=""><figcaption></figcaption></figure>
+
+* **Language** - The user can change the SDK details per their desired language (for now, Memphis supports Node.js).
+* **Installation** - Before the user can use the SDK, they must install Memphis.
+* **Code Example -** The example demonstrates how to connect Memphis and create a factory, station, consumer, and producer.
 
 ### Producers & Consumers
 
-![](<../.gitbook/assets/Screen Shot 2022-06-15 at 10.55.52.png>)
+<figure><img src="../.gitbook/assets/Screen Shot 2022-09-19 at 12.17.41.png" alt=""><figcaption></figcaption></figure>
 
-* In this section, Memphis provides data-level observability to see the flow of the user's events.
+* In this section, Memphis provides data-level observability to the messages within a station
 * The right and left panels show lists of producers and consumers.
-* The center panel represents the last 50 messages that are currently stored in the station.
+* The center panel represents the last 100 messages that are currently stored in the station.
