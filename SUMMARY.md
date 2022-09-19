@@ -62,6 +62,7 @@
 ## Dashboard (UI)
 
 * [General](dashboard-ui/general.md)
+* [Signup](dashboard-ui/signup.md)
 * [Login](dashboard-ui/login.md)
 * [Overview](dashboard-ui/overview.md)
 * [Stations](dashboard-ui/stations.md)
