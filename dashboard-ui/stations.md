@@ -23,7 +23,7 @@ To create a new station, click "Create station".\
 
 A modal will appear with customization options.
 
-![Create station details](<../.gitbook/assets/Create staion details(station).png>)
+<figure><img src="../.gitbook/assets/Screen Shot 2022-09-19 at 12.18.58.png" alt=""><figcaption></figcaption></figure>
 
 * **Retention** - The default value is seven days. You can choose a custom retention value by time, message size, and message amount.
 * ****[**Storage type**](broken-reference) - Choose whether to store your messages in a file or memory.
