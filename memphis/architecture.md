@@ -10,9 +10,7 @@ Memphis deployment comprised four components:
 
 **3.** DB - Application state persistency (not used for storing messages).
 
-
-
-<figure><img src="../.gitbook/assets/architecture.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/memphis arch.png" alt=""><figcaption></figcaption></figure>
 
 Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will get all the messages residing inside a Station. In case an app requires a horizontal scale and split messages across different scaling group members, the user is required to create consumers with the same consumer group.
 
