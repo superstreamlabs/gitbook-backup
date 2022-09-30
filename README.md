@@ -8,10 +8,10 @@ Memphis' uniquenesses are zero ops, fast development, extreme cost reduction, co
 
 **Memphis focuses on four pillars**
 
-1. Performance - Enhancing cache usage
-2. Resiliency - Never lose a message and 99.99995% uptime
+1. Performance - Enhanced cache usage
+2. Resiliency - Never lose a message and 99.95% uptime
 3. Observability - Out-of-the-box observability that makes sense and reduces troubleshooting time
-4. Developer Experience - Modularity, inline processing, schema management, gitops ability
+4. Developer Experience - Modularity, inline processing, schema management, gitops
 
 ### **Start here: Choose your preferred environment -**&#x20;
 

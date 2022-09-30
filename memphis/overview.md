@@ -2,9 +2,9 @@
 
 ### What is Memphis{dev}?
 
-Memphis{dev} is an open-source real-time data processing platform that provides end-to-end support for in-app streaming use cases using Memphis distributed message broker.&#x20;
+Memphis{dev} **is** the only low-code real-time data processing platform that provides a full ecosystem **for** in-app streaming use cases using memphis distributed message broker with a paradigm of produce-consume **that** supports modern in-app streaming pipelines and async communication **by** removing frictions of management, cost, resources, language barriers, and time **for** data-oriented developers and data engineers, **unlike** other message brokers and queues that requires a great amount of code, optimizations, adjustments, and mainly time.
 
-Memphis' uniquenesses are zero ops, fast development, extreme cost reduction, coding barriers, and saving a great amount of time for data-oriented developers and data engineers.
+[memphis.dev](https://memphis.dev/) started as a fork of the [nats.io](http://nats.io/) project (since 2011), written in GoLang, and creating its own stream on top. Instead of topics and queues, Memphis uses stations, which will become an entity with embedded logic in the future.
 
 **Memphis focuses on four pillars**
 
