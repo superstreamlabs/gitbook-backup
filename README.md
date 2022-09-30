@@ -2,7 +2,9 @@
 
 ### What is Memphis{dev}?
 
-Memphis{dev} is the only low-code real-time data processing platform that provides a full ecosystem for in-app streaming use cases using memphis distributed message broker that supports modern in-app streaming pipelines and async communication by removing frictions of management, cost, resources, language barriers, and time for data-oriented developers and data engineers.
+Memphis{dev} is an open-source real-time data processing platform that provides end-to-end support for in-app streaming use cases using Memphis distributed message broker.&#x20;
+
+Memphis' uniquenesses are zero ops, fast development, extreme cost reduction, coding barriers, and saving a great amount of time for data-oriented developers and data engineers.
 
 **Memphis focuses on four pillars**
 
