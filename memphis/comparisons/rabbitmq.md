@@ -1,3 +1,7 @@
+---
+description: Page under construction
+---
+
 # RabbitMQ
 
 ![](../../.gitbook/assets/rabbit.jpeg)

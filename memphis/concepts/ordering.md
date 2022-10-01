@@ -1,5 +1,3 @@
 # Ordering
 
-Sorry!
-
-Working on this page.
+Page under construction.
