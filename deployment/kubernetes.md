@@ -6,6 +6,10 @@ description: Deploy Memphis over Kubernetes using Helm
 
 {% embed url="https://youtu.be/OmUJXqvFK4M" %}
 
+{% hint style="info" %}
+If you prefer using Terraform, head [here](cloud-deployment/)
+{% endhint %}
+
 Helm is a k8s package manager that allows users to deploy apps in a single, configurable command.
 
 More information about Helm can be found [here](https://helm.sh/docs/topics/charts/).
@@ -103,7 +107,7 @@ helm get notes memphis -n memphis
 * **memphis-ui-xxx:** UI. Responsible for delivering a graphical user interface for managing the cluster.
 * **memphis-mongodb-0/1:** MongoDB, for Memphis internal usage.
 
-### Step 3: Access via UI / CLI / SDK
+### Step 2: Access via UI / CLI / SDK
 
 {% tabs %}
 {% tab title="UI" %}
