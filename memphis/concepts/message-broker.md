@@ -1,3 +1,8 @@
+---
+cover: ../../.gitbook/assets/Memphis concepts.jpeg
+coverY: 0
+---
+
 # Message broker
 
 ### A message broker is&#x20;
