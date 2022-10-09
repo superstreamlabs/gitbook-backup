@@ -1,4 +1,9 @@
-# 1 - Installation
+---
+cover: .gitbook/assets/Your_streaming_journey_starts_here..jpg
+coverY: 0
+---
+
+# Step 1 - Installation
 
 ### What is Memphis{dev}?
 
