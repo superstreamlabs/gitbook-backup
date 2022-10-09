@@ -1,6 +1,6 @@
 # Overview
 
-{% embed url="https://camo.githubusercontent.com/1699419aeb0a98db51a55121e0cfb0f647281316c45478bab5c08c065a7bdc98/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f762f72656c656173652f6d656d706869736465762f6d656d706869732d62726f6b65723f636f6c6f723d363164666336" %}
+<img src="../.gitbook/assets/Screen Shot 2022-10-09 at 12.23.33.png" alt="" data-size="line">
 
 ### What is Memphis{dev}?
 

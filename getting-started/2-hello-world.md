@@ -1,12 +1,8 @@
-# 2 - Hello World
+# Step 2 - Hello World
 
-No installation is needed!
+Creating your 1st station, producer, and consumer!
 
-For this tutorial, we will use [sandbox.memphis.dev](https://sandbox.memphis.dev)
-
-You can also use this link for a live [demo app](https://demo.memphis.dev).
-
-
+Please follow the steps below based on your preferred language.
 
 {% tabs %}
 {% tab title="Node.JS / Typescript" %}
@@ -169,7 +165,63 @@ package main
     }
 ```
 {% endtab %}
+
+{% tab title="Python" %}
+{% content-ref url="../sdks/python/example-producer.md" %}
+[example-producer.md](../sdks/python/example-producer.md)
+{% endcontent-ref %}
+
+{% content-ref url="../sdks/python/example-consumer.md" %}
+[example-consumer.md](../sdks/python/example-consumer.md)
+{% endcontent-ref %}
+
+
+
+#### Step 1: Install Memphis py SDK
+
+Within your code directory, run
+
+```
+pip3 install memphis-py
+```
+
+#### Step 2: Import Memphis SDK to your code
+
+```
+from memphis import Memphis
+from memphis import retention_types, storage_types
+```
+
+#### Step 3: Run a code example
+
+Don't forget to replace the placeholders
+
+```
+async def main():
+  try:
+    memphis = Memphis()
+    await memphis.connect(
+      host="<memphis-host>",
+      username="<application-type username>",
+      connection_token="<broker-token>",
+      port="<port>", # defaults to 6666
+      reconnect=True, # defaults to False
+      max_reconnect=10, # defaults to 10
+      reconnect_interval_ms=1500, # defaults to 1500
+      timeout_ms=1500 # defaults to 1500
+      )
+  except Exception as e:
+    print(e)
+  finally:
+    await memphis.close()
+
+if __name__ == '__main__':
+  asyncio.run(main())
+```
+{% endtab %}
 {% endtabs %}
+
+
 
 
 

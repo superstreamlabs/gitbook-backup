@@ -6,6 +6,10 @@ description: Deploy Memphis over Docker using Docker compose
 
 {% embed url="https://youtu.be/cXAk60hMtHs" %}
 
+{% hint style="info" %}
+If you prefer using **Terraform**, head [here](cloud-deployment/)
+{% endhint %}
+
 For easier onboarding and installation, Memphis can be deployed via [docker-compose](https://docs.docker.com/compose/).
 
 ### Step 1: Download compose.yaml file
@@ -112,3 +116,7 @@ await memphis.connect({
 * **connectionToken:** Each app that produces and/or consumer data with Memphis uses token authentication. <mark style="color:green;">**The default value is "memphis".**</mark>
 {% endtab %}
 {% endtabs %}
+
+{% content-ref url="../getting-started/2-hello-world.md" %}
+[2-hello-world.md](../getting-started/2-hello-world.md)
+{% endcontent-ref %}
