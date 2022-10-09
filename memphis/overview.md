@@ -1,3 +1,8 @@
+---
+cover: ../.gitbook/assets/Overview..jpg
+coverY: 0
+---
+
 # Overview
 
 <img src="../.gitbook/assets/Screen Shot 2022-10-09 at 12.23.33.png" alt="" data-size="line">

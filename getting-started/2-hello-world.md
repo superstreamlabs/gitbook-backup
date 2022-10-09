@@ -1,3 +1,8 @@
+---
+cover: ../.gitbook/assets/Your_streaming_journey_starts_here..jpg
+coverY: 0
+---
+
 # Step 2 - Hello World
 
 Creating your 1st station, producer, and consumer!
