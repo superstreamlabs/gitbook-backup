@@ -7,7 +7,7 @@ description: Deploy Memphis over Kubernetes using Helm
 {% embed url="https://youtu.be/OmUJXqvFK4M" %}
 
 {% hint style="info" %}
-If you prefer using Terraform, head [here](cloud-deployment/)
+If you prefer using **Terraform**, head [here](cloud-deployment/)
 {% endhint %}
 
 Helm is a k8s package manager that allows users to deploy apps in a single, configurable command.
@@ -274,7 +274,9 @@ kubectl get secret memphis-creds -n <namespace> -o jsonpath="{.data.CONNECTION_T
 {% endtab %}
 {% endtabs %}
 
-
+{% content-ref url="../getting-started/2-hello-world.md" %}
+[2-hello-world.md](../getting-started/2-hello-world.md)
+{% endcontent-ref %}
 
 
 
