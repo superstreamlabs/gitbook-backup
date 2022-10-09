@@ -1,5 +1,5 @@
 ---
-cover: ../../.gitbook/assets/Memphis concepts.jpeg
+cover: ../../.gitbook/assets/Memphis concepts (1).jpeg
 coverY: 0
 ---
 
