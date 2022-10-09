@@ -2,9 +2,9 @@
 
 ## 👉 Getting Started
 
-* [1 - Installation](README.md)
-* [2 - Hello World](getting-started/2-hello-world.md)
-* [3 - Use cases](getting-started/3-use-cases.md)
+* [Step 1 - Installation](README.md)
+* [Step 2 - Hello World](getting-started/2-hello-world.md)
+* [Use cases](getting-started/3-use-cases.md)
 * [Tutorials](getting-started/tutorials/README.md)
   * [Event-driven app](getting-started/tutorials/event-driven-app.md)
   * [Real-time chat app](getting-started/tutorials/real-time-chat-app.md)
