@@ -13,7 +13,7 @@ Memphis{dev} enables building next-generation applications that require large vo
 3. Observability - Out-of-the-box observability that makes sense and reduces troubleshooting time
 4. Developer Experience - Modularity, inline processing, schema management, gitops
 
-### **Start here: Choose your preferred environment -**&#x20;
+### 👉 **Start here: Choose your preferred environment -**&#x20;
 
 * ****[Kubernetes](deployment/kubernetes.md)
 * [Docker-Compose](deployment/docker-compose.md#step-1-download-compose.yaml-file)
