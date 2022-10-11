@@ -71,7 +71,10 @@ The NATS streaming protocol sits atop the core NATS protocol and uses [Google's 
 {% endtab %}
 {% endtabs %}
 
+### Delivery Guarantee
 
+* At least once
+* Exactly once
 
 
 
