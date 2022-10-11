@@ -7,7 +7,7 @@ coverY: 0
 
 ### A message broker is&#x20;
 
-An architectural pattern for message validation, transformation, and routing. It mediates communication among applications, minimizing the mutual awareness that applications should have of each other in order to be able to exchange messages, effectively implementing decoupling.
+A software that implements an architectural pattern for message transportation, transformation, and routing. It mediates communication among applications, minimizing the mutual awareness that applications should have of each other in order to be able to exchange messages, effectively implementing decoupling.
 
 ### Purpose&#x20;
 
