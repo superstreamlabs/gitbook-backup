@@ -16,4 +16,18 @@ Each replica is an exact duplicate of the entire data set, stored on a different
 
 \*Architecture\*
 
-### Retention types
+### Message store types
+
+* Memory
+* File
+
+### Retention
+
+* Number of messages
+* Station size
+* Time
+
+### High Availability
+
+
+
