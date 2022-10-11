@@ -74,6 +74,9 @@ The NATS streaming protocol sits atop the core NATS protocol and uses [Google's 
 ### Delivery Guarantee
 
 * At least once
+
+This is achieved by the combination of published messages being persisted to the station as well as the consumer tracking delivery and acknowledgement of each individual message as clients receive and process them.
+
 * Exactly once
 
 
