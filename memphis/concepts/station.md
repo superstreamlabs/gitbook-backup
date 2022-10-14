@@ -29,6 +29,8 @@ Each replica is an exact duplicate of the entire data set, stored on a different
 
 ### High Availability
 
+#### Replicas
+
 
 
 

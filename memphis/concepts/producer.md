@@ -8,4 +8,7 @@ description: Page under construction
 
 A producer is the source application/service that pushes data or messages to the broker or specifically to the station.&#x20;
 
-Producer&#x20;
+### How to create a producer?
+
+### Scale considerations
+

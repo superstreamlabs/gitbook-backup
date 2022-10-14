@@ -15,8 +15,6 @@ The primary purpose of a broker is to take incoming messages from applications a
 
 How applications communicate is becoming an increasingly large challenge. Using messaging middleware simplifies this challenge and allows for a common communications infrastructure that grows and scales to meet the most demanding conditions
 
-### Differences between Broker, Pub/Sub, Queue
-
 ### A growing list of use cases&#x20;
 
 * Async task management
