@@ -8,7 +8,7 @@ coverY: 0
 
 ### What is a station?
 
-In Memphis, a station is a unit that holds messages. It's like a topic in Kafka or a queue in RabbitMQ. Each station has a retention policy, which defines when or how messages will be removed from the station—for example, by the number of messages, time, or total size of stored messages.
+In Memphis, a station is the unit that holds messages. It's like a topic in Kafka or a queue in RabbitMQ. Each station has a retention policy, which defines when or how messages will be removed from the station—for example, by number of messages, time, or total size of stored messages.
 
 Each station is spread across one or more Memphis nodes, depending on the number of configured replicas.
 
@@ -16,7 +16,7 @@ Each replica is an exact duplicate of the entire data set, stored on a different
 
 \*Architecture\*
 
-### Station store types
+### Message store types
 
 * Memory
 * File
@@ -28,10 +28,6 @@ Each replica is an exact duplicate of the entire data set, stored on a different
 * Time
 
 ### High Availability
-
-#### Replicas
-
-
 
 
 

@@ -1,3 +1,7 @@
-# Persistency
+# Data Persistence
 
-Page under construction.
+### What does data persistence mean?
+
+### What type of persistence does Memphis offer?
+
+### Compersion between the approaches
