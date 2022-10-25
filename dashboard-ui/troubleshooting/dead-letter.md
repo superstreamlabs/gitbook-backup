@@ -16,7 +16,7 @@ By default, a CG will be created per consumer with its name unless configured di
 
 **Example:**&#x20;
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (1).png>)
 
 ### Identification
 

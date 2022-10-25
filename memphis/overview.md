@@ -55,7 +55,7 @@ A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.d
 
 Memphis is open-sourced and operated under the [MIT license](https://github.com/memphisdev/memphis-broker/blob/master/LICENSE).
 
-### **The team**
+### **Memphis core team**
 
 We run as one, from marketing to operations to product to development, growing fast and constantly evolving, learning, and doing our best to enjoy the ride.
 
@@ -72,6 +72,8 @@ Our mission is to build the best-in-class dev-first, open-source event-processin
 ### **Open-Source**
 
 Memphis is an open-source first product and company. Memphis will always be open-source and community-driven as we consider the community as the source of power behind building truly disruptive technology.
+
+### <img src="../.gitbook/assets/image (3).png" alt="" data-size="line">
 
 ### **Team Locations**
 
