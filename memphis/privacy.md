@@ -9,7 +9,3 @@ We are constantly exploring and researching how to build the best dev-product we
 ### Which metrics does Memphis collect?
 
 * Deployment event
-
-### License
-
-Memphis is open-sourced and operated under the [MIT license](https://github.com/memphisdev/memphis-broker/blob/master/LICENSE).

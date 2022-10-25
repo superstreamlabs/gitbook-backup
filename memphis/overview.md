@@ -69,32 +69,18 @@ As an open-source first company, we consider our precious contributors an essent
 
 Our mission is to build the best-in-class dev-first, open-source event-processing platform that will enable millions of developers to better engage with data and build greater data-driven applications and streaming pipelines in friction of time and complexity.
 
-### **Backed by**
-
-Memphis has secured a $5.5M seed round led and supported by the world's best VCs, angels, and advisors -
-
-Boldstart
-
-Angular Ventures
-
-Guy Podjarny (Snyk)
-
-Jim Rose (CircleCI)
-
-David Mytton (Console.dev)
-
-Adam Frankl, Marketing Advisor (JFrog, Neo4j, Sourcegraph)
-
-Martin Brodbeck, Tech Advisor (Priceline, Shutterstock)
-
 ### **Open-Source**
 
 Memphis is an open-source first product and company. Memphis will always be open-source and community-driven as we consider the community as the source of power behind building truly disruptive technology.
 
-### **Locations**
+### **Team Locations**
 
 Delaware, US
 
 Tel-Aviv, Israel
 
 Scotland, UK
+
+### License
+
+Memphis is open-sourced and operated under Apache 2.0 license
