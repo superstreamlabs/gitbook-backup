@@ -31,10 +31,10 @@ A queue is a data structure used for storing messages/events in order of arrival
 
 A publish-subscribe system (also known as Pub-Sub) allows you to automatically route information throughout your application based on rules defined by publishers and subscribers (instead of having direct connections between publishers and subscribers).
 
-### Popular message broker's use cases&#x20;
+### Memphis' most popular use cases&#x20;
 
-* Async task management
 * Real-time streaming pipelines
+* Async task management
 * Data ingestion
 * Async communication between services on k8s
 * Queuing
