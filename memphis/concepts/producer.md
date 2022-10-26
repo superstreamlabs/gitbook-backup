@@ -33,16 +33,15 @@ As the user configures a client connection to Memphis, it comprises several obje
 
 **Producer**
 
-```
-const producer = await memphisConnection.producer({
-            stationName: "<station-name>",
-            producerName: "<producer-name>"
-        });
-```
+* stationName: The name of the station to be connected&#x20;
+* producerName: In a station resolution, each connected producer must have a unique identity
 
-
-
-### How to create a producer?
+{% hint style="info" %}
+For more information about how to connect a producer to Memphis, please head [here](broken-reference)
+{% endhint %}
 
 ### Scale considerations
+
+A producer is a logical entity that writes data to a Memphis station.\
+As we add more producers, the throughput will be increased accordingly due to the parallelism
 
