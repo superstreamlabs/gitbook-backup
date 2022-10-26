@@ -46,10 +46,6 @@ High threshold for station capacity in bytes.
 
 Each produced message receives a dedicated timer and will be removed after hitting the configured time.
 
-### High Availability
-
-#### Replicas
-
 
 
 
