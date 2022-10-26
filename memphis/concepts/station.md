@@ -23,14 +23,28 @@ Naturally, choosing memory persistency will improve performance, while file-base
 
 ### Station store types
 
-* Memory
-* File
+* Memory - Improved performance
+* File - Improved resiliency
 
 ### Retention
 
-* Number of messages
+In a message broker, messages are not deleted when acknowledged to enable new or other consumers from different consumer groups to consume the stored messages as well.
+
+To avoid filling out the station, we must choose a retention policy per station that defines the condition that will trigger Memphis to remove messages from a station.
+
+* Number of messages.
+
+The station will only retain the last X produced messages.&#x20;
+
+<figure><img src="../../.gitbook/assets/retention.jpeg" alt=""><figcaption></figcaption></figure>
+
 * Station size
+
+High threshold for station capacity in bytes.
+
 * Time
+
+Each produced message receives a dedicated timer and will be removed after hitting the configured time.
 
 ### High Availability
 
