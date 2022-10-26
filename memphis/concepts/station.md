@@ -12,7 +12,9 @@ A station is a distributed unit that stores messages. Similar to Kafka's topics 
 
 Each station is distributed across one or more Memphis brokers, depending on the number of configured station replicas.
 
-\*Architecture\*
+<figure><img src="../../.gitbook/assets/station.jpeg" alt=""><figcaption></figcaption></figure>
+
+![](<../../.gitbook/assets/station\_2 (1).jpeg>)
 
 ### Station store types
 

@@ -17,10 +17,24 @@ How applications communicate is becoming an increasingly large challenge. Using 
 
 ### Differences between Broker, Pub/Sub, Queue
 
-### A growing list of use cases&#x20;
+A message broker is a software component that passes messages between two systems. A queue is a data structure that can store messages and pass them to the application when they are ready. A pub/sub system is used to publish and subscribe to events.
 
-* Async task management
+**Message Broker (Memphis)**
+
+A message broker is an intermediary between two applications or services. It accepts requests from one application or service, processes them and returns responses back to the requester. The main purpose of a message broker is to decouple services from each other by handling communication between them.
+
+**Queues**
+
+A queue is a data structure used for storing messages/events in order of arrival until they can be processed by an application/service. Queues are useful for decoupling components in distributed systems because they allow asynchronous processing of messages through multiple nodes in the system — hence allowing us to scale our applications easily.
+
+**Publish-Subscribe System**
+
+A publish-subscribe system (also known as Pub-Sub) allows you to automatically route information throughout your application based on rules defined by publishers and subscribers (instead of having direct connections between publishers and subscribers).
+
+### Memphis' most popular use cases&#x20;
+
 * Real-time streaming pipelines
+* Async task management
 * Data ingestion
 * Async communication between services on k8s
 * Queuing
