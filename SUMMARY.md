@@ -24,7 +24,6 @@
   * [Security](memphis/concepts/security.md)
   * [Scaling](memphis/concepts/scaling.md)
   * [Ordering](memphis/concepts/ordering.md)
-  * [Stream files](memphis/concepts/stream-files.md)
   * [Dead-Letter-Station (DLQ)](memphis/concepts/dead-letter-station.md)
   * [Idempotency](memphis/concepts/idempotency.md)
 * [Roadmap](memphis/roadmap.md)
