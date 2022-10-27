@@ -43,5 +43,5 @@ For more information about how to connect a producer to Memphis, please head [he
 ### Scale considerations
 
 A producer is a logical entity that writes data to a Memphis station.\
-As we add more producers, the throughput will be increased accordingly due to the parallelism
+By adding more producers, the throughput will be increased accordingly due to the additional writers.
 
