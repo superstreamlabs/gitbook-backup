@@ -48,8 +48,3 @@ For more information about how to create and connect a consumer to Memphis,&#x20
 
 please head [here](broken-reference)
 {% endhint %}
-
-### Design considerations
-
-
-
