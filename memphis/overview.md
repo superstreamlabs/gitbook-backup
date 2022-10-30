@@ -53,7 +53,7 @@ A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.d
 
 ### License
 
-Memphis is open-sourced and operated under the [MIT license](https://github.com/memphisdev/memphis-broker/blob/master/LICENSE).
+Memphis is open-sourced and operated under the Apache 2.0.
 
 ### **Memphis core team**
 
