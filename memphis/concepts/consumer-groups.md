@@ -21,4 +21,4 @@ There is no consumer without a consumer group.
 
 ### Design considerations
 
-#### The benefits of using a CG and not a standalone consumer
+soon
