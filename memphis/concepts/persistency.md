@@ -25,5 +25,3 @@ The options are Memory or File.
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
-### Compersion between the approaches
-
