@@ -17,8 +17,13 @@ The options are Memory or File.
 
 <figure><img src="../../.gitbook/assets/storage type memory (1).jpeg" alt=""><figcaption></figcaption></figure>
 
+<figure><img src="../../.gitbook/assets/mem ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
+
 * **File**
 
 <figure><img src="../../.gitbook/assets/storage type file.jpeg" alt=""><figcaption></figcaption></figure>
 
+<figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
+
 ### Compersion between the approaches
+
