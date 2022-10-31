@@ -19,12 +19,23 @@ A station is a virtual entity that resides on a type of file called "stream" whi
 
 Naturally, choosing memory persistency will improve performance, while file-based persistency will provide higher resiliency.
 
-<figure><img src="../../.gitbook/assets/stream file.jpeg" alt=""><figcaption><p>Stream File</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/stream file.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Station store types
+Each stream contains the following objects
 
-* Memory - Improved performance
-* File - Improved resiliency
+* meta.inf: metadata of the station
+* meta.sum: hash calculation of the station's metadata
+* msgs: The stored messages
+
+### Station storage types
+
+* **Memory** - Improved performance
+
+<figure><img src="../../.gitbook/assets/storage type memory.jpeg" alt=""><figcaption></figcaption></figure>
+
+* **File** - Improved resiliency
+
+<figure><img src="../../.gitbook/assets/storage type file (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Retention
 

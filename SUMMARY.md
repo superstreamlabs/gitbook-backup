@@ -20,7 +20,7 @@
   * [Producer API](memphis/concepts/producer.md)
   * [Consumer API](memphis/concepts/consumer.md)
   * [Consumer Group](memphis/concepts/consumer-groups.md)
-  * [Data Persistency](memphis/concepts/persistency.md)
+  * [Data Redundancy](memphis/concepts/persistency.md)
   * [Security](memphis/concepts/security.md)
   * [Scaling](memphis/concepts/scaling.md)
   * [Ordering](memphis/concepts/ordering.md)

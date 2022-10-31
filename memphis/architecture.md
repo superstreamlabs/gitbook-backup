@@ -40,12 +40,7 @@ The NATS streaming protocol sits atop the core NATS protocol and uses [Google's 
 {% tab title="Kubernetes" %}
 **Minimum Requirements (No HA)**
 
-| Resource  | Quantity |   |
-| --------- | -------- | - |
-| K8S Nodes | 1        |   |
-| CPU       | 2 CPU    |   |
-| Memory    | 4GB RAM  |   |
-| Storage   | 12GB PVC |   |
+<table><thead><tr><th>Resource</th><th>Quantity</th><th data-hidden></th></tr></thead><tbody><tr><td>K8S Nodes</td><td>1</td><td></td></tr><tr><td>CPU</td><td>2 CPU</td><td></td></tr><tr><td>Memory</td><td>4GB RAM</td><td></td></tr><tr><td>Storage</td><td>12GB PVC</td><td></td></tr></tbody></table>
 
 ****
 
