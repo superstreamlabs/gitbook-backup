@@ -38,8 +38,8 @@ Also includes -&#x20;
 * No configuration needed
 * Native support in Python, Go, Node.js
 
-#### Serialization&#x20;
+#### Serialization process
 
-process Serialization is converting a data object—a combination of code and data—into a series of bytes that saves the object's state in an easily transmittable form. The opposite process is called deserialization. Serialization is basically represented as a function, each data format with its own implementation, and in case the structure and content of a given data do not match the defined schema in the .proto/.avro/.json struct, the serialization process fails, and therefore, the message will not be sent to the broker. That process creates the initial validation of the message before it reaches the broker itself, using the client cache to store the schema locally.
+Serialization is converting a data object—a combination of code and data—into a series of bytes that saves the object's state in an easily transmittable form. The opposite process is called deserialization. Serialization is basically represented as a function, each data format with its own implementation, and in case the structure and content of a given data do not match the defined schema in the .proto/.avro/.json struct, the serialization process fails, and therefore, the message will not be sent to the broker. That process creates the initial validation of the message before it reaches the broker itself, using the client cache to store the schema locally.
 
 <figure><img src="https://lh5.googleusercontent.com/9ifhev7freLnIYyD_Y3zmrgZAp9-2Bf8eYsSAps0N_77PblO4eG0LGodJY6C6bBmhCxYDRMocztYK3Sge8WMezMMrZFyODEBOw5YZ2xmB7xqqrkhJcds-f67XqHSXNTydr3PpcI2e09yze32L4h0_kg3CcZAxPepTFtJJ_oStF-myZdomFjy2t7XVxZf" alt=""><figcaption></figcaption></figure>
