@@ -34,6 +34,8 @@ func main() {
 		for _, msg := range msgs {
 			fmt.Println(string(msg.Data()))
 			msg.Ack()
+			headers := msg.GetHeaders()
+			fmt.Println(headers)
 		}
 	}
 
@@ -44,5 +46,4 @@ func main() {
 	// so the handler may receive a timeout error
 	time.Sleep(30 * time.Second)
 }
-
 ```

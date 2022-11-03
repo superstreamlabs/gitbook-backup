@@ -41,7 +41,7 @@ It is possible to pass connection configuration parameters, as function-paramete
 c, err := memphis.Connect("<memphis-host>", 
 	"<application type username>", 
 	"<broker-token>",
-	Port(<int>),       
+	Port(<int>),        
 	Reconnect(<bool>),
 	MaxReconnect(<int>)
 	)
@@ -57,45 +57,20 @@ To disconnect from Memphis, call `Close()` on the Memphis connection object.
 c.Close();
 ```
 
-### Creating a Factory
-
-```go
-// c is of type memphis.Conn
-f, err := c.CreateFactory("<factory-name>", 
-    Description("<optional-description>")
-```
-
-### Destroying a Factory
-
-Destroying a factory will remove all its resources (including stations, producers, and consumers).
-
-```go
-err := f.Destroy()
-```
-
 ### Creating a Station
 
-Stations can be created from both `Conn` and `Factory`
+Stations can be created from `Conn`
 
 Passing optional parameters using functions&#x20;
 
 ```go
-s0, err = c.CreateStation("<station-name>","<factory-name>")
+s0, err = c.CreateStation("<station-name>")
 
 s1, err = c.CreateStation("<station-name>", 
-"<factory-name>",
  RetentionTypeOpt(<Messages/MaxMeMessageAgeSeconds/Bytes>),
  RetentionVal(<int>), 
  StorageTypeOpt(<Memory/File>), 
  Replicas(<int>), 
- EnableDedup(), 
- DedupWindow(<time.Duration>))
- 
-s2, err = f.CreateStation("<station-name>", 
- RetentionTypeOpt(<Messages/MaxMeMessageAgeSeconds/Bytes>),
- RetentionVal(<retention-value>), 
- StorageTypeOpt(<Memory/File>), 
- Replicas(<intgo>), 
  EnableDedup(), 
  DedupWindow(<time.Duration>))
 ```
@@ -160,7 +135,11 @@ In order to stop receiving messages, you have to call `consumer.StopConsume()`. 
 
 ```go
 // from a Conn
-p0, err := c.CreateProducer("<station-name>", "<producer-name>") 
+p0, err := c.CreateProducer(
+	"<station-name>",
+	"<producer-name>",
+	memphis.ProducerGenUniqueSuffix()
+) 
 
 // from a Station
 p1, err := s.CreateProducer("<producer-name>")
@@ -169,8 +148,33 @@ p1, err := s.CreateProducer("<producer-name>")
 ### Producing a Message
 
 ```go
-p.Produce("<message in []byte>",
-            AckWaitSec(<ack time.Duration>)) // defaults to 15 seconds
+p.Produce("<message in []byte/protoreflect.ProtoMessage in case it is a schema validated station>",
+memphis.AckWaitSec(15)) // defaults to 15 seconds
+```
+
+### Add headers
+
+```
+hdrs := memphis.Headers{}
+hdrs.New()
+err := hdrs.Add("key", "value")
+p.Produce(
+	"<message in []byte>/protoreflect.ProtoMessage in case it is a schema validated station",
+    memphis.AckWaitSec(15),
+	memphis.MsgHeaders(hdrs) // defaults to empty
+)
+```
+
+### Async produce
+
+Meaning your application won't wait for broker acknowledgement - use only in case you are tolerant for data loss
+
+```
+p.Produce(
+	"<message in []byte>/protoreflect.ProtoMessage in case it is a schema validated station",
+    memphis.AckWaitSec(15),
+	memphis.AsyncProduce()
+)
 ```
 
 ### Destroying a Producer
@@ -184,16 +188,18 @@ p.Destroy();
 ```go
 // creation from a Station
 consumer0, err = s.CreateConsumer("<consumer-name>",
-  ConsumerGroup("<consumer-group>"), // defaults to consumer name
-  PullInterval(<pull interval time.Duration), // defaults to 1 second
-  BatchSize(<batch-size int), // defaults to 10
-  BatchMaxWaitTime(<time.Duration>), // defaults to 5 seconds
-  MaxAckTime(<time.Duration>), // defaults to 30 sec
-  MaxMsgDeliveries(<int>)) // defaults to 10
+  memphis.ConsumerGroup("<consumer-group>"), // defaults to consumer name
+  memphis.PullInterval(<pull interval time.Duration), // defaults to 1 second
+  memphis.BatchSize(<batch-size int), // defaults to 10
+  memphis.BatchMaxWaitTime(<time.Duration>), // defaults to 5 seconds
+  memphis.MaxAckTime(<time.Duration>), // defaults to 30 sec
+  memphis.MaxMsgDeliveries(<int>), // defaults to 10
+  memphis.ConsumerGenUniqueSuffix(),
+  memphis.ConsumerErrorHandler(func(*Consumer, error){})
+)
   
 // creation from a Conn
 consumer1, err = c.CreateConsumer("<station-name>", "<consumer-name>", ...) 
-
 ```
 
 ### Processing Messages
@@ -228,6 +234,14 @@ Acknowledging a message indicates to the Memphis server to not re-send the same 
 
 ```go
 message.Ack();
+```
+
+### Get headers
+
+Get headers per message
+
+```
+headers := msg.GetHeaders()
 ```
 
 ### Destroying a Consumer
