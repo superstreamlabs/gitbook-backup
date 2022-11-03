@@ -1,3 +1,7 @@
+---
+description: Since v0.4.0
+---
+
 # Overview and Architecture
 
 In a federated data platform, which responsibilities are distributed between stakeholders, teams, and sources, it’s harder to control establish a single standard. This is where the data contracts concept comes into play. Why do data contracts matter? Because (a) they provide insights into who owns what data products. (b) they support setting standards and managing your data pipelines with confidence. They also provide crucial information on what data is being consumed, by whom, and for what purpose. Bottom line: data contracts are essential for robust data management!
