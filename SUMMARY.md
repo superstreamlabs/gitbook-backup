@@ -27,6 +27,7 @@
   * [Dead-Letter-Station (DLQ)](memphis/concepts/dead-letter-station.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
   * [Idempotency](memphis/concepts/idempotency.md)
+* [Schemas Management](memphis/schemas-management.md)
 * [Roadmap](memphis/roadmap.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [RabbitMQ](memphis/comparisons/rabbitmq.md)
