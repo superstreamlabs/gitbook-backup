@@ -42,3 +42,14 @@ Memphis comprise two types of credentials:
     ```
 
 </details>
+
+<details>
+
+<summary>GUI</summary>
+
+1. Head to the "Users" page
+2. At the right-top corner, click on "Add a new user"
+3. Fill in the required details
+
+</details>
+
