@@ -13,7 +13,9 @@ Memphis has two types of credentials:
 * **Management**.\
   For management purposes only, and to allow control over the UI and CLI, not data, a dedicated user can be created.
 
-[Production environments](https://www.rabbitmq.com/production-checklist.html) should not use the default user and create new user accounts with generated credentials instead.
+{% hint style="warning" %}
+**Production environments** should not use the default user and create new user accounts with generated credentials instead.
+{% endhint %}
 
 ### Adding a new user
 
