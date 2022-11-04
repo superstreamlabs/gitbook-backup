@@ -266,7 +266,7 @@ $ mem consumer ls
 └─────────┴──────┴──────┴────────────────┴─────────────────┴──────────────┴──────────────┴───────────────┘
 ```
 
-### Init
+### Get a code snippet
 
 {% hint style="info" %}
 Creates an example project for working with Memphis.
@@ -292,7 +292,7 @@ index.js was created.
 
 
 
-### Init
+### Cluster info
 
 {% hint style="info" %}
 Information about your Memphis cluster.
