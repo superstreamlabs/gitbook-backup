@@ -21,7 +21,7 @@
   * [Consumer API](memphis/concepts/consumer.md)
   * [Consumer Group](memphis/concepts/consumer-groups.md)
   * [Storage and Redundancy](memphis/concepts/storage-and-redundancy.md)
-  * [Authentication](memphis/concepts/authentication.md)
+  * [Authentication](memphis/concepts/security.md)
   * [Scaling](memphis/concepts/scaling.md)
   * [Ordering](memphis/concepts/ordering.md)
   * [Dead-Letter-Station (DLQ)](memphis/concepts/dead-letter-station.md)
