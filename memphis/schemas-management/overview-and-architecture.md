@@ -1,5 +1,5 @@
 ---
-description: Since v0.4.0
+description: Released on v0.4.0
 ---
 
 # Overview and Architecture

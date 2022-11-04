@@ -1,4 +1,9 @@
-# Data Redundancy
+---
+cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
+coverY: 0
+---
+
+# Storage and Redundancy
 
 Data redundancy in the field of streaming can be a bit misleading. As you know and written on the [station](station.md) page, in message brokers, data is not preserved for infinite time but for a defined period based on a certain condition like ingested time, size, and the number of messages within a station.
 
