@@ -4,7 +4,7 @@ This document describes authentication and authorisation features in Memphis. To
 
 ### The Basics
 
-Memphis comprise two types of credentials:
+Memphis has two types of credentials:
 
 * **Application**.\
   Every connection has an associated user and a connection token which is authenticated.\
