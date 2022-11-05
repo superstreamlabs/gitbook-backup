@@ -1,3 +1,8 @@
+---
+cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
+coverY: 0
+---
+
 # Authentication
 
 This document describes authentication and authorisation features in Memphis. Together they allow the operator to control access to the system.
