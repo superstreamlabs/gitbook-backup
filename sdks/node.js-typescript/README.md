@@ -198,7 +198,7 @@ await producer.produce({
 
 ```
 const headers = memphis.headers()
-headers.add('<key>', '<value>');
+headers.add('key', 'value');
 await producer.produce({
     message: '<bytes array>/object', // Uint8Arrays / object in case your station is schema validated
     headers: headers // defults to empty
