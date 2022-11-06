@@ -49,12 +49,12 @@
 ## SDKs
 
 * [Node.js / Typescript / NestJS](sdks/node.js-typescript/README.md)
-  * [Example: Consumer.js](sdks/node.js-typescript/example-consumer.js.md)
-  * [Example: Consumer.ts](sdks/node.js-typescript/example-consumer.ts.md)
   * [Example: Producer.js](sdks/node.js-typescript/example-producer.js.md)
   * [Example: Producer.ts](sdks/node.js-typescript/example-producer.ts.md)
-  * [Example: Consumer.controller.ts](sdks/node.js-typescript/example-producer.ts-1.md)
-  * [Example: Producer.module.ts](sdks/node.js-typescript/example-producer.ts-2.md)
+  * [Example: Consumer.js](sdks/node.js-typescript/example-consumer.js.md)
+  * [Example: Consumer.ts](sdks/node.js-typescript/example-consumer.ts.md)
+  * [Example: Producer.module.ts](sdks/node.js-typescript/example-producer.ts-1.md)
+  * [Example: Consumer.controller.ts](sdks/node.js-typescript/example-producer.ts-2.md)
 * [Go](sdks/go/README.md)
   * [Example: Producer](sdks/go/example-producer.md)
   * [Example: Consumer](sdks/go/example-consumer.md)
