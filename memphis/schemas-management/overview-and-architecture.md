@@ -52,6 +52,10 @@ The very first step would be to create a schema, based on the required data mode
 
 When creating a schema, the creator must choose a data format which will also determin the data format of the ingested messages, as well as several more characteristics. Each format has its own advantages as described [here](formats.md).
 
+#### 2. Producer
+
+Each producer&#x20;
+
 #### 2. Serialization process (Client-side validation)
 
 Serialization is converting a data object—a combination of code and data—into a series of bytes that saves the object's state in an easily transmittable form. The opposite process is called deserialization.&#x20;
