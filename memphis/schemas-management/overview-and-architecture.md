@@ -50,7 +50,7 @@ Also includes -&#x20;
 
 The very first step would be to create a schema, based on the required data model, and apply it over a station.&#x20;
 
-When creating a schema, the creator must choose a data format which will also determin the data format of the ingested messages, as well as several more characteristics. Each format has its own advantages as described above.
+When creating a schema, the creator must choose a data format which will also determin the data format of the ingested messages, as well as several more characteristics. Each format has its own advantages as described [here](formats.md).
 
 #### 2. Serialization process (Client-side validation)
 
