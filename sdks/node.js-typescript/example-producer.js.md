@@ -1,6 +1,6 @@
 # Example: Producer.js
 
-```
+```javascript
 const memphis = require("memphis-dev");
 
 (async function () {

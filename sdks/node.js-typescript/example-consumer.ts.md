@@ -4,7 +4,7 @@ description: For Typescript
 
 # Example: Consumer.ts
 
-```
+```typescript
 import memphis from 'memphis-dev';
 import { Memphis, Message } from 'memphis-dev/types';
 

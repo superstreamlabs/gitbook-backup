@@ -4,7 +4,7 @@ description: For Typescript
 
 # Example: Consumer.controller.ts
 
-```
+```typescript
 import { Controller } from '@nestjs/common';
 import { consumeMessage } from 'memphis-dev/nest';
 import type { Message } from 'memphis-dev/types';

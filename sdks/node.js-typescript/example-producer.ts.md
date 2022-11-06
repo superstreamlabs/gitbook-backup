@@ -4,7 +4,7 @@ description: For Typescript
 
 # Example: Producer.ts
 
-```
+```typescript
 import memphis from 'memphis-dev';
 import type { Memphis } from 'memphis-dev/types';
 

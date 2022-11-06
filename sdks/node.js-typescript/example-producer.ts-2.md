@@ -4,7 +4,7 @@ description: For Typescript
 
 # Example: Producer.module.ts
 
-```
+```typescript
 import { Module } from "@nestjs/common";
 import { MemphisModule, MemphisService } from "memphis-dev/nest"
 import type { Memphis } from 'memphis-dev/types';
