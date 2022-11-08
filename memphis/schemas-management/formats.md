@@ -1,3 +1,8 @@
+---
+cover: ../../.gitbook/assets/schema - formats.jpeg
+coverY: 0
+---
+
 # Formats
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-11-08 at 22.10.44.png" alt=""><figcaption></figcaption></figure>

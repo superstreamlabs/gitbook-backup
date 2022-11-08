@@ -1,5 +1,7 @@
 ---
 description: Released on v0.4.0
+cover: ../../.gitbook/assets/schema - overview.jpeg
+coverY: 0
 ---
 
 # Overview and Architecture
