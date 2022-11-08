@@ -29,7 +29,7 @@ A quick overview of the most popular formats&#x20;
 
 ### Memphis Schemaverse Architecture
 
-<figure><img src="../../.gitbook/assets/Schema Management Overview.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Schema Management Overview (1).jpg" alt=""><figcaption></figcaption></figure>
 
 Memphis Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, both technical and non-technical users can create and define different types of schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. Memphis' low-code approach removes the serialization part as it is embedded within the producer library. Schema X supports versioning, GitOps methodologies, and schema evolution.
 
@@ -52,15 +52,17 @@ The very first step would be to create a schema, based on the required data mode
 
 When creating a schema, the creator must choose a data format which will also determin the data format of the ingested messages, as well as several more characteristics. Each format has its own advantages as described [here](formats.md).
 
-#### 2. Producer
+#### 2. Validation
 
 After attaching a schema to a station, each producer will be obligated to fulfill that schema.
 
-In most common solutions&#x20;
+Once a producer gets connected to a station, **either before a schema got attached to the station or after**, the new schema will be retrieved **live** and every new message that will be sent to Memphis station will be validated against the attached schema that will reside on the producer cache as well, constantly listenning to updates.
 
-#### 2. Serialization process (Client-side validation)
+Only validates messages that fits the attached schema will be able to enter the schema.
 
-Serialization is converting a data object—a combination of code and data—into a series of bytes that saves the object's state in an easily transmittable form. The opposite process is called deserialization.&#x20;
+#### 3. Serialization process (No code needed)
+
+Serialization is a process of converting a data object—a combination of code and data—into a series of bytes that saves the object's state in an easily transmittable form. The opposite process is called deserialization.&#x20;
 
 Serialization is basically represented as a function, each data format with its own implementation, and in case the structure and content of a given data do not match the defined schema in the .proto/.avro/.json struct, the serialization process fails, and therefore, the message will not be sent to the broker.&#x20;
 
