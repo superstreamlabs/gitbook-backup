@@ -31,7 +31,7 @@ A quick overview of the most popular formats&#x20;
 
 <figure><img src="../../.gitbook/assets/Schema Management Overview.jpg" alt=""><figcaption></figcaption></figure>
 
-Memphis Schema Verse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, both technical and non-technical users can create and define different types of schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. Memphis' low-code approach removes the serialization part as it is embedded within the producer library. Schema X supports versioning, GitOps methodologies, and schema evolution.
+Memphis Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, both technical and non-technical users can create and define different types of schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. Memphis' low-code approach removes the serialization part as it is embedded within the producer library. Schema X supports versioning, GitOps methodologies, and schema evolution.
 
 Also includes -&#x20;
 
@@ -54,7 +54,9 @@ When creating a schema, the creator must choose a data format which will also de
 
 #### 2. Producer
 
-Each producer&#x20;
+After attaching a schema to a station, each producer will be obligated to fulfill that schema.
+
+In most common solutions&#x20;
 
 #### 2. Serialization process (Client-side validation)
 
