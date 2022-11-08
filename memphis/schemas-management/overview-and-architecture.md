@@ -18,7 +18,7 @@ Data pipelines are constantly breaking and creating data quality AND usability i
 
 #### Popular formats&#x20;
 
-A quick overview of the most popular formats&#x20;
+A quick overview of the most popular formats, also supported by Memphis Schemaverse
 
 * Protobuf. \
   The modern. Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.&#x20;
@@ -29,7 +29,7 @@ A quick overview of the most popular formats&#x20;
 
 ### Memphis Schemaverse Architecture
 
-<figure><img src="../../.gitbook/assets/Schema Management Overview (1).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption></figcaption></figure>
 
 Memphis Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, both technical and non-technical users can create and define different types of schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. Memphis' low-code approach removes the serialization part as it is embedded within the producer library. Schema X supports versioning, GitOps methodologies, and schema evolution.
 
