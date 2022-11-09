@@ -13,9 +13,16 @@ This section describes the formats that Memphis Schemaverse currently supports o
 
 Protocol Buffers (Protobuf) is a free and open-source cross-platform data format used to serialize structured data, Initially released on July 7, 2008. It is useful in developing programs to communicate with each other over a network or for storing data. The method involves an interface description language that describes the structure of some data and a program that generates source code from that description for generating or parsing a stream of bytes that represents the structured data.
 
-#### Supported features
+#### Supported versions
 
-* a
+* proto2
+* proto3
+
+#### Supported Features
+
+* Versioning
+* Live evolution
+*
 
 ### Apache Avro (Coming in v0.4.1)
 
