@@ -20,7 +20,7 @@ func main() {
 
 	hdrs := memphis.Headers{}
     hdrs.New()
-	err = hdrs.Add("<key>", "<value>")
+	err = hdrs.Add("key", "value")
 
 	if err != nil {
 		fmt.Errorf("Header failed: %v", err)

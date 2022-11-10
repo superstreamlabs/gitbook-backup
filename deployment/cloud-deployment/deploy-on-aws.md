@@ -75,6 +75,10 @@ cd memphis-terraform/AWS/EKS
 make infra
 ```
 
+{% hint style="warning" %}
+Instead of running three terraform commands
+{% endhint %}
+
 ### Step 2: Deploy Memphis
 
 ```bash
