@@ -22,6 +22,7 @@ Terraform codifies cloud APIs into declarative configuration files.
 
 IAM Policy to use -
 
+{% code lineNumbers="true" %}
 ```json
 {
     "Version": "2012-10-17",
@@ -41,6 +42,7 @@ IAM Policy to use -
     ]
 }
 ```
+{% endcode %}
 
 How to configure AWS CLI -
 
