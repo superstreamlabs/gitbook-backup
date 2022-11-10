@@ -21,25 +21,19 @@ Protocol Buffers (Protobuf) is a free and open-source cross-platform data format
 #### Supported Features
 
 * Versioning
-* Live evolution
-*
+* Embedded serialization
+* Producer Live evolution
+* Import packages (soon)
+* Import types (soon)
 
 ### Apache Avro (Coming in v0.4.1)
 
-Avro is a row-oriented remote procedure call and data serialization framework developed within Apache's Hadoop project. It uses JSON for defining data types and protocols, and serializes data in a compact binary format. Its primary use is in Apache Hadoop, where it can provide both a serialization format for persistent data, and a wire format for communication between Hadoop nodes, and from client programs to the Hadoop services. Avro uses a schema to structure the data that is being encoded. It has two different types of schema languages; one for human editing (Avro IDL) and another which is more machine-readable based on JSON.
-
-#### Supported features
-
-* a
+Avro is a row-oriented remote procedure call and data serialization framework developed within Apache's Hadoop project. It uses JSON for defining data types and protocols and serializes data in a compact binary format. Its primary use is in Apache Hadoop, where it can provide both a serialization format for persistent data, and a wire format for communication between Hadoop nodes, and from client programs to the Hadoop services. Avro uses a schema to structure the data that is being encoded. It has two schema languages; one for human editing (Avro IDL) and another more machine-readable based on JSON.
 
 ### JSON (Coming in v0.4.1)
 
 JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.\
-It provides clear human- and machine- readable documentation and offers data validation which is useful for: Automated testing. Ensuring quality of client submitted data.
-
-#### Supported features
-
-* a
+It provides clear human- and machine-readable documentation and offers data validation which is useful for Automated testing. Ensuring quality of client-submitted data.
 
 ### GraphQL (Coming in v0.5.0)
 
