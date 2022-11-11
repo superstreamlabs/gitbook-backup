@@ -31,6 +31,7 @@
   * [Overview and Architecture](memphis/schemaverse-schema-management/overview-and-architecture.md)
   * [Formats](memphis/schemaverse-schema-management/formats.md)
   * [Getting Started](memphis/schemaverse-schema-management/getting-started.md)
+  * [FAQs](memphis/schemaverse-schema-management/faqs.md)
 * [Roadmap](memphis/roadmap.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [RabbitMQ](memphis/comparisons/rabbitmq.md)
