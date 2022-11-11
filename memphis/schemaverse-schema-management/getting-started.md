@@ -49,11 +49,12 @@ Head to your station, and on the top-left corner, click on "+ Attach schema"
 
 {% tabs %}
 {% tab title="Node.js" %}
-Memphis abstracts the need for external serialization functions and embeds it within the SDK.
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
 #### Producer (Protobuf example)
 
-```
+{% code lineNumbers="true" %}
+```javascript
 const memphis = require("memphis-dev");
 var protobuf = require("protobufjs");
 
@@ -86,8 +87,9 @@ var protobuf = require("protobufjs");
     }
 })();
 ```
+{% endcode %}
 
-#### Consumer (Example
+#### Consumer (Requires .proto file to decode messages)
 
 {% code lineNumbers="true" %}
 ```javascript
@@ -133,7 +135,19 @@ var protobuf = require("protobufjs");
 {% endtab %}
 
 {% tab title="Go" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+#### Producer (Protobuf example)
+
+```
+```
+
+#### Consumer (Requires .proto file to decode messages)
+
+{% code lineNumbers="true" %}
+```javascript
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
