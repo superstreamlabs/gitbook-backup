@@ -46,6 +46,14 @@ Also includes -&#x20;
 * No configuration needed
 * Native support in Python, Go, Node.js
 
+### Key features
+
+* Runtime-level rendering of existing producers and consumers
+* Unaligned messages will be dropped immediately as the schema gets attached
+* Schemas can be modified without rebooting producers
+* Producer-level validation - to reduce resources needed from the broker
+* Supported SDKs: Go, Python, Node.js (Nest / Typescript)
+
 ### The process
 
 #### 1. Schema creation and enforcement
