@@ -8,11 +8,13 @@ Memphis deployment comprised four components:
 
 **2.** Broker - Messaging Queue. Memphis broker is a fork of [NATS.io](http://nats.io/), which is an existing and battle-tested messaging queue with Memphis improvements and tunings.
 
-**3.** DB - Application state persistency (not used for storing messages).
+**3.** MongoDB - Only for UI state persistency (not used for storing messages). Will be replaced in the coming versions.
 
 <figure><img src="../.gitbook/assets/memphis architecture overview.jpeg" alt=""><figcaption></figcaption></figure>
 
-Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will get all the messages residing inside a Station. If an app requires a horizontal scale and split messages across different scaling group members, the user must create consumers with the same consumer group.
+Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will consume all the messages residing inside a station. The user must create consumers within the same consumer group if a client requires a horizontal scale and split messages across different consitency group members.
+
+MongoDB is not necessary for data traffic or standard broker behavior, but rather responsible for UI state and metadata only.
 
 ### Ordering
 
