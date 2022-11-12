@@ -16,12 +16,33 @@ More information about Helm can be found [here](https://helm.sh/docs/topics/char
 
 Memphis is cloud-native and agnostic to any Kubernetes on any cloud.  This means it can be deployed over production environments with Helm.
 
-### Step 1: Install
+### Step 1: Installation
 
-```
+<details>
+
+<summary>Dev</summary>
+
+Standard installation of Memphis with a single broker
+
+```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
 helm install memphis memphis/memphis --create-namespace --namespace memphis
 ```
+
+</details>
+
+<details>
+
+<summary>Production</summary>
+
+Production-grade Memphis with three memphis brokers configured in cluster-mode
+
+```bash
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
+helm install memphis --set cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis
+```
+
+</details>
 
 #### Optional: Helm Install Options
 
