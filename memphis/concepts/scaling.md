@@ -39,3 +39,9 @@ Scale-out is a concept that exists in distributed applications only.
 
 In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers.
 
+
+
+```
+kubectl scale statefulsets memphis-broker --replicas=<new amount of replicas> -n memphis
+```
+
