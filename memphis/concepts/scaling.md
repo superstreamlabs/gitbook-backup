@@ -7,13 +7,13 @@ coverY: 0
 
 This section describes how Memphis scales.
 
-### Scale up vs Scale out
+## Scale up vs Scale out
 
 Or vertical vs horizontal are different methods to add more compute/memory/storage resources to a Memphis cluster.
 
 <figure><img src="../../.gitbook/assets/scale up vs out.jpeg" alt=""><figcaption></figcaption></figure>
 
-#### Scale up / Vertical
+### Scale up / Vertical
 
 Addition of CPU / memory / storage to every broker itself (can be only one).\
 As mentioned in the hardware requirement table, Memphis can be installed with only one memphis broker over a Kubernetes cluster with a single worker equipped with 2 CPUs, 4Gb of RAM, and 16Gb of storage.
@@ -24,12 +24,18 @@ Because production-level memphis runs solely on Kubernetes, when done right, it 
 
 [For more information about upgrading kubernetes workers with zero downtime ](https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-upgrading-your-clusters-with-zero-downtime)
 
-#### Scale-out / Horizontal
+#### Strengths
+
+* **Relative speed:** Replacing a resource, such as a single processor, with a dual processor, means that the throughput of the CPU is doubled. The same can be done to resources such as dynamic random access memory (DRAM) to improve dynamic memory performance.
+* **Simplicity:** Increasing the size of an existing system means that network connectivity and software configuration do not change. As a result, the time and effort saved to ensure the scaling process is much more straightforward than scaling out architecture.
+
+### Scale-out / Horizontal
 
 {% hint style="info" %}
-Relevant for Memphis cluster-mode
+Relevant for Memphis [cluster-mode](https://docs.memphis.dev/memphis/deployment/kubernetes#step-1-installation)
 {% endhint %}
 
 Scale-out is a concept that exists in distributed applications only.
 
-In such architecture, each cluster node&#x20;
+In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers.
+
