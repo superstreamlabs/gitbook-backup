@@ -1,4 +1,11 @@
-# Dead-letter-Station
+---
+cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
+coverY: 0
+---
+
+# Dead-letter-Station (DLQ)
+
+This section describes the implementation of DLQ in Memphis.
 
 ![Message Journey on 10x](<../../.gitbook/assets/Message Journey.gif>)
 
