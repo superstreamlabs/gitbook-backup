@@ -5,4 +5,10 @@ coverY: 0
 
 # Ordering
 
-Page under construction.
+### Ordering
+
+Ordering is guaranteed only while working with a single consumer.
+
+![](../../.gitbook/assets/ordering.jpeg)
+
+###
