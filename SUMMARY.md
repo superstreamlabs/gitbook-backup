@@ -24,7 +24,7 @@
   * [Authentication](memphis/concepts/security.md)
   * [Scaling](memphis/concepts/scaling.md)
   * [Ordering](memphis/concepts/ordering.md)
-  * [Dead-letter-Station (DLQ)](memphis/concepts/dead-letter-station-dlq.md)
+  * [Dead-letter-Station (DLQ)](dashboard-ui/troubleshooting/dead-letter.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
   * [Idempotency](memphis/concepts/idempotency.md)
 * [Schemaverse - Schema Management](memphis/schemaverse-schema-management/README.md)
