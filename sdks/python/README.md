@@ -46,11 +46,12 @@ async def main():
       username="<application-type username>",
       connection_token="<broker-token>",
       port="<port>", # defaults to 6666
-      reconnect=True, # defaults to False
-      max_reconnect=10, # defaults to 10
+      reconnect=True, # defaults to True
+      max_reconnect=3, # defaults to 3
       reconnect_interval_ms=1500, # defaults to 1500
       timeout_ms=1500 # defaults to 1500
       )
+    ...
   except Exception as e:
     print(e)
   finally:
@@ -70,26 +71,11 @@ To disconnect from Memphis, call `Close()` on the Memphis connection object.
 await memphis.close()
 ```
 
-### Creating a Factory
-
-```python
-factory = memphis.factory(name="<factory-name>", description="")
-```
-
-### Destroying a Factory
-
-Destroying a factory will remove all its resources (including stations, producers, and consumers).
-
-```python
-await factory.destroy()
-```
-
 ### Creating a Station
 
 ```python
-station = memphis.station(
+station = await memphis.station(
   name="<station-name>",
-  factory_name="<factory-name>",
   retention_type=retention_types.MAX_MESSAGE_AGE_SECONDS, # MAX_MESSAGE_AGE_SECONDS/MESSAGES/BYTES. Defaults to MAX_MESSAGE_AGE_SECONDS
   retention_value=604800, # defaults to 604800
   storage_type=storage_types.FILE, # torage_types.FILE/torage_types.MEMORY. Defaults to MEMORY
@@ -151,22 +137,40 @@ The most common client operations are `produce` to send messages and `consume` t
 
 Messages are published to a station and consumed from it by creating a consumer. Consumers are pull based and consume all the messages in a station unless you are using a consumers group, in this case messages are spread across all members in this group.
 
-Memphis messages are payload agnostic. Payloads are `Uint8Arrays`.
+Memphis messages are payload agnostic. Payloads are `bytearray`.
 
 In order to stop getting messages, you have to call `consumer.destroy()`. Destroy will terminate regardless of whether there are messages in flight for the client.
 
 ### Creating a Producer
 
 ```python
-producer = memphis.producer(station_name="<station-name>", producer_name="<producer-name>")
+producer = await memphis.producer(station_name="", producer_name="", generate_random_suffix=False)Producing a Message
 ```
-
-### Producing a Message
 
 ```python
 await prod.produce(
-  message=bytearray(msg, 'utf-8')), # Uint8Arrays
-  ack_wait_sec=15, # defaults to 15
+  message='bytearray/protobuf class', # bytearray / protobuf class in case your station is schema validated
+  ack_wait_sec=15) # defaults to 15
+```
+
+### Add headers
+
+```
+headers= Headers()
+headers.add("key", "value")
+await producer.produce(
+  message='bytearray/protobuf class', # bytearray / protobuf class in case your station is schema validated
+  headers=headers) # default to {}
+```
+
+### Async produce
+
+Meaning your application won't wait for broker acknowledgement - use only in case you are tolerant for data loss
+
+```
+await producer.produce(
+  message='bytearray/protobuf class', # bytearray / protobuf class in case your station is schema validated
+  headers={}, async_produce=True)
 ```
 
 ### Destroying a Producer
@@ -187,6 +191,7 @@ consumer = memphis.consumer(
   batch_max_time_to_wait_ms=5000, # defaults to 5000
   max_ack_time_ms=30000, # defaults to 30000
   max_msg_deliveries=10, # defaults to 10
+  generate_random_suffix=False
 )
 ```
 
@@ -216,6 +221,14 @@ Acknowledging a message indicates to the Memphis server to not re-send the same 
 
 ```python
 await message.ack()
+```
+
+### Get headers
+
+Get headers per message
+
+```
+headers = message.get_headers()
 ```
 
 ### Destroying a Consumer
