@@ -11,6 +11,7 @@ async def main():
             for msg in msgs:
                 print("message: ", msg.get_data())
                 await msg.ack()
+                headers = msg.get_headers()
             if error:
                 print(error)
         except Exception as e:
@@ -35,4 +36,5 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
+
 ```

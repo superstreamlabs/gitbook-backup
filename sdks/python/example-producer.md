@@ -2,7 +2,7 @@
 
 ```python
 import asyncio
-from memphis import Memphis
+from memphis import Memphis, Headers
 
 
 async def main():
@@ -12,8 +12,10 @@ async def main():
 
         producer = await memphis.producer(
             station_name="<station-name>", producer_name="<producer-name>")
-        for i in range(100):
-            await producer.produce(bytearray('Message #'+str(i)+': Hello world', 'utf-8'))
+        headers = Headers()
+        headers.add("key", "value") 
+        for i in range(5):
+            await producer.produce(bytearray('Message #'+str(i)+': Hello world', 'utf-8'), headers=headers)
 
     except Exception as e:
         print(e)
@@ -23,4 +25,5 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
+
 ```
