@@ -24,8 +24,4 @@ Memphis{dev} enables building next-generation applications that require large vo
 * [Docker-Compose](deployment/docker-compose.md#step-1-download-compose.yaml-file)
 * [Cloud providers](deployment/cloud-deployment/)
 
-{% hint style="info" %}
-If you prefer not to install - Sandbox [https://sandbox.memphis.dev](https://sandbox.memphis.dev)
-{% endhint %}
-
-[For more information on Memphis.](memphis/overview.md)
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Kubernetes</td><td></td><td><a href=".gitbook/assets/kubernetes banner.jpeg">kubernetes banner.jpeg</a></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
