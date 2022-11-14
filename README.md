@@ -20,10 +20,6 @@ Memphis{dev} enables building next-generation applications that require large vo
 
 ### 👉 **Start here: Choose your preferred environment -**&#x20;
 
-* ****[Kubernetes (Production)](deployment/kubernetes.md)
-* [Cloud providers (Production)](deployment/cloud-deployment/)
-* [Docker (Dev)](deployment/docker.md#step-1-download-compose.yaml-file)
-
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-type="files"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Kubernetes (Production)</strong></td><td><a href="./#undefined">Here</a></td><td>Kubernetes (Production)</td><td></td><td><a href=".gitbook/assets/kubernetes banner (1).jpeg">kubernetes banner (1).jpeg</a></td><td><a href=".gitbook/assets/kubernetes banner (2).jpeg">kubernetes banner (2).jpeg</a></td><td><a href="https://docs.memphis.dev/memphis/getting-started/readme#kubernetes-production">https://docs.memphis.dev/memphis/getting-started/readme#kubernetes-production</a></td></tr><tr><td><strong>Cloud Providers (Prod)</strong></td><td>Here</td><td></td><td></td><td></td><td><a href=".gitbook/assets/cloud providors banner (1).jpeg">cloud providors banner (1).jpeg</a></td><td></td></tr><tr><td><strong>Docker (Dev)</strong></td><td><a href="./#undefined">Here</a></td><td></td><td></td><td></td><td><a href=".gitbook/assets/Docker banner.jpeg">Docker banner.jpeg</a></td><td></td></tr></tbody></table>
 
 ### Kubernetes (Production)
@@ -40,4 +36,4 @@ For more information please hear [here.](deployment/kubernetes.md)
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
 ```
 
-For more information please head [here.](deployment/docker.md)
+For more information please head [here.](deployment/docker-compose.md)

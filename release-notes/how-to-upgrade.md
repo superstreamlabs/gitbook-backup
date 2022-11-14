@@ -20,8 +20,8 @@ docker rm -f <container name>
 
 Re-run docker-compose installation
 
-{% content-ref url="../deployment/docker.md" %}
-[docker.md](../deployment/docker.md)
+{% content-ref url="../deployment/docker-compose.md" %}
+[docker-compose.md](../deployment/docker-compose.md)
 {% endcontent-ref %}
 {% endtab %}
 

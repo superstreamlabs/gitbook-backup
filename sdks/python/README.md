@@ -15,7 +15,7 @@ description: Experimental
 ## Installation
 
 {% hint style="info" %}
-First, install Memphis via [K8S](../../deployment/kubernetes.md) / [Docker](../../deployment/docker.md).
+First, install Memphis via [K8S](../../deployment/kubernetes.md) / [Docker](../../deployment/docker-compose.md).
 {% endhint %}
 
 In your project's directory:
