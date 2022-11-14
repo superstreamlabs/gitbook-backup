@@ -20,8 +20,13 @@ Memphis{dev} enables building next-generation applications that require large vo
 
 ### 👉 **Start here: Choose your preferred environment -**&#x20;
 
-* ****[Kubernetes](deployment/kubernetes.md)
-* [Docker-Compose](deployment/docker-compose.md#step-1-download-compose.yaml-file)
-* [Cloud providers](deployment/cloud-deployment/)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Kubernetes</td><td></td><td><a href=".gitbook/assets/kubernetes banner.jpeg">kubernetes banner.jpeg</a></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
+
+
+
+* ****[Kubernetes (Production)](deployment/kubernetes.md)
+* [Cloud providers (Production)](deployment/cloud-deployment/)
+* [Docker (Dev)](deployment/docker-compose.md#step-1-download-compose.yaml-file)
+
+<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-type="files"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Kubernetes (Production)</td><td>Kubernetes (Production)</td><td></td><td><a href=".gitbook/assets/kubernetes banner.jpeg">kubernetes banner.jpeg</a></td><td><a href=".gitbook/assets/kubernetes banner (1).jpeg">kubernetes banner (1).jpeg</a></td></tr><tr><td>Cloud Providers (Prod)</td><td></td><td></td><td></td><td><a href=".gitbook/assets/cloud providors banner.jpeg">cloud providors banner.jpeg</a></td></tr><tr><td>Docker (Dev)</td><td></td><td></td><td></td><td><a href=".gitbook/assets/Docker banner.jpeg">Docker banner.jpeg</a></td></tr></tbody></table>
+
