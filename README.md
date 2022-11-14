@@ -16,7 +16,7 @@ Memphis{dev} enables building next-generation applications that require large vo
 1. Performance - Enhanced cache usage
 2. Resiliency - Never lose a message and 99.95% uptime
 3. Observability - Out-of-the-box observability that makes sense and reduces troubleshooting time
-4. Developer Experience - Modularity, inline processing, schema management, gitops
+4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management
 
 ### 👉 **Start here: Choose your preferred environment -**&#x20;
 
