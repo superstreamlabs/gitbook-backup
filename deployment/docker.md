@@ -2,15 +2,26 @@
 description: Deploy Memphis over Docker using Docker compose
 ---
 
-# Docker Compose
+# Docker
 
 {% embed url="https://youtu.be/cXAk60hMtHs" %}
 
-{% hint style="info" %}
-If you prefer using **Terraform**, head [here](cloud-deployment/)
-{% endhint %}
+### Requirements
 
-For easier onboarding and installation, Memphis can be deployed via [docker-compose](https://docs.docker.com/compose/).
+{% tabs %}
+{% tab title="Docker" %}
+**Requirements (No HA)**
+
+| Resource | Quantity               |
+| -------- | ---------------------- |
+| OS       | Mac / Windows / Linux  |
+| CPU      | 1 CPU                  |
+| Memory   | 4GB                    |
+| Storage  | 6GB                    |
+{% endtab %}
+{% endtabs %}
+
+**Please make sure you have** [**docker-compose**](https://docs.docker.com/compose/) **installed.**
 
 ### Step 1: Download compose.yaml file
 

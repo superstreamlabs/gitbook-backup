@@ -82,7 +82,7 @@ More on publishing k8s services [here](https://kubernetes.io/docs/concepts/servi
 ### **Docker**
 
 {% hint style="info" %}
-For the full docker installation tutorial, please head [here](../deployment/docker-compose.md).
+For the full docker installation tutorial, please head [here](../deployment/docker.md).
 {% endhint %}
 
 The default port of the UI is 9000:

@@ -2,7 +2,7 @@
 description: Procedure for upgrading memphis cluster
 ---
 
-# How to upgrade
+# How to upgrade memphis
 
 {% tabs %}
 {% tab title="Docker" %}
@@ -20,8 +20,8 @@ docker rm -f <container name>
 
 Re-run docker-compose installation
 
-{% content-ref url="../deployment/docker-compose.md" %}
-[docker-compose.md](../deployment/docker-compose.md)
+{% content-ref url="../deployment/docker.md" %}
+[docker.md](../deployment/docker.md)
 {% endcontent-ref %}
 {% endtab %}
 

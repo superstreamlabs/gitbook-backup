@@ -45,7 +45,7 @@
   * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
   * [Deploy on Azure](deployment/cloud-deployment/deploy-on-azure.md)
 * [Kubernetes](deployment/kubernetes.md)
-* [Docker Compose](deployment/docker-compose.md)
+* [Docker](deployment/docker.md)
 
 ## SDKs
 
