@@ -28,7 +28,7 @@ Memphis{dev} enables building next-generation applications that require large vo
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
-For more information please hear [here.](deployment/kubernetes.md)
+For more technical information, please head [here.](deployment/kubernetes.md)
 
 ### Docker (Dev)
 
@@ -36,4 +36,4 @@ For more information please hear [here.](deployment/kubernetes.md)
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
 ```
 
-For more information please head [here.](deployment/docker-compose.md)
+For more technical information, please head [here.](deployment/docker-compose.md)
