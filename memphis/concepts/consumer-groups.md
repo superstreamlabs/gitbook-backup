@@ -18,7 +18,3 @@ Each message will be delivered in parallel to all consumer groups.
 <figure><img src="../../.gitbook/assets/consumer group 2.jpeg" alt=""><figcaption><p>Inside the consumer group, a message will be delivered to only one consumer</p></figcaption></figure>
 
 There is no consumer without a consumer group.
-
-### Design considerations
-
-soon
