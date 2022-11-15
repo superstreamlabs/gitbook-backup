@@ -177,7 +177,7 @@ User shay was created.
 ```
 
 ```powershell
-$ mem user add --name sveta --type application --avatar 3 
+$ mem user add --ame sveta --type application --avatar 3 
 { type: 'application', avatar: '3', name: 'sveta' }
 User sveta was created.
 Broker connection credentials: imeD5g08Bz8mbJavU4zi
