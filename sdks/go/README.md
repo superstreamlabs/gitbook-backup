@@ -63,17 +63,15 @@ Stations can be created from `Conn`
 
 Passing optional parameters using functions&#x20;
 
-```go
-s0, err = c.CreateStation("<station-name>")
+<pre class="language-go"><code class="lang-go">s0, err = c.CreateStation("&#x3C;station-name>")
 
-s1, err = c.CreateStation("<station-name>", 
- RetentionTypeOpt(<Messages/MaxMeMessageAgeSeconds/Bytes>),
- RetentionVal(<int>), 
- StorageTypeOpt(<Memory/File>), 
- Replicas(<int>), 
+s1, err = c.CreateStation("&#x3C;station-name>", 
+ RetentionTypeOpt(&#x3C;Messages/MaxMeMessageAgeSeconds/Bytes>),
+<strong> RetentionVal(&#x3C;int>), 
+</strong> StorageTypeOpt(&#x3C;Memory/Disk>), 
+ Replicas(&#x3C;int>), 
  EnableDedup(), 
- DedupWindow(<time.Duration>))
-```
+ DedupWindow(&#x3C;time.Duration>))</code></pre>
 
 ### Retention Types
 
@@ -102,10 +100,10 @@ The above means that after maximum number of saved bytes (set in retention value
 Memphis currently supports the following types of messages storage:
 
 ```
-memphis.File
+memphis.Disk
 ```
 
-The above means that messages persist on the file system.
+The above means that messages persist on disk.
 
 ```
 memphis.Memory

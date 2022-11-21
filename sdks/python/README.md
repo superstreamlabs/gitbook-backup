@@ -78,7 +78,7 @@ station = await memphis.station(
   name="<station-name>",
   retention_type=retention_types.MAX_MESSAGE_AGE_SECONDS, # MAX_MESSAGE_AGE_SECONDS/MESSAGES/BYTES. Defaults to MAX_MESSAGE_AGE_SECONDS
   retention_value=604800, # defaults to 604800
-  storage_type=storage_types.FILE, # torage_types.FILE/torage_types.MEMORY. Defaults to MEMORY
+  storage_type=storage_types.DISK, # storage_types.DISK/storage_types.MEMORY. Defaults to DISK
   replicas=1, # defaults to 1
   dedup_enabled=False, # defaults to false
   dedup_window_ms: 0, # defaults to 0
@@ -112,10 +112,10 @@ The above means that after maximum number of saved bytes (set in retention value
 Memphis currently supports the following types of messages storage:
 
 ```python
-memphis.storage_types.FILE
+memphis.storage_types.DISK
 ```
 
-The above means that messages persist on the file system.
+The above means that messages persist on disk.
 
 ```python
 memphis.storage_types.MEMORY
@@ -202,6 +202,8 @@ First, create a callback function that receives a slice of pointers to memphis.M
 Then, pass this callback into consumer.Consume function.
 
 The consumer will try to fetch messages every `pull_interval_ms` (that was given in Consumer's creation) and call the defined message handler.
+
+Once all the messages in the station were consumed the msg\_handler will receive error: `Memphis: TimeoutError`.
 
 ```python
 async def msg_handler(msgs, error):

@@ -112,7 +112,7 @@ const station = await memphis.station({
     name: '<station-name>',
     retentionType: memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS, // defaults to memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS
     retentionValue: 604800, // defaults to 604800
-    storageType: memphis.storageTypes.FILE, // defaults to memphis.storageTypes.FILE
+    storageType: memphis.storageTypes.DISK, // defaults to memphis.storageTypes.DISK
     replicas: 1, // defaults to 1
     dedupEnabled: false, // defaults to false
     dedupWindowMs: 0 // defaults to 0
@@ -146,10 +146,10 @@ The above means that after maximum number of saved bytes (set in retention value
 Memphis currently supports the following types of messages storage:
 
 ```
-memphis.storageTypes.FILE
+memphis.storageTypes.DISK
 ```
 
-The above means that messages persist on the file system.
+The above means that messages persist on disk.
 
 ```
 memphis.storageTypes.MEMORY
