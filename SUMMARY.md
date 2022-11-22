@@ -34,9 +34,8 @@
   * [Getting Started](memphis/schemaverse-schema-management/getting-started.md)
   * [FAQs](memphis/schemaverse-schema-management/faqs.md)
 * [Tiered Storage](memphis/tiered-storage.md)
+* [Cluster configuration](memphis/cluster-configuration.md)
 * [Roadmap](memphis/roadmap.md)
-* [Comparisons](memphis/comparisons/README.md)
-  * [RabbitMQ](memphis/comparisons/rabbitmq.md)
 * [Privacy](memphis/privacy.md)
 
 ## 📦 Deployment
