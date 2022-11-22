@@ -51,7 +51,7 @@ please head [here](broken-reference)
 
 ### Supported Protocols
 
-* TCP (Client SDKs)
+* NATS Protocol (Client SDKs)
 * HTTP \* Soon \*
 * WebSockets \* Soon \*
 * gRPC \* Soon \*

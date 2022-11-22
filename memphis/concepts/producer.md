@@ -48,7 +48,7 @@ By adding more producers, the throughput will be increased accordingly due to th
 
 ### Supported Protocols
 
-* TCP (Client SDKs)
+* NATS Protocol (Client SDKs)
 * HTTP \* Soon \*
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
