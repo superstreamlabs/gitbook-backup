@@ -46,3 +46,12 @@ For more information about how to connect a producer to Memphis, please head [he
 A producer is a logical entity that writes data to a Memphis station.\
 By adding more producers, the throughput will be increased accordingly due to the additional writers.
 
+### Supported Protocols
+
+* TCP (Client SDKs)
+* HTTP \* Soon \*
+* WebSockets \* Soon \*
+* gRPC \* Soon \*
+* WASM \* Soon \*
+* MQTT \* Soon \*
+
