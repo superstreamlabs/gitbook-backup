@@ -191,25 +191,10 @@ If a simpler localhost connection is needed for more services, use [Kubefwd](htt
 
 Expose the UI in a **production** environment:
 
-*   Nodeport
-
-    ```
-    kubectl patch svc memphis-cluster --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]'
-    ```
-
-    ```
-    kubectl describe svc memphis-cluster | grep -i Endpoints
-    Endpoints:                192.150.201.138:80
-    ```
-
-    NodePort will expose the UI via one of the k8s workers' IPs.&#x20;
-
-
-
 * Load Balancer
 
 ```
-kubectl patch svc memphis-cluster --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
+kubectl expose service memphis-cluster --port=9000,7770 --name=example-service --type=LoadBalancer -n memphis
 ```
 
 ```
