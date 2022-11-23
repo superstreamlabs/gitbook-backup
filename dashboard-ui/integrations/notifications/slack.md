@@ -24,7 +24,7 @@ Under "Add features and functionality", choose "Bots"
 
 Assign scope by clicking on the "Review Scopes to Add"
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Add the following scopes
 
@@ -39,4 +39,10 @@ Install the app (Sometime you need to switch pages to "Install app" on the left 
 Once the slack app is installed, grab the "Bot User OAuth Token" and paste into Memphis' slack integration model
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 20.55.27.png" alt=""><figcaption></figcaption></figure>
+
+\*memphis model\*
+
+For the channel ID -> left-click over the designated slack channel in your workspace -> View channel details -> Scroll all the way down in the "About" tab -> Copy and paste the ID
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 21.01.18.png" alt=""><figcaption></figcaption></figure>
 
