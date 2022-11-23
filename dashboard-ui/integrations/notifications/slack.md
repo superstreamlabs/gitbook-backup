@@ -1,8 +1,42 @@
 ---
-description: Notifications to slack channel
+description: Memphis notifications to slack channel
 cover: ../../../.gitbook/assets/Slack + Memphis.jpeg
 coverY: 0
 ---
 
 # Slack
+
+### Step 1: Create an app
+
+Please [create](https://api.slack.com/apps/new) an app 'from scratch'
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 17.09.19.png" alt=""><figcaption></figcaption></figure>
+
+Choose a name. For example - "Memphis"
+
+Choose a workspace.
+
+### Step 2: Configure the slack app
+
+Under "Add features and functionality", choose "Bots"
+
+<figure><img src="../../../.gitbook/assets/1_DwudexxFOihUUHEvAeJe6A.png" alt=""><figcaption></figcaption></figure>
+
+Assign scope by clicking on the "Review Scopes to Add"
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Add the following scopes
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 20.51.02.png" alt=""><figcaption></figcaption></figure>
+
+Install the app (Sometime you need to switch pages to "Install app" on the left menu)
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 20.52.34.png" alt=""><figcaption></figcaption></figure>
+
+### Step 3: Implement the token in Memphis
+
+Once the slack app is installed, grab the "Bot User OAuth Token" and paste into Memphis' slack integration model
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 20.55.27.png" alt=""><figcaption></figcaption></figure>
 
