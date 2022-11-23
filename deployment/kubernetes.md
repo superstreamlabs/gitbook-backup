@@ -194,11 +194,11 @@ Expose the UI in a **production** environment:
 *   Nodeport
 
     ```
-    kubectl patch svc memphis-ui --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]'
+    kubectl patch svc memphis-cluster --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]'
     ```
 
     ```
-    kubectl describe svc memphis-ui | grep -i Endpoints
+    kubectl describe svc memphis-cluster | grep -i Endpoints
     Endpoints:                192.150.201.138:80
     ```
 
@@ -209,11 +209,11 @@ Expose the UI in a **production** environment:
 * Load Balancer
 
 ```
-kubectl patch svc memphis-ui --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
+kubectl patch svc memphis-cluster --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
 ```
 
 ```
-kubectl describe svc memphis-ui | grep -i "LoadBalancer Ingress"
+kubectl describe svc memphis-cluster | grep -i "LoadBalancer Ingress"
 LoadBalancer Ingress:     a2d0fd26a0d7941a29d444ac4d03acd3-1181102898.eu-central-1.elb.amazonaws.com
 ```
 
@@ -225,7 +225,7 @@ LoadBalancer Ingress:     a2d0fd26a0d7941a29d444ac4d03acd3-1181102898.eu-central
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: memphis-ui-ingress
+  name: memphis-cluster-ingress
   namespace: memphis
   annotations:
     acme.cert-manager.io/http01-edit-in-place: "true"
@@ -244,7 +244,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: memphis-ui
+            name: memphis-cluster
             port:
               number: 80
 ```
