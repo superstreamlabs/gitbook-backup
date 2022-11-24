@@ -167,7 +167,7 @@ helm get notes memphis -n memphis
 Expose the UI in a **localhost** environment using "port-forward":
 
 ```
-kubectl port-forward service/memphis-cluster 9000:9000 --namespace memphis & >/dev/null
+kubectl port-forward service/memphis-cluster 9000:9000 7770:7770 --namespace memphis > /dev/null &
 ```
 
 Credentials
