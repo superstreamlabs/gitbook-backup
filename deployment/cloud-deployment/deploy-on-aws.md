@@ -82,7 +82,7 @@ Instead of running three terraform commands
 ### Step 2: Deploy Memphis
 
 ```bash
-make app
+make cluster
 ```
 
 Once deployment is complete, the Application Load Balancer URL **** will be revealed.
