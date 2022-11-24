@@ -39,12 +39,12 @@ Memphis' platform requires zero ops, enables rapid development, extreme cost red
 * Easy-to-use UI, CLI, and SDKs
 * Data-level observability
 * Runs on your Docker or Kubernetes
-* Message Journey
+* Real-time event tracing
 * SDKs: Python, Go, Node.js, Typescript, Nest.JS
+* Embedded schema management using Avro, and Protobuf
 
 **Coming**
 
-* Embedded schema management using Avro, and Protobuf
 * Ready-to-use connectors and analysis functions
 * More SDKs
 * Inline processing
