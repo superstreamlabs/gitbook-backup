@@ -14,7 +14,7 @@ Helm is a k8s package manager that allows users to deploy apps in a single, conf
 
 More information about Helm can be found [here](https://helm.sh/docs/topics/charts/).
 
-Memphis is cloud-native and agnostic to any Kubernetes on any cloud.  This means it can be deployed over production environments with Helm.
+Memphis is cloud-native and agnostic to any Kubernetes on any cloud. This means it can be deployed over production environments with Helm.
 
 ### Requirements
 
@@ -24,7 +24,7 @@ Memphis is cloud-native and agnostic to any Kubernetes on any cloud.  This means
 
 <table><thead><tr><th>Resource</th><th>Quantity</th><th data-hidden></th></tr></thead><tbody><tr><td>K8S Nodes</td><td>1</td><td></td></tr><tr><td>CPU</td><td>2 CPU</td><td></td></tr><tr><td>Memory</td><td>4GB RAM</td><td></td></tr><tr><td>Storage</td><td>12GB PVC</td><td></td></tr></tbody></table>
 
-****
+***
 
 **Recommended Requirements (HA)**
 
@@ -39,12 +39,12 @@ Memphis is cloud-native and agnostic to any Kubernetes on any cloud.  This means
 {% tab title="Docker" %}
 **Requirements (No HA)**
 
-| Resource | Quantity               |
-| -------- | ---------------------- |
-| OS       | Mac / Windows / Linux  |
-| CPU      | 1 CPU                  |
-| Memory   | 4GB                    |
-| Storage  | 6GB                    |
+| Resource | Quantity              |
+| -------- | --------------------- |
+| OS       | Mac / Windows / Linux |
+| CPU      | 1 CPU                 |
+| Memory   | 4GB                   |
+| Storage  | 6GB                   |
 {% endtab %}
 {% endtabs %}
 
@@ -177,76 +177,97 @@ UI/CLI root username - root
 UI/CLI root Password - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
 ```
 
-
-
 [http://localhost:9000](http://localhost:9000)
-
-
 
 {% hint style="info" %}
 If a simpler localhost connection is needed for more services, use [Kubefwd](https://kubefwd.com/).
 {% endhint %}
 
-
-
 Expose the UI in a **production** environment:
 
 * Load Balancer
 
+Memphis UI uses WebSocket to render components in real-time.
+
+As WebSockets requires secure communication, it is required to configure SSL cert for the UI to be accessible by a public load balancer and not localhost.
+
+#### Step 1: Deploy self-signed cert
+
+1. Install [mkcert](https://github.com/FiloSottile/mkcert) and generate a certificate
+
+{% code lineNumbers="true" %}
 ```
-kubectl expose service memphis-cluster --port=9000,7770 --name=example-service --type=LoadBalancer -n memphis
+mkcert -install
+mkcert -cert-file memphis.pem -key-file memphis-key.pem "*.memphis.dev"
 ```
+{% endcode %}
+
+2\. Create a secret with the new cert and private key
 
 ```
-kubectl describe svc memphis-cluster | grep -i "LoadBalancer Ingress"
-LoadBalancer Ingress:     a2d0fd26a0d7941a29d444ac4d03acd3-1181102898.eu-central-1.elb.amazonaws.com
+kubectl create secret generic tls-secret --from-file=memphis.pem --from-file=memphis-key.pem -n memphis
 ```
 
-
-
-* Ingress - Please use the following file:
+3\. Export .conf file and enable tls
 
 ```
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: memphis-cluster-ingress
-  namespace: memphis
-  annotations:
-    acme.cert-manager.io/http01-edit-in-place: "true"
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-staging
-spec:
-  tls:
-  - hosts:
-    - "demo.memphis.dev"
-    secretName: demo-tls
-  rules:
-  - host: "demo.memphis.dev"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: memphis-cluster
-            port:
-              number: 80
+kubectl -n memphis exec -i memphis-broker-0  -- cat /etc/nats-config/nats.conf | sed  's=no_tls: true=tls {\n    cert_file: "/etc/ssl/certs/memphis.pem"\n    key_file: "/etc/ssl/certs/memphis-key.pem"\n  }=g' > nats.conf
 ```
 
-{% hint style="info" %}
-Find out more on publishing k8s services [here](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
-{% endhint %}
+4\. Replace the data section with the new tls parameters
+
+```
+kubectl create configmap memphis-broker-config --from-file=nats.conf -n memphis --dry-run -o yaml | kubectl replace -f -
+```
+
+5\. Add a new volume and volumeMount to the statefulset
+
+```
+kubectl edit sts memphis-broker
+```
+
+6\. Add the following under the spec.template.spec.containers&#x20;
+
+```
+volumeMounts:
+  - mountPath: /etc/ssl/certs/memphis.pem
+    name: tls-secret
+    subPath: memphis_local.pem
+  - mountPath: /etc/ssl/certs/memphis-key.pem
+    name: tls-secret
+    subPath: memphis-key_local.pem
+Volumes:
+  - name: tls-secret
+    secret:
+      defaultMode: 420
+      secretName: tls-secret
+```
+
+7\. Restart Memphis
+
+{% code lineNumbers="true" %}
+```
+kubectl patch sts memphis-broker  -p '{"spec":{"replicas":0}}' -n  memphis
+kubectl patch sts memphis-broker  -p '{"spec":{"replicas":3}}' -n  memphis
+```
+{% endcode %}
+
+8\. Create the LB
+
+```
+kubectl expose service memphis-cluster --port=9000,7770  --name=external-service --type=LoadBalancer -n memphis
+kubectl -n memphis patch svc external-service -p '{"spec":{"ports": [{"port": 443,"name":"https","targetPort": 9000}]}}'
+```
+
+9\. Add the certificate to the LB as well
 {% endtab %}
 
 {% tab title="CLI" %}
 **For the entire CLI reference and how to install it, please head to the following page:**
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="broken-reference/" %}
+[broken-reference](broken-reference/)
 {% endcontent-ref %}
-
-
 
 The CLI client connects to Memphis via the UI.
 
@@ -270,8 +291,6 @@ Options:
   -h, --help                 display help for command
 ```
 
-
-
 ```
 $# mem connect -u root -p memphis -s http://localhost:9000
 Connected successfully to Memphis control plane.
@@ -281,13 +300,13 @@ Connected successfully to Memphis control plane.
 {% tab title="SDK" %}
 For more detailed information, please head to the SDKs section below.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="broken-reference/" %}
+[broken-reference](broken-reference/)
 {% endcontent-ref %}
 
-####
 
-#### Memphis Node.JS SDK can be used to demonstrate the required parameters.
+
+**Memphis Node.JS SDK can be used to demonstrate the required parameters.**
 
 ```
 await memphis.connect({
@@ -315,14 +334,3 @@ kubectl get secret memphis-creds -n <namespace> -o jsonpath="{.data.CONNECTION_T
 {% content-ref url="../getting-started/2-hello-world.md" %}
 [2-hello-world.md](../getting-started/2-hello-world.md)
 {% endcontent-ref %}
-
-
-
-
-
-
-
-
-
-
-
