@@ -68,7 +68,7 @@ Memphis uses "`makefile`" instead of running three terraform commands
 ### Step 2: Deploy Memphis
 
 ```bash
-make app
+make cluster
 ```
 
 Once deployment is complete, the Memphis Load Balancer URL will be revealed.
