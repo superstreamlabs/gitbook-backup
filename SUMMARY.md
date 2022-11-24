@@ -92,6 +92,7 @@
 
 * [How to upgrade memphis](release-notes/how-to-upgrade.md)
 * [Releases](release-notes/releases/README.md)
+  * [v0.4.1 - beta](release-notes/releases/v0.4.1-beta.md)
   * [v0.4.0 - beta](release-notes/releases/v0.4.0-beta.md)
   * [v0.3.6 - beta](release-notes/releases/v0.3.6-beta.md)
   * [v0.3.5 - beta](release-notes/releases/v0.3.5-beta.md)
