@@ -102,7 +102,7 @@ The UI will be available through **https://\<Public IP>:9000**
 Destroy Memphis App -&#x20;
 
 ```bash
-make destroyapp
+make destroymemphis
 ```
 
 {% hint style="info" %}
