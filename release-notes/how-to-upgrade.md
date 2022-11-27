@@ -44,8 +44,8 @@ helm repo update
 
 Re-install Memphis
 
-{% content-ref url="../deployment/kubernetes/" %}
-[kubernetes](../deployment/kubernetes/)
+{% content-ref url="../deployment/kubernetes.md" %}
+[kubernetes.md](../deployment/kubernetes.md)
 {% endcontent-ref %}
 {% endtab %}
 {% endtabs %}

@@ -1,7 +1,7 @@
 # General
 
 {% hint style="info" %}
-You can access the UI just after the installation of Memphis via K8S / Docker on your dev environment [here](../deployment/kubernetes/).
+You can access the UI just after the installation of Memphis via K8S / Docker on your dev environment [here](../deployment/kubernetes.md).
 {% endhint %}
 
 The UI is designed to simplify your work with Memphis and give you a graphical user interface for controlling your stations and observing your data. A few simple clicks can create a messaging queue ready to work, add a function to enrich your data, or monitor/manage your activity.
