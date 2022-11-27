@@ -26,7 +26,6 @@ Memphis has been under heavy development for the past two years, and we've reach
   * 256KB
   * 1MB
 * Messages rate - 300msgs/sec\*
-* Method: Async
 
 (\*) To align and run the same frequency across the different message sizes
 
@@ -38,6 +37,8 @@ Memphis has been under heavy development for the past two years, and we've reach
 \---------------------------------------------------
 
 ## Produce
+
+Method: Async.
 
 Demonstrates latency and stability over time for the different message sizes.
 
@@ -75,4 +76,6 @@ The following graph demonstrates the average latency across 1000 seconds per siz
 <figure><img src="https://lh3.googleusercontent.com/8vjaKSy68iGYaOOhKf5JvDpdxai316awkZ3tdiybnGJBcK82-EkoaleP8eOhj1IZOc8jGQVY4TQHP6G_zCe_fjTNJbmf3LD1bDexdiltNE5xnOGcyB2-yj6YUTfISiHslb-D7QY6MWwmbeVxsVM6rhZzXU_RkWTgAXSwl8ZzfBdqHTUymE2G-LT2QXTJ_g" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://lh4.googleusercontent.com/etazDswFwwpJjJc-qeqVLV2_SFPc6dTqE7DT6VwdSOD66N2UnUJud9wbLkOj-2YF6vuSLIY_P9pkrEGZk-d_C_MGf8McCFQDc3Ig1B0oOX3QJ9YBsk80zXyF8nCI_r0D-8DPSRYPYfh5naeh7K-zva_9IUEVBj8JMox2u1hzbhGH2Ru9YVmiuxK2MOoFxA" alt=""><figcaption></figcaption></figure>
+
+## Consume
 
