@@ -13,10 +13,10 @@ Having said that, during the time that data is in fact resides in the broker its
 
 <figure><img src="../../.gitbook/assets/stream file (3).jpeg" alt=""><figcaption></figcaption></figure>
 
-Each station implements a stream file that contains the messages stored in the station. \
-It is up to the user to define which type of storage will this stream file be saved.
+Each station implements a stream object that contains the messages stored in the station. \
+It is up to the user to define which type of storage will this stream object be saved.
 
-The options are Memory or File.
+The options are Memory or Disk.
 
 * **Memory**
 
@@ -24,7 +24,7 @@ The options are Memory or File.
 
 <figure><img src="../../.gitbook/assets/mem ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
-* **File**
+* **Disk**
 
 <figure><img src="../../.gitbook/assets/storage type file.jpeg" alt=""><figcaption></figcaption></figure>
 

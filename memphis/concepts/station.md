@@ -17,6 +17,8 @@ Each station is distributed across one or more Memphis brokers, depending on the
 
 A station is a virtual entity that resides on a type of file called "stream" which actually stores the data itself. Stream files are stored on the broker's memory or non-volatile storage, based on the user's configuration per station.&#x20;
 
+Each station stores a stream component with a single leader on the most available broker for consensus reasons. In case of broker failure, the leader role will be transferred to a different broker.
+
 Naturally, choosing memory persistency will improve performance, while file-based persistency will provide higher resiliency.
 
 <figure><img src="../../.gitbook/assets/stream file.jpeg" alt=""><figcaption></figcaption></figure>
@@ -33,7 +35,7 @@ Each stream contains the following objects
 
 <figure><img src="../../.gitbook/assets/storage type memory.jpeg" alt=""><figcaption></figcaption></figure>
 
-* **File** - Improved resiliency
+* **Disk** - Improved resiliency
 
 <figure><img src="../../.gitbook/assets/storage type file (1).jpeg" alt=""><figcaption></figcaption></figure>
 
