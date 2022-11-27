@@ -45,7 +45,9 @@
   * [Deploy on GCP](deployment/cloud-deployment/deploy-on-gcp.md)
   * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
   * [Deploy on Azure](deployment/cloud-deployment/deploy-on-azure.md)
-* [Kubernetes](deployment/kubernetes.md)
+* [Kubernetes](deployment/kubernetes/README.md)
+  * [1 - Installation](deployment/kubernetes/1-installation.md)
+  * [2 - Access](deployment/kubernetes/2-access.md)
 * [Docker](deployment/docker-compose.md)
 
 ## SDKs
