@@ -1,5 +1,5 @@
 ---
-description: Deploy Memphis over Kubernetes using helm
+description: Deploy Memphis over Kubernetes using Helm
 ---
 
 # Kubernetes
