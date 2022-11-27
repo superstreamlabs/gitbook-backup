@@ -20,20 +20,4 @@ Memphis{dev} enables building next-generation applications that require large vo
 
 ### 👉 **Start here: Choose your preferred environment -**&#x20;
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-type="files"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Kubernetes (Production)</strong></td><td><a href="./#kubernetes-production">Here</a></td><td>Kubernetes (Production)</td><td></td><td><a href=".gitbook/assets/kubernetes banner (1).jpeg">kubernetes banner (1).jpeg</a></td><td><a href=".gitbook/assets/kubernetes banner (2).jpeg">kubernetes banner (2).jpeg</a></td><td></td></tr><tr><td><strong>Cloud Providers (Prod)</strong></td><td><a href="deployment/cloud-deployment/">Here</a></td><td></td><td></td><td></td><td><a href=".gitbook/assets/cloud providors banner (1).jpeg">cloud providors banner (1).jpeg</a></td><td></td></tr><tr><td><strong>Docker (Dev)</strong></td><td><a href="./#kubernetes-production">Here</a></td><td></td><td></td><td></td><td><a href=".gitbook/assets/Docker banner.jpeg">Docker banner.jpeg</a></td><td></td></tr></tbody></table>
-
-### Kubernetes (For <mark style="color:purple;">production</mark> environments)
-
-```
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
-```
-
-For more technical information, please head [here.](deployment/kubernetes.md)
-
-### Docker (<mark style="color:purple;">For development/test environments only</mark>)
-
-```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
-```
-
-For more technical information, please head [here.](deployment/docker-compose.md)
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-type="files"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Kubernetes (Production)</strong></td><td><a href="deployment/kubernetes.md">Here</a></td><td>Kubernetes (Production)</td><td></td><td><a href=".gitbook/assets/kubernetes banner (1).jpeg">kubernetes banner (1).jpeg</a></td><td><a href=".gitbook/assets/kubernetes banner (2).jpeg">kubernetes banner (2).jpeg</a></td><td></td></tr><tr><td><strong>Cloud Providers (Prod)</strong></td><td><a href="deployment/cloud-deployment/">Here</a></td><td></td><td></td><td></td><td><a href=".gitbook/assets/cloud providors banner (1).jpeg">cloud providors banner (1).jpeg</a></td><td></td></tr><tr><td><strong>Docker (Dev)</strong></td><td><a href="deployment/docker-compose.md">Here</a></td><td></td><td></td><td></td><td><a href=".gitbook/assets/Docker banner.jpeg">Docker banner.jpeg</a></td><td></td></tr></tbody></table>

@@ -1,11 +1,10 @@
 ---
+description: 0.4.1-beta
 cover: ../.gitbook/assets/Overview..jpg
 coverY: 0
 ---
 
 # Overview
-
-<img src="../.gitbook/assets/Screen Shot 2022-10-09 at 12.23.33.png" alt="" data-size="line">
 
 ### What is Memphis{dev}?
 
@@ -39,12 +38,12 @@ Memphis' platform requires zero ops, enables rapid development, extreme cost red
 * Easy-to-use UI, CLI, and SDKs
 * Data-level observability
 * Runs on your Docker or Kubernetes
-* Message Journey
+* Real-time event tracing
 * SDKs: Python, Go, Node.js, Typescript, Nest.JS
+* Embedded schema management using Avro, and Protobuf
 
 **Coming**
 
-* Embedded schema management using Avro, and Protobuf
 * Ready-to-use connectors and analysis functions
 * More SDKs
 * Inline processing
