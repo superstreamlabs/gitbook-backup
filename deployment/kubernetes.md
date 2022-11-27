@@ -14,7 +14,7 @@ Helm is a k8s package manager that allows users to deploy apps in a single, conf
 
 More information about Helm can be found [here](https://helm.sh/docs/topics/charts/).
 
-Memphis is cloud-native and agnostic to any Kubernetes on any cloud. This means it can be deployed over production environments with Helm.
+Memphis is cloud-native and agnostic to any Kubernetes on **any cloud**.
 
 ### Requirements
 
@@ -85,16 +85,6 @@ helm install memphis --set cluster.enabled="true" memphis/memphis --create-names
 | dashboard.port  | Dashboard's (GUI) port                                                   | 80            |
 | cluster.enabled | Cluster mode for HA and Performance                                      | "false"       |
 | analytics       | Collection of anonymous metadata                                         | "true"        |
-
-```
-helm install <name of the deployment> memphis/memphis --create-namespace --namespace <name os the ns>
-```
-
-An example of a command with real values:
-
-```
-helm install memphis memphis/memphis --create-namespace --namespace memphis
-```
 
 An example with configured options:
 
