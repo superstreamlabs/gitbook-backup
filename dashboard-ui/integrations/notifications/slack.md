@@ -6,6 +6,8 @@ coverY: 0
 
 # Slack
 
+Receive alerts and notifications directly to your chosen slack channel for faster response and better real-time observability.
+
 ### Step 1: Create an app
 
 Please [create](https://api.slack.com/apps/new) an app 'from scratch'
