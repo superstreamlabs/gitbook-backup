@@ -22,7 +22,7 @@ On the producer side, this can happen as illustrated below.
 4. The producer will treat the lack of acknowledgment as a temporary network issue and retry sending the message (since it can’t know it was received).
 5. In that case, the broker will end up having the same message twice.
 
-<figure><img src="../../.gitbook/assets/idempotence 1.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/idempotence 1 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 On the consumer side, this can happen as illustrated below.
 

@@ -23,19 +23,19 @@ As the user configures a client connection to Memphis, it comprises several obje
 
 **Connection**
 
-* host: Memphis URL
-* port: Memphis port
-* username: Can be root or any other application-type user
-* connectionToken: The token received when the user created. Will change in the future to more robust credentials and authentication system
-* reconnect: The connection entity will try to reconnect to Memphis in case of a disconnection
-* maxReconnect: Amount of time the client will try to reconnect before backing off
-* reconnectIntervalMs: Time window between one retry to another
-* timeoutMs: Ability to kill a dead connection after explicit time
+* `host`: Memphis URL
+* `port`: Memphis port
+* `username`: Can be root or any other application-type user
+* `connectionToken`: The token received when the user created. Will change in the future to more robust credentials and authentication system
+* `reconnect`: The connection entity will try to reconnect to Memphis in case of a disconnection
+* `maxReconnect`: Amount of time the client will try to reconnect before backing off
+* `reconnectIntervalMs`: Time window between one retry to another
+* `timeoutMs`: Ability to kill a dead connection after explicit time
 
 **Producer**
 
-* stationName: The name of the station to be connected&#x20;
-* producerName: In a station resolution, each connected producer must have a unique identity
+* `stationName`: The name of the station to be connected&#x20;
+* `producerName`: In a station resolution, each connected producer must have a unique identity
 
 {% hint style="info" %}
 For more information about how to connect a producer to Memphis, please head [here](broken-reference)
