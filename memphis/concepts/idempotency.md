@@ -38,14 +38,22 @@ On the consumer side, this can happen as illustrated below.
 
 Producer idempotence ensures that duplicates are not introduced due to unexpected retries.
 
-When creating a new station, the user is asked to choose the timing for the idempotence mechanism.
-
-Via the GUI it will like this -&#x20;
 
 
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-11-30 at 12.18.38.png" alt=""><figcaption></figcaption></figure>
+
+With an idempotency producer, the process will take place as illustrated below.
 
 <figure><img src="../../.gitbook/assets/idempotence producer.jpeg" alt=""><figcaption></figcaption></figure>
 
-###
+### **How does it work internally?**
+
+1. The producer&#x20;
+
+### Step 1: Set up idempotency cache time
+
+Via the GUI or SDK, during station creation.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-11-30 at 12.18.38.png" alt=""><figcaption><p>GUI</p></figcaption></figure>
 
 Search terms: Consumed multiple times, duplicate message
