@@ -26,7 +26,7 @@
   * [Ordering](memphis/concepts/ordering.md)
   * [Dead-letter Station (DLQ)](dashboard-ui/troubleshooting/dead-letter.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
-  * [Idempotency](memphis/concepts/idempotency.md)
+  * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
 * [Tiered Storage](memphis/tiered-storage.md)
 * [Schemaverse - Schema Management](memphis/schemaverse-schema-management/README.md)
   * [Overview and Architecture](memphis/schemaverse-schema-management/overview-and-architecture.md)
