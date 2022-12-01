@@ -1,13 +1,18 @@
 ---
+description: This section describes the different storage and redundancy options
 cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
 # Storage and Redundancy
 
-Data redundancy in the field of streaming can be a bit misleading. As you know and written on the [station](station.md) page, in message brokers, data is not preserved for infinite time but for a defined period based on a certain condition like ingested time, size, and the number of messages within a station.
 
-Having said that, during the time that data is in fact resides in the broker itself, it should be redundant and get removed only when facing the defined retention policy.
+
+Data redundancy in the field of streaming can be a bit misleading. As written on the [station](station.md) page, in message brokers, data is not preserved for an infinite time but for a defined period based on certain conditions like ingested time, size, and the number of messages within a station.
+
+During the time that data resides in the broker itself, it should be redundant and get removed only when crossing the defined retention policy.
+
+
 
 ### Storage types
 
@@ -27,6 +32,8 @@ The options are Memory or Disk.
 * **Disk**
 
 <figure><img src="../../.gitbook/assets/storage type file.jpeg" alt=""><figcaption></figcaption></figure>
+
+
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
