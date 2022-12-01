@@ -52,20 +52,38 @@ With an idempotency producer, the process will take place as illustrated below.
 
 ### Step 1: Set up idempotency cache time
 
-Via the GUI or SDK, during station creation.
+Via the GUI during station creation.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-11-30 at 12.18.38.png" alt=""><figcaption><p>GUI example</p></figcaption></figure>
+
+Or via the different SDKs.
+
+```
+idempotencyWindowMs: 0, // defaults to 120000
+```
 
 As explained in "[How does it work internally?](idempotency.md#how-does-it-work-internally)", the timer is responsible for the retention of the messages IDs table. For example, if 3 hours are chosen, the table will be emptied every three hours.
 
 ### Step 2: Set up messages IDs
 
-Soon.
+Producer becomes idempotence once adding IDs to the messages.
 
-## Consumer side - How to avoid?
+For example:
 
-**Producer idempotence** ensures that duplicate messages are not introduced due to unexpected retries.
+```
+await producer.produce({
+    message: '<bytes array>/object', // Uint8Arrays / You can send object in case your station is schema validated
+    ackWaitSec: 15, // defaults to 15
+    msgId: "fdfd" // defaults to null
+});
+```
 
-With an idempotency producer, the process will take place as illustrated below.
+## Consumer group side - How to avoid?
+
+**Consumer idempotence** ensures that duplicate messages are not introduced due to unexpected retries.
+
+To avoid the situation, it is recommended to use idempotence producers and set `maxMsgDeliveries` to 1 on the consumer side.
+
+By configuring `maxMsgDeliveries` to 1, in a sudden failure of the consumer in a CG, the entire CG will not receive the same message again, and it will be stored automatically in the [DLS](../../dashboard-ui/troubleshooting/dead-letter.md) for supervised retries.
 
 Search terms: Consumed multiple times, duplicate message
