@@ -32,6 +32,12 @@
   * [FAQs](memphis/schemaverse-schema-management/faqs.md)
 * [Benchmark](memphis/benchmark.md)
 * [Cluster configuration](memphis/cluster-configuration.md)
+* [Comparisons](memphis/comparisons/README.md)
+  * [Redpanda vs Memphis](memphis/comparisons/redpanda-vs-memphis.md)
+  * [NATS vs Memphis](memphis/comparisons/nats-vs-memphis.md)
+  * [Pulsar vs Memphis](memphis/comparisons/pulsar-vs-memphis.md)
+  * [Apache Kafka vs Memphis](memphis/comparisons/apache-kafka-vs-memphis.md)
+  * [RabbitMQ vs Memphis](memphis/comparisons/rabbitmq-vs-memphis.md)
 * [Roadmap](memphis/roadmap.md)
 * [Privacy](memphis/privacy.md)
 
