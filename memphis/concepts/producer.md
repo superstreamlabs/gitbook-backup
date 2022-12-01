@@ -24,13 +24,15 @@ Memphis started from NATS which receives, stores, and sends data in binary forma
 
 When a producer produces messages to Memphis station, they should be converted into binary.
 
-An example from the `node.js` SDK -
+An example from the `node.js` SDK using `Buffer.from` -
 
 ```
 await producer.produce({
   message: Buffer.from("Message: Hello world"),
 });
 ```
+
+<figure><img src="../../.gitbook/assets/produce 1.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Parameters
 
