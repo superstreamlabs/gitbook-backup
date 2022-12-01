@@ -1,5 +1,5 @@
 ---
-description: This section describes the differeneces between the Redpanda and Memphis
+description: This section describes the differeneces between Redpanda and Memphis
 ---
 
 # Redpanda vs Memphis
