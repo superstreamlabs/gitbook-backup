@@ -1,11 +1,12 @@
 ---
+description: This section describes Memphis consumer API
 cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
 # Consumer API
 
-### What is a consumer?
+## What is a consumer?
 
 A consumer is a client that reads data or messages from the broker or more specifically from the station.&#x20;
 
@@ -16,6 +17,23 @@ As the user configures a client connection to Memphis, it comprises several obje
 * (And/Or) Producer - A producer entity must be declared to write data/messages into Memphis.
 
 <figure><img src="../../.gitbook/assets/Producer.jpeg" alt=""><figcaption></figcaption></figure>
+
+### Broker Data Format
+
+Memphis started from NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
+
+When consumers consume messages to Memphis station, they should be converted from binary to string or any other type needed.
+
+An example from the `node.js` SDK using `.getData().toString()` -
+
+```
+consumer.on('message', (message) => {
+  let msg = message.getData().toString();
+  message.ack();
+});
+```
+
+<figure><img src="../../.gitbook/assets/consume 1.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Parameters
 
@@ -49,7 +67,7 @@ For more information about how to create and connect a consumer to Memphis,&#x20
 please head [here](broken-reference)
 {% endhint %}
 
-### Supported Protocols
+## Supported Protocols
 
 * NATS Protocol (Client SDKs)
 * HTTP \* Soon \*

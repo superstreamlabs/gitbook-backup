@@ -1,5 +1,5 @@
 ---
-description: This section describes the producer API
+description: This section describes Memphis producer API
 cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
