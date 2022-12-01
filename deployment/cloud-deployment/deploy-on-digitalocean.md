@@ -119,6 +119,6 @@ kubectl get svc
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-09-04 at 23.40.09.png" alt=""><figcaption></figcaption></figure>
 
-{% content-ref url="../../getting-started/tutorials/" %}
-[tutorials](../../getting-started/tutorials/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}

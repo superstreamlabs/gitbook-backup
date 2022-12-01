@@ -5,9 +5,6 @@
 * [Step 1 - Installation](README.md)
 * [Step 2 - Hello World](getting-started/2-hello-world.md)
 * [Use cases](getting-started/3-use-cases.md)
-* [Tutorials](getting-started/tutorials/README.md)
-  * [Event-driven app](getting-started/tutorials/event-driven-app.md)
-  * [Real-time chat app](getting-started/tutorials/real-time-chat-app.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
 
 ## ⭐ Memphis
