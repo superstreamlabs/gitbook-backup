@@ -47,3 +47,4 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
+### Tier 2 (Cold storage)
