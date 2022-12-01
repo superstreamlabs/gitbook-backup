@@ -17,7 +17,7 @@ When data resides in the broker, it will be redundant and removed only when cros
 Each station implements a stream object that contains the messages stored in the station. \
 It is up to the user to define which type of storage will this stream object be saved.
 
-<figure><img src="../../.gitbook/assets/stream file (3).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/stream.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Storage tiering
 
@@ -41,10 +41,21 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
   ****For higher availability.\
   Disk storage might be slower than memory, but it offers greater availability and resiliency to broker failures.
 
-<figure><img src="../../.gitbook/assets/storage type file.jpeg" alt=""><figcaption><p>Stream object as it construct and stored on disk storage</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/disk.jpeg" alt=""><figcaption></figcaption></figure>
 
 
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
 ### Tier 2 (Cold storage)
+
+The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.
+
+Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.
+
+Each message that expels from the station will automatically migrate to the 2nd storage tier.
+
+* **S3 (Object storage)**\
+  ****Built to store and retrieve any amount of data from anywhere using S3 protocol.\
+  Object storage offers different storage classes with different costs and performance requirements.\
+  Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and [more](https://documentation.commvault.com/v11/essential/9237\_supported\_cloud\_storage\_s3\_compatible\_object\_storage\_vendors.html).
