@@ -1,13 +1,14 @@
 ---
+description: This section describes the producer API
 cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
 # Producer API
 
-### What is a producer?
+## What is a producer?
 
-A producer is the source application/service that pushes data or messages to the broker or more specifically to the station.&#x20;
+A producer is the source application/service that pushes data or messages to the broker or more specifically, to the station.&#x20;
 
 As the user configures a client connection to Memphis, it comprises several objects
 
@@ -16,6 +17,20 @@ As the user configures a client connection to Memphis, it comprises several obje
 * (And/Or) Consumer - A consumer entity must be declared to read data/messages from Memphis.
 
 <figure><img src="../../.gitbook/assets/Producer.jpeg" alt=""><figcaption></figcaption></figure>
+
+### Broker Data Format
+
+Memphis started from NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
+
+When a producer produces messages to Memphis station, they should be converted into binary.
+
+An example from the `node.js` SDK -
+
+```
+await producer.produce({
+  message: Buffer.from("Message: Hello world"),
+});
+```
 
 ### Parameters
 
@@ -41,12 +56,12 @@ As the user configures a client connection to Memphis, it comprises several obje
 For more information about how to connect a producer to Memphis, please head [here](broken-reference)
 {% endhint %}
 
-### Scale considerations
+## Scale considerations
 
 A producer is a logical entity that writes data to a Memphis station.\
 By adding more producers, the throughput will be increased accordingly due to the additional writers.
 
-### Supported Protocols
+## Supported Protocols
 
 * NATS Protocol (Client SDKs)
 * HTTP \* Soon \*
