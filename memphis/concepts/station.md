@@ -63,7 +63,7 @@ Each produced message receives a dedicated timer and will be removed after hitti
 
 Ordering is guaranteed only while working with a single consumer group.
 
-As seen in the illustration below, each consumer group will receive all the messages stored within the station.
+As seen in the illustration below, each **consumer group** will receive **all** the messages stored within the station.
 
 <figure><img src="../../.gitbook/assets/ordering.jpeg" alt=""><figcaption></figcaption></figure>
 
