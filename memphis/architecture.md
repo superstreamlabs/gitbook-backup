@@ -18,7 +18,7 @@ MongoDB is not necessary for data traffic or standard broker behavior, but rathe
 
 ### Ordering
 
-Ordering is guaranteed only while working with a single consumer.
+Ordering is guaranteed only while working with a single consumer group.
 
 ![](../.gitbook/assets/ordering.jpeg)
 

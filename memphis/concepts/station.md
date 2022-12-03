@@ -59,6 +59,14 @@ High threshold for station capacity in bytes.
 
 Each produced message receives a dedicated timer and will be removed after hitting the configured time.
 
+### Ordering and delivery
+
+Ordering is guaranteed only while working with a single consumer group.
+
+As seen in the illustration below, each consumer group will receive all the messages stored within the station.
+
+<figure><img src="../../.gitbook/assets/ordering.jpeg" alt=""><figcaption></figcaption></figure>
+
 Searched terms: retention, Retention
 
 
