@@ -71,7 +71,8 @@ s1, err = c.CreateStation("&#x3C;station-name>",
 </strong> StorageTypeOpt(&#x3C;Memory/Disk>), 
  Replicas(&#x3C;int>), 
  EnableDedup(), 
- DedupWindow(&#x3C;time.Duration>))</code></pre>
+ DedupWindow(&#x3C;time.Duration>))
+</code></pre>
 
 ### Retention Types
 
