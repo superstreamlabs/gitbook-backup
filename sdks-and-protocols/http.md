@@ -6,9 +6,16 @@ description: Produce messages to a station via HTTP protocol
 
 ## Introduction
 
-To enable message produce via HTTP for various use cases and ease of use, Memphis added an HTTP proxy that is able to receive messages via HTTP and produce those messages to the required station as a TCP-based client.
+To enable message production via HTTP for various use cases and ease of use, Memphis added an HTTP proxy to receive messages via HTTP and produce those messages to the required station as a TCP-based client.
 
-Popular use cases are producing events directly from a browser, user session, frontend,
+Popular use cases are producing events directly from a browser, user session, frontend, and receiving data through 3rd party apps.
+
+## Architecture
+
+1. An endpoint creates an HTTP request toward the HTTP Proxy
+2.
+
+<figure><img src="../.gitbook/assets/http proxy.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Usage
 
