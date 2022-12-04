@@ -1,16 +1,14 @@
 ---
-description: Memphis HTTP proxy
+description: Produce messages to a station via HTTP protocol
 ---
 
 # HTTP
 
-## Deployment
+## Introduction
 
-{% hint style="info" %}
-First, install Memphis via [K8S](../deployment/kubernetes/) / [Docker](../deployment/docker-compose.md).
-{% endhint %}
+To enable message produce via HTTP for various use cases and ease of use, Memphis added an HTTP proxy that is able to receive messages via HTTP and produce those messages to the required station as a TCP-based client.
 
-After Memphis deployment the HTTP proxy will run on port 4444
+Popular use cases are producing events directly from a browser, user session, frontend,
 
 ## Usage
 
