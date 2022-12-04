@@ -6,7 +6,7 @@ coverY: 0
 
 # Slack
 
-## Introduction
+Introduction
 
 Receive alerts and notifications directly to your chosen slack channel for faster response and better real-time observability.
 
@@ -56,3 +56,10 @@ For the channel ID -> left-click over the designated slack channel in your works
 
 ### Step 4: Invite the new bot to the required channel
 
+Enter the desired channel -> Click on the "+" button on the bottom-left corner -> Click on "Browse apps."
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-12-04 at 13.42.34 (1).png" alt=""><figcaption></figcaption></figure>
+
+Search for the newly created slack app.
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-12-04 at 13.47.08.png" alt=""><figcaption></figcaption></figure>
