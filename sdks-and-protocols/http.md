@@ -62,7 +62,7 @@ Expected output:
 {"expires_in":900000,"jwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.4KOGRhUaqvm-qSHnmMwX5VrLKsvHo33u3UdJ0qYP0kI"}
 ```
 
-### Produce Single Message
+### Produce a single message
 
 {% hint style="info" %}
 Attach the JWT token to every request.\
@@ -79,7 +79,7 @@ JWT token as '`Bearer`' as a header.
 
 ```
 curl --location --request POST 'http_proxy:4444/stations/<station_name>/produce/single' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.4KOGRhUaqvm-qSHnmMwX5VrLKsvHo33u3UdJ0qYP0kI' \
+--header 'Authorization: Bearer eyJhbGciOiJIU**********.e30.4KOGRhUaqvm-qSHnmMwX5VrLKsvHo33u3UdJ0qYP0kI' \
 --header 'Content-Type: application/json' \
 --data-raw '{"message": "New Message"}'
 ```
@@ -96,15 +96,11 @@ Expected output:
 {"error":"Schema validation has failed: jsonschema: '' does not validate with file:///Users/user/memphisdev/memphis-http-proxy/123#/required: missing properties: 'field1', 'field2', 'field3'","success":false}
 ```
 
-
-
-### Produce Batch Of Messages&#x20;
+### Produce a batch of messages&#x20;
 
 {% hint style="info" %}
-Attach to every request:\
-JWT token as 'Bearer'\
-Headers - Content-Type, and any other headers\
-Body
+Attach the JWT token to every request.\
+JWT token as '`Bearer`' as a header.
 {% endhint %}
 
 #### Supported content types:
@@ -135,6 +131,3 @@ Expected output:
 ```
 {"errors":["Schema validation has failed: jsonschema: '' does not validate with file:///Users/user/memphisdev/memphis-http-proxy/123#/required: missing properties: 'field1'","Schema validation has failed: jsonschema: '' does not validate with file:///Users/user/memphisdev/memphis-http-proxy/123#/required: missing properties: 'field1'"],"fail":2,"sent":1,"success":false}
 ```
-
-
-
