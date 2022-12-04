@@ -5,7 +5,7 @@ coverY: 0
 
 # Station
 
-### What is a station?
+## What is a station?
 
 A station is a distributed unit that stores messages. Similar to Kafka's topics and RabbitMQ's queues. Each station has a retention policy, which defines when and how messages will be removed from the station—for example, by the number of stored messages, store time, or total size of stored messages.
 
@@ -15,11 +15,20 @@ Each station is distributed across one or more Memphis brokers, depending on the
 
 <figure><img src="../../.gitbook/assets/station_2.jpeg" alt=""><figcaption><p>Produce/Consume data</p></figcaption></figure>
 
-A station is a virtual entity that resides on a type of file called "stream" which actually stores the data itself. Stream files are stored on the broker's memory or non-volatile storage, based on the user's configuration per station.&#x20;
+A station is a virtual entity that resides on a type of file called "stream" which stores the data. Stream files are stored on the broker's memory or non-volatile storage, based on the user's configuration per station.&#x20;
 
-Each station stores a stream component with a single leader on the most available broker for consensus reasons. In case of broker failure, the leader role will be transferred to a different broker.
+### Leaders and followers
 
-Naturally, choosing memory persistency will improve performance, while file-based persistency will provide higher resiliency.
+Memphis is based on NATS Jetstream, which makes use of RAFT algorithm as a non-quorum consensus algorithm.
+
+Raft is a consensus algorithm designed as an alternative to the Paxos family of algorithms.\
+Raft offers a generic way to distribute a state machine across a cluster of computing systems, ensuring that each node in the cluster agrees upon the same series of state transitions.
+
+Raft is not a Byzantine fault-tolerant algorithm: the nodes trust the elected leader.
+
+Each station stores a stream component with a single leader on the most available broker for consensus reasons. In case of broker failure, the leader role will be transferred to a follower in configured replicas.
+
+Naturally, choosing memory persistency will improve performance, while disk-based persistency will provide higher availability.
 
 <figure><img src="../../.gitbook/assets/stream file.jpeg" alt=""><figcaption></figcaption></figure>
 
