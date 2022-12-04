@@ -13,9 +13,11 @@ Popular use cases are producing events directly from a browser, user session, fr
 ## Architecture
 
 1. An endpoint creates an HTTP request toward the HTTP Proxy
-2.
+2. The HTTP Proxy receives the incoming request and produces it as a message to the station
 
 <figure><img src="../.gitbook/assets/http proxy.jpeg" alt=""><figcaption></figcaption></figure>
+
+For scale requirements, the "HTTP Proxy" component is apart from the brokers' pod and can be scale-out individually.
 
 ## Usage
 
