@@ -50,7 +50,7 @@ For the bot token
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 20.55.27.png" alt=""><figcaption></figcaption></figure>
 
-For the channel ID -> left-click over the designated slack channel in your workspace -> View channel details -> Scroll all the way down in the "About" tab -> Copy and paste the ID
+For the channel ID -> left-click over the designated slack channel in your workspace -> View channel details -> Scroll down in the "About" tab -> Copy and paste the ID
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-23 at 21.01.18.png" alt=""><figcaption></figcaption></figure>
 
