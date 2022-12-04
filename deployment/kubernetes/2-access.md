@@ -59,6 +59,7 @@ helm install my-memphis memphis --set analytics='false',cluster.enabled="true",w
 {% code lineNumbers="true" %}
 ```
 kubectl expose service memphis-cluster --port=9000,7770  --name=external-service --type=LoadBalancer -n memphis
+kubectl expose service memphis-http-proxy --port=4444  --name=http-external-service --type=LoadBalancer -n memphis
 kubectl -n memphis-sandbox patch svc external-service -p '{"spec":{"ports": [{"port": 443,"name":"https","targetPort": 9000}]}}'
 ```
 {% endcode %}
