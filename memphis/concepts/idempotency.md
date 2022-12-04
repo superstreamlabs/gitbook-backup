@@ -1,5 +1,7 @@
 ---
 description: What is it? And how to avoid it.
+cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
+coverY: 0
 ---
 
 # Idempotency (Duplicate processing)
