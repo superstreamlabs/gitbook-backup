@@ -172,12 +172,12 @@ package main
 {% endtab %}
 
 {% tab title="Python" %}
-{% content-ref url="../sdks/python/example-producer.md" %}
-[example-producer.md](../sdks/python/example-producer.md)
+{% content-ref url="../sdks-and-protocols/python/example-producer.md" %}
+[example-producer.md](../sdks-and-protocols/python/example-producer.md)
 {% endcontent-ref %}
 
-{% content-ref url="../sdks/python/example-consumer.md" %}
-[example-consumer.md](../sdks/python/example-consumer.md)
+{% content-ref url="../sdks-and-protocols/python/example-consumer.md" %}
+[example-consumer.md](../sdks-and-protocols/python/example-consumer.md)
 {% endcontent-ref %}
 
 
