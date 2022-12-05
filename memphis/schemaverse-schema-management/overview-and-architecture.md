@@ -83,4 +83,3 @@ That process establishes the message's initial validation before it reaches the 
 ### To consider
 
 * Schema attachment can be disruptive because it will update producers (live) to drop messages that are not aligned with the attached schema.
-*
