@@ -1,3 +1,7 @@
+---
+description: This section describes Memphis' architecture
+---
+
 # Architecture
 
 ### Connectivity Diagram
@@ -16,17 +20,23 @@ Consumers are pull-based. The pull interval and the batch size can be configured
 
 MongoDB is not necessary for data traffic or standard broker behavior, but rather responsible for UI state and metadata only.
 
+### Cluster mode (For production)
+
+Full kubernetes-based layout.
+
+<figure><img src="../.gitbook/assets/Memphis Architecture (1).jpg" alt=""><figcaption></figcaption></figure>
+
 ### Ordering
 
 Ordering is guaranteed only while working with a single consumer group.
 
 ![](../.gitbook/assets/ordering.jpeg)
 
-### Protection
+### Mirroring
 
-Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis, called RAFT, and compared to Apache ZooKeeper widely used by other projects like Kafka, does not require a witness or a standalone Quorum. RAFT is also equivalent to Paxos in fault tolerance and performance.
+Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis, called RAFT, and compared to Apache ZooKeeper, widely used by other projects like Kafka, does not require a witness or a standalone Quorum. RAFT is also equivalent to Paxos in fault tolerance and performance.
 
-In order to ensure data consistency and zero loss within complete broker’s restarts, Memphis brokers should run on different nodes and try to do it automatically. To comply with RAFT requirements which are ½ cluster size + 1, On K8S environment, three Memphis brokers will be deployed. The minimum number of brokers is three to ensure at least one node failure.
+To ensure data consistency and zero loss within complete broker’s restarts, Memphis brokers should run on different nodes and try to do it automatically. To comply with RAFT requirements which are ½ cluster size + 1, On K8S environment, three Memphis brokers will be deployed. The minimum number of brokers is three to ensure at least one node failure.
 
 ![](../.gitbook/assets/replications.jpeg)
 
