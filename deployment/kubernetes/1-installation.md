@@ -16,24 +16,25 @@ More information about Helm can be found [here](https://helm.sh/docs/topics/char
 
 Memphis is cloud-native and agnostic to any Kubernetes on **any cloud**.
 
-### Requirements
+## Requirements
 
 {% tabs %}
 {% tab title="Kubernetes" %}
 **Minimum Requirements (No HA)**
 
-<table><thead><tr><th>Resource</th><th>Quantity</th><th data-hidden></th></tr></thead><tbody><tr><td>K8S Nodes</td><td>1</td><td></td></tr><tr><td>CPU</td><td>2 CPU</td><td></td></tr><tr><td>Memory</td><td>4GB RAM</td><td></td></tr><tr><td>Storage</td><td>12GB PVC</td><td></td></tr></tbody></table>
+<table><thead><tr><th>Resource</th><th>Quantity</th><th data-hidden></th></tr></thead><tbody><tr><td>Minimum Kubernetes version</td><td>1.20 and above</td><td></td></tr><tr><td>K8S Nodes</td><td>1</td><td></td></tr><tr><td>CPU</td><td>2 CPU</td><td></td></tr><tr><td>Memory</td><td>4GB RAM</td><td></td></tr><tr><td>Storage</td><td>12GB PVC</td><td></td></tr></tbody></table>
 
 ***
 
 **Recommended Requirements (HA)**
 
-| Resource  | Minimum Quantity  |
-| --------- | ----------------- |
-| K8S Nodes | 3                 |
-| CPU       | 4 CPU             |
-| Memory    | 8GB RAM           |
-| Storage   | 12GB PVC Per node |
+| Resource                   | Minimum Quantity  |
+| -------------------------- | ----------------- |
+| Minimum Kubernetes version | 1.20 and above    |
+| K8S Nodes                  | 3                 |
+| CPU                        | 4 CPU             |
+| Memory                     | 8GB RAM           |
+| Storage                    | 12GB PVC Per node |
 {% endtab %}
 
 {% tab title="Docker" %}
@@ -48,7 +49,7 @@ Memphis is cloud-native and agnostic to any Kubernetes on **any cloud**.
 {% endtab %}
 {% endtabs %}
 
-### Installation
+## Installation
 
 <details>
 
