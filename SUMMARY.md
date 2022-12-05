@@ -74,20 +74,20 @@
 * [Java](sdks/java.md)
 * [Scala](sdks/scala.md)
 
-## Dashboard (UI)
+## Dashboard (GUI)
 
-* [General](dashboard-ui/general.md)
-* [Signup](dashboard-ui/signup.md)
-* [Login](dashboard-ui/login.md)
-* [Overview](dashboard-ui/overview.md)
-* [Stations](dashboard-ui/stations.md)
-* [Troubleshooting](dashboard-ui/troubleshooting/README.md)
-  * [System Logs](dashboard-ui/troubleshooting/system-logs.md)
-* [Integrations](dashboard-ui/integrations/README.md)
-  * [Notifications](dashboard-ui/integrations/notifications/README.md)
-    * [Slack](dashboard-ui/integrations/notifications/slack.md)
-* [Users](dashboard-ui/users.md)
-* [Settings](dashboard-ui/settings.md)
+* [General](dashboard-gui/general.md)
+* [Signup](dashboard-gui/signup.md)
+* [Login](dashboard-gui/login.md)
+* [Overview](dashboard-gui/overview.md)
+* [Stations](dashboard-gui/stations.md)
+* [Troubleshooting](dashboard-gui/troubleshooting/README.md)
+  * [System Logs](dashboard-gui/troubleshooting/system-logs.md)
+* [Integrations](dashboard-gui/integrations/README.md)
+  * [Notifications](dashboard-gui/integrations/notifications/README.md)
+    * [Slack](dashboard-gui/integrations/notifications/slack.md)
+* [Users](dashboard-gui/users.md)
+* [Settings](dashboard-gui/settings.md)
 
 ## CLI
 
@@ -98,6 +98,7 @@
 
 * [How to upgrade memphis](release-notes/how-to-upgrade.md)
 * [Releases](release-notes/releases/README.md)
+  * [v0.4.2 - beta](release-notes/releases/v0.4.2-beta.md)
   * [v0.4.1 - beta](release-notes/releases/v0.4.1-beta.md)
   * [v0.4.0 - beta](release-notes/releases/v0.4.0-beta.md)
   * [v0.3.6 - beta](release-notes/releases/v0.3.6-beta.md)
