@@ -8,7 +8,7 @@ description: Produce messages to a station via HTTP protocol
 
 To enable message production via HTTP for various use cases and ease of use, Memphis added an HTTP proxy to receive messages via HTTP and produce those messages to the required station as a TCP-based client.
 
-Popular use cases are producing events directly from a browser, user session, frontend, and receiving data through 3rd party apps.
+Popular use cases produce events directly from a browser, user session, frontend, and receiving data through 3rd party apps.
 
 ## Architecture
 
@@ -20,6 +20,15 @@ Popular use cases are producing events directly from a browser, user session, fr
 For scale requirements, the "HTTP Proxy" component is separate from the brokers' pod and can scale out individually.
 
 ## Usage
+
+{% hint style="info" %}
+Please make sure your 'http proxy' component is exposed either through localhost or public IP
+{% endhint %}
+
+{% hint style="info" %}
+The HTTP Proxy URL for the **sandbox** environment is:\
+https://proxy.sandbox.memphis.dev
+{% endhint %}
 
 ### Authenticate
 
