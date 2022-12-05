@@ -59,7 +59,7 @@ Standard installation of Memphis with a single broker
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis memphis/memphis --create-namespace --namespace memphis
+helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -72,7 +72,7 @@ Production-grade Memphis with three memphis brokers configured in cluster-mode
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis
+helm install memphis --set cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
