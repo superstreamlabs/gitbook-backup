@@ -44,7 +44,7 @@ Demonstrates latency and stability over time for the different message sizes.
 
 As can be seen, the graph starts at 0.2ms and climbs to 0.470ms - 0.549ms
 
-<figure><img src="../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Produce - Latency (512B-1KB).jpeg" alt=""><figcaption></figcaption></figure>
 
 In the larger sizes, the graph starts from 26.47ms-435ms and climbs to 65.229ms-503ms
 
