@@ -48,7 +48,7 @@ As can be seen, the graph starts at 0.2ms and climbs to 0.470ms - 0.549ms
 
 In the larger sizes, the graph starts from 26.47ms-435ms and climbs to 65.229ms-503ms
 
-<figure><img src="https://lh5.googleusercontent.com/qYebZ51rxeKnPoriPCJkQ1lf-U5J-1boqNk8bV49SuNitzL2vNB49tHCevtWOz0yxB__tumnE_sNaMq7f528YsnKmn52P1UpXV3v2ZabfykA2DShkiuwnRtDYkmiCW0KqaEipz_IOOpNizW-PqEaC4F4Ui2xJXUd2DnVchkstaB9k-oB2dBpjUlAf10KRw" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Produce - Latency (256KB-1MB).jpeg" alt=""><figcaption></figcaption></figure>
 
 Summary table
 
@@ -61,21 +61,23 @@ Summary table
 
 The following graph demonstrates heavy-workload jobs, and the time the broker takes to finish a typical 1KB message size.
 
-<figure><img src="https://lh4.googleusercontent.com/JR3E-N-GhD8vqmfpsWXc3BhJUKeU2bwwDrDYu-D_A2EM2dfWG_W3BugbxHDUjID60axdvAt30cfm6immlZbdOvh-V1Cj5n3P31p_dZV8D5NxpUPrpt4CbVcwq2wbWh58oriaFZGDo92GoEwWjfZGaZ7DQDmBQb6A6PGwVWVYlCpqNfcM2YqdaCzJkBjS9A" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/heavy-workload jobs.jpeg" alt=""><figcaption></figcaption></figure>
 
 The following graph demonstrates the maximum amount of messages per second, per size.
 
-<figure><img src="https://lh5.googleusercontent.com/klva3hM0BCjJt1KJasKIN78WlB22OJOP3BQFqvwY8RwCZj3HlERhYC6VW3o5sDZTQeWgAeLxdlYlYhEOzw-jIsB1IN0pkm9h0j2gCxrU08P90RdIMa7ZaozoLyq4jRpQwFF9nXyXNZyYMKpPPkNAGidHPGbWkrcYppYAHvzeW3ElUkWSevvX9WvKouybSg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/sec vs. MsgSize 2.jpg" alt=""><figcaption></figcaption></figure>
 
-The following graph demonstrates the average latency across 1000 seconds per size. As can be seen, the general trend is fairly steady across the charts and through time.
+<figure><img src="../.gitbook/assets/sec vs. MsgSize.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh5.googleusercontent.com/vdYsTRbkiBr7bHQUCR2nEDvY_BlvW7WkGCrgI7VtPfp22TjjQpjwsJiwr9awCHbMLY_gXJ7F_B1szq7WtZcbBvJemBXwWC7EVq9n9Hl3PDqXjyoC3ykCXwC1bqOPqCK0jlz_sQEzXZ-TLi7oDym8aHlPRU_Fp1q0ERvV5ZJBs7BnlFjwTTAs0kbH4fuL8Q" alt=""><figcaption></figcaption></figure>
+The following graph demonstrates the average latency across 1000 seconds per size. As can be seen, the general trend is relatively steady across the charts and through time.
 
-<figure><img src="https://lh6.googleusercontent.com/_r3lQgvhLo_ij9_HtWPyAIKOk531vm9dF8hiwZe1aGsG-rWX9uIANIdFxLMvq_K4Lhdph_cCHnL1LR9u1ST8zoFwDWws0q4UcYhjcCLe9WA1jK3Fs064P3TfTwNl8NKMkfBh2aF4sdGRWrWLk95aycseNnlOCyaZiExUYg8IE50LZCz4ipXYHoNw5K_BhA" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) - 512B.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh3.googleusercontent.com/8vjaKSy68iGYaOOhKf5JvDpdxai316awkZ3tdiybnGJBcK82-EkoaleP8eOhj1IZOc8jGQVY4TQHP6G_zCe_fjTNJbmf3LD1bDexdiltNE5xnOGcyB2-yj6YUTfISiHslb-D7QY6MWwmbeVxsVM6rhZzXU_RkWTgAXSwl8ZzfBdqHTUymE2G-LT2QXTJ_g" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) - 1KB.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh4.googleusercontent.com/etazDswFwwpJjJc-qeqVLV2_SFPc6dTqE7DT6VwdSOD66N2UnUJud9wbLkOj-2YF6vuSLIY_P9pkrEGZk-d_C_MGf8McCFQDc3Ig1B0oOX3QJ9YBsk80zXyF8nCI_r0D-8DPSRYPYfh5naeh7K-zva_9IUEVBj8JMox2u1hzbhGH2Ru9YVmiuxK2MOoFxA" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) - 256KB.jpeg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Average latency(ms) - 1MB (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Consume
 
@@ -83,9 +85,9 @@ Single partition station with a single consumer.
 
 Demonstrates latency and stability over time for the different message sizes.
 
-<figure><img src="https://lh4.googleusercontent.com/Wh67S3MNRhi2QRddtIUYSxBA7M2K427-nlwiX4KunHg7oGoe_A4b0oeobJSMT9vwKwCPzwDFaG7_IYtP8S_NxoXLYOtGAOHWZ-mjTFoUazsjZLxbEfdYhjHg6iE61vpOXN4eYNGMXkGAErR-Tl_nf1271TuUq7xVf9zFjLp0RksNqKCyAdSv9TZWeeCNrQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Consume - Latency.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh3.googleusercontent.com/YKpyr3kpU5t-Mwl4tuc3zdEAxowp7tSb8N_nmwX5sA6W1H8YBPtOey4KFxQ1xKc3Re5ZkBPTM6UMxwFJQlFpMEeBpM5GvA6__7S4t7TweUMNIDgVKz-f7BxZ-1eV79v8x9SqYlDWo1EImjr4eapOOK6I-nyNdn1gWl0rRf7NQ0_cZMBWF1GF69JlpdxE" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Consume - Latency 1mb.jpeg" alt=""><figcaption></figcaption></figure>
 
 | Size                                         | 99        | 99.9      | 99.99     | 99.999    |
 | -------------------------------------------- | --------- | --------- | --------- | --------- |
