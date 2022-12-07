@@ -77,7 +77,7 @@ The following graph demonstrates the average latency across 1000 seconds per siz
 
 <figure><img src="../.gitbook/assets/Average latency(ms) - 256KB.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/Average latency(ms) - 1MB (1).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) - 1MB.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Consume
 
@@ -98,14 +98,14 @@ Demonstrates latency and stability over time for the different message sizes.
 
 The following graph demonstrates the maximum amount of consumed messages per second, per size.
 
-<figure><img src="https://lh5.googleusercontent.com/Lxx96CK6iO8c3mTpNL3TO9F2QPZTQrYPq3QNpghvukrlNP2nRB-fKEsEFPNHLedN6y-NAX5TvIlgsbVpVXEnLeNPHJ-eWQdlFcn143yZXSpI005usMsRe6XN-AHrKpqK0Rhm8NK7cInOww7RmFmBCPzl78vZae5OrJr8xXW2TlohSSBBw9t39AnluzkRmw" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/sec vs. MsgSize 2 (2).jpg" alt=""><figcaption></figcaption></figure>
 
 Average latency over 1000 seconds
 
-<figure><img src="https://lh5.googleusercontent.com/A4IchAq0lnKdU4pD-hAtT9Q1DAE2JUxbM52CrkGM2hNys8lvLGnLI5MEFjS2pxDSyDBRwxjkkE5Ph9Ajt9JhTgXElxy2r9l9pImLo2_aqRjAhfkx4ojK01D9P6iZ7bmnmhxpwWeEKxTioukvZ5FwmJcZAe109U0dFWT4b48CN2MCtY3UBj8rLWMe2ODqQA" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) - 512B 2.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh4.googleusercontent.com/PgobweDTsP49kNAtaPT4qi6i7MaG8dBiHhwPFPfmjR5bErdaHkoQI1akWi0QEaAaO2HJz-QmesKnW1_6YRRzsDkWOi7skftELPUEq3bc9tZFO3BlEhY_EY6AYjvCCvXfySmhb2Wxc-9a8DPf0UUkgZLBJzDf3MLMHbSEMOy2sKWkJWaJpnMzUUlbqszpKw" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) -1KB 2.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh3.googleusercontent.com/RmdQU1hBdBMfKxl6RWl7PHVdTX7k2nQwcdcHK79I9gofw5W8AAWqHPb1li6BpyUYkUcqpSTAQUvAt54DZSYRGkxI1m3jiBarKAwbjAjtQQsY-ZToZrgH6pKNzi-WevWcsYl3Pn2Nt_N_LKcngXIjCV9NVORu3dIJSvK6nO-HIjFnOOMUDmwr5AjfacNBbw" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) -256KB 2.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://lh6.googleusercontent.com/zRFOzvM-5QQ2w55lbQcgYVIgj-07go8oohaGaSQru7utgVxDSFPj5CkM0ZbZnrXbprJWPoC4Ns0c3O8qYzKv3Xd5nkJ1UHWGc99Uyfbz2onVS8zZWdHN-fbxFM3P_aI0Of1_Gjid0h43pdXnaIFY1vGmkQ_otx8zaPwY0f7NqRQSTdRtaEemjSbvESrjYg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Average latency(ms) -1MB.jpeg" alt=""><figcaption></figcaption></figure>
