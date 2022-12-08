@@ -93,3 +93,9 @@ Produce/Consume will be stopped until at least one replica/follower is available
 
 </div>
 
+The Kubernetes cluster is down, and therefore the Memphis cluster is down as well.
+
+Produce/Consume will be stopped until at least one leader and replica/follower are available. No data loss.
+
+<figure><img src="../.gitbook/assets/k8s 6.jpeg" alt=""><figcaption></figcaption></figure>
+
