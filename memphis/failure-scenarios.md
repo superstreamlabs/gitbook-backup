@@ -115,13 +115,27 @@ The affected broker and PV require a manual restart.
 
 </div>
 
-The leader's storage is down.\
+The leader's volume is down.\
 Data may not be available during the new leader election process.\
 Producing messages is suspended until a new leader is elected.\
 The affected broker and PV require a manual restart.
 
 <figure><img src="../.gitbook/assets/pv3.jpeg" alt=""><figcaption></figcaption></figure>
 
-* No quorum for stream
-* No cluster leader
-* Jetstrem temporarily unavailable
+Both followers' volumes are down.\
+No quorum for stream. No cluster leader. The station is temporarily unavailable. \
+Produce/Consume will be stopped until at least one replica/follower is available. No data loss.
+
+<figure><img src="../.gitbook/assets/pv4.jpeg" alt=""><figcaption></figcaption></figure>
+
+Both leader and follower volumes are down.\
+No quorum for stream. No cluster leader. The station is temporarily unavailable. \
+Produce/Consume will be stopped until at least one replica/follower is available. No data loss.
+
+<figure><img src="../.gitbook/assets/pv5.jpeg" alt=""><figcaption></figcaption></figure>
+
+All volumes are down; therefore, the Memphis cluster is down.
+
+Produce/Consume will be stopped until at least one leader and replica/follower are available. No data loss.
+
+<figure><img src="../.gitbook/assets/pv6 (1).jpeg" alt=""><figcaption></figcaption></figure>
