@@ -31,6 +31,7 @@
   * [Getting Started](memphis/schemaverse-schema-management/getting-started.md)
   * [FAQs](memphis/schemaverse-schema-management/faqs.md)
 * [Benchmark](memphis/benchmark.md)
+* [Failure Scenarios](memphis/failure-scenarios.md)
 * [Cluster configuration](memphis/cluster-configuration.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [Redpanda vs Memphis](memphis/comparisons/redpanda-vs-memphis.md)
