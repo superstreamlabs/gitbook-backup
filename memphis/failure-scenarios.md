@@ -26,7 +26,7 @@ Single broker failure, leader or follower. Produce / Consume is working usually.
 
 <div>
 
-<figure><img src="../.gitbook/assets/broker 1.jpeg" alt=""><figcaption><p>Broker 2 is down</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/broker 1 (1).jpeg" alt=""><figcaption><p>Broker 2 is down</p></figcaption></figure>
 
  
 
@@ -65,11 +65,11 @@ Produce / Consume is working usually. No data loss.
 
 <div>
 
-<figure><img src="../.gitbook/assets/k8s 1 (2).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/k8s 1 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../.gitbook/assets/k8s 2 (2).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/k8s 2.jpeg" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -77,7 +77,7 @@ The kubernetes worker that holds the "leader" is down.\
 The "leader" role has been taken over by broker 2.\
 Producers / Consumers will might require a reconnect. No data loss.
 
-<figure><img src="../.gitbook/assets/k8s 3.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/k8s 3 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 The kubernetes workers that hold the "followers"/"Leader and a follower" are down.\
 No quorum for stream. No cluster leader. The station is temporarily unavailable.\
@@ -93,9 +93,35 @@ Produce/Consume will be stopped until at least one replica/follower is available
 
 </div>
 
-The Kubernetes cluster is down, and therefore the Memphis cluster is down as well.
+The Kubernetes cluster is down; therefore, the Memphis cluster is down.
 
 Produce/Consume will be stopped until at least one leader and replica/follower are available. No data loss.
 
 <figure><img src="../.gitbook/assets/k8s 6.jpeg" alt=""><figcaption></figcaption></figure>
 
+### 3. Kubernetes volumes (PVC)
+
+One of the K8S worker's PVs owned by one of the followers is down.
+
+The affected broker and PV require a manual restart.
+
+<div>
+
+<figure><img src="../.gitbook/assets/pv1.jpeg" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/pv2.jpeg" alt=""><figcaption></figcaption></figure>
+
+</div>
+
+The leader's storage is down.\
+Data may not be available during the new leader election process.\
+Producing messages is suspended until a new leader is elected.\
+The affected broker and PV require a manual restart.
+
+<figure><img src="../.gitbook/assets/pv3.jpeg" alt=""><figcaption></figcaption></figure>
+
+* No quorum for stream
+* No cluster leader
+* Jetstrem temporarily unavailable
