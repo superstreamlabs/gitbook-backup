@@ -18,11 +18,11 @@ Memphis deployment comprised four components:
 
 Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will consume all the messages residing inside a station. The user must create consumers within the same consumer group if a client requires a horizontal scale and split messages across different consitency group members.
 
-MongoDB is not necessary for data traffic or standard broker behavior, but rather responsible for UI state and metadata only.
+MongoDB is not necessary for data traffic or standard broker behavior but rather responsible for UI state and metadata only.
 
-### Cluster mode (For production)
+### Cluster mode component diagram (For production)
 
-Full kubernetes-based layout.
+Full Kubernetes-based layout.
 
 <figure><img src="../.gitbook/assets/Memphis Architecture (1).jpg" alt=""><figcaption></figcaption></figure>
 
