@@ -25,7 +25,7 @@
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
   * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios-1.md)
-* [Tiered Storage](memphis/tiered-storage.md)
+* [Storage Tiering](memphis/storage-tiering.md)
 * [Schemaverse - Schema Management](memphis/schemaverse-schema-management/README.md)
   * [Overview and Architecture](memphis/schemaverse-schema-management/overview-and-architecture.md)
   * [Formats](memphis/schemaverse-schema-management/formats.md)
