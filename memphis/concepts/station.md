@@ -38,6 +38,8 @@ Available in cluster mode only. During station creation, the user can choose the
 
 Replicas can be defined using the SDK, GUI, or CLI.
 
+The number of replicas cannot be changed after station creation. (Will be in the future)
+
 ### Retention
 
 In a message broker, messages are not deleted when acknowledged to enable new or other consumers from different consumer groups to consume the stored messages as well.
