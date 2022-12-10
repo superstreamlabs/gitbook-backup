@@ -30,23 +30,13 @@ Each station stores a stream component with a single leader on the most availabl
 
 Naturally, choosing memory persistency will improve performance, while disk-based persistency will provide higher availability.
 
-<figure><img src="../../.gitbook/assets/stream file.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/stream.jpeg" alt=""><figcaption></figcaption></figure>
 
-Each stream contains the following objects
+### Replicas (Mirroring)
 
-* meta.inf: metadata of the station
-* meta.sum: hash calculation of the station's metadata
-* msgs: The stored messages
+Available in cluster mode only. During station creation, the user can choose the number of station replicas. Replicas are an exact mirror of the entire station data, and each produced message will be mirrored across the configured replicas. Each replica will be stored on a different broker; therefore, the maximum number of replicas is derived from the number of brokers in a cluster.
 
-### Station storage types
-
-* **Memory** - Improved performance
-
-<figure><img src="../../.gitbook/assets/storage type memory.jpeg" alt=""><figcaption></figcaption></figure>
-
-* **Disk** - Improved resiliency
-
-<figure><img src="../../.gitbook/assets/storage type file (1).jpeg" alt=""><figcaption></figcaption></figure>
+Replicas can be defined using the SDK, GUI, or CLI.
 
 ### Retention
 
