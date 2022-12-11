@@ -4,8 +4,6 @@ description: A central location to view the entire system component's logs
 
 # System Logs
 
-Can be reached via the "System Components" panel on the dashboard
+Can be reached via the sidebar
 
-![](<../../.gitbook/assets/Screen Shot 2022-06-15 at 10.51.18 (1).png>)
-
-![](<../../.gitbook/assets/Screen Shot 2022-06-15 at 11.42.33.png>)
+![](<../../.gitbook/assets/Screenshot 2022-12-11 at 15.37.28.png>)

@@ -4,4 +4,4 @@ The dashboard was designed to provide you with a quick snapshot of the cluster h
 
 > All the "Coming Soon" features will be uploaded in subsequent versions.
 
-![](<../.gitbook/assets/Screen Shot 2022-06-15 at 10.51.18.png>)
+![](<../.gitbook/assets/Screenshot 2022-12-11 at 15.19.56.png>)

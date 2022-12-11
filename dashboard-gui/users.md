@@ -8,7 +8,7 @@ description: User management
 
 This list shows all users and their corresponding types.
 
-![Users list](<../.gitbook/assets/users list>)
+![Users list](<../.gitbook/assets/Screenshot 2022-12-11 at 16.44.28.png>)
 
 ### Create a new user
 
