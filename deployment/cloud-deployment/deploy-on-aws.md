@@ -57,6 +57,7 @@ $ aws configure
 * Terraform is [installed](https://www.terraform.io/downloads)
 * Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * helm is [installed](https://helm.sh/docs/intro/install/)
+* Make is installed
 
 ### Terraform Installation Flow
 
@@ -64,8 +65,17 @@ $ aws configure
 
 ### Step 0: Clone Memphis-Terraform repo
 
+Using git ssh
+
 ```
 git clone git@github.com:memphisdev/memphis-terraform.git && \
+cd memphis-terraform/AWS/EKS
+```
+
+Using git http
+
+```
+git clone https://github.com/memphisdev/memphis-terraform.git && \
 cd memphis-terraform/AWS/EKS
 ```
 
