@@ -158,7 +158,7 @@ hdrs := memphis.Headers{}
 hdrs.New()
 err := hdrs.Add("key", "value")
 p.Produce(
-	"<message in []byte>/protoreflect.ProtoMessage in case it is a schema validated station",
+	"<message in []byte or map[string]interface{}/protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)>",
     memphis.AckWaitSec(15),
 	memphis.MsgHeaders(hdrs) // defaults to empty
 )
@@ -170,7 +170,7 @@ Meaning your application won't wait for broker acknowledgement - use only in cas
 
 ```
 p.Produce(
-	"<message in []byte or map[string]interface{}/protoreflect.ProtoMessage(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)>",
+	"<message in []byte or map[string]interface{}/protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)>",
     memphis.AckWaitSec(15),
 	memphis.AsyncProduce()
 )
