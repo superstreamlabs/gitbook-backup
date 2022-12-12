@@ -57,7 +57,7 @@ $ aws configure
 * Terraform is [installed](https://www.terraform.io/downloads)
 * Kubectl is [installed](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * helm is [installed](https://helm.sh/docs/intro/install/)
-* Make is installed
+* "make" is installed
 
 ### Terraform Installation Flow
 
