@@ -40,11 +40,14 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 
 ![](../.gitbook/assets/replications.jpeg)
 
-### Internal Protocol
+## Supported Protocols
 
-Memphis forked and modified [NATS](https://nats.io) as its core queue.
-
-The NATS streaming protocol sits atop the core NATS protocol and uses [Google's Protocol Buffers](https://developers.google.com/protocol-buffers/). Protocol buffer messages are marshaled into bytes and published as Memphis messages on the specific station.
+* [TCP-based SDKs](broken-reference)
+* [HTTP](../sdks-and-protocols/http.md)
+* WebSockets \* Soon \*
+* gRPC \* Soon \*
+* WASM \* Soon \*
+* MQTT \* Soon \*
 
 ### Deployment sequence
 
