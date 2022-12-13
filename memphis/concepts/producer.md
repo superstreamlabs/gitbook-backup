@@ -65,8 +65,8 @@ By adding more producers, the throughput will be increased accordingly due to th
 
 ## Supported Protocols
 
-* [TCP-based SDKs](broken-reference)
-* [HTTP](../../sdks-and-protocols/http.md)
+* NATS Protocol (Client SDKs)
+* HTTP \* Soon \*
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
 * WASM \* Soon \*

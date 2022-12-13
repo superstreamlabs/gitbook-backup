@@ -49,11 +49,11 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 * WASM \* Soon \*
 * MQTT \* Soon \*
 
-### Deployment sequence
+## Deployment sequence
 
 <figure><img src="../.gitbook/assets/Deployment process.jpg" alt=""><figcaption></figcaption></figure>
 
-### Requirements
+## Requirements
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -85,13 +85,13 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 {% endtab %}
 {% endtabs %}
 
-### Delivery Guarantee
+## Delivery Guarantee
 
 * At least once
 
-This is achieved by the combination of published messages being persisted to the station as well as the consumer tracking delivery and acknowledgement of each individual message as clients receive and process them.
+This is achieved by the combination of published messages being persisted to the station as well as the consumer tracking delivery and acknowledgment of each message as clients receive and process them.
 
-* Exactly once
+* [Exactly once (Idempotence)](concepts/idempotency.md)
 
 
 
