@@ -10,7 +10,7 @@ Memphis has been under heavy development for the past two years, and we've reach
 
 ## Introduction
 
-### Benchmark Version Control
+### Version Control
 
 <table><thead><tr><th>Version</th><th>Date</th><th>Memphis Version</th><th>Comments</th><th data-hidden></th></tr></thead><tbody><tr><td>1.0</td><td>November 27th, 2022</td><td>0.4.1-beta</td><td>First release</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
 
