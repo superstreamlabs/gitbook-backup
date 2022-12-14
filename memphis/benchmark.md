@@ -25,16 +25,18 @@ Memphis has been under heavy development for the past two years, and we've reach
   * 1KB
   * 256KB
   * 1MB
-* Messages rate - 300msgs/sec\*
-
-(\*) To align and run the same frequency across the different message sizes
+* Messages rate - 300msgs/sec \*
 
 ### Notes
 
 1. In each iteration, the counter starts with the first sent message, stops at the last one, waits until the end of the second, and repeats.
 2. Each test runs 1000 times to produce “normalized” results.
 
-\---------------------------------------------------
+{% hint style="danger" %}
+(\*) To align the results and run the same frequency across the different message sizes
+
+Therefore the 256KB and 1MB messages latencies are much lower in reality
+{% endhint %}
 
 ## Produce
 
