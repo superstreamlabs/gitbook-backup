@@ -40,17 +40,20 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 
 ![](../.gitbook/assets/replications.jpeg)
 
-### Internal Protocol
+## Supported Protocols
 
-Memphis forked and modified [NATS](https://nats.io) as its core queue.
+* [TCP-based SDKs](broken-reference)
+* [HTTP](../sdks-and-protocols/http.md)
+* WebSockets \* Soon \*
+* gRPC \* Soon \*
+* WASM \* Soon \*
+* MQTT \* Soon \*
 
-The NATS streaming protocol sits atop the core NATS protocol and uses [Google's Protocol Buffers](https://developers.google.com/protocol-buffers/). Protocol buffer messages are marshaled into bytes and published as Memphis messages on the specific station.
-
-### Deployment sequence
+## Deployment sequence
 
 <figure><img src="../.gitbook/assets/Deployment process.jpg" alt=""><figcaption></figcaption></figure>
 
-### Requirements
+## Requirements
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -82,13 +85,14 @@ The NATS streaming protocol sits atop the core NATS protocol and uses [Google's 
 {% endtab %}
 {% endtabs %}
 
-### Delivery Guarantee
+## Delivery Guarantee
 
 * At least once
 
-This is achieved by the combination of published messages being persisted to the station as well as the consumer tracking delivery and acknowledgement of each individual message as clients receive and process them.
+This is achieved by the combination of published messages being persisted to the station as well as the consumer tracking delivery and acknowledgment of each message as clients receive and process them.
 
-* Exactly once
+* [Exactly once (Idempotence)](concepts/idempotency.md)
 
 
 
+Searched terms: connectivity, cluster, ordering, mirror, mirroring, deployment, protocols, requirements, delivery guarantee

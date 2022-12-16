@@ -39,3 +39,12 @@ A publish-subscribe system (also known as Pub-Sub) allows you to automatically r
 * Async communication between services on k8s
 * Queuing
 * Multiple destinations to a single message
+
+## Supported Protocols
+
+* [TCP-based SDKs](broken-reference)
+* [HTTP](../../sdks-and-protocols/http.md)
+* WebSockets \* Soon \*
+* gRPC \* Soon \*
+* WASM \* Soon \*
+* MQTT \* Soon \*
