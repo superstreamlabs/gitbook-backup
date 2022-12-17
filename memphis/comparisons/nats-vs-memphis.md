@@ -26,8 +26,9 @@ Memphis{dev} enables building next-generation applications that require large vo
 3. Observability - Reduces troubleshooting time to near zero.
 4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
 
-| GUI                                | True                        | False      |
+| Parameter                          | Memphis                     | Jetstream  |
 | ---------------------------------- | --------------------------- | ---------- |
+| GUI                                | True                        | False      |
 | Schema Management                  | True                        | False      |
 | Inline stream enrichment           | True                        | False      |
 | Produce/Consume behaviour          | True                        | False      |
