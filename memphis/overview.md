@@ -30,7 +30,7 @@ Memphis' platform requires zero ops, enables rapid development, extreme cost red
 7. Kafka, RabbitMQ, NATS, and other MQs are HARD to deploy, manage, secure, update, onboard, and tune.
 8. Turning batch processes into real-time can be complicated and time-consuming.
 
-### Current Features
+### Key Features (v0.4.2)
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs
