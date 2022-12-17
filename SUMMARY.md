@@ -33,7 +33,7 @@
   * [FAQs](memphis/schemaverse-schema-management/faqs.md)
 * [Cluster configuration](memphis/cluster-configuration.md)
 * [Comparisons](memphis/comparisons/README.md)
-  * [NATS Jetstream vs Memphis](memphis/comparisons/nats-jetstream-vs-memphis.md)
+  * [NATS Jetstream vs Memphis](memphis/comparisons/nats-vs-memphis.md)
   * [RabbitMQ vs Memphis](memphis/comparisons/rabbitmq-vs-memphis.md)
   * [Apache Kafka vs Memphis](memphis/comparisons/apache-kafka-vs-memphis.md)
   * [Redpanda vs Memphis](memphis/comparisons/redpanda-vs-memphis.md)
