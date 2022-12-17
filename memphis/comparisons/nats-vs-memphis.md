@@ -37,7 +37,7 @@ Memphis{dev} enables building next-generation applications that require large vo
 | Real-time message tracing          | True                        | False      |
 | Data-Level Observability           | True                        | False      |
 | Automatic environment optimization | True                        | False      |
-| Dedupulication                     | True. Modified bloom filter | False      |
+| Deduplication                      | True. Modified bloom filter | False      |
 | Dead-letter                        | True                        | False      |
 | REST Gateway                       | True                        | False      |
 | Consumer internal communication    | Experimental                | False      |
