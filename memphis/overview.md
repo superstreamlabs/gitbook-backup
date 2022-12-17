@@ -14,10 +14,10 @@ Memphis' platform requires zero ops, enables rapid development, extreme cost red
 
 **Memphis focuses on four pillars**
 
-1. Performance - Enhanced cache usage
-2. Resiliency - Never lose a message and 99.99995% uptime
-3. Observability - Out-of-the-box observability that makes sense and reduces troubleshooting time
-4. Developer Experience - Modularity, inline processing, schema management, gitops
+1. Stability - Queues and brokers play a critical part in the modern application's structure and should be highly available and stable as possible.
+2. Performance and Efficiency - Provide good performance while maintaining efficient resource consumption.
+3. Observability - Reduces troubleshooting time to near zero.
+4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
 
 ### What struggles does Memphis solve?
 
@@ -30,9 +30,7 @@ Memphis' platform requires zero ops, enables rapid development, extreme cost red
 7. Kafka, RabbitMQ, NATS, and other MQs are HARD to deploy, manage, secure, update, onboard, and tune.
 8. Turning batch processes into real-time can be complicated and time-consuming.
 
-### Features
-
-#### **Current**
+### Current Features
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs
@@ -41,12 +39,6 @@ Memphis' platform requires zero ops, enables rapid development, extreme cost red
 * Real-time event tracing
 * SDKs: Python, Go, Node.js, Typescript, Nest.JS
 * Embedded schema management using Avro, and Protobuf
-
-**Coming**
-
-* Ready-to-use connectors and analysis functions
-* More SDKs
-* Inline processing
 
 A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.dev/roadmap)
 
