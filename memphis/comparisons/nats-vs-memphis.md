@@ -15,9 +15,9 @@ Jetstream is built-in to nats-server; therefore, you only need 1 (or 3 or 5 if y
 
 ## **What is Memphis.dev?**
 
-After years of operating and researching NATS, Memphis refactored NATS.IO to create a fully-fledged event-processing platform for developers.
+After years of operating and researching NATS, Memphis refactored NATS Jetstream to create a fully-fledged event-processing platform for developers.
 
-Memphis{dev} enables building next-generation applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
+Memphis.dev enables building next-generation applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
 
 ### **Memphis focuses on four pillars**
 
@@ -25,6 +25,8 @@ Memphis{dev} enables building next-generation applications that require large vo
 2. Performance and Efficiency - Provide good performance while maintaining efficient resource consumption.
 3. Observability - Reduces troubleshooting time to near zero.
 4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
+
+## Comparison table
 
 | Parameter                          | Memphis                     | Jetstream  |
 | ---------------------------------- | --------------------------- | ---------- |
