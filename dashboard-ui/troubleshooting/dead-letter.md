@@ -31,6 +31,10 @@ Once you have debugged the consumer application or the consumer application is a
 
 ## How do dead-letter stations work?
 
+Sometimes, messages can't be processed because of various possible issues, such as erroneous conditions within the producer or consumer application, bad schema, or an unexpected state change that causes an issue with your application code. For example, if a user places a web order with a particular product ID, but the product ID is deleted, the web store's code fails and displays an error, and the message with the order request is sent to a dead-letter queue.
+
+Occasionally, producers and consumers might fail to interpret aspects of the protocol that they use to communicate, causing message corruption or loss. Also, the consumer's hardware errors might corrupt the message payload or break the consumer itself.
+
 A message will be flagged as "Poison" and sent to the dead-letter station **when passing the `maxAckDeliveries` value.**
 
 `maxAckDeliveries` is the parameter that defines how many times the broker will try to redeliver the same message to the same CG until receiving an "Ack."
