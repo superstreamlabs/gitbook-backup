@@ -27,11 +27,11 @@ Once you have debugged the consumer application or the consumer application is a
 
 **Poison messages** = Messages that cause a consumer group to repeatedly require a delivery (possibly due to a consumer failure) such that the message is never processed completely and acknowledged so that it can be stopped being sent again to the same consumer.
 
-**Example**: Some message on an arbitrary station pulled by a consumer of a certain consumer group. That consumer, for some reason, doesn't succeed in handling it. It can be due to a bug, an unknown schema, resources issue, etc…
+**Example**: Some message on an arbitrary station pulled by a consumer of a certain consumer group. That consumer, for some reason, doesn't succeed in handling it. It can be due to a bug, an unknown schema, a resource issue, etc…
 
-## Architecture
+## How do dead-letter stations work?
 
-A message will be declared as "Poison" **when passing the `maxAckDeliveries` value.**
+A message will be flagged as "Poison" and sent to the dead-letter station **when passing the `maxAckDeliveries` value.**
 
 `maxAckDeliveries` is the parameter that defines how many times the broker will try to redeliver the same message to the same CG until receiving an "Ack."
 
