@@ -26,21 +26,22 @@ Memphis.dev enables building next-generation applications that require large vol
 3. Observability - Reduces troubleshooting time to near zero.
 4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
 
-## Comparison table
+## Comparison Table
 
-| Parameter                          | Memphis                     | Jetstream  |
-| ---------------------------------- | --------------------------- | ---------- |
-| GUI                                | True                        | False      |
-| Schema Management                  | True                        | False      |
-| Inline stream enrichment           | True                        | False      |
-| Produce/Consume behaviour          | True                        | False      |
-| Consumer group                     | True                        | False      |
-| Ready-to-use connectors            | True                        | True       |
-| Real-time message tracing          | True                        | False      |
-| Data-Level Observability           | True                        | False      |
-| Automatic environment optimization | True                        | False      |
-| Deduplication                      | True. Modified bloom filter | False      |
-| Dead-letter                        | True                        | False      |
-| REST Gateway                       | True                        | False      |
-| Consumer internal communication    | Experimental                | False      |
-| Production deployment environment  | Kubernetes                  | Bare-metal |
+| Parameter                          | Memphis                            | Jetstream    |
+| ---------------------------------- | ---------------------------------- | ------------ |
+| GUI                                | True                               | False        |
+| Schema Management                  | True                               | False        |
+| Inline stream enrichment           | True                               | False        |
+| Produce/Consume behaviour          | True                               | False        |
+| Consumer group                     | True                               | False        |
+| Ready-to-use connectors            | True                               | True         |
+| Real-time message tracing          | True                               | False        |
+| Data-Level Observability           | True                               | False        |
+| Automatic environment optimization | True                               | False        |
+| Deduplication                      | True. Modified bloom filter        | False        |
+| Dead-letter                        | True                               | False        |
+| REST Gateway                       | True                               | False        |
+| Consumer internal communication    | Experimental                       | False        |
+| Production deployment environment  | Kubernetes                         | Bare-metal   |
+| Storage tiering                    | Disk, Memory, **S3 for Archiving** | Disk, Memory |
