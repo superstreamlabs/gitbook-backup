@@ -47,7 +47,7 @@ After receiving an alert from some consumer - head over to the Memphis dashboard
 
 **Legend**
 
-(1) Dead-letter. In this tab, all of the poisoned messages will be displayed with further options.
+(1) Dead-letter. In this tab, the poisoned messages will be displayed with further options.
 
 (2) Each message's metadata is displayed on the right panel, like Failed CGs.
 
@@ -55,15 +55,13 @@ After receiving an alert from some consumer - head over to the Memphis dashboard
 
 (4) Show the defined parameter.
 
-
-
 Each message that crosses the number of redeliveries per CG will create and preserved automatically in the Dead-letter-station.
 
 {% hint style="warning" %}
-Dead-letter-station (DLS) message retention is 3 hours
+Dead-letter station (DLS) message retention is 3 hours
 {% endhint %}
 
-The dead-letter-station will not be created unless there is a reason.
+The dead-letter station will not be created unless there is a reason.
 
 ![](<../../.gitbook/assets/image (4).png>)
 
@@ -77,11 +75,11 @@ Once poison messages start to pile up - the dead-letter-station will take place 
 
 (1) Ignore = Removes a message from the DLS.
 
-(2) **Resend** = Resends the poisoned message back to the **same CGs** that flagged it as poisoned without any intervention from the consumer side.
+(2) Resend = Push the poisoned message back to the **same CGs** that flagged it as poisoned without any intervention from the consumer side.
 
 (3) Ability to resend/ignore multiple poisoned messages at once.
 
-(4) Message Journey = A dedicated view of a single message path from producer to all of its consumers
+(4) Message Journey = A dedicated view of a single message path from the producer to all of its consumers
 
 ![Resend Mechanism](<../../.gitbook/assets/image (1).png>)
 
@@ -91,10 +89,10 @@ Once poison messages start to pile up - the dead-letter-station will take place 
 
 ![Message Journey](../../.gitbook/assets/3.jpg)
 
-After clicking on "Message Journey", the user will be redirected to this screen which is in the context of a single message.
+After clicking on "Message Journey," the user will be redirected to this screen which is in the context of a single message.
 
-**On the left**, the user can find the producer which produced the message.
+**Left panel -** The producer of the message
 
-**In the middle** are the message and its metadata itself.
+**Center panel -** The message and its metadata.
 
-**On the right**, the consumers that consume the message and do not acknowledge it, which cause the message to be flagged as "poison".
+**Right panel -** the unacknowledged consumer groups.
