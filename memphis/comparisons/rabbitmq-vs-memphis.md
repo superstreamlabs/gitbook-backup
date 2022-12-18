@@ -97,14 +97,28 @@ Besides mirroring and striping station across multiple brokers that can ultimatl
 
 All data/state required for the operation of a RabbitMQ broker is replicated across all nodes. An exception to this are message queues, which by default reside on one node, though they are visible and reachable from all nodes. To replicate queues across nodes in a cluster, use a queue type that supports replication. This topic is covered in the [Quorum Queues](https://www.rabbitmq.com/quorum-queues.html) guide.
 
-Memphis replicats data across brokers based on defined policy (Replicas). Memphis station can also span and stripe data across brokers to achieve higher thoughput and availability
+Memphis replicates data across brokers based on defined policy (Replicas). Memphis station can also span and stripe data across brokers to achieve higher throughput and availability.
 
 ## Features Comparison
 
-
+| Parameter                          | Memphis                            | RabbitMQ     |
+| ---------------------------------- | ---------------------------------- | ------------ |
+| GUI                                | True                               | True         |
+| Schema Management                  | True                               | False        |
+| Inline stream enrichment           | True                               | False        |
+| Ready-to-use connectors            | True                               | False        |
+| Real-time message tracing          | True                               | False        |
+| Data-Level Observability           | True                               | True         |
+| Automatic environment optimization | True                               | False        |
+| Deduplication                      | True. Modified bloom filter        | False        |
+| Dead-letter                        | True                               | True         |
+| REST Gateway                       | True                               | False        |
+| Consumer internal communication    | Experimental                       | False        |
+| Production deployment environment  | Kubernetes                         | Bare-metal   |
+| Storage tiering                    | Disk, Memory, **S3 for Archiving** | Disk, Memory |
 
 ### Libraries and Language Support
 
 RabbitMQ supports Python, Ruby, Elixir, PHP, Swift, Go, Java, C, Spring, .Net, and JavaScript.
 
-Kafka supports Node js, Python, Ruby, and Java.\
+Memphis supports Node js, Python, Go, .NET, Java, NestJS, and Typescript.\
