@@ -8,13 +8,13 @@ description: This section describes Memphis' architecture
 
 Memphis deployment comprised four components:
 
-**1.** UI - The dashboard of Memphis.
+**1.** GUI - The dashboard of Memphis.
 
-**2.** Broker - Messaging Queue. Memphis broker is a fork of [NATS.io](http://nats.io/), which is an existing and battle-tested messaging queue with Memphis improvements and tunings.
+**2.** Broker (or brokers in cluster mode)
 
 **3.** MongoDB - Only for UI state persistency (not used for storing messages). Will be replaced in the coming versions.
 
-<figure><img src="../.gitbook/assets/memphis architecture overview.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/connectivity diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
 Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will consume all the messages residing inside a station. The user must create consumers within the same consumer group if a client requires a horizontal scale and split messages across different consitency group members.
 
