@@ -81,7 +81,7 @@ Memphis architecture is designed using the following components:
 
 ### **Scalability and Redundancy**
 
-RabbitMQ uses a round-robin queue to repeat messages. To boost throughput and balance the load, the messages are divided among the queues. Additionally, it enables numerous consumers to read messages from various queues at once.
+RabbitMQ uses a round-robin queue to repeat messages. The messages are divided among the queues to boost throughput and balance the load. Additionally, it enables numerous consumers to read messages from various queues simultaneously.
 
 In Memphis, scalability and redundancy are provided by stream objects. The stream is duplicated across numerous brokers. In the event that one of the brokers fails, the data can still be served by another broker.
 
@@ -89,33 +89,34 @@ If data is stored in only one broker, the dependence on that broker will grow, w
 
 ### Multi-region/Multi-cloud
 
-The highest availability capabaility exist in RabbitMQ is cluster and quorom queues which enable cross nodes replication of queues.
+The highest availability capability in RabbitMQ is cluster and quorum queues, which enable cross-node replication.
 
-Besides mirroring and striping station across multiple brokers that can ultimatly span across AZs, partners and Memphis cloud users can establish a memphis super cluster across regions in an active/passive topology.
+Besides mirroring and striping stations across multiple brokers, that can ultimately span across AZs. Partners and Memphis cloud users can establish a memphis super-cluster across regions in an active/passive topology.
 
 ### Queue striping
 
-All data/state required for the operation of a RabbitMQ broker is replicated across all nodes. An exception to this are message queues, which by default reside on one node, though they are visible and reachable from all nodes. To replicate queues across nodes in a cluster, use a queue type that supports replication. This topic is covered in the [Quorum Queues](https://www.rabbitmq.com/quorum-queues.html) guide.
+All data/state required for operating a RabbitMQ broker is replicated across all nodes. An exception is message queues, which by default reside on one node, though they are visible and reachable from all nodes. To replicate queues across nodes in a cluster, use a queue type that supports replication. This topic is covered in the [Quorum Queues](https://www.rabbitmq.com/quorum-queues.html) guide.
 
 Memphis replicates data across brokers based on defined policy (Replicas). Memphis station can also span and stripe data across brokers to achieve higher throughput and availability.
 
 ## Features Comparison
 
-| Parameter                          | Memphis                            | RabbitMQ     |
-| ---------------------------------- | ---------------------------------- | ------------ |
-| GUI                                | True                               | True         |
-| Schema Management                  | True                               | False        |
-| Inline stream enrichment           | True                               | False        |
-| Ready-to-use connectors            | True                               | False        |
-| Real-time message tracing          | True                               | False        |
-| Data-Level Observability           | True                               | True         |
-| Automatic environment optimization | True                               | False        |
-| Deduplication                      | True. Modified bloom filter        | False        |
-| Dead-letter                        | True                               | True         |
-| REST Gateway                       | True                               | False        |
-| Consumer internal communication    | Experimental                       | False        |
-| Production deployment environment  | Kubernetes                         | Bare-metal   |
-| Storage tiering                    | Disk, Memory, **S3 for Archiving** | Disk, Memory |
+| Parameter                          | Memphis                            | RabbitMQ                                   |
+| ---------------------------------- | ---------------------------------- | ------------------------------------------ |
+| GUI                                | True                               | True                                       |
+| Schema Management                  | True                               | False                                      |
+| Inline stream enrichment           | True                               | False                                      |
+| Ready-to-use connectors            | True                               | False                                      |
+| Real-time message tracing          | True                               | False                                      |
+| Data-Level Observability           | True                               | True                                       |
+| Automatic environment optimization | True                               | False                                      |
+| Deduplication                      | True. Modified bloom filter        | False                                      |
+| Dead-letter                        | True                               | True                                       |
+| REST Gateway                       | True                               | False                                      |
+| Consumer internal communication    | Experimental                       | False                                      |
+| Production deployment environment  | Kubernetes                         | Bare-metal                                 |
+| Storage tiering                    | Disk, Memory, **S3 for Archiving** | Disk, Memory                               |
+| Notifications                      | Slack, Email, More                 | Using external project called Alertmanager |
 
 ### Libraries and Language Support
 
