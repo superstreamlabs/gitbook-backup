@@ -12,7 +12,7 @@ RabbitMQ is a lightweight and easy-to-deploy messaging queue for on-premises and
 
 ## **What is Memphis.dev?**
 
-**Memphis** is the next generation of messaging queues.
+**Memphis** is a next-generation messaging queue.
 
 A simple, robust, and durable cloud-native message broker wrapped with an entire ecosystem that enables fast and reliable development of next-generation event-driven use cases.
 
