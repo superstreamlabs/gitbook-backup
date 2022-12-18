@@ -1,5 +1,5 @@
 ---
-description: This section describes the differeneces between RabbitMQ and Memphis
+description: This section describes the differences between RabbitMQ and Memphis
 cover: ../../.gitbook/assets/RabbitMQ vs Memphis.jpeg
 coverY: 0
 ---
