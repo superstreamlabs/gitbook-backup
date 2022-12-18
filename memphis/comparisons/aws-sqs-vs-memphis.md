@@ -51,5 +51,3 @@ SQS is best for transactional data, such as order formation, placement, and user
 ### **Message retention**&#x20;
 
 SQS pushes messages to consumers. These messages are removed from the queue once they are processed and acknowledged. Memphis is a log. It uses continuous messages, which stay in the station (queue) until the retention period expires.
-
-### ****
