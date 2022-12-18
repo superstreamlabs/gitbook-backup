@@ -1,5 +1,7 @@
 ---
 description: This section describes the differences between AWS SQS and Memphis
+cover: ../../.gitbook/assets/AWS SQS vs Memphis.jpeg
+coverY: 0
 ---
 
 # AWS SQS vs Memphis
