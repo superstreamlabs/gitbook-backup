@@ -60,7 +60,7 @@ Also includes -&#x20;
 
 The very first step would be to create a schema, based on the required data model, and apply it over a station.&#x20;
 
-When creating a schema, the creator must choose a data format that will also determine the data format of the ingested messages and several more characteristics. Each format has its own advantages, as described [here](formats.md).
+When creating a schema, the creator must choose a data format that will also determine the data format of the ingested messages and several more characteristics. Each format has its own advantages, as described [here](formats/).
 
 #### 2. Validation
 
