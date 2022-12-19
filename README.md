@@ -13,10 +13,10 @@ Memphis{dev} enables building next-generation applications that require large vo
 
 **Memphis focuses on four pillars**
 
-1. Performance - Enhanced cache usage
-2. Resiliency - Never lose a message and 99.95% uptime
-3. Observability - Out-of-the-box observability that makes sense and reduces troubleshooting time
-4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management
+1. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
+2. Observability - Reduces troubleshooting time to near zero.
+3. Performance and Efficiency - Provide good performance while maintaining efficient resource consumption.
+4. Stability - Queues and brokers play a critical part in the modern application's structure and should be highly available and stable as possible.
 
 ### 👉 **Start here: Choose your preferred environment -**&#x20;
 

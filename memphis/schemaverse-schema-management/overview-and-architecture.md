@@ -18,7 +18,7 @@ The very basic building block to control and ensure the quality of data that flo
 
 Data pipelines are constantly breaking and creating data quality AND usability issues. There is a communication chasm between service implementers, data engineers, and data consumers. There are multiple approaches to solving these issues, and data engineers are still very much pioneers in exploring the frontier of future best practices.
 
-## Memphis Schemaverse Architecture
+## Schemaverse Architecture
 
 <figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption></figcaption></figure>
 
