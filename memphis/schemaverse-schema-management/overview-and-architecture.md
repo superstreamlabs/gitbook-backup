@@ -6,7 +6,7 @@ coverY: 0
 
 # Overview and Architecture
 
-## Introduction
+### Introduction
 
 In a federated data platform, in which responsibilities are distributed between stakeholders, teams, and sources, it’s harder to control and establish a single standard. This is where the data contracts concept comes into play. Why do data contracts matter? Because (a) they provide insights into who owns what data products. (b) they support setting standards and managing your data pipelines with confidence. They also provide crucial information on what data is being consumed, by whom, and for what purpose. Bottom line: data contracts are essential for robust data management!
 
@@ -14,13 +14,13 @@ In a federated data platform, in which responsibilities are distributed between 
 
 The very basic building block to control and ensure the quality of data that flows through your organization between the different owners is by defining well-written schemas and data models.
 
-## Why should you use schemas?
+#### Why use schemas?
 
 Data pipelines are constantly breaking and creating data quality AND usability issues. There is a communication chasm between service implementers, data engineers, and data consumers. There are multiple approaches to solving these issues, and data engineers are still very much pioneers in exploring the frontier of future best practices.
 
-## Popular formats&#x20;
+#### Popular formats&#x20;
 
-A quick overview of the most popular formats, also supported by Memphis Schemaverse.
+A quick overview of the most popular formats, also supported by Memphis Schemaverse
 
 * Protobuf. \
   The modern. Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.&#x20;
@@ -28,10 +28,8 @@ A quick overview of the most popular formats, also supported by Memphis Schemave
   The popular. Apache Avro™ is the leading serialization format for record data and the first choice for streaming data pipelines. It offers excellent schema evolution.&#x20;
 * JSON \
   The simplest. JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
-* GraphQL\
-  GQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
 
-## Memphis Schemaverse Architecture
+### Memphis Schemaverse Architecture
 
 <figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption></figcaption></figure>
 
@@ -82,6 +80,6 @@ That process establishes the message's initial validation before it reaches the 
 
 <figure><img src="https://lh5.googleusercontent.com/9ifhev7freLnIYyD_Y3zmrgZAp9-2Bf8eYsSAps0N_77PblO4eG0LGodJY6C6bBmhCxYDRMocztYK3Sge8WMezMMrZFyODEBOw5YZ2xmB7xqqrkhJcds-f67XqHSXNTydr3PpcI2e09yze32L4h0_kg3CcZAxPepTFtJJ_oStF-myZdomFjy2t7XVxZf" alt=""><figcaption></figcaption></figure>
 
-## To consider
+### To consider
 
 * Schema attachment can be disruptive because it will update producers (live) to drop messages that are not aligned with the attached schema.
