@@ -1,6 +1,6 @@
 ---
 description: Released on v0.4.0
-cover: ../../.gitbook/assets/schema - overview.jpeg
+cover: ../../.gitbook/assets/Group 3432.jpeg
 coverY: 0
 ---
 
