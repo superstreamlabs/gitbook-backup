@@ -18,19 +18,6 @@ The very basic building block to control and ensure the quality of data that flo
 
 Data pipelines are constantly breaking and creating data quality AND usability issues. There is a communication chasm between service implementers, data engineers, and data consumers. There are multiple approaches to solving these issues, and data engineers are still very much pioneers in exploring the frontier of future best practices.
 
-## Popular formats&#x20;
-
-A quick overview of the most popular formats, also supported by Memphis Schemaverse.
-
-* Protobuf. \
-  The modern. Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.&#x20;
-* Avro. \
-  The popular. Apache Avro™ is the leading serialization format for record data and the first choice for streaming data pipelines. It offers excellent schema evolution.&#x20;
-* JSON \
-  The simplest. JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
-* GraphQL\
-  GQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
-
 ## Memphis Schemaverse Architecture
 
 <figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption></figcaption></figure>
@@ -55,6 +42,19 @@ Also includes -&#x20;
 * Schemas can be modified without rebooting producers
 * Producer-level validation - to reduce resources needed from the broker
 * Supported SDKs: Go, Python, Node.js (Nest / Typescript)
+
+### Supported formats&#x20;
+
+A quick overview of the most popular formats supported by Schemaverse.
+
+* Protobuf. \
+  The modern. Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.&#x20;
+* Avro. \
+  The popular. Apache Avro™ is the leading serialization format for record data and the first choice for streaming data pipelines. It offers excellent schema evolution.&#x20;
+* JSON \
+  The simplest. JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
+* GraphQL\
+  GQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
 
 ### The process
 
