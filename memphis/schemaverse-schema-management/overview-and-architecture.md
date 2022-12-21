@@ -20,7 +20,7 @@ Data pipelines are constantly breaking and creating data quality AND usability i
 
 ## Schemaverse Architecture
 
-<figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption><p>Overview</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/schemaverse.jpeg" alt=""><figcaption><p>Sequence diagram</p></figcaption></figure>
 
