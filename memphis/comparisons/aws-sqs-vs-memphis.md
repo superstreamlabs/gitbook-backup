@@ -56,3 +56,19 @@ SQS pushes messages to consumers. These messages are removed from the queue once
 
 ### **Observability**&#x20;
 
+Some level of observability can be received by using 3rd party apps like Cloudwatch/Datadog/New Relic. To understand the full path of a message, it is required to use AWS X-Ray and add some headers to each client. Notifications can be achieved by building a dedicated event queue with lambda triggers. Some alarms and triggers must be defined over 3rd party apps to enable lag identifications and latency in real-time.
+
+Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring, real-time message tracing, and notifications embedded inside the management layer, including self-healing policies based on the defined events.\
+
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.26.04.png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
+
+<div>
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.26.51.png" alt=""><figcaption><p>Troubleshooting process</p></figcaption></figure>
+
+ 
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.26.36.png" alt=""><figcaption><p>Notification Center</p></figcaption></figure>
+
+</div>
