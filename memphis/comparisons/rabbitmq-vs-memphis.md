@@ -6,7 +6,7 @@ coverY: 0
 
 # RabbitMQ vs Memphis
 
-## **What is RabbitMQ?**
+**What is RabbitMQ?**
 
 RabbitMQ is a lightweight and easy-to-deploy messaging queue for on-premises and cloud environments. It supports multiple messaging protocols. RabbitMQ can be deployed in distributed and federated configurations to meet high-scale, high-availability requirements.
 
@@ -39,8 +39,11 @@ Memphis.dev enables building next-generation applications that require large vol
 | Message lifetime   | Since station messages are kept on file/memory. This can be controlled by defining a retention policy. | Because RabbitMQ is a queue, messages are discarded after being read, and an acknowledgment is given. |
 | Clustering         | Active-Active                                                                                          | Active-Passive                                                                                        |
 | Multi-region       | Supported\*                                                                                            | No                                                                                                    |
+| Multi-tenancy      | Namespaces including node selection \*                                                                 | vHosts                                                                                                |
 | Read-replicas      | Supported\*                                                                                            | No                                                                                                    |
 | Queue striping     | Supported\*                                                                                            | No                                                                                                    |
+
+\*Available for Memphis cloud users
 
 ### **Data Flow**&#x20;
 
@@ -92,6 +95,18 @@ If data is stored in only one broker, the dependence on that broker will grow, w
 The highest availability capability in RabbitMQ is cluster and quorum queues, which enable cross-node replication.
 
 Besides mirroring and striping stations across multiple brokers, that can ultimately span across AZs. Partners and Memphis cloud users can establish a memphis super-cluster across regions in an active/passive topology.
+
+<figure><img src="../../.gitbook/assets/multi-region (1).jpeg" alt=""><figcaption></figcaption></figure>
+
+### Multi-tenancy
+
+RabbitMQ is a multi-tenant system: connections, exchanges, queues, bindings, user permissions, policies, and some other things belong to virtual hosts, and logical groups of entities.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.16.png" alt=""><figcaption></figcaption></figure>
+
+Memphis supports multi-tenancy using namespaces which offers a complete separation from connections, producers, consumers, security, dedicated dashboard, including node selection.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.43.png" alt=""><figcaption></figcaption></figure>
 
 ### Queue striping
 
