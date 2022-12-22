@@ -20,7 +20,7 @@ Memphis.dev enables building next-generation applications that require large vol
 
 <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-## Messaging Comparison
+## Comparison
 
 | Parameter          | Memphis                                                                                                | AWS SQS                                                                                          |
 | ------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
@@ -39,24 +39,46 @@ Memphis.dev enables building next-generation applications that require large vol
 | Clustering         | Active-Active                                                                                          | Unavailable                                                                                      |
 | Performance        | Scale-up, Scale-out                                                                                    | No control                                                                                       |
 | Multi-region       | Supported\*                                                                                            | No                                                                                               |
+| Multi-tenancy      | Supported\*                                                                                            | No                                                                                               |
 | Read-replicas      | Supported\*                                                                                            | No                                                                                               |
 | Queue striping     | Supported\*                                                                                            | Unavailable                                                                                      |
+|                    |                                                                                                        |                                                                                                  |
+
+\*Available for Memphis cloud users
 
 ### **Data Flow**&#x20;
 
-SQS uses a distinct, bounded data flow. Messages are created and sent by the producer and received by the consumer. Memphis uses an unbounded data flow, with the key-value pairs continuously streaming to the assigned station.
+SQS uses a distinct, bounded data flow. Messages are created and sent by the producer and received by the consumer.&#x20;
+
+Memphis uses an unbounded data flow, with the key-value pairs continuously streaming to the assigned station.
 
 ### **Data Usage**
 
-SQS is best for transactional data, such as order formation, placement, and user requests. Memphis works great for transactional and operational data like process operations, auditing and logging statistics, and system activity.
+AWS SQS is best for transactional data, such as order formation, placement, and user requests.&#x20;
+
+Memphis works great for transactional and operational data like process operations, auditing and logging statistics, and system activity.
 
 ### **Message retention**&#x20;
 
-SQS pushes messages to consumers. These messages are removed from the queue once they are processed and acknowledged. Memphis is a log. It uses continuous messages, which stay in the station (queue) until the retention period expires.
+AWS SQS pushes messages to consumers. These messages are removed from the queue once they are processed and acknowledged.&#x20;
+
+Memphis is a log. It uses continuous messages, which stay in the station (queue) until the retention period expires.
+
+### Multi-tenancy
+
+**AWS SQS** doesn't support multi-tenancy but through a lambda function, required to be code and managed by the user that acts as a router.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.36.37.png" alt=""><figcaption><p>AWS SQS</p></figcaption></figure>
+
+**Memphis** supports multi-tenancy using namespaces which offers a complete separation from connections, producers, consumers, security, dedicated dashboard, including node selection.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.43.png" alt=""><figcaption><p>Memphis namespaces</p></figcaption></figure>
 
 ### **Observability**&#x20;
 
 Some level of observability can be received by using 3rd party apps like Cloudwatch/Datadog/New Relic. To understand the full path of a message, it is required to use AWS X-Ray and add some headers to each client. Notifications can be achieved by building a dedicated event queue with lambda triggers. Some alarms and triggers must be defined over 3rd party apps to enable lag identifications and latency in real-time.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.38.55.png" alt=""><figcaption></figcaption></figure>
 
 Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring, real-time message tracing, and notifications embedded inside the management layer, including self-healing policies based on the defined events.\
 

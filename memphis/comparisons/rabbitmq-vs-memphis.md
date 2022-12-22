@@ -24,24 +24,24 @@ Memphis.dev enables building next-generation applications that require large vol
 
 ## Messaging Comparison
 
-| Parameter          | Memphis                                                                                                | RabbitMQ                                                                                              |
-| ------------------ | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
-| Performance        | 300K messages per second per station (queue).                                                          | 4K-10K messages per second                                                                            |
-| Message Retention  | Policy-based (e.g., 30 days)                                                                           | Acknowledgment based                                                                                  |
-| Data Type          | Transactional, Operational                                                                             | Transactional                                                                                         |
-| Consumer Mode      | Smart broker/Smart consumer                                                                            | Smart broker/dumb consumer                                                                            |
-| Topology           | Publish/subscribe based                                                                                | Exchange type: Direct, Fan out, Topic, Header-based                                                   |
-| Payload Size       | Up to 15M                                                                                              | No constraints                                                                                        |
-| Use Cases          | Massive data/high throughput cases \| Simple use cases                                                 | Simple use cases                                                                                      |
-| Delivery Guarantee | At least once, Exactly once                                                                            | Especially in relation to transactions utilizing a single queue, it does not guarantee atomicity.     |
-| Message ordering   | Message ordering is provided via consumer groups. By message key, messages are sent to stations.       | Unsupported.                                                                                          |
-| Message priorities | Unavailable                                                                                            | You can set message priorities in RabbitMQ and consume messages in the order of highest priority.     |
-| Message lifetime   | Since station messages are kept on file/memory. This can be controlled by defining a retention policy. | Because RabbitMQ is a queue, messages are discarded after being read, and an acknowledgment is given. |
-| Clustering         | Active-Active                                                                                          | Active-Passive                                                                                        |
-| Multi-region       | Supported\*                                                                                            | No                                                                                                    |
-| Multi-tenancy      | Namespaces including node selection \*                                                                 | vHosts                                                                                                |
-| Read-replicas      | Supported\*                                                                                            | No                                                                                                    |
-| Queue striping     | Supported\*                                                                                            | No                                                                                                    |
+| Parameter                  | Memphis                                                                                                | RabbitMQ                                                                                              |
+| -------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| Performance                | 300K messages per second per station (queue).                                                          | 4K-10K messages per second                                                                            |
+| Message Retention          | Policy-based (e.g., 30 days)                                                                           | Acknowledgment based                                                                                  |
+| Data Type                  | Transactional, Operational                                                                             | Transactional                                                                                         |
+| Consumer Mode              | Smart broker/Smart consumer                                                                            | Smart broker/dumb consumer                                                                            |
+| Topology                   | Publish/subscribe based                                                                                | Exchange type: Direct, Fan out, Topic, Header-based                                                   |
+| Payload Size               | Up to 15M                                                                                              | No constraints                                                                                        |
+| Use Cases                  | Massive data/high throughput cases \| Simple use cases                                                 | Simple use cases                                                                                      |
+| Delivery Guarantee         | At least once, Exactly once                                                                            | Especially in relation to transactions utilizing a single queue, it does not guarantee atomicity.     |
+| Message ordering           | Message ordering is provided via consumer groups. By message key, messages are sent to stations.       | Unsupported.                                                                                          |
+| Message priorities         | Unavailable                                                                                            | You can set message priorities in RabbitMQ and consume messages in the order of highest priority.     |
+| Message lifetime           | Since station messages are kept on file/memory. This can be controlled by defining a retention policy. | Because RabbitMQ is a queue, messages are discarded after being read, and an acknowledgment is given. |
+| Clustering                 | Active-Active                                                                                          | Active-Passive                                                                                        |
+| Multi-region               | Supported\*                                                                                            | No                                                                                                    |
+| Multi-tenancy              | Namespaces including node selection \*                                                                 | vHosts                                                                                                |
+| Read-replicas              | Supported\*                                                                                            | No                                                                                                    |
+| Data striping across nodes | Supported                                                                                              | No                                                                                                    |
 
 \*Available for Memphis cloud users
 
@@ -100,11 +100,11 @@ Besides mirroring and striping stations across multiple brokers, that can ultima
 
 ### Multi-tenancy
 
-RabbitMQ is a multi-tenant system: connections, exchanges, queues, bindings, user permissions, policies, and some other things belong to virtual hosts, and logical groups of entities.
+**RabbitMQ** is a multi-tenant system: connections, exchanges, queues, bindings, user permissions, policies, and some other things belong to virtual hosts, and logical groups of entities.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.16.png" alt=""><figcaption></figcaption></figure>
 
-Memphis supports multi-tenancy using namespaces which offers a complete separation from connections, producers, consumers, security, dedicated dashboard, including node selection.
+**Memphis** supports multi-tenancy using namespaces which offers a complete separation from connections, producers, consumers, security, dedicated dashboard, including node selection.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.43.png" alt=""><figcaption></figcaption></figure>
 
