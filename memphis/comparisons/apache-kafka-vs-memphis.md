@@ -99,12 +99,12 @@ Apache Kafka does not offer an embedded solution for notifications. Can be achie
 
 ## Availability and Messaging
 
-| Parameter           | Memphis.dev | Apache Kafka |
-| ------------------- | ----------- | ------------ |
-| Mirroring           |             |              |
-| Multi-tenancy       |             |              |
-| Ordering guarantees |             |              |
-| Storage tiering     |             |              |
-| Permanent storage   |             |              |
-| Delivery guarantees |             |              |
-| Idempotency         |             |              |
+| Parameter           | Memphis.dev                 | Apache Kafka                |
+| ------------------- | --------------------------- | --------------------------- |
+| Mirroring           | Yes                         | Yes                         |
+| Multi-tenancy       | Yes                         | No                          |
+| Ordering guarantees | Yes                         | Yes                         |
+| Storage tiering     | Yes. External               | Yes. Local                  |
+| Permanent storage   | Yes                         | Yes                         |
+| Delivery guarantees | At least once, Exactly once | At least once, Exactly once |
+| Idempotency         | Yes                         | Yes                         |
