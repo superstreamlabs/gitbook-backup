@@ -20,9 +20,91 @@ Memphis.dev enables building next-generation applications that require large vol
 
 ## General
 
-| Parameter                 | Memphis.dev | Apache Kafka                           |
-| ------------------------- | ----------- | -------------------------------------- |
-| License                   | Apache 2.0  | Apache 2.0                             |
-| Components                |             | Kafka + Zookeeper(ZK is being removed) |
-| Message consumption model |             |                                        |
-| Storage architecture      |             |                                        |
+| Parameter                 | Memphis.dev                              | Apache Kafka                           |
+| ------------------------- | ---------------------------------------- | -------------------------------------- |
+| License                   | Apache 2.0                               | Apache 2.0                             |
+| Components                | Memphis + MongoDB (MDB is being removed) | Kafka + Zookeeper(ZK is being removed) |
+| Message consumption model | Pull                                     | Pull                                   |
+| Storage architecture      | Log                                      | Log                                    |
+
+### License
+
+Both technologies are available under fully open-source licenses. Memphis also has a Memphis-based distribution with added security, tiered storage, and more.
+
+### Components
+
+Kafka uses Apache Zookeeper™ for consensus and message storage.\
+Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Memphis achieves consensus by using RAFT.
+
+### Message Consumption Model
+
+Both Kafka and Memphis use a pull-based architecture where consumers pull messages from the server, and [long-polling](https://en.wikipedia.org/wiki/Push\_technology#Long\_polling) is used to ensure new messages are made available instantaneously.
+
+Pull-based architectures are often preferable for high throughput workloads as they allow consumers to manage their flow control, fetching only what they need.
+
+### Storage Architecture
+
+Kafka uses a distributed commit log as its storage layer. Writes are appended to the end of the log. Reads are sequential, starting from an offset, and data is zero-copied from the disk buffer to the network buffer. This works well for event streaming use cases.
+
+Memphis also uses a distributed commit log called streams (made by NATS Jetstream) as its storage layer, which can be written entirely on the broker's (server) memory or disk.\
+Memphis also uses offsets but abstracts them completely, so the heavy lifting of saving a record of the used offsets resides on Memphis and not on the client.\
+Memphis also offers storage tiering for offloading messages to S3-compatible storage for an infinite storage time and more cost-effective storage. Reads are sequential.
+
+## User Experience
+
+| Parameter               | Memphis.dev               | Apache Kafka                           |
+| ----------------------- | ------------------------- | -------------------------------------- |
+| Deployment              | Stright forward           | Requires deep understanding and design |
+| GUI                     | Native                    | 3rd parties                            |
+| Enterprise support      | Yes                       | 3rd parties like Confluent, AWS MSK    |
+| Managed cloud offerings | Yes                       | 3rd parties like Confluent, AWS MSK    |
+| Self-Healing            | Yes                       | No                                     |
+| Notifications           | Yes                       | No                                     |
+| Message tracing         | Yes                       | No                                     |
+| Storage balancing       | Automatic based on policy | Manual                                 |
+
+### Deployment
+
+Kafka is a cluster-based technology with a medium-weight architecture requiring two distributed components: Kafka's own servers (brokers) plus ZooKeeper™ servers. Zookeeper adds an additional level of complexity but the community is in the process of removing the ZooKeeper component from Kafka. Kafka "Vanilla" deployment requires a manual binary installation and text-based configuration, as well as config OS daemons and internal parameters.
+
+Memphis has a light-weight yet robust cloud-native architecture and packed as a container from day one. It can be deployed using any docker engine, docker swarm, and for production environment using helm for Kubernetes (soon with operator). Memphis initial config is already sufficient for production, and optimizations can take place on-the-fly without downtime. That approach enables Memphis to be completely isolated and apart from the infrastructure it deployed upon.
+
+### GUI
+
+Multiple open-source GUIs have been developed for Kafka over the years, for example, [Kafka-UI](https://github.com/provectus/kafka-ui). Usually, it cannot sustain heavy traffic and visualization and requires separate computing and maintenance. There are different commercial versions of Kafka that, among the rest, provide robust GUI, like Confluent, Conduktor, and more.
+
+Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
+
+<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+
+### Enterprise support and managed cloud offering
+
+Enterprise-grade support and managed cloud offerings for Kafka are available from several prominent vendors, including Confluent, AWS (MSK), Cloudera, and more.
+
+Memphis provides enterprise support and managed cloud offering that includes features like enhanced security, stream research abilities, an ML-based resource scheduler for better cost savings, and more.
+
+### Self-healing
+
+Kafka is a robust distributed system and requires constant tune-ups, client-made wrappers, management, and tight monitoring. The user or operator is responsible for ensuring it's alive and works as required. There are pros and cons to this approach, as the user can tune almost every parameter, but often revealed as a significant burden.
+
+One of Memphis' core features is to remove frictions of management and autonomously make sure it's alive and performing well using periodic self-checks and proactive rebalancing tasks, as well as fencing the users from misusing the system. In parallel, every aspect of the system can be configured on-the-fly without downtime.
+
+### Notifications
+
+Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.26.36.png" alt=""><figcaption></figcaption></figure>
+
+Apache Kafka does not offer an embedded solution for notifications. Can be achieved via commercial offerings.
+
+## Availability and Messaging
+
+| Parameter           | Memphis.dev | Apache Kafka |
+| ------------------- | ----------- | ------------ |
+| Mirroring           |             |              |
+| Multi-tenancy       |             |              |
+| Ordering guarantees |             |              |
+| Storage tiering     |             |              |
+| Permanent storage   |             |              |
+| Delivery guarantees |             |              |
+| Idempotency         |             |              |
