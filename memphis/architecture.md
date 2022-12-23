@@ -43,7 +43,7 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
-* [HTTP](../sdks-and-protocols/http.md)
+* [HTTP](../sdks-and-protocols/rest-http.md)
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
 * WASM \* Soon \*

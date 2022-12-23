@@ -59,7 +59,7 @@
 
 ## SDKs and Protocols
 
-* [HTTP](sdks-and-protocols/http.md)
+* [REST (HTTP)](sdks-and-protocols/rest-http.md)
 * [Node.js / Typescript / NestJS](sdks/node.js-typescript/README.md)
   * [Example: Producer.js](sdks/node.js-typescript/example-producer.js.md)
   * [Example: Producer.ts](sdks/node.js-typescript/example-producer.ts.md)
