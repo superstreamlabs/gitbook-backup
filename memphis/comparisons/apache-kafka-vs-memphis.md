@@ -99,12 +99,26 @@ Apache Kafka does not offer an embedded solution for notifications. Can be achie
 
 ## Availability and Messaging
 
-| Parameter           | Memphis.dev                 | Apache Kafka                |
-| ------------------- | --------------------------- | --------------------------- |
-| Mirroring           | Yes                         | Yes                         |
-| Multi-tenancy       | Yes                         | No                          |
-| Ordering guarantees | Yes                         | Yes                         |
-| Storage tiering     | Yes. External               | Yes. Local                  |
-| Permanent storage   | Yes                         | Yes                         |
-| Delivery guarantees | At least once, Exactly once | At least once, Exactly once |
-| Idempotency         | Yes                         | Yes                         |
+| Parameter               | Memphis.dev                 | Apache Kafka                |
+| ----------------------- | --------------------------- | --------------------------- |
+| Mirroring (Replication) | Yes                         | Yes                         |
+| Multi-tenancy           | Yes                         | No                          |
+| Ordering guarantees     | Yes                         | Yes                         |
+| Storage tiering         | Yes                         | Yes                         |
+| Permanent storage       | Yes                         | Yes                         |
+| Delivery guarantees     | At least once, Exactly once | At least once, Exactly once |
+| Idempotency             | Yes                         | Yes                         |
+
+### Mirroring (Replication)
+
+Kafka Replication means having multiple copies of the data spread across multiple servers/brokers. This helps maintain high availability if one of the brokers goes down and is unavailable to serve the requests.
+
+Memphis station replication works similarly. During station (=topic) creation, the user can choose the number of replicas derived from the number of available brokers. messages will be replicated in a raid-1 manner across the chosen number of brokers.
+
+### Multi-tenancy
+
+Multi-tenancy refers to the mode of operation of software where multiple independent instances of one or multiple applications operate in a shared environment. The instances (tenants) are logically isolated and often physically integrated. The most famous users are SaaS-type applications.
+
+Apache Kafka does not natively support multi-tenancy. It can be achieved via complex client logic, different topics, and ACL.
+
+As Memphis pushes to enable the next generation of applications and&#x20;

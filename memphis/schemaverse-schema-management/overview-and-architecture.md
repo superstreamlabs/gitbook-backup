@@ -16,7 +16,9 @@ The very basic building block to control and ensure the quality of data that flo
 
 ## Why should you use schemas?
 
-Data pipelines are constantly breaking and creating data quality AND usability issues. There is a communication chasm between service implementers, data engineers, and data consumers. There are multiple approaches to solving these issues, and data engineers are still very much pioneers in exploring the frontier of future best practices.
+Data pipelines are constantly breaking and creating data quality issues, usability issues, and there is a communication chasm between service implementers, data engineers, and data consumers.
+
+By defining a well-struct schema and enforcing it over your different data producers, you increase the quality of your data, lower the client logic needed to transform unstructured data, and decrease pipelines and consumer breaks.
 
 ## Schemaverse Architecture
 
