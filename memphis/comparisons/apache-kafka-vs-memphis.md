@@ -192,6 +192,8 @@ Confluent offers "Schema Registry" which is a standalone component and provides 
 
 As part of its open-source version, Memphis presents Schemaverse, which is also embedded within the broker. Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. In counter to Schema Registry, the client does not need to implement serialization functions, and every schema update takes place during producers' runtime.
 
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-24 at 22.32.36.png" alt=""><figcaption><p>Schemaverse</p></figcaption></figure>
+
 ### Message routing
 
 Kafka provides routing capabilities through Kafka Connect and Kafka Streams, including content-based routing, message transformation, and message enrichment.
