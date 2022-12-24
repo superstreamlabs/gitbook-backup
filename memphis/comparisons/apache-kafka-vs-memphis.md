@@ -8,7 +8,7 @@ coverY: 0
 
 ## What is Apache Kafka?
 
-Apache Kafka is an open-source distributed event streaming platform. Based on the abstraction of a distributed commit log, Kafka is capable of handling a great amount of events with functionality comprising pub/sub.
+Apache Kafka is an open-source distributed event streaming platform. Based on the abstraction of a distributed commit log, Kafka can handle a great number of events with functionality comprising pub/sub.
 
 ## **What is Memphis.dev?**
 
@@ -201,13 +201,15 @@ At the moment, Memphis does not support compaction, but it will in the future.
 
 The ability to re-consume committed messages.
 
-Kafka does support replay.
+Kafka does support replay by seeking specific offsets as the consumers have control over resetting the offset.
 
 Memphis does not support replay yet but will in the near future (2023).
 
 ### Stream Enrichment
 
+Kafka, with its Kafka Streams library, allows developers to implement elastic and scalable client applications that can leverage essential stream processing features such as tables, joins, and aggregations of several topics, and export to multiple sources via Kafka connect.
 
+Memphis provides a similar behavior and more. Embedded inside the broker, Memphis users can create serverless-type functions or full containerized applications that can&#x20;
 
 ### Pull retry mechanism
 
