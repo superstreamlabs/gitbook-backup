@@ -161,6 +161,7 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 | --------------------------- | ---------------------------- | ------------------------------------- |
 | GUI                         | Native                       | 3rd Party                             |
 | Dead-letter Queue           | Yes                          | No                                    |
+| Schema Management           | Yes                          | Confluent-based                       |
 | Message routing             | Yes                          | Yes. Using Kafka connect and KStreams |
 | Log compaction              | Not yet                      | Yes                                   |
 | Message replay, time travel | Not yet                      | Yes                                   |
@@ -182,6 +183,14 @@ Dead-letter queue is both a concept and a solution that is useful for debugging 
 The Kafka architecture does not support DLQ within the broker; it is the client or consumer's responsibility to implement such behavior for good and bad.
 
 One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
+
+### Schema Management
+
+The very basic building block to control and ensure the quality of data that flows through your organization between the different owners is by defining well-written schemas and data models.
+
+Confluent offers "Schema Registry" which is a standalone component and provides a centralized repository for schemas and metadata, allowing services to flexibly interact and exchange data with each other without the challenge of managing and sharing schemas between them. It requires dedicated management, maintenance, scale, and monitoring.
+
+As part of its open-source version, Memphis presents Schemaverse, which is also embedded within the broker. Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. In counter to Schema Registry, the client does not need to implement serialization functions, and every schema update takes place during producers' runtime.
 
 ### Message routing
 
@@ -220,6 +229,10 @@ In Kafka, it is the client's responsibility to implement one. Some key factors m
 In Memphis, the retry mechanism is built-in and turned on by default within the SDK and broker. During consumer creation, the parameter `maxMsgDeliveries` will determine the number of retries the station will deliver a message if an acknowledgment does not arrive till `maxAckTimeMs` . The broker itself records the offsets given and will expose only the unacknowledged ones to the retry request.
 
 ## Conclusion
+
+Apache Kafka is a robust and mature system with extensive community support and a proven record for high-throughput use cases and users. Still, it also requires micro-management, slow troubleshooting, complex client implementation, wrappers, and often tunings that take the user's focus and resources from the "main event," and the most important thing - it does not scale well as the organization grows, and more use cases join in. Wix [Greyhound](https://github.com/wix/greyhound) library is excellent proof of that.
+
+We call Memphis "A next-generation message broker" because it leans towards the user and adapts to its scale and requirements, not the opposite. Most of the wrappers, tunings, management-overhead, and implementations needed from the client in Kafka, are abstract to the users in Memphis, which provides an excellent solution for the smaller workload use cases and the more robust ones under the same system and with full ecosystem to support it. It has a milage to pass, but the immediate benefits already exist and will continue to evolve.
 
 ## Sources
 
