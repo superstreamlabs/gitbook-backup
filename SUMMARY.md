@@ -40,8 +40,8 @@
   * [RabbitMQ vs Memphis](memphis/comparisons/rabbitmq-vs-memphis.md)
   * [AWS SQS vs Memphis](memphis/comparisons/aws-sqs-vs-memphis.md)
   * [Apache Kafka vs Memphis](memphis/comparisons/apache-kafka-vs-memphis.md)
-  * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
   * [Apache Pulsar vs Memphis](memphis/comparisons/apache-pulsar-vs-memphis.md)
+  * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
 * [Roadmap](memphis/roadmap.md)
 * [Privacy](memphis/privacy.md)
 

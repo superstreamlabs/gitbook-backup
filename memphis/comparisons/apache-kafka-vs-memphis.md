@@ -128,7 +128,7 @@ As Memphis pushes to enable the next generation of applications and especially S
 
 ### Storage tiering
 
-Confluent, as part of their cloud offering, provides storage tiering for Kafka to send warm data to cost-effective object storage.
+As part of their cloud offering, Confluent provides storage tiering for Kafka to send warm data to cost-effective object storage.
 
 Memphis offers a multi-tier storage strategy in its open-source version. Memphis will write messages that reached their end of 1st retention policy to a 2nd retention policy on object storage like S3 for longer retention time, potentially infinite, and post-streaming analysis. This feature can significantly help with cost reduction and stream auditing.
 
@@ -138,4 +138,20 @@ Both Kafka and Memphis store data durably and reliably, much like a normal datab
 
 ### Idempotency
 
-Both Kafka and Memphis provides default support in idempotent producer
+Both Kafka and Memphis provide default support in idempotent producers.\
+On the consumer side, in Kafka, its the client's responsibility to build a retry mechanism that will retransmit a batch of messages exactly once, while in Memphis, it is provided natively within the SDK with a parameter called `maxMsgDeliveries`.
+
+### Geo-Replication (Multi-region)
+
+Common scenarios for a geo-replication include:
+
+* Geo-replication
+* Disaster recovery
+* Feeding edge clusters into a central, aggregate cluster
+* Physical isolation of clusters (such as production vs. testing)
+* Cloud migration or hybrid cloud deployments
+* Legal and compliance requirements
+
+Kafka users can set up such inter-cluster data flows with Kafka's MirrorMaker (version 2), a tool to replicate data between different Kafka environments in a streaming manner.
+
+Memphis cloud users can create more Memphis clusters and form a supercluster that replicates data in an async manner between the clusters of streamed data, security, consumer groups, unified management, and more.
