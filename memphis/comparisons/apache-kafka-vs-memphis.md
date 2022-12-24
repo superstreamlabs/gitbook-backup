@@ -201,7 +201,7 @@ At the moment, Memphis does not support compaction, but it will in the future.
 
 The ability to re-consume committed messages.
 
-Kafka does support replay by seeking specific offsets as the consumers have control over resetting the offset.
+Kafka does support replay.
 
 Memphis does not support replay yet but will in the near future (2023).
 
