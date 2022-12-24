@@ -160,11 +160,15 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 
 ## Features
 
-| Parameter         | Memphis.dev | Apache Kafka |
-| ----------------- | ----------- | ------------ |
-| GUI               |             |              |
-| Dead-letter Queue |             |              |
-|                   |             |              |
+| Parameter                   | Memphis.dev | Apache Kafka |
+| --------------------------- | ----------- | ------------ |
+| GUI                         |             |              |
+| Dead-letter Queue           |             |              |
+| Message routing             |             |              |
+| Log compaction              |             |              |
+| Message replay, time travel |             |              |
+| Stream Enrichment           |             |              |
+|                             |             |              |
 
 ### GUI
 
