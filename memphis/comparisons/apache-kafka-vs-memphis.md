@@ -12,7 +12,7 @@ Apache Kafka is an open-source distributed event streaming platform. Based on th
 
 ## **What is Memphis.dev?**
 
-**Memphis** is a next-generation messaging queue.
+**Memphis** is a next-generation message broker.
 
 A simple, robust, and durable cloud-native message broker wrapped with an entire ecosystem that enables fast and reliable development of next-generation event-driven use cases.
 
