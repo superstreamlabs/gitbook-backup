@@ -3,22 +3,30 @@ cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
-# Scaling for Live/Production Deployment
+# Scaling 
 
-This section describes how Memphis scales.
+The following section outlines the Memphis scaling process and provides instructions on how to implement it. 
 
-## Scaling Up vs Scaling Out
+## Scaling Up vs Scaling Out / Vertical vs Horizontal Scaling
 
-Or vertical vs horizontal are different methods to add more compute/memory/storage resources to a Memphis cluster.
+Memphis utilize the same scaling paradigm as most database or application solutions which is called Scaling Up vs Scaling Out aka Vertical vs Horizontal Scaling.
+
+Scaling up an application refers to increasing the capacity of the current system by adding more resources such as CPU, memory, or storage. This is also known as vertical scaling.
+
+On the other hand, scaling out an application involves distributing the workload across multiple systems or instances to increase capacity. This is also known as horizontal scaling.
+
+Both approaches can be used to increase the capacity of an application to handle a larger workload, but they have different implications and trade-offs. Scaling up a single system can be more cost-effective, but it may reach a physical limit in terms of the resources that can be added. Scaling out requires more infrastructure and may be more complex to set up and manage, but it allows for virtually unlimited scaling potential.
+
+Below, you'll find examples, instructions and best practices on how to scale up/scale up your Memphis cluster.
 
 <figure><img src="../../.gitbook/assets/scale up vs out.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Scaling up / Vertical Scaling
 
 Addition of CPU / memory / storage to every broker itself (can be only one).
-As mentioned in the hardware requirement table, Memphis can be installed with only one memphis broker over a Kubernetes cluster with a single worker equipped with 2 CPUs, 4Gb of RAM, and 16Gb of storage.
+As mentioned in the hardware requirement table, Memphis can be installed with only one memphis broker over a Kubernetes cluster with a single worker equipped with 2 CPUs, 4GB of RAM, and 16GB of storage. Note  that these are the minimum requirements. You can go below them at your own risk but may experience instability in the Memphis ecosystem.
 
-As the demand for computing resources increases with the growth of workload and data transfer through Memphis, it may be necessary to allocate additional resources. One approach to doing this is to increase the number of CPUs in the k8s nodes and, depending on the storage requirements of the system, adding more memory and/or storage capacity.
+As the demand for computing resources increases with the growth of workload and data transfer through Memphis, it may be necessary to allocate additional resources. One approach to doing this is to increase the number of CPUs in the Kubernetes nodes and, depending on the storage requirements of the system, adding more memory and/or storage capacity.
 
 As long as it is implemented correctly, using Kubernetes for the production-level of Memphis will not impact the functioning of Memphis and there will be no downtime during the scaling process.
 
@@ -37,26 +45,29 @@ Relevant for Memphis [cluster-mode](https://docs.memphis.dev/memphis/deployment/
 
 Scale-out is a concept that exists in distributed applications only.
 
-In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers.
+As stated above, In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers.
 
-#### A step-by-step guide to adding more memphis brokers
+#### A step-by-step guide to adding more Memphis brokers
 
-Step 1: Add more statefulset
+Step 1: Add more StatefulSets
 
 ```
 kubectl scale statefulsets memphis-broker --replicas=<new amount of replicas> -n memphis
 ```
 
-Step 2: Edit Memphis configmap route table
+Step 2: Edit Memphis ConfigMap route table
 
 ```
 kubectl get cm memphis-broker-config -o yaml > memphis-broker-config.yaml
 ```
 
+```
+# You can replace vi with your favorite text editor
 vi `memphis-broker-config.yaml`
+```
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-11-13 at 17.08.25.png" alt=""><figcaption></figcaption></figure>
 
-Add the new statefulset in the marked line with the following pattern -&#x20;
+Add the new StatefulSet in the marked line with the following pattern -&#x20;
 
 `, nats://memphis-broker-`<mark style="color:red;">**`X`**</mark>`.memphis-cluster.memphis.svc.cluster.local:6222`
