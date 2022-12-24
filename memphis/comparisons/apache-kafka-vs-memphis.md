@@ -103,7 +103,7 @@ Apache Kafka does not offer an embedded solution for notifications. Can be achie
 | ----------------------- | --------------------------- | --------------------------- |
 | Mirroring (Replication) | Yes                         | Yes                         |
 | Multi-tenancy           | Yes                         | No                          |
-| Ordering guarantees     | Yes                         | Yes                         |
+| Ordering guarantees     | Consumer group level        | Partition level             |
 | Storage tiering         | Yes                         | Yes                         |
 | Permanent storage       | Yes                         | Yes                         |
 | Delivery guarantees     | At least once, Exactly once | At least once, Exactly once |
@@ -121,4 +121,9 @@ Multi-tenancy refers to the mode of operation of software where multiple indepen
 
 Apache Kafka does not natively support multi-tenancy. It can be achieved via complex client logic, different topics, and ACL.
 
-As Memphis pushes to enable the next generation of applications and&#x20;
+As Memphis pushes to enable the next generation of applications and especially SaaS-type architectures, Memphis supports Multi-tenancy across all the layers from stations (=topics) to security, consumers, and producers, all the way to node selection for complete hardware isolation in case of need. It is enabled using namespaces and can be managed in a unified console.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.43.png" alt=""><figcaption></figcaption></figure>
+
+### Storage tiering
+
