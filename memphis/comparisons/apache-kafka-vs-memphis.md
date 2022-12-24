@@ -50,12 +50,11 @@ Memphis also uses a distributed commit log called streams (made by NATS Jetstrea
 Memphis also uses offsets but abstracts them completely, so the heavy lifting of saving a record of the used offsets resides on Memphis and not on the client.\
 Memphis also offers storage tiering for offloading messages to S3-compatible storage for an infinite storage time and more cost-effective storage. Reads are sequential.
 
-## User Experience
+## Ecosystem and User Experience
 
 | Parameter                            | Memphis.dev               | Apache Kafka                           |
 | ------------------------------------ | ------------------------- | -------------------------------------- |
 | Deployment                           | Stright forward           | Requires deep understanding and design |
-| GUI                                  | Native                    | 3rd parties                            |
 | Enterprise support                   | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Managed cloud offerings              | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Self-Healing                         | Yes                       | No                                     |
@@ -160,15 +159,15 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 
 ## Features
 
-| Parameter                   | Memphis.dev | Apache Kafka |
-| --------------------------- | ----------- | ------------ |
-| GUI                         |             |              |
-| Dead-letter Queue           |             |              |
-| Message routing             |             |              |
-| Log compaction              |             |              |
-| Message replay, time travel |             |              |
-| Stream Enrichment           |             |              |
-|                             |             |              |
+| Parameter                   | Memphis.dev                  | Apache Kafka             |
+| --------------------------- | ---------------------------- | ------------------------ |
+| GUI                         | Native                       | 3rd Party                |
+| Dead-letter Queue           | Yes                          | No                       |
+| Message routing             | Yes                          | Yes                      |
+| Log compaction              | Not yet                      | Yes                      |
+| Message replay, time travel | Not yet                      | Yes                      |
+| Stream Enrichment           | SQL and Serverless functions | SQL-based using KStreams |
+| Pull retry mechanism        | Yes                          | Client responsibility    |
 
 ### GUI
 
