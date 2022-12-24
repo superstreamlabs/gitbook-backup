@@ -50,11 +50,12 @@ Memphis also uses a distributed commit log called streams (made by NATS Jetstrea
 Memphis also uses offsets but abstracts them completely, so the heavy lifting of saving a record of the used offsets resides on Memphis and not on the client.\
 Memphis also offers storage tiering for offloading messages to S3-compatible storage for an infinite storage time and more cost-effective storage. Reads are sequential.
 
-## Ecosystem and User Experience
+## User Experience
 
 | Parameter                            | Memphis.dev               | Apache Kafka                           |
 | ------------------------------------ | ------------------------- | -------------------------------------- |
 | Deployment                           | Stright forward           | Requires deep understanding and design |
+| GUI                                  | Native                    | 3rd parties                            |
 | Enterprise support                   | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Managed cloud offerings              | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Self-Healing                         | Yes                       | No                                     |
@@ -159,15 +160,15 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 
 ## Features
 
-| Parameter                   | Memphis.dev                  | Apache Kafka                          |
-| --------------------------- | ---------------------------- | ------------------------------------- |
-| GUI                         | Native                       | 3rd Party                             |
-| Dead-letter Queue           | Yes                          | No                                    |
-| Message routing             | Yes                          | Yes. Using Kafka connect and KStreams |
-| Log compaction              | Not yet                      | Yes                                   |
-| Message replay, time travel | Not yet                      | Yes                                   |
-| Stream Enrichment           | SQL and Serverless functions | SQL-based using KStreams              |
-| Pull retry mechanism        | Yes                          | Client responsibility                 |
+| Parameter                   | Memphis.dev | Apache Kafka |
+| --------------------------- | ----------- | ------------ |
+| GUI                         |             |              |
+| Dead-letter Queue           |             |              |
+| Message routing             |             |              |
+| Log compaction              |             |              |
+| Message replay, time travel |             |              |
+| Stream Enrichment           |             |              |
+|                             |             |              |
 
 ### GUI
 
@@ -176,27 +177,3 @@ Multiple open-source GUIs have been developed for Kafka over the years, for exam
 Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-
-### Dead-letter Queue
-
-Dead-letter queue is both a concept and a solution that is useful for debugging clients because it let you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
-
-### Message routing
-
-test
-
-### Log compaction
-
-test
-
-### Message replay, time travel
-
-test
-
-### Stream Enrichment
-
-test
-
-### Pull retry mechanism
-
-test
