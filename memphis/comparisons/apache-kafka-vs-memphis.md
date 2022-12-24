@@ -215,7 +215,9 @@ Memphis provides a similar behavior and more. Embedded inside the broker, Memphi
 
 In case of a failure or lack of ability to acknowledge consumed messages, there should be a retry mechanism that will retry to pull the same offset or batch of messages.
 
-In Kafka, it is the client's responsibility to implement one. To implement such a mechanism, some key factors must take under consideration like&#x20;
+In Kafka, it is the client's responsibility to implement one. Some key factors must be considered to implement such a mechanism, like blocking vs non-blocking, offset tracking, idempotency, and more.
+
+
 
 ## Conclusion
 
