@@ -6,7 +6,7 @@ coverY: 0
 
 # RabbitMQ vs Memphis
 
-**What is RabbitMQ?**
+## **What is RabbitMQ?**
 
 RabbitMQ is a lightweight and easy-to-deploy messaging queue for on-premises and cloud environments. It supports multiple messaging protocols. RabbitMQ can be deployed in distributed and federated configurations to meet high-scale, high-availability requirements.
 
