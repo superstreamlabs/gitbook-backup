@@ -45,7 +45,7 @@ Relevant for Memphis [cluster-mode](https://docs.memphis.dev/memphis/deployment/
 
 Scale-out is a concept that exists in distributed applications only.
 
-As stated above, In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers.
+In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers. In Memphis's case, this means adding more Memphis Brokers to handle the increasing workload. Please refer down below for a example on how to add more Memphis brokers.
 
 #### A step-by-step guide to adding more Memphis brokers
 
@@ -59,11 +59,7 @@ Step 2: Edit Memphis ConfigMap route table
 
 ```
 kubectl get cm memphis-broker-config -o yaml > memphis-broker-config.yaml
-```
-
-```
-# You can replace vi with your favorite text editor
-vi `memphis-broker-config.yaml`
+vi memphis-broker-config.yaml
 ```
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-11-13 at 17.08.25.png" alt=""><figcaption></figcaption></figure>
