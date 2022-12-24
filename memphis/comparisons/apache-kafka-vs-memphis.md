@@ -209,7 +209,7 @@ Memphis does not support replay yet but will in the near future (2023).
 
 Kafka, with its Kafka Streams library, allows developers to implement elastic and scalable client applications that can leverage essential stream processing features such as tables, joins, and aggregations of several topics, and export to multiple sources via Kafka connect.
 
-Memphis provides a similar behavior and more. Embedded inside the broker, Memphis users can create serverless-type functions or full containerized applications that can&#x20;
+Memphis provides a similar behavior and more. Embedded inside the broker, Memphis users can create serverless-type functions or complete containerized applications that aggregate several stations and streams, decorate and enrich messages from different sources, write complex functions that cannot be achieved via SQL, and manipulate the schema. Memphis embedded connectors frameworks will help to push the results directly to a defined sink.
 
 ### Pull retry mechanism
 
@@ -222,3 +222,4 @@ test
 * [https://kafka.apache.org/documentation](https://kafka.apache.org/documentation)
 * [https://www.confluent.io](https://www.confluent.io/kafka-vs-pulsar/)
 * [https://www.kai-waehner.de/blog](https://www.kai-waehner.de/blog/2022/05/30/error-handling-via-dead-letter-queue-in-apache-kafka/)
+* [https://docs.memphis.dev](https://docs.memphis.dev)
