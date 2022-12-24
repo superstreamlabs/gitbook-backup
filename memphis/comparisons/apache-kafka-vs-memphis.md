@@ -50,12 +50,11 @@ Memphis also uses a distributed commit log called streams (made by NATS Jetstrea
 Memphis also uses offsets but abstracts them completely, so the heavy lifting of saving a record of the used offsets resides on Memphis and not on the client.\
 Memphis also offers storage tiering for offloading messages to S3-compatible storage for an infinite storage time and more cost-effective storage. Reads are sequential.
 
-## User Experience
+## Ecosystem and User Experience
 
 | Parameter                            | Memphis.dev               | Apache Kafka                           |
 | ------------------------------------ | ------------------------- | -------------------------------------- |
 | Deployment                           | Stright forward           | Requires deep understanding and design |
-| GUI                                  | Native                    | 3rd parties                            |
 | Enterprise support                   | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Managed cloud offerings              | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Self-Healing                         | Yes                       | No                                     |
@@ -160,15 +159,15 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 
 ## Features
 
-| Parameter                   | Memphis.dev | Apache Kafka |
-| --------------------------- | ----------- | ------------ |
-| GUI                         |             |              |
-| Dead-letter Queue           |             |              |
-| Message routing             |             |              |
-| Log compaction              |             |              |
-| Message replay, time travel |             |              |
-| Stream Enrichment           |             |              |
-|                             |             |              |
+| Parameter                   | Memphis.dev                  | Apache Kafka                          |
+| --------------------------- | ---------------------------- | ------------------------------------- |
+| GUI                         | Native                       | 3rd Party                             |
+| Dead-letter Queue           | Yes                          | No                                    |
+| Message routing             | Yes                          | Yes. Using Kafka connect and KStreams |
+| Log compaction              | Not yet                      | Yes                                   |
+| Message replay, time travel | Not yet                      | Yes                                   |
+| Stream Enrichment           | SQL and Serverless functions | SQL-based using KStreams              |
+| Pull retry mechanism        | Yes                          | Client responsibility                 |
 
 ### GUI
 
@@ -177,3 +176,39 @@ Multiple open-source GUIs have been developed for Kafka over the years, for exam
 Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+### Dead-letter Queue
+
+Dead-letter queue is both a concept and a solution that is useful for debugging clients because it lets you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
+
+The Kafka architecture does not support DLQ within the broker; it is the client or consumer's responsibility to implement such behavior for good and bad.
+
+One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
+
+### Message routing
+
+test
+
+### Log compaction
+
+test
+
+### Message replay, time travel
+
+test
+
+### Stream Enrichment
+
+test
+
+### Pull retry mechanism
+
+test
+
+## Conclusion
+
+## Sources
+
+* [https://kafka.apache.org/documentation](https://kafka.apache.org/documentation)
+* [https://www.confluent.io](https://www.confluent.io/kafka-vs-pulsar/)
+* [https://www.kai-waehner.de/blog](https://www.kai-waehner.de/blog/2022/05/30/error-handling-via-dead-letter-queue-in-apache-kafka/)

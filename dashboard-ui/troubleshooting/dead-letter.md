@@ -10,13 +10,13 @@ coverY: 0
 
 ## Introduction
 
-Dead-letter station will often be named "Dead-letter queue" in other messaging systems.
+"Dead-letter station" will often be named "Dead-letter queue" in other messaging systems.
 
-Dead-letter station (=queue) is both a concept and a solution that is useful for debugging clients because it lets you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
+Dead-letter stations are useful for debugging your application or messaging system because they let you isolate unconsumed messages to determine why their processing doesn't succeed.
 
-Upon creation of a Memphis station, a dead-letter station will be created by default since it does not consume any resources or storage unless there are messages.
+Memphis station will enable a dead-letter station per station by default since it does not consume any resources or storage unless there are messages.
 
-Once the user has debugged the consumer application or the consumer application is available to consume the message, a retransmit can take place directly from the dead-letter station according in the following methods
+Once you have debugged the consumer application or the consumer application is available to consume the message, you can use the dead-letter station retransmit capability to&#x20;
 
 * Move the messages back to the source station with just a click of a button on the Memphis GUI
 * Retransmit the message directly to the unconsumed consumer
