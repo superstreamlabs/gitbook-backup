@@ -69,14 +69,6 @@ Kafka is a cluster-based technology with a medium-weight architecture requiring 
 
 Memphis has a light-weight yet robust cloud-native architecture and packed as a container from day one. It can be deployed using any docker engine, docker swarm, and for production environment using helm for Kubernetes (soon with operator). Memphis initial config is already sufficient for production, and optimizations can take place on-the-fly without downtime. That approach enables Memphis to be completely isolated and apart from the infrastructure it deployed upon.
 
-### GUI
-
-Multiple open-source GUIs have been developed for Kafka over the years, for example, [Kafka-UI](https://github.com/provectus/kafka-ui). Usually, it cannot sustain heavy traffic and visualization and requires separate computing and maintenance. There are different commercial versions of Kafka that, among the rest, provide robust GUI, like Confluent, Conduktor, and more.
-
-Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
-
-<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
-
 ### Enterprise support and managed cloud offering
 
 Enterprise-grade support and managed cloud offerings for Kafka are available from several prominent vendors, including Confluent, AWS (MSK), Cloudera, and more.
@@ -165,3 +157,19 @@ Common scenarios for a geo-replication include:
 Kafka users can set up such inter-cluster data flows with Kafka's MirrorMaker (version 2), a tool to replicate data between different Kafka environments in a streaming manner.
 
 Memphis cloud users can create more Memphis clusters and form a supercluster that replicates data in an async manner between the clusters of streamed data, security, consumer groups, unified management, and more.
+
+## Features
+
+| Parameter         | Memphis.dev | Apache Kafka |
+| ----------------- | ----------- | ------------ |
+| GUI               |             |              |
+| Dead-letter Queue |             |              |
+|                   |             |              |
+
+### GUI
+
+Multiple open-source GUIs have been developed for Kafka over the years, for example, [Kafka-UI](https://github.com/provectus/kafka-ui). Usually, it cannot sustain heavy traffic and visualization and requires separate computing and maintenance. There are different commercial versions of Kafka that, among the rest, provide robust GUI, like Confluent, Conduktor, and more.
+
+Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
