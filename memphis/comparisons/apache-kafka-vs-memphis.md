@@ -159,15 +159,15 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 
 ## Features
 
-| Parameter                   | Memphis.dev                  | Apache Kafka             |
-| --------------------------- | ---------------------------- | ------------------------ |
-| GUI                         | Native                       | 3rd Party                |
-| Dead-letter Queue           | Yes                          | No                       |
-| Message routing             | Yes                          | Yes                      |
-| Log compaction              | Not yet                      | Yes                      |
-| Message replay, time travel | Not yet                      | Yes                      |
-| Stream Enrichment           | SQL and Serverless functions | SQL-based using KStreams |
-| Pull retry mechanism        | Yes                          | Client responsibility    |
+| Parameter                   | Memphis.dev                  | Apache Kafka                          |
+| --------------------------- | ---------------------------- | ------------------------------------- |
+| GUI                         | Native                       | 3rd Party                             |
+| Dead-letter Queue           | Yes                          | No                                    |
+| Message routing             | Yes                          | Yes. Using Kafka connect and KStreams |
+| Log compaction              | Not yet                      | Yes                                   |
+| Message replay, time travel | Not yet                      | Yes                                   |
+| Stream Enrichment           | SQL and Serverless functions | SQL-based using KStreams              |
+| Pull retry mechanism        | Yes                          | Client responsibility                 |
 
 ### GUI
 
@@ -176,3 +176,27 @@ Multiple open-source GUIs have been developed for Kafka over the years, for exam
 Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+### Dead-letter Queue
+
+Dead-letter queue is both a concept and a solution that is useful for debugging clients because it let you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
+
+### Message routing
+
+test
+
+### Log compaction
+
+test
+
+### Message replay, time travel
+
+test
+
+### Stream Enrichment
+
+test
+
+### Pull retry mechanism
+
+test
