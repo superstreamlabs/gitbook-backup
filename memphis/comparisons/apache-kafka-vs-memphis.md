@@ -52,16 +52,16 @@ Memphis also offers storage tiering for offloading messages to S3-compatible sto
 
 ## User Experience
 
-| Parameter               | Memphis.dev               | Apache Kafka                           |
-| ----------------------- | ------------------------- | -------------------------------------- |
-| Deployment              | Stright forward           | Requires deep understanding and design |
-| GUI                     | Native                    | 3rd parties                            |
-| Enterprise support      | Yes                       | 3rd parties like Confluent, AWS MSK    |
-| Managed cloud offerings | Yes                       | 3rd parties like Confluent, AWS MSK    |
-| Self-Healing            | Yes                       | No                                     |
-| Notifications           | Yes                       | No                                     |
-| Message tracing         | Yes                       | No                                     |
-| Storage balancing       | Automatic based on policy | Manual                                 |
+| Parameter                            | Memphis.dev               | Apache Kafka                           |
+| ------------------------------------ | ------------------------- | -------------------------------------- |
+| Deployment                           | Stright forward           | Requires deep understanding and design |
+| GUI                                  | Native                    | 3rd parties                            |
+| Enterprise support                   | Yes                       | 3rd parties like Confluent, AWS MSK    |
+| Managed cloud offerings              | Yes                       | 3rd parties like Confluent, AWS MSK    |
+| Self-Healing                         | Yes                       | No                                     |
+| Notifications                        | Yes                       | No                                     |
+| Message tracing (aka Stream lineage) | Yes                       | No                                     |
+| Storage balancing                    | Automatic based on policy | Manual                                 |
 
 ### Deployment
 
@@ -96,6 +96,14 @@ Memphis has a built-in notification center that can push real-time alerts based 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.26.36.png" alt=""><figcaption></figcaption></figure>
 
 Apache Kafka does not offer an embedded solution for notifications. Can be achieved via commercial offerings.
+
+### Message tracing (aka Stream lineage)
+
+Tracking stream lineage is the ability to understand the full path of a message from the very first producer through the final consumer, including the trail and evolvement of a message between topics. This ability is extremely handy in a troubleshooting process.
+
+Apache Kafka does not provide a native ability for stream lineage, but it can be achieved using OpenTelemetry or OpenLineage frameworks, as well as integrating 3rd party applications such as datadog, epsagon, or using Confluent's cloud offering.
+
+Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
 ## Availability and Messaging
 
