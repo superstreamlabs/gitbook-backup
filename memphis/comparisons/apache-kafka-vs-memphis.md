@@ -99,15 +99,16 @@ Apache Kafka does not offer an embedded solution for notifications. Can be achie
 
 ## Availability and Messaging
 
-| Parameter               | Memphis.dev                 | Apache Kafka                |
-| ----------------------- | --------------------------- | --------------------------- |
-| Mirroring (Replication) | Yes                         | Yes                         |
-| Multi-tenancy           | Yes                         | No                          |
-| Ordering guarantees     | Consumer group level        | Partition level             |
-| Storage tiering         | Yes                         | Yes                         |
-| Permanent storage       | Yes                         | Yes                         |
-| Delivery guarantees     | At least once, Exactly once | At least once, Exactly once |
-| Idempotency             | Yes                         | Yes                         |
+| Parameter                      | Memphis.dev                 | Apache Kafka                |
+| ------------------------------ | --------------------------- | --------------------------- |
+| Mirroring (Replication)        | Yes                         | Yes                         |
+| Multi-tenancy                  | Yes                         | No                          |
+| Ordering guarantees            | Consumer group level        | Partition level             |
+| Storage tiering                | Yes                         | No                          |
+| Permanent storage              | Yes                         | Yes                         |
+| Delivery guarantees            | At least once, Exactly once | At least once, Exactly once |
+| Idempotency                    | Yes                         | Yes                         |
+| Geo-Replication (Multi-region) | Yes                         | Yes                         |
 
 ### Mirroring (Replication)
 
@@ -127,3 +128,14 @@ As Memphis pushes to enable the next generation of applications and especially S
 
 ### Storage tiering
 
+Confluent, as part of their cloud offering, provides storage tiering for Kafka to send warm data to cost-effective object storage.
+
+Memphis offers a multi-tier storage strategy in its open-source version. Memphis will write messages that reached their end of 1st retention policy to a 2nd retention policy on object storage like S3 for longer retention time, potentially infinite, and post-streaming analysis. This feature can significantly help with cost reduction and stream auditing.
+
+### Permanent storage
+
+Both Kafka and Memphis store data durably and reliably, much like a normal database. Data retention is user configurable per Memphis station or Kafka topic.
+
+### Idempotency
+
+Both Kafka and Memphis provides default support in idempotent producer
