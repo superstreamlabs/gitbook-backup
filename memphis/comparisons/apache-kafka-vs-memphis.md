@@ -191,17 +191,23 @@ Memphis message routing is similar to the implementation of RabbitMQ using routi
 
 ### Log compaction
 
+Compaction has been created to support a long-term, potentially infinite record store based on specific keys.
+
 Kafka supports native topic compaction, which runs on all brokers. This runs automatically for compacted topics, condensing the log down to the latest version of messages sharing the same key.
 
-At the&#x20;
+At the moment, Memphis does not support compaction, but it will in the future.
 
-### Message replay, time travel
+### Message replay
 
-test
+The ability to re-consume committed messages.
+
+Kafka does support replay by seeking specific offsets as the consumers have control over resetting the offset.
+
+Memphis does not support replay yet but will in the near future (2023).
 
 ### Stream Enrichment
 
-test
+
 
 ### Pull retry mechanism
 
