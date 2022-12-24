@@ -221,10 +221,6 @@ In Memphis, the retry mechanism is built-in and turned on by default within the 
 
 ## Conclusion
 
-Apache Kafka is a robust and mature system with extensive community support and a proven record for high-throughput use cases and users. Still, it also requires micro-management, slow troubleshooting, complex client implementation, wrappers, and often tunings that take the user's focus and resources from the "main event," and the most important thing - it does not scale well as the organization grows, and more use cases join in. Wix [Greyhound](https://github.com/wix/greyhound) library is excellent proof of that.
-
-We call Memphis "A next-generation message broker" because it leans towards the user and adapts to its scale and requirements, not the opposite. Most of the wrappers, tunings, management-overhead, and implementations needed from the client in Kafka, are abstract to the users in Memphis, which provides an excellent solution for the smaller workload use cases and the more robust ones under the same system and with full ecosystem to support it. It has a milage to pass, but the immediate benefits already exist and will continue to evolve
-
 ## Sources
 
 * [https://kafka.apache.org/documentation](https://kafka.apache.org/documentation)
