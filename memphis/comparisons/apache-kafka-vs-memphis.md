@@ -76,7 +76,7 @@ Memphis provides enterprise support and managed cloud offering that includes fea
 
 ### Self-healing
 
-Kafka is a robust distributed system and requires constant tune-ups, client-made wrappers, management, and tight monitoring. The user or operator is responsible for ensuring it's alive and works as required. There are pros and cons to this approach, as the user can tune almost every parameter, but often revealed as a significant burden.
+Kafka is a robust distributed system and requires constant tune-ups, client-made wrappers, management, and tight monitoring. The user or operator is responsible for ensuring it's alive and works as required. This approach has pros and cons, as the user can tune almost every parameter, which is often revealed as a significant burden.
 
 One of Memphis' core features is to remove frictions of management and autonomously make sure it's alive and performing well using periodic self-checks and proactive rebalancing tasks, as well as fencing the users from misusing the system. In parallel, every aspect of the system can be configured on-the-fly without downtime.
 
@@ -105,7 +105,7 @@ Memphis provides stream lineage per message with out-of-the-box visualization fo
 | Mirroring (Replication)        | Yes                         | Yes                         |
 | Multi-tenancy                  | Yes                         | No                          |
 | Ordering guarantees            | Consumer group level        | Partition level             |
-| Storage tiering                | Yes                         | No                          |
+| Storage tiering                | Yes                         | No. In progress (KIP-405)   |
 | Permanent storage              | Yes                         | Yes                         |
 | Delivery guarantees            | At least once, Exactly once | At least once, Exactly once |
 | Idempotency                    | Yes                         | Yes                         |
@@ -128,8 +128,6 @@ As Memphis pushes to enable the next generation of applications and especially S
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.43.png" alt=""><figcaption></figcaption></figure>
 
 ### Storage tiering
-
-As part of their cloud offering, Confluent provides storage tiering for Kafka to send warm data to cost-effective object storage.
 
 Memphis offers a multi-tier storage strategy in its open-source version. Memphis will write messages that reached their end of 1st retention policy to a 2nd retention policy on object storage like S3 for longer retention time, potentially infinite, and post-streaming analysis. This feature can significantly help with cost reduction and stream auditing.
 
@@ -187,11 +185,15 @@ One of Memphis' core building blocks is avoiding unexpected data loss, enabling 
 
 ### Message routing
 
-test
+Kafka provides routing capabilities through Kafka Connect and Kafka Streams, including content-based routing, message transformation, and message enrichment.
+
+Memphis message routing is similar to the implementation of RabbitMQ using routing keys, wildcards, content-based routing, and more. Similar to RabbitMQ, it is also embedded within the broker and does not require external libraries or tools.
 
 ### Log compaction
 
-test
+Kafka supports native topic compaction, which runs on all brokers. This runs automatically for compacted topics, condensing the log down to the latest version of messages sharing the same key.
+
+At the&#x20;
 
 ### Message replay, time travel
 
