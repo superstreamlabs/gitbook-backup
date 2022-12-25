@@ -24,7 +24,7 @@ Below, you'll find examples, instructions and best practices on how to scale up/
 ### Scaling up / Vertical Scaling
 
 Addition of CPU / memory / storage to every broker itself (can be only one).
-As mentioned in the hardware requirement table, Memphis can be installed with only one memphis broker over a Kubernetes cluster with a single worker equipped with 2 CPUs, 4GB of RAM, and 16GB of storage. Note  that these are the minimum requirements. You can go below them at your own risk but may experience instability in the Memphis ecosystem.
+As mentioned in the hardware requirement table, Memphis can be installed with only one memphis broker over a Kubernetes cluster with a single worker equipped with 2 CPUs, 4GB of RAM, and 16GB of storage. Note  that these are the minimum requirements. You can go below them at your own risk but may experience instability in your Memphis ecosystem.
 
 As the demand for computing resources increases with the growth of workload and data transfer through Memphis, it may be necessary to allocate additional resources. One approach to doing this is to increase the number of CPUs in the Kubernetes nodes and, depending on the storage requirements of the system, adding more memory and/or storage capacity.
 
