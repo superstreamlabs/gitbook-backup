@@ -29,7 +29,7 @@ Memphis.dev enables building next-generation applications that require large vol
 
 ### License
 
-Both technologies are available under fully open-source licenses. Memphis also has a commercial distribution with added security, tiered storage, and more.
+Both technologies are available under fully open-source licenses. Memphis also has a Memphis-based distribution with added security, tiered storage, and more.
 
 ### Components
 

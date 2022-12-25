@@ -12,7 +12,7 @@ coverY: 0
 
 ### Streaming using NATS Jetstream
 
-Firstly, NATS has a built-in distributed persistence system called Jetstream. Specifically, this system enables new functionalities and higher qualities of service on top of the base 'Core NATS' functionalities and qualities of service.\
+NATS has a built-in distributed persistence system called Jetstream. Specifically, this system enables new functionalities and higher qualities of service on top of the base 'Core NATS' functionalities and qualities of service.\
 Jetstream is built-in to nats-server; therefore, you only need 1 (or 3 or 5 if you want fault-tolerance against 1 or 2 simultaneous NATS server failures) of your NATS server(s) to be JetStream enabled for it to be available to all the client applications.
 
 ## **What is Memphis.dev?**
@@ -43,22 +43,23 @@ Both technologies are available under fully open-source licenses. Memphis also h
 
 ### Components
 
-Kafka uses Apache Zookeeper™ for consensus and message storage.\
-Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Memphis achieves consensus by using RAFT.
+Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Both Memphis and Jetstream achieve consensus by using RAFT.
 
 ### Message Consumption Model
 
-Both Kafka and Memphis use a pull-based architecture where consumers pull messages from the server, and [long-polling](https://en.wikipedia.org/wiki/Push\_technology#Long\_polling) is used to ensure new messages are made available instantaneously.
+Jetstream and Memphis use a pull-based architecture where consumers pull messages from the server, and [long-polling](https://en.wikipedia.org/wiki/Push\_technology#Long\_polling) is used to ensure new messages are made available instantaneously.
 
 Pull-based architectures are often preferable for high throughput workloads as they allow consumers to manage their flow control, fetching only what they need.
 
 ### Storage Architecture
 
-Kafka uses a distributed commit log as its storage layer. Writes are appended to the end of the log. Reads are sequential, starting from an offset, and data is zero-copied from the disk buffer to the network buffer. This works well for event streaming use cases.
+Jetstream and Memphis use a distributed commit log called streams (made by NATS Jetstream) as its storage layer, which can be written entirely on the broker's (server) memory or disk.\
+Memphis abstracts the offsets by default, so saving a record of the used offsets resides on Memphis and not on the client.\
+Memphis also offers storage tiering for offloading messages to S3-compatible storage for infinite and more cost-effective storage. Reads are sequential.
 
-Memphis also uses a distributed commit log called streams (made by NATS Jetstream) as its storage layer, which can be written entirely on the broker's (server) memory or disk.\
-Memphis also uses offsets but abstracts them completely, so the heavy lifting of saving a record of the used offsets resides on Memphis and not on the client.\
-Memphis also offers storage tiering for offloading messages to S3-compatible storage for an infinite storage time and more cost-effective storage. Reads are sequential.
+## Ecosystem and User Experience
+
+
 
 ## Comparison Table
 
