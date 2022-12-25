@@ -28,22 +28,54 @@ Memphis.dev enables building next-generation applications that require large vol
 3. Observability - Reduces troubleshooting time to near zero.
 4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
 
+## General
+
+| Parameter                 | Memphis.dev                              | NATS Jetstream          |
+| ------------------------- | ---------------------------------------- | ----------------------- |
+| License                   | Apache 2.0                               | Apache 2.0              |
+| Components                | Memphis + MongoDB (MDB is being removed) | NATS Server + Jetstream |
+| Message consumption model | Pull                                     | Pull                    |
+| Storage architecture      | Log                                      | Log                     |
+
+### License
+
+Both technologies are available under fully open-source licenses. Memphis also has a Memphis-based distribution with added security, tiered storage, and more.
+
+### Components
+
+Kafka uses Apache Zookeeper™ for consensus and message storage.\
+Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Memphis achieves consensus by using RAFT.
+
+### Message Consumption Model
+
+Both Kafka and Memphis use a pull-based architecture where consumers pull messages from the server, and [long-polling](https://en.wikipedia.org/wiki/Push\_technology#Long\_polling) is used to ensure new messages are made available instantaneously.
+
+Pull-based architectures are often preferable for high throughput workloads as they allow consumers to manage their flow control, fetching only what they need.
+
+### Storage Architecture
+
+Kafka uses a distributed commit log as its storage layer. Writes are appended to the end of the log. Reads are sequential, starting from an offset, and data is zero-copied from the disk buffer to the network buffer. This works well for event streaming use cases.
+
+Memphis also uses a distributed commit log called streams (made by NATS Jetstream) as its storage layer, which can be written entirely on the broker's (server) memory or disk.\
+Memphis also uses offsets but abstracts them completely, so the heavy lifting of saving a record of the used offsets resides on Memphis and not on the client.\
+Memphis also offers storage tiering for offloading messages to S3-compatible storage for an infinite storage time and more cost-effective storage. Reads are sequential.
+
 ## Comparison Table
 
-| Parameter                          | Memphis                            | Jetstream    |
-| ---------------------------------- | ---------------------------------- | ------------ |
-| GUI                                | True                               | False        |
-| Schema Management                  | True                               | False        |
-| Inline stream enrichment           | True                               | False        |
-| Produce/Consume behaviour          | True                               | False        |
-| Consumer group                     | True                               | False        |
-| Ready-to-use connectors            | True                               | True         |
-| Real-time message tracing          | True                               | False        |
-| Data-Level Observability           | True                               | False        |
-| Automatic environment optimization | True                               | False        |
-| Deduplication                      | True. Modified bloom filter        | False        |
-| Dead-letter                        | True                               | False        |
-| REST Gateway                       | True                               | False        |
-| Consumer internal communication    | Experimental                       | False        |
-| Production deployment environment  | Kubernetes                         | Bare-metal   |
-| Storage tiering                    | Disk, Memory, **S3 for Archiving** | Disk, Memory |
+| Parameter                          | Memphis.dev                    | NATS Jetstream |
+| ---------------------------------- | ------------------------------ | -------------- |
+| GUI                                | Yes                            | No             |
+| Schema Management                  | Yes                            | No             |
+| Stream enrichment                  | Yes                            | No             |
+| Produce/Consume behaviour          | Yes                            | No             |
+| Consumer group                     | Yes                            | False          |
+| Ready-to-use connectors            | Yes                            | Yes            |
+| Real-time message tracing          | Yes                            | No             |
+| Data-Level Observability           | Yes                            | No             |
+| Automatic environment optimization | Yes                            | No             |
+| Deduplication                      | Yes. Modified bloom filter     | No             |
+| Dead-letter                        | Yes                            | No             |
+| REST Gateway                       | Yes                            | No             |
+| Consumer internal communication    | Yes. Experimental              | No             |
+| Storage tiering                    | Disk, Memory, S3 for Archiving | Disk, Memory   |
+
