@@ -59,6 +59,70 @@ Memphis also offers storage tiering for offloading messages to S3-compatible sto
 
 ## Ecosystem and User Experience
 
+| Parameter                            | Memphis.dev             | NATS Jetstream                  |
+| ------------------------------------ | ----------------------- | ------------------------------- |
+| Deployment                           | Helm, Docker, Terraform | Binary, Helm, Docker, Terraform |
+| Enterprise support                   | Yes                     | Synadia                         |
+| Managed cloud offerings              | Yes                     | Synadia                         |
+| Self-Healing                         | Yes                     | No                              |
+| Notifications                        | Yes                     | Partial                         |
+| Message tracing (aka Stream lineage) | Yes                     | No                              |
+
+### Deployment
+
+NATS Jetstream and Memphis have a lightweight yet robust cloud-native architecture. Memphis and Jetstream are packed as a container from day one. It can be deployed using any docker engine, docker swarm, and for production environment using helm for Kubernetes (soon with operator). While Jetstream requires a config file and different parameters, Memphis' initial config is already sufficient for production, and modifications and optimizations can take place on-the-fly without downtime. While the end outcome can be achieved in both technology, Memphis abstracts most of the underlying that in Jetstream, requires manual configuration in Kubernetes.
+
+### Enterprise support and managed cloud offering
+
+Enterprise-grade support and managed cloud offerings for NATS are available from Synadia.
+
+Memphis provides enterprise support and managed cloud offering that includes features like enhanced security, stream research abilities, an ML-based resource scheduler for better cost savings, and more.
+
+### Self-healing
+
+When deploying NATS Jetstream over Kubernetes, the natural life-cycle management of Kubernetes is received by default like automatic broker restoration, PVC claim, data restoration, and more.
+
+In addition to the above, one of Memphis' core features is to remove frictions of management and autonomously make sure it's alive and performing well using periodic self-checks and proactive rebalancing tasks, as well as fencing the users from misusing the system. In parallel, every aspect of the system can be configured on-the-fly without downtime, including upgrades and reboots.
+
+### Notifications
+
+The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial support for passing JetStream metrics to Prometheus, dashboards and more will be added toward the final release.
+
+Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+### Message tracing (aka Stream lineage)
+
+Tracking stream lineage is the ability to understand the full path of a message from the very first producer through the final consumer, including the trail and evolvement of a message between topics. This ability is extremely handy in a troubleshooting process.
+
+NATS Jetstream does not provide a native ability for stream lineage, but it can be achieved using OpenTelemetry or OpenLineage frameworks, as well as integrating 3rd party applications such as datadog, epsagon, and more.
+
+Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+## Availability and Messaging
+
+| Parameter                      | Memphis.dev                 | NATS Jetstream              |
+| ------------------------------ | --------------------------- | --------------------------- |
+| Mirroring (Replication)        | Yes                         | Yes                         |
+| Multi-tenancy                  | Yes                         | Yes                         |
+| Ordering guarantees            | Consumer group level        | Consumer level              |
+| Storage tiering                | Yes                         | No                          |
+| Permanent storage              | Yes                         | Yes                         |
+| Delivery guarantees            | At least once, Exactly once | At least once, Exactly once |
+| Idempotency                    | Yes                         | Yes                         |
+| Geo-Replication (Multi-region) | Yes                         | Yes                         |
+
+
+
+
+
+
+
+
+
 
 
 ## Comparison Table

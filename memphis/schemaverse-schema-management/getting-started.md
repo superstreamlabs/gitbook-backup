@@ -17,7 +17,7 @@ v0.4.1 will support SDK-driven management as well
 {% tab title="GUI" %}
 Head to the "Schemaverse" page
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.17 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.17.png" alt=""><figcaption></figcaption></figure>
 
 Create a new schema by clicking on "Create from blank"
 

@@ -1,6 +1,6 @@
 ---
 description: Using Terraform
-cover: ../../.gitbook/assets/AWS and Memphis (1).jpeg
+cover: ../../.gitbook/assets/AWS and Memphis.jpeg
 coverY: 0
 ---
 

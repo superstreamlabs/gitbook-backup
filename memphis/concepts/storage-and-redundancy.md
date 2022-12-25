@@ -33,7 +33,7 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
   ****For faster performance.\
   Due to its nature as a volatile type of storage, the risk of losing data in case of failure is higher because it resides in the broker's memory, and in the case of a station without configured replicas, data can be lost.
 
-<figure><img src="../../.gitbook/assets/storage type memory (1).jpeg" alt=""><figcaption><p>Stream object as it construct and stored</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/storage type memory.jpeg" alt=""><figcaption><p>Stream object as it construct and stored</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/mem ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 

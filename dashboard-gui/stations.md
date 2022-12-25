@@ -19,7 +19,7 @@ Instead of endless amounts of producers, consumers, orchestrations, manual scali
 ### Create a station
 
 To create a new station, click "Create new station".\
-![](<../.gitbook/assets/Screenshot 2022-12-11 at 15.12.31 (1).png>)
+![](<../.gitbook/assets/Screenshot 2022-12-11 at 15.12.31 (2).png>)
 
 A modal will appear with customization options.
 
