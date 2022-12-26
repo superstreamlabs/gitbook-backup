@@ -153,11 +153,12 @@ Common scenarios for a geo-replication include:
 * Cloud migration or hybrid cloud deployments
 * Legal and compliance requirements
 
-Jetstream users can set up a super cluster made of leafs
+Jetstream uses a concept called gateways to establish a "super cluster."\
+Gateways enable connecting one or more clusters into a full mesh;
 
-Memphis cloud users can create more Memphis clusters and form a supercluster that replicates data in an async manner between the clusters of streamed data, security, consumer groups, unified management, and more.
+Memphis cloud users can create more standard Memphis clusters and form a super cluster that replicates streamed data in an async manner between the clusters, including mirroring security, unified management, and more. At the moment, in such a configuration, only one cluster is considered to be writable, and the rest are read replicas meaning they are only available for message consumption.
 
-## Comparison Table
+## Features
 
 | Parameter                          | Memphis.dev                    | NATS Jetstream |
 | ---------------------------------- | ------------------------------ | -------------- |
