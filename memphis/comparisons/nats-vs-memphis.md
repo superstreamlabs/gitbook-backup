@@ -90,7 +90,7 @@ The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial
 
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Message tracing (aka Stream lineage)
 
@@ -127,7 +127,7 @@ JetStream is compatible with NATS 2.0 Multi-Tenancy using Accounts. A JetStream-
 
 As Memphis pushes to enable the next generation of applications and especially SaaS-type architectures, Memphis supports Multi-tenancy across all the layers from stations (=queues) to security, consumers, and producers, all the way to node selection for complete hardware isolation in case of need. It is enabled using namespaces and can be managed in a unified console.
 
-<figure><img src="../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Storage tiering
 
@@ -165,7 +165,7 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 | GUI                             | Yes                        | No             |
 | Schema Management               | Yes                        | No             |
 | Stream enrichment               | Yes                        | No             |
-| Produce/Consume behaviour       | Yes                        | No             |
+| Delivery Policy                 | No                         | Yes            |
 | Consumer group                  | Yes                        | Yes            |
 | Ready-to-use connectors         | Yes                        | Yes            |
 | Stream lineage                  | Yes                        | No             |
@@ -182,4 +182,20 @@ A GUI for NATS and NATS Jetstream can be achieved via Synadia cloud offering.
 Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
 <figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
+
+### Schema Management
+
+The very basic building block to control and ensure the quality of data that flows through your organization between the different owners is by defining well-written schemas and data models.
+
+NATS or NATS Jetstream does not offer schema management.
+
+As part of its open-source version, Memphis presents Schemaverse, which is also embedded within the broker. Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. In counter to Schema Registry, the client does not need to implement serialization functions, and every schema update takes place during producers' runtime.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-24 at 22.32.36.png" alt=""><figcaption><p>Memphis Schemaverse</p></figcaption></figure>
+
+### Stream Enrichment
+
+NATS Jetstream does not offer stream enrichment.
+
+Memphis provides a similar behavior and more. Embedded inside the broker, Memphis users can create serverless-type functions or complete containerized applications that aggregate several stations and streams, decorate and enrich messages from different sources, write complex functions that cannot be achieved via SQL, and manipulate the schema. Memphis embedded connectors frameworks will help to push the results directly to a defined sink.
 
