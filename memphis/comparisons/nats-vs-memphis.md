@@ -127,7 +127,7 @@ JetStream is compatible with NATS 2.0 Multi-Tenancy using Accounts. A JetStream-
 
 As Memphis pushes to enable the next generation of applications and especially SaaS-type architectures, Memphis supports Multi-tenancy across all the layers from stations (=queues) to security, consumers, and producers, all the way to node selection for complete hardware isolation in case of need. It is enabled using namespaces and can be managed in a unified console.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Storage tiering
 
@@ -160,20 +160,26 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 
 ## Features
 
-| Parameter                          | Memphis.dev                    | NATS Jetstream |
-| ---------------------------------- | ------------------------------ | -------------- |
-| GUI                                | Yes                            | No             |
-| Schema Management                  | Yes                            | No             |
-| Stream enrichment                  | Yes                            | No             |
-| Produce/Consume behaviour          | Yes                            | No             |
-| Consumer group                     | Yes                            | False          |
-| Ready-to-use connectors            | Yes                            | Yes            |
-| Real-time message tracing          | Yes                            | No             |
-| Data-Level Observability           | Yes                            | No             |
-| Automatic environment optimization | Yes                            | No             |
-| Deduplication                      | Yes. Modified bloom filter     | No             |
-| Dead-letter                        | Yes                            | No             |
-| REST Gateway                       | Yes                            | No             |
-| Consumer internal communication    | Yes. Experimental              | No             |
-| Storage tiering                    | Disk, Memory, S3 for Archiving | Disk, Memory   |
+| Parameter                       | Memphis.dev                | NATS Jetstream |
+| ------------------------------- | -------------------------- | -------------- |
+| GUI                             | Yes                        | No             |
+| Schema Management               | Yes                        | No             |
+| Stream enrichment               | Yes                        | No             |
+| Produce/Consume behaviour       | Yes                        | No             |
+| Consumer group                  | Yes                        | Yes            |
+| Ready-to-use connectors         | Yes                        | Yes            |
+| Stream lineage                  | Yes                        | No             |
+| Data-Level Observability        | Yes                        | No             |
+| Deduplication                   | Yes. Modified bloom filter | No             |
+| Dead-letter                     | Yes                        | No             |
+| REST Gateway                    | Yes                        | No             |
+| Consumer internal communication | Yes. Experimental          | No             |
+
+### GUI
+
+A GUI for NATS and NATS Jetstream can be achieved via Synadia cloud offering.
+
+Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
+
+<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
 

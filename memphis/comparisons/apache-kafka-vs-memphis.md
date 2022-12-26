@@ -161,7 +161,7 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 | --------------------------- | ---------------------------- | ------------------------------------- |
 | GUI                         | Native                       | 3rd Party                             |
 | Dead-letter Queue           | Yes                          | No                                    |
-| Schema Management           | Yes                          | Confluent-based                       |
+| Schema Management           | Yes                          | No                                    |
 | Message routing             | Yes                          | Yes. Using Kafka connect and KStreams |
 | Log compaction              | Not yet                      | Yes                                   |
 | Message replay, time travel | Not yet                      | Yes                                   |
