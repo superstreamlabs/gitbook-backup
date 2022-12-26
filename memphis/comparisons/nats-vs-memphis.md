@@ -100,7 +100,7 @@ NATS Jetstream does not provide a native ability for stream lineage, but it can 
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Availability and Messaging
 
@@ -115,11 +115,19 @@ Memphis provides stream lineage per message with out-of-the-box visualization fo
 | Idempotency                    | Yes                         | Yes                         |
 | Geo-Replication (Multi-region) | Yes                         | Yes                         |
 
+### Mirroring (Replication)
 
+NATS Queues and Memphis station replication work similarly. During station (=queue) creation, the user can choose the number of replicas derived from the number of available brokers. messages will be replicated in a raid-1 manner across the chosen number of brokers.
 
+### Multi-tenancy
 
+Multi-tenancy refers to the mode of operation of software where multiple independent instances of one or multiple applications operate in a shared environment. The instances (tenants) are logically isolated and often physically integrated. The most famous users are SaaS-type applications.
 
+JetStream is compatible with NATS 2.0 Multi-Tenancy using Accounts. A JetStream-enabled server supports creating fully isolated JetStream environments for different accounts.
 
+As Memphis pushes to enable the next generation of applications and especially SaaS-type architectures, Memphis supports Multi-tenancy across all the layers from stations (=queues) to security, consumers, and producers, all the way to node selection for complete hardware isolation in case of need. It is enabled using namespaces and can be managed in a unified console.
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 
 
