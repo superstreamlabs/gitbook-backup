@@ -129,9 +129,33 @@ As Memphis pushes to enable the next generation of applications and especially S
 
 <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
+### Storage tiering
 
+Memphis offers a multi-tier storage strategy in its open-source version. Memphis will write messages that reached their end of 1st retention policy to a 2nd retention policy on object storage like S3 for longer retention time, potentially infinite, and post-streaming analysis. This feature can significantly help with cost reduction and stream auditing.
 
+### Permanent storage
 
+Both Jetstream and Memphis store data durably and reliably, much like a normal database. Data retention is user configurable per Memphis station or NATS queue.
+
+### Idempotency
+
+Both Jetstream and Memphis provide default support in idempotent producers.\
+On the consumer side, in Jetstream, its the client's responsibility to build a retry mechanism that will retransmit a batch of messages exactly once, while in Memphis, it is provided natively within the SDK with a parameter called `maxMsgDeliveries`.
+
+### Geo-Replication (Multi-region)
+
+Common scenarios for a geo-replication include:
+
+* Geo-replication
+* Disaster recovery
+* Feeding edge clusters into a central, aggregate cluster
+* Physical isolation of clusters (such as production vs. testing)
+* Cloud migration or hybrid cloud deployments
+* Legal and compliance requirements
+
+Jetstream users can set up a super cluster made of leafs
+
+Memphis cloud users can create more Memphis clusters and form a supercluster that replicates data in an async manner between the clusters of streamed data, security, consumer groups, unified management, and more.
 
 ## Comparison Table
 
