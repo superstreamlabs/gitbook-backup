@@ -2,13 +2,18 @@
 description: Produce messages to a station via HTTP protocol
 ---
 
-# HTTP
+# REST (HTTP)
 
 ## Introduction
 
-To enable message production via HTTP for various use cases and ease of use, Memphis added an HTTP proxy to receive messages via HTTP and produce those messages to the required station as a TCP-based client.
+To enable message production via HTTP calls for various use cases and ease of use, Memphis added an HTTP gateway to receive REST-based requests (=messages) and produce those messages to the required station.
 
-Popular use cases produce events directly from a browser, user session, frontend, and receiving data through 3rd party apps.
+Common use cases that benefit from the REST Gateway are&#x20;
+
+* Produce events directly from a frontend
+* Connect Debezium using HTTP Server
+* ArgoCD webhooks
+* Receive data from Fivetran/Rivery/Any ETL platform using HTTP calls
 
 ## Architecture
 
