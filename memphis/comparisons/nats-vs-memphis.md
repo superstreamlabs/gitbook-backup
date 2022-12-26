@@ -90,7 +90,7 @@ The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial
 
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
-<figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Message tracing (aka Stream lineage)
 
@@ -174,6 +174,10 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 | Dead-letter                     | Yes                        | No             |
 | REST Gateway                    | Yes                        | No             |
 | Consumer internal communication | Yes. Experimental          | No             |
+| Pull retry mechanism            | Yes                        | No             |
+| Message replay, time travel     | No                         | No             |
+| Message routing based on rules  | Yes                        | No             |
+| Log compaction                  | No                         | No             |
 
 ### GUI
 
@@ -198,4 +202,12 @@ As part of its open-source version, Memphis presents Schemaverse, which is also 
 NATS Jetstream does not offer stream enrichment.
 
 Memphis provides a similar behavior and more. Embedded inside the broker, Memphis users can create serverless-type functions or complete containerized applications that aggregate several stations and streams, decorate and enrich messages from different sources, write complex functions that cannot be achieved via SQL, and manipulate the schema. Memphis embedded connectors frameworks will help to push the results directly to a defined sink.
+
+### Delivery Policy
+
+The way message delivery will take place with new consumers to be able to control the consumption once a new consumer subscribes to a queue or station.
+
+Jetstream supports different options, such as DeliverAll / DeliverLast / DeliverLastPerSubject / etc...
+
+Memphis currently does not support that ability.
 
