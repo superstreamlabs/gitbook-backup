@@ -60,7 +60,7 @@ Our mission is to build the best-in-class dev-first, open-source event-processin
 
 Memphis is an open-source first product and company. Memphis will always be open-source and community-driven as we consider the community as the source of power behind building truly disruptive technology.
 
-### <img src="../.gitbook/assets/image (3) (4).png" alt="" data-size="line">
+### <img src="../.gitbook/assets/image (3) (4) (1).png" alt="" data-size="line">
 
 ### **Team Locations**
 

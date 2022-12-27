@@ -90,7 +90,7 @@ The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial
 
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Message tracing (aka Stream lineage)
 
@@ -167,11 +167,11 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 | Stream enrichment               | Yes                        | No                |
 | Delivery Policy                 | Manual Ack                 | Different options |
 | Consumer group                  | Yes                        | Yes               |
-| Ready-to-use connectors         | Yes                        | Yes               |
+| Ready-to-use connectors         | Yes                        | No                |
 | Stream lineage                  | Yes                        | No                |
 | Data-Level Observability        | Yes                        | No                |
 | Deduplication                   | Yes. Modified bloom filter | No                |
-| Dead-letter                     | Yes                        | No                |
+| Dead-letter queue               | Yes                        | Yes               |
 | REST Gateway                    | Yes                        | No                |
 | Consumer internal communication | Yes. Experimental          | No                |
 | Pull retry mechanism            | Yes                        | No                |
@@ -207,7 +207,38 @@ Memphis provides a similar behavior and more. Embedded inside the broker, Memphi
 
 The way message delivery will take place with new consumers to be able to control the consumption once a new consumer subscribes to a queue or station.
 
-Jetstream supports different options, such as DeliverAll / DeliverLast / DeliverLastPerSubject / etc...
+Jetstream supports different options, such as DeliverAll / DeliverLast / DeliverLastPerSubject / and more.
 
-Memphis currently does not support that ability.
+Memphis currently supports only manual acks.
 
+### Ready-to-use connectors
+
+NATS offers a rich ecosystem of integrations between different systems with NATS.
+
+Memphis offers both integrations similar to NATS due to its compatibility with NATS protocol, Memphis-based integrations, and ready-to-use connectors that can replace producers and consumers to and from different applications and databases.
+
+### Stream lineage
+
+Tracking stream lineage is the ability to understand the full path of a message from the very first producer through the final consumer, including the trail and evolvement of a message between topics. This ability is extremely handy in a troubleshooting process.
+
+NATS Jetstream does not offer stream lineage, but it can be achieved using OpenTelemetry or OpenLineage frameworks or integrating 3rd party applications such as Datadog and Epsagon.
+
+Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+### Data-Level Observability
+
+The ability to view ingested messages' payload and metadata.
+
+Memphis offers that ability within the GUI.
+
+![](<../../.gitbook/assets/Screen Shot 2022-12-27 at 23.53.03.png>)
+
+### Dead-letter queue
+
+Dead-letter queue is both a concept and a solution that is useful for debugging clients because it lets you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
+
+In NATS Jetstream, an advisory message is published on the subject whenever a message reaches its maximum number of delivery attempts. The advisory message's payload (use `nats schema info io.nats.jetstream.advisory.v1.max_deliver` for specific information) contains a `stream_seq` field that contains the sequence number of the message in the stream.
+
+One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
