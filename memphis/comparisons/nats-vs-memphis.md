@@ -160,24 +160,24 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 
 ## Features
 
-| Parameter                       | Memphis.dev                | NATS Jetstream |
-| ------------------------------- | -------------------------- | -------------- |
-| GUI                             | Yes                        | No             |
-| Schema Management               | Yes                        | No             |
-| Stream enrichment               | Yes                        | No             |
-| Delivery Policy                 | No                         | Yes            |
-| Consumer group                  | Yes                        | Yes            |
-| Ready-to-use connectors         | Yes                        | Yes            |
-| Stream lineage                  | Yes                        | No             |
-| Data-Level Observability        | Yes                        | No             |
-| Deduplication                   | Yes. Modified bloom filter | No             |
-| Dead-letter                     | Yes                        | No             |
-| REST Gateway                    | Yes                        | No             |
-| Consumer internal communication | Yes. Experimental          | No             |
-| Pull retry mechanism            | Yes                        | No             |
-| Message replay, time travel     | No                         | No             |
-| Message routing based on rules  | Yes                        | No             |
-| Log compaction                  | No                         | No             |
+| Parameter                       | Memphis.dev                | NATS Jetstream    |
+| ------------------------------- | -------------------------- | ----------------- |
+| GUI                             | Yes                        | No                |
+| Schema Management               | Yes                        | No                |
+| Stream enrichment               | Yes                        | No                |
+| Delivery Policy                 | Manual Ack                 | Different options |
+| Consumer group                  | Yes                        | Yes               |
+| Ready-to-use connectors         | Yes                        | Yes               |
+| Stream lineage                  | Yes                        | No                |
+| Data-Level Observability        | Yes                        | No                |
+| Deduplication                   | Yes. Modified bloom filter | No                |
+| Dead-letter                     | Yes                        | No                |
+| REST Gateway                    | Yes                        | No                |
+| Consumer internal communication | Yes. Experimental          | No                |
+| Pull retry mechanism            | Yes                        | No                |
+| Message replay, time travel     | No                         | No                |
+| Message routing based on rules  | Yes                        | No                |
+| Log compaction                  | No                         | No                |
 
 ### GUI
 
