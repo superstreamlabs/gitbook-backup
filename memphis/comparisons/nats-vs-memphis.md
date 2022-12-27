@@ -90,7 +90,7 @@ The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial
 
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
-<figure><img src="../../.gitbook/assets/image (3) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Message tracing (aka Stream lineage)
 
@@ -225,7 +225,7 @@ NATS Jetstream does not offer stream lineage, but it can be achieved using OpenT
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### Data-Level Observability
 
@@ -239,6 +239,12 @@ Memphis offers that ability within the GUI.
 
 Dead-letter queue is both a concept and a solution that is useful for debugging clients because it lets you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
 
-In NATS Jetstream, an advisory message is published on the subject whenever a message reaches its maximum number of delivery attempts. The advisory message's payload (use `nats schema info io.nats.jetstream.advisory.v1.max_deliver` for specific information) contains a `stream_seq` field that contains the sequence number of the message in the stream.
+In NATS Jetstream, whenever a message reaches its maximum number of delivery attempts, an advisory message is published on the `$JS.EVENT.ADVISORY.CONSUMER.MAX_DELIVERIES.<STREAM>.<CONSUMER>` subject. The advisory message's payload (use `nats schema info io.nats.jetstream.advisory.v1.max_deliver` for specific information) contains a `stream_seq` field that contains the sequence number of the message in the stream.
 
-One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
+One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for a dead-letter queue that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions. the DLQ also supports in resend messages directly to the consumer who didn't ack the message or back to the station for reuse.
+
+![](<../../.gitbook/assets/Screen Shot 2022-12-27 at 23.58.52.png>)
+
+### REST Gateway
+
+To enable message production via HTTP calls for various use cases and ease of use, Memphis added an HTTP gateway to receive REST-based requests (=messages) and produce those messages to the required station.

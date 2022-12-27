@@ -85,7 +85,7 @@ Once poison messages start to pile up - the dead-letter-station will take place 
 
 (4) Message Journey = A dedicated view of a single message path from the producer to all of its consumers
 
-![Resend Mechanism](<../../.gitbook/assets/image (1).png>)
+![Resend Mechanism](<../../.gitbook/assets/image (1) (1).png>)
 
 ###
 
