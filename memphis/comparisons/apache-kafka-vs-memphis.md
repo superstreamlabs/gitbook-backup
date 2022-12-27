@@ -164,7 +164,7 @@ Memphis cloud users can create more Memphis clusters and form a supercluster tha
 | Schema Management           | Yes                          | No                                    |
 | Message routing             | Yes                          | Yes. Using Kafka connect and KStreams |
 | Log compaction              | Not yet                      | Yes                                   |
-| Message replay, time travel | Not yet                      | Yes                                   |
+| Message replay, time travel | Yes                          | Yes                                   |
 | Stream Enrichment           | SQL and Serverless functions | SQL-based using KStreams              |
 | Pull retry mechanism        | Yes                          | Client responsibility                 |
 

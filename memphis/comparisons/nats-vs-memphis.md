@@ -175,7 +175,7 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 | REST Gateway                    | Yes                        | No                |
 | Consumer internal communication | Yes. Experimental          | No                |
 | Pull retry mechanism            | Yes                        | No                |
-| Message replay, time travel     | No                         | No                |
+| Message replay, time travel     | Yes. Offsets               | Yes. Offsets      |
 | Message routing based on rules  | Yes                        | No                |
 | Log compaction                  | No                         | No                |
 
