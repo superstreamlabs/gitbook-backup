@@ -160,24 +160,25 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 
 ## Features
 
-| Parameter                       | Memphis.dev                | NATS Jetstream    |
-| ------------------------------- | -------------------------- | ----------------- |
-| GUI                             | Yes                        | No                |
-| Schema Management               | Yes                        | No                |
-| Stream enrichment               | Yes                        | No                |
-| Delivery Policy                 | Manual Ack                 | Different options |
-| Consumer group                  | Yes                        | Yes               |
-| Ready-to-use connectors         | Yes                        | No                |
-| Stream lineage                  | Yes                        | No                |
-| Data-Level Observability        | Yes                        | No                |
-| Deduplication                   | Yes. Modified bloom filter | No                |
-| Dead-letter queue               | Yes                        | Yes               |
-| REST Gateway                    | Yes                        | No                |
-| Consumer internal communication | Yes. Experimental          | No                |
-| Pull retry mechanism            | Yes                        | No                |
-| Message replay, time travel     | Yes. Offsets               | Yes. Offsets      |
-| Message routing based on rules  | Yes                        | No                |
-| Log compaction                  | No                         | No                |
+| Parameter                            | Memphis.dev                          | NATS Jetstream    |
+| ------------------------------------ | ------------------------------------ | ----------------- |
+| GUI                                  | Yes                                  | No                |
+| Schema Management                    | Yes                                  | No                |
+| Stream enrichment                    | Yes                                  | No                |
+| Delivery Policy                      | Manual Ack                           | Different options |
+| Consumer group                       | Yes                                  | Yes               |
+| Ready-to-use source/sinks connectors | Yes                                  | No                |
+| Stream lineage                       | Yes                                  | No                |
+| Data-Level Observability             | Yes                                  | No                |
+| Wildcard subscribe                   | No                                   | Yes               |
+| Deduplication                        | Content-level. Modified bloom filter | Message ID-level  |
+| Dead-letter queue                    | Yes                                  | Yes               |
+| REST Gateway                         | Yes                                  | No                |
+| Consumer internal communication      | Yes. Experimental                    | No                |
+| Pull retry mechanism                 | Yes                                  | Yes               |
+| Message replay, time travel          | Yes. Offsets                         | Yes. Offsets      |
+| Content-aware routing                | Yes                                  | No                |
+| Log compaction                       | Not yet                              | No                |
 
 ### GUI
 
@@ -248,3 +249,4 @@ One of Memphis' core building blocks is avoiding unexpected data loss, enabling 
 ### REST Gateway
 
 To enable message production via HTTP calls for various use cases and ease of use, Memphis added an HTTP gateway to receive REST-based requests (=messages) and produce those messages to the required station.
+
