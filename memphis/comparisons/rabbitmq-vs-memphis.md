@@ -126,7 +126,7 @@ Memphis replicates data across brokers based on defined policy (Replicas). Memph
 | Stream lineage                       | Yes                                                     | No                                                                          |
 | Data-Level Observability             | Yes                                                     | Yes                                                                         |
 | Self-healing                         | Yes                                                     | No                                                                          |
-| Deduplication                        | True. Modified bloom filter                             | No                                                                          |
+| Deduplication                        | Yes. Modified bloom filter                              | Yes                                                                         |
 | Dead-letter                          | Yes                                                     | Yes                                                                         |
 | REST Gateway                         | Yes                                                     | No                                                                          |
 | Consumer internal communication      | Experimental                                            | No                                                                          |
