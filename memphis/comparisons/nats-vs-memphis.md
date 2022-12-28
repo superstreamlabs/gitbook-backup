@@ -160,25 +160,25 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 
 ## Features
 
-| Parameter                            | Memphis.dev                          | NATS Jetstream    |
-| ------------------------------------ | ------------------------------------ | ----------------- |
-| GUI                                  | Yes                                  | No                |
-| Schema Management                    | Yes                                  | No                |
-| Stream enrichment                    | Yes                                  | No                |
-| Delivery Policy                      | Manual Ack                           | Different options |
-| Consumer group                       | Yes                                  | Yes               |
-| Ready-to-use source/sinks connectors | Yes                                  | No                |
-| Stream lineage                       | Yes                                  | No                |
-| Data-Level Observability             | Yes                                  | No                |
-| Wildcard subscribe                   | No                                   | Yes               |
-| Deduplication                        | Content-level. Modified bloom filter | Message ID-level  |
-| Dead-letter queue                    | Yes                                  | Yes               |
-| REST Gateway                         | Yes                                  | No                |
-| Consumer internal communication      | Yes. Experimental                    | No                |
-| Pull retry mechanism                 | Yes                                  | Yes               |
-| Message replay, time travel          | Yes. Offsets                         | Yes. Offsets      |
-| Content-aware routing                | Yes                                  | No                |
-| Log compaction                       | Not yet                              | No                |
+| Parameter                            | Memphis.dev                          | NATS Jetstream          |
+| ------------------------------------ | ------------------------------------ | ----------------------- |
+| GUI                                  | Yes                                  | No                      |
+| Schema Management                    | Yes                                  | No                      |
+| Stream enrichment                    | Yes                                  | No                      |
+| Delivery Policy                      | Manual Ack                           | Different options       |
+| Consumer group                       | Yes                                  | Yes                     |
+| Ready-to-use source/sinks connectors | Yes                                  | No                      |
+| Stream lineage                       | Yes                                  | No                      |
+| Data-Level Observability             | Yes                                  | No                      |
+| Wildcard subscribe                   | No                                   | Yes                     |
+| Deduplication                        | Content-level. Modified bloom filter | Message ID-level        |
+| Dead-letter queue                    | Yes                                  | Notification event only |
+| REST Gateway                         | Yes                                  | No                      |
+| Consumer internal communication      | Yes. Experimental                    | No                      |
+| Pull retry mechanism                 | Yes                                  | Yes                     |
+| Message replay (time travel)         | Yes. Offsets                         | Yes. Offsets            |
+| Content-aware routing                | Yes                                  | No                      |
+| Log compaction                       | Not yet                              | No                      |
 
 ### GUI
 
@@ -212,7 +212,7 @@ Jetstream supports different options, such as DeliverAll / DeliverLast / Deliver
 
 Memphis currently supports only manual acks.
 
-### Ready-to-use connectors
+### Ready-to-use source/sinks connectors
 
 NATS offers a rich ecosystem of integrations between different systems with NATS.
 
@@ -250,3 +250,32 @@ One of Memphis' core building blocks is avoiding unexpected data loss, enabling 
 
 To enable message production via HTTP calls for various use cases and ease of use, Memphis added an HTTP gateway to receive REST-based requests (=messages) and produce those messages to the required station.
 
+### Consumer internal communication
+
+In some use cases, especially around microservices and streaming pipelines, it is crucial for the different microservices to be able to communicate with each other to sync changes, arrival of data, match data flow, etc.
+
+Memphis is currently experimenting with creating that ability for consumers to be able to communicate with each other using gRPC or shared channels.
+
+### Pull retry mechanism
+
+Jetstream and Memphis provide a message retry mechanism based on the "max redelivery" parameter.
+
+In many other technologies, this is the client's responsibility.
+
+### Message replay (time travel)
+
+The ability to replay acknowledge messages based on a specific offset.
+
+Currently not supported in Memphis or Jetstream.
+
+### Content-aware routing
+
+This feature, in other words, can be called an "Event Router." It enables routing messages to different consumers based on payload and predefined rules.
+
+Memphis is currently experimenting with that [feature](https://github.com/memphisdev/memphis-broker/issues/283). Jetstream currently does not support it.
+
+### Log compaction
+
+Compaction has been created to support a long-term, potentially infinite record store based on specific keys.
+
+At the moment, Memphis and Jetstream do not support compaction.
