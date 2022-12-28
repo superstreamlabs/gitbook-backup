@@ -135,3 +135,60 @@ Memphis replicates data across brokers based on defined policy (Replicas). Memph
 | Notifications                        | Slack, Email, More                                      | Using external project called Alertmanager                                  |
 | SDK support                          | Node js, Python, Go, .NET, Java, NestJS, and Typescript | Python, Ruby, Elixir, PHP, Swift, Go, Java, C, Spring, .Net, and JavaScript |
 
+### GUI
+
+RabbitMQ offers a native GUI that can act as a management layer as well
+
+![](<../../.gitbook/assets/image (1).png>)
+
+Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
+
+<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+
+### Schema Management
+
+The very basic building block to control and ensure the quality of data that flows through your organization between the different owners is by defining well-written schemas and data models.\
+The benefit of schema management is for allowing compatibility between decoupled clients.
+
+As part of its open-source version, Memphis presents Schemaverse, which is also embedded within the broker. Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. In counter to Schema Registry, the client does not need to implement serialization functions, and every schema update takes place during producers' runtime.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2022-12-24 at 22.32.36.png" alt=""><figcaption></figcaption></figure>
+
+### Wildcard consume
+
+The ability to consume messages from multiple queues using a single connection.
+
+In RabbitMQ, Messages are not published directly to a queue. Instead, the producer sends messages to an exchange. Exchanges are message routing agents, defined by the virtual host within RabbitMQ. An exchange is responsible for routing the messages to different queues with the help of header attributes, bindings, and routing keys.
+
+Memphis currently does not support it.
+
+### Stream Enrichment
+
+The ability to decorate produced messages using serverless functions or SQL statements.
+
+RabbitMQ does not support it.
+
+Memphis provides a similar behavior to Kafka streams and more. Embedded inside the broker, Memphis users can create serverless-type functions or complete containerized applications that aggregate several stations and streams, decorate and enrich messages from different sources, write complex functions that cannot be achieved via SQL, and manipulate the schema. Memphis embedded connectors frameworks will help to push the results directly to a defined sink.
+
+### Ready-to-use source/sinks connectors
+
+Memphis offers both integrations that are compatible with NATS protocol, Memphis-based integrations, and ready-to-use connectors that can replace producers and consumers to and from different applications and databases made by the community, Memphis team, and 3rd party apps.
+
+RabbitMQ does not support it.
+
+### Stream lineage
+
+Tracking stream lineage is the ability to understand the full path of a message from the very first producer through the final consumer, including the trail and evolvement of a message between topics. This ability is extremely handy in a troubleshooting process.
+
+RabbitMQ does not offer stream lineage, but it can be achieved using OpenTelemetry or OpenLineage frameworks or integrating 3rd party applications such as Datadog and Epsagon.
+
+Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Self-healing
+
+RabbitMQ requires tune-ups, client-made wrappers, management, and tight monitoring. The user or operator is responsible for ensuring it's alive and works as required. This approach has pros and cons, as the user can tune almost every parameter, which is often revealed as a significant burden.
+
+One of Memphis' core features is to remove frictions of management and autonomously make sure it's alive and performing well using periodic self-checks and proactive rebalancing tasks, as well as fencing the users from misusing the system. In parallel, every aspect of the system can be configured on-the-fly without downtime.
+
