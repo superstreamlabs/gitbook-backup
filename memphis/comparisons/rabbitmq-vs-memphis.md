@@ -199,3 +199,33 @@ Dead-letter queue is both a concept and a solution that is useful for debugging 
 In RabbitMQ, messages from a queue can be "dead-lettered"; that is, republished to an exchange when any of the following events occur: a) The message is negatively acknowledged by a consumer using basic.reject or basic.nack with requeue parameter set to false. b) The message expires due to per-message TTL. c) The message is dropped because its queue exceeded a length limit.
 
 One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
+
+### REST Gateway
+
+To enable message production via HTTP calls for various use cases and ease of use, Memphis added an HTTP gateway to receive REST-based requests (=messages) and produce those messages to the required station.
+
+RabbitMQ does not support it.
+
+### Consumer internal communication
+
+In some use cases, especially around microservices and streaming pipelines, it is crucial for the different microservices to be able to communicate with each other to sync changes, arrival of data, match data flow, etc.
+
+Memphis is currently experimenting with creating that ability for consumers to be able to communicate with each other using gRPC or shared channels.
+
+RabbitMQ does not support it.
+
+### Storage tiering
+
+Memphis offers a multi-tier storage strategy in its open-source version. Memphis will write messages that reached their end of 1st retention policy to a 2nd retention policy on object storage like S3 for longer retention time, potentially infinite, and post-streaming analysis. This feature can significantly help with cost reduction and stream auditing.
+
+![](<../../.gitbook/assets/Screen Shot 2022-12-28 at 15.18.45.png>)
+
+RabbitMQ does not support it.
+
+### Notifications
+
+In RabbitMQ, notifications are made possible using AlertManager and Cluster operator, including slack notifications of different metrics like undelivered messages, resource issues, lags, performance, connections issues, and more.
+
+Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
