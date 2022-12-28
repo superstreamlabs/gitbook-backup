@@ -22,9 +22,9 @@ Memphis.dev enables building next-generation applications that require large vol
 
 <figure><img src="../../.gitbook/assets/memphis vs legacy.jpeg" alt=""><figcaption></figcaption></figure>
 
-## Messaging Comparison
+## Messaging
 
-| Parameter                  | Memphis                                                                                                | RabbitMQ                                                                                              |
+| Parameter                  | Memphis.dev                                                                                            | RabbitMQ                                                                                              |
 | -------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
 | Performance                | 300K messages per second per station (queue).                                                          | 4K-10K messages per second                                                                            |
 | Message Retention          | Policy-based (e.g., 30 days)                                                                           | Acknowledgment based                                                                                  |
@@ -114,27 +114,24 @@ All data/state required for operating a RabbitMQ broker is replicated across all
 
 Memphis replicates data across brokers based on defined policy (Replicas). Memphis station can also span and stripe data across brokers to achieve higher throughput and availability.
 
-## Features Comparison
+## Features
 
-| Parameter                          | Memphis                            | RabbitMQ                                   |
-| ---------------------------------- | ---------------------------------- | ------------------------------------------ |
-| GUI                                | True                               | True                                       |
-| Schema Management                  | True                               | False                                      |
-| Inline stream enrichment           | True                               | False                                      |
-| Ready-to-use connectors            | True                               | False                                      |
-| Real-time message tracing          | True                               | False                                      |
-| Data-Level Observability           | True                               | True                                       |
-| Automatic environment optimization | True                               | False                                      |
-| Deduplication                      | True. Modified bloom filter        | False                                      |
-| Dead-letter                        | True                               | True                                       |
-| REST Gateway                       | True                               | False                                      |
-| Consumer internal communication    | Experimental                       | False                                      |
-| Production deployment environment  | Kubernetes                         | Bare-metal                                 |
-| Storage tiering                    | Disk, Memory, **S3 for Archiving** | Disk, Memory                               |
-| Notifications                      | Slack, Email, More                 | Using external project called Alertmanager |
+| Parameter                            | Memphis.dev                                             | RabbitMQ                                                                    |
+| ------------------------------------ | ------------------------------------------------------- | --------------------------------------------------------------------------- |
+| GUI                                  | Yes                                                     | Yes                                                                         |
+| Schema Management                    | Yes                                                     | No                                                                          |
+| Wildcard consume                     | No                                                      | Yes                                                                         |
+| Stream Enrichment                    | Yes                                                     | No                                                                          |
+| Ready-to-use source/sinks connectors | Yes                                                     | No                                                                          |
+| Stream lineage                       | Yes                                                     | No                                                                          |
+| Data-Level Observability             | Yes                                                     | Yes                                                                         |
+| Self-healing                         | Yes                                                     | No                                                                          |
+| Deduplication                        | True. Modified bloom filter                             | No                                                                          |
+| Dead-letter                          | Yes                                                     | Yes                                                                         |
+| REST Gateway                         | Yes                                                     | No                                                                          |
+| Consumer internal communication      | Experimental                                            | No                                                                          |
+| Production deployment environment    | Kubernetes                                              | Kubernetes, Bare-metal                                                      |
+| Storage tiering                      | Disk, Memory, **S3 for Archiving**                      | Disk, Memory                                                                |
+| Notifications                        | Slack, Email, More                                      | Using external project called Alertmanager                                  |
+| SDK support                          | Node js, Python, Go, .NET, Java, NestJS, and Typescript | Python, Ruby, Elixir, PHP, Swift, Go, Java, C, Spring, .Net, and JavaScript |
 
-### Libraries and Language Support
-
-RabbitMQ supports Python, Ruby, Elixir, PHP, Swift, Go, Java, C, Spring, .Net, and JavaScript.
-
-Memphis supports Node js, Python, Go, .NET, Java, NestJS, and Typescript.\
