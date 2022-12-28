@@ -281,3 +281,7 @@ Compaction has been created to support a long-term, potentially infinite record 
 At the moment, Memphis and Jetstream do not support compaction.
 
 ## Conclusion
+
+NATS Jetstream is a battle-tested distributed messaging system, fairly modular, and easy to implement. Those features, among others, motivated Memphis to choose NATS as the foundation. Having said it, extending NATS to high throughput workloads can be complicated and often unstable (not necessarily because of NATS, but missing implementation from the client side). Like other technologies, it requires time and resources you can save.
+
+We call Memphis "A next-generation message broker" because it leans towards the user and adapts to its scale and requirements, not the opposite. Most of the wrappers, tunings, management-overhead, and implementations needed from the client in Jetstream, are abstract to the users in Memphis, which provides an excellent solution for both the smaller workload use cases and the more robust ones under the same system and with full ecosystem to support it. It has a milage to pass, but the immediate benefits already exist and will continue to evolve.
