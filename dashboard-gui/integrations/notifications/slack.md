@@ -30,7 +30,7 @@ Under "Add features and functionality", choose "Bots"
 
 Assign scope by clicking on the "Review Scopes to Add"
 
-<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 Add the following scopes
 

@@ -90,7 +90,7 @@ The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial
 
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Message tracing (aka Stream lineage)
 
@@ -127,7 +127,7 @@ JetStream is compatible with NATS 2.0 Multi-Tenancy using Accounts. A JetStream-
 
 As Memphis pushes to enable the next generation of applications and especially SaaS-type architectures, Memphis supports Multi-tenancy across all the layers from stations (=queues) to security, consumers, and producers, all the way to node selection for complete hardware isolation in case of need. It is enabled using namespaces and can be managed in a unified console.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Storage tiering
 
@@ -186,7 +186,7 @@ A GUI for NATS and NATS Jetstream can be achieved via Synadia cloud offering.
 
 Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
-<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
 
 ### Schema Management
 
@@ -226,7 +226,7 @@ NATS Jetstream does not offer stream lineage, but it can be achieved using OpenT
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Data-Level Observability
 
