@@ -279,3 +279,5 @@ Memphis is currently experimenting with that [feature](https://github.com/memphi
 Compaction has been created to support a long-term, potentially infinite record store based on specific keys.
 
 At the moment, Memphis and Jetstream do not support compaction.
+
+## Conclusion
