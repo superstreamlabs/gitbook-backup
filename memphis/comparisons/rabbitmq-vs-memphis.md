@@ -139,11 +139,11 @@ Memphis replicates data across brokers based on defined policy (Replicas). Memph
 
 RabbitMQ offers a native GUI that can act as a management layer as well
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (8).png>)
 
 Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
-<figure><img src="../../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Schema Management
 
@@ -184,7 +184,7 @@ RabbitMQ does not offer stream lineage, but it can be achieved using OpenTelemet
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ### Self-healing
 
@@ -192,3 +192,10 @@ RabbitMQ requires tune-ups, client-made wrappers, management, and tight monitori
 
 One of Memphis' core features is to remove frictions of management and autonomously make sure it's alive and performing well using periodic self-checks and proactive rebalancing tasks, as well as fencing the users from misusing the system. In parallel, every aspect of the system can be configured on-the-fly without downtime.
 
+### Dead-letter Queue
+
+Dead-letter queue is both a concept and a solution that is useful for debugging clients because it lets you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
+
+In RabbitMQ, messages from a queue can be "dead-lettered"; that is, republished to an exchange when any of the following events occur: a) The message is negatively acknowledged by a consumer using basic.reject or basic.nack with requeue parameter set to false. b) The message expires due to per-message TTL. c) The message is dropped because its queue exceeded a length limit.
+
+One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
