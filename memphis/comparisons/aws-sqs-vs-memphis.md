@@ -20,11 +20,11 @@ Memphis.dev enables building next-generation applications that require large vol
 
 <figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-## Comparison
+## Messaging
 
 | Parameter                  | Memphis                                                                                                | AWS SQS                                                                                          |
 | -------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| Performance                | 300K messages per second per station (queue).                                                          | 60K-100K messages per second                                                                     |
+| Benchmark                  | 300K messages per second per station (queue).                                                          | 60K-100K messages per second                                                                     |
 | Message Retention          | Policy-based (e.g., 30 days)                                                                           | Acknowledgment based                                                                             |
 | Data Type                  | Transactional, Operational                                                                             | Transactional                                                                                    |
 | Consumer Mode              | Smart broker/Smart consumer                                                                            | Smart broker/dumb consumer                                                                       |
@@ -93,3 +93,24 @@ Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.26.36.png" alt=""><figcaption><p>Notification Center</p></figcaption></figure>
 
 </div>
+
+## Features
+
+| Parameter                            | Memphis.dev                                             | AWS SQS                                               |
+| ------------------------------------ | ------------------------------------------------------- | ----------------------------------------------------- |
+| GUI                                  | Yes                                                     | Yes                                                   |
+| Schema Management                    | Yes                                                     | No                                                    |
+| Wildcard consume                     | No                                                      | Yes                                                   |
+| Stream Enrichment                    | Yes                                                     | Yes                                                   |
+| Ready-to-use source/sinks connectors | Yes                                                     | No                                                    |
+| Stream lineage                       | Yes                                                     | No                                                    |
+| Data-Level Observability             | Yes                                                     | Yes                                                   |
+| Self-healing                         | Yes + Managed service                                   | Managed service                                       |
+| Deduplication                        | Yes. Modified bloom filter                              | Deduplication interval of 5 minutes                   |
+| Dead-letter                          | Yes                                                     | Yes                                                   |
+| REST Gateway                         | Yes                                                     | No                                                    |
+| Consumer internal communication      | Experimental                                            | No                                                    |
+| Production deployment environment    | Kubernetes, Docker, Managed service                     | Managed service                                       |
+| Storage tiering                      | Disk, Memory, **S3 for Archiving**                      | Disk                                                  |
+| Notifications                        | Slack, Email, More                                      | With SNS and Cloudwatch                               |
+| SDK support                          | Node js, Python, Go, .NET, Java, NestJS, and Typescript | C++, Go, Java, .NET, Python, node.js, Rust, Ruby, PHP |
