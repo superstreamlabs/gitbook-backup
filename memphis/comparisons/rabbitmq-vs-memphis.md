@@ -31,7 +31,28 @@ Memphis.dev enables building next-generation applications that require large vol
 | Message consumption model | Pull                                     | Push           |
 | Storage architecture      | Log                                      | Index          |
 
+### License
 
+Both technologies are available under fully open-source licenses. Memphis also has a commercial-based distribution with added security, tiered storage, and more.
+
+### Components
+
+Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Both Memphis and RabbitMQ achieve consensus by using RAFT.
+
+### Message Consumption Model
+
+RabbitMQ uses a push-based approach synonymous with traditional messaging systems.
+
+Memphis uses a pull-based architecture where consumers pull messages from the server, and [long-polling](https://en.wikipedia.org/wiki/Push\_technology#Long\_polling) is used to ensure new messages are made available instantaneously.
+
+Pull-based architectures are often preferable for high throughput workloads as they allow consumers to manage their flow control, fetching only what they need.
+
+### Storage Architecture
+
+RabbitMQ uses index-based storage systems. These keep data in a tree structure to provide the fast access necessary for acknowledging individual messages.
+
+Memphis uses a distributed commit log called streams (made by NATS Jetstream) as its storage layer, which can be written entirely on the broker's (server) memory or disk.\
+Memphis abstracts the offsets by default, so saving a record of the used offsets resides on Memphis and not on the client.
 
 ## Messaging
 
@@ -240,3 +261,4 @@ In RabbitMQ, notifications are made possible using AlertManager and Cluster oper
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
