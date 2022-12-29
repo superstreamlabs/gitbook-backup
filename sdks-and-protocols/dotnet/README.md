@@ -146,6 +146,18 @@ Destroying a station will remove all its resources (including producers and cons
 station.DestroyAsync()
 ```
 
+### Attaching a Schema to an Existing Station
+
+```csharp
+await client.AttachSchema(stationName: "<station-name>", schemaName: "<schema-name>");
+```
+
+### Detaching a Schema from Station
+
+```
+await client.DetachSchema(stationName: station.Name);
+```
+
 ### Produce and Consume Messages
 
 The most common client operations are `produce` to send messages and `consume` to receive messages.
