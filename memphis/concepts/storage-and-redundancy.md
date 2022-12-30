@@ -19,6 +19,17 @@ It is up to the user to define which type of storage will this stream object be 
 
 <figure><img src="../../.gitbook/assets/stream.jpeg" alt=""><figcaption></figcaption></figure>
 
+
+
+## Replicas (Mirroring)
+
+Available in cluster mode only. During station creation, the user can choose the number of station replicas. Replicas are an exact mirror of the entire station data, and each produced message will be mirrored across the configured replicas. Each replica will be stored on a different broker; therefore, the maximum number of replicas is derived from the number of brokers in a cluster.\
+In case of a broker or disk loss, replicas will be used to rebuild the missing replica to maintain the required amount of replicas and, at the same time, ensure data availability through a different broker.
+
+Replicas can be defined using the SDK, GUI, or CLI.
+
+The number of replicas cannot be changed after station creation. (Will be in the future)
+
 ## Storage tiering
 
 Memphis offers a range of storage types that you can choose from based on your workload's data access, resiliency, frequency, and cost requirements, and configured per station.
