@@ -1,5 +1,5 @@
 ---
-description: This section describes the differeneces between Apache Kafka and Memphis
+description: This section describes the differences between Apache Kafka and Memphis
 cover: ../../.gitbook/assets/Kafka vs Memphis.dev.jpeg
 coverY: 0
 ---
@@ -138,7 +138,7 @@ Both Kafka and Memphis store data durably and reliably, much like a normal datab
 ### Idempotency
 
 Both Kafka and Memphis provide default support in idempotent producers.\
-On the consumer side, in Kafka, its the client's responsibility to build a retry mechanism that will retransmit a batch of messages exactly once, while in Memphis, it is provided natively within the SDK with a parameter called `maxMsgDeliveries`.
+On the consumer side, in Kafka, it׳s the client's responsibility to build a retry mechanism that will retransmit a batch of messages exactly once, while in Memphis, it is provided natively within the SDK with a parameter called `maxMsgDeliveries`.
 
 ### Geo-Replication (Multi-region)
 
