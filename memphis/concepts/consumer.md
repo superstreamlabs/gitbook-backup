@@ -8,13 +8,13 @@ coverY: 0
 
 ## What is a consumer?
 
-A consumer is a client that reads data or messages from the broker or more specifically from the station.&#x20;
+A consumer is a client that reads data or messages from the broker or, more specifically, from the station.&#x20;
 
-As the user configures a client connection to Memphis, it comprises several objects
+As the user configures a client connection to Memphis, it comprises several objects:
 
 * Connection - An open socket between the client to Memphis. Only required once as the client/application gets initialized for the first time.
 * Consumer - A consumer entity must be declared to read data/messages from Memphis.
-* (And/Or) Producer - A producer entity must be declared to write data/messages into Memphis.
+* (And/or) Producer - A producer entity must be declared to write data/messages into Memphis.
 
 <figure><img src="../../.gitbook/assets/Producer.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -67,10 +67,16 @@ For more information about how to create and connect a consumer to Memphis,&#x20
 please head [here](broken-reference)
 {% endhint %}
 
+### Offsets
+
+The offset is a simple integer number that is used by Memphis to maintain the current position of a consumer group. The current offset (just like disk offset) is a pointer to the last record that Memphis has already sent to a consumer group in its most recent poll. So, the consumer group doesn't get the same record twice because of the current offset.
+
+While in most messaging systems, it is the client's responsibility to track the read offsets, in Memphis, the broker and SDK communicate with each other and record the acknowledged offsets automatically for the client. If needed, a specific offset can be used to re-read an acknowledged message.
+
 ## Supported Protocols
 
 * NATS Protocol (Client SDKs)
-* HTTP \* Soon \*
+* [HTTP](../../sdks-and-protocols/rest-http.md)
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
 * WASM \* Soon \*
