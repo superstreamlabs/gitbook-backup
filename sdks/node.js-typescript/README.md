@@ -1,8 +1,8 @@
 ---
-description: Memphis SDKs for Node.js and Typescript. Producers/Consumers examples
+description: Memphis SDKs for Node.js, TypeScript, and NestJS.
 ---
 
-# Node.js / Typescript / NestJS
+# Node.js / TypeScript / NestJS
 
 {% content-ref url="example-producer.js.md" %}
 [example-producer.js.md](example-producer.js.md)
@@ -68,7 +68,7 @@ await memphis.connect({
       });
 ```
 
-### Nest injection
+### NestJS injection
 
 ```
 @Module({
@@ -238,7 +238,7 @@ const consumer = await memphisConnection.consumer({
 });
 ```
 
-### Connection setup in NestJS
+## Connection creation in NestJS
 
 ```
 import { MemphisServer } from 'memphis-dev/nest'
@@ -260,7 +260,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-### Consume messages in NestJS
+## Consume messages in NestJS
 
 ```
 export class Controller {
@@ -279,7 +279,7 @@ export class Controller {
 }
 ```
 
-### Processing messages
+### Read consumed messages
 
 ```
 consumer.on('message', (message) => {
@@ -290,7 +290,7 @@ consumer.on('message', (message) => {
 
 ```
 
-### Acknowlede a Message
+### Message acknowledgment
 
 Acknowledging a message indicates to the Memphis server to not re-send the same message again to the same consumer or consumers group.
 
