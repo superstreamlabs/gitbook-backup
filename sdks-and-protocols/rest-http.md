@@ -24,6 +24,11 @@ Common use cases that benefit from the REST Gateway are&#x20;
 
 For scale requirements, the "HTTP Proxy" component is separate from the brokers' pod and can scale out individually.
 
+## Security Mechanism
+
+Memphis REST (HTTP) gateway makes use of JWT-type identification.\
+[JSON Web Tokens](https://jwt.io/) are an open, industry-standard RFC 7519 method for representing claims securely between two parties.
+
 ## Usage
 
 {% hint style="info" %}
@@ -47,7 +52,9 @@ curl --location --request POST 'http_proxy:4444/auth/authenticate' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "username": "root",
-	"connection_token": "memphis"
+    "connection_token": "memphis",
+    "token_expiry_in_minutes": 60,
+    "refresh_token_expiry_in_minutes": 10000092
 }'
 ```
 
@@ -56,6 +63,11 @@ Expected output:&#x20;
 ```
 {"expires_in":900000,"jwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.4KOGRhUaqvm-qSHnmMwX5VrLKsvHo33u3UdJ0qYP0kI"}
 ```
+
+`username`: Memphis application-type username\
+`connection_token`: Memphis application-type connection token\
+`token_expiry_in_minutes`: Initial token expiration time.\
+`refresh_token_expiry_in_minutes`: When should
 
 ### Refresh Token
 
