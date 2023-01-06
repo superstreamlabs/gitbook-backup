@@ -64,6 +64,10 @@ Expected output:&#x20;
 {"expires_in":900000,"jwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.4KOGRhUaqvm-qSHnmMwX5VrLKsvHo33u3UdJ0qYP0kI"}
 ```
 
+The return **`jwt`** key is both the **token** and **also the refresh token** for simplicity
+
+#### Parameters
+
 `username`: Memphis application-type username\
 `connection_token`: Memphis application-type connection token\
 `token_expiry_in_minutes`: Initial token expiration time.\
@@ -71,8 +75,8 @@ Expected output:&#x20;
 
 ### Refresh Token
 
-Before the JWT token expires, you have to call the refresh token to get a new token, or after authentication failure\
-The refresh JWT token is valid by default for 5 hours.
+Before the JWT token expires, you must call the refresh token to get a new one, or after authentication failure.\
+The refresh JWT token is the same initial JWT token, and it is valid by default for 5 hours.
 
 #### Example:
 
