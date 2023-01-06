@@ -53,7 +53,7 @@ import { MemphisModule, MemphisService } from 'memphis-dev/nest';
 import type { Memphis } from 'memphis-dev/types';
 ```
 
-### Connecting to Memphis
+## Connecting to Memphis
 
 ```
 await memphis.connect({
@@ -68,7 +68,7 @@ await memphis.connect({
       });
 ```
 
-#### Nest injection
+### Nest injection
 
 ```
 @Module({
@@ -105,7 +105,7 @@ To disconnect from Memphis, call `close()` on the Memphis object.
 memphis.close();
 ```
 
-### Creating a Station
+## Creating a Station
 
 ```
 const station = await memphis.station({
@@ -165,15 +165,16 @@ Destroying a station will remove all its resources (including producers and cons
 await station.destroy();
 ```
 
-### Produce and Consume Messages
+## Produce and Consume Messages
 
 The most common client operations are producing messages and consuming messages.
 
-Messages are published to a station and consumed from it by creating a consumer. Consumers are pull-based and consume all the messages in a station unless you are using a consumers group, in which case messages are spread across all members in this group.
+Messages are published to a station and consumed from it by creating a consumer and consumer group. Consumers are pull-based and consume all the messages in the station that was not ACK by the group and starts from a chosen offset (The beginning of the station by default). At a consumer group level, messages are spread across all consumers of this group.
 
 Memphis messages are payload agnostic. Payloads are `Uint8Arrays`.
 
-In order to stop receiving messages, you have to call `consumer.destroy()`. The consumer will terminate regardless of whether there are messages in flight for the client.
+To stop receiving messages, a call `consumer.destroy()` is required. \
+The consumer will be terminated regardless of whether there are messages in-flight.
 
 ### Creating a Producer
 
@@ -237,7 +238,7 @@ const consumer = await memphisConnection.consumer({
 });
 ```
 
-### To set Up connection in nestjs
+### Connection setup in NestJS
 
 ```
 import { MemphisServer } from 'memphis-dev/nest'
@@ -259,7 +260,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-### To Consume messages in nestjs
+### Consume messages in NestJS
 
 ```
 export class Controller {
