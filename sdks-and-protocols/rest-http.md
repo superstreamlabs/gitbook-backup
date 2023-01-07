@@ -11,7 +11,7 @@ To enable message production via HTTP calls for various use cases and ease of us
 Common use cases that benefit from the REST Gateway are&#x20;
 
 * Produce events directly from a frontend
-* Connect Debezium using HTTP Server
+* Produce CDC events using the Debezium HTTP server
 * ArgoCD webhooks
 * Receive data from Fivetran/Rivery/Any ETL platform using HTTP calls
 
