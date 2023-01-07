@@ -41,27 +41,23 @@ A message will be flagged as "Poison" and sent to the dead-letter station **when
 
 <figure><img src="../../.gitbook/assets/dls.jpeg" alt=""><figcaption></figcaption></figure>
 
-###
+## Types of messages
 
-### Recovery
+The DLS will automatically (based on user decision) catch messages of the following types -
 
-![](../../.gitbook/assets/2.jpg)
+* **Unacknowledged**. Messages that passed the `maxAckDeliveries` parameter.
+* **Schema violation.** Messages that did not pass the attached schema validation. As Memphis mission is to narrow data loss, and increase observability, messages that did not pass schema validation can be important and indicate some producer issues. Therefore, Memphis supports storing such messages.
 
-Once poison messages start to pile up - the dead-letter-station will take place and enable the engineer to inspect it at the dedicated tab.
+![](<../../.gitbook/assets/Screen Shot 2023-01-07 at 21.10.04.png>)
 
-**Legend**
+### How to recover (=Resend) a DLS message
 
-(1) Ignore = Removes a message from the DLS.
+Message recovery or "resend" does not require any code change or downtime to the consumers. Memphis will push the message over the same "station connection."
 
-(2) Resend = Push the poisoned message back to the **same CGs** that flagged it as poisoned without any intervention from the consumer side.
+Every type of stored DLS message has a unique recovery strategy.
 
-(3) Ability to resend/ignore multiple poisoned messages at once.
-
-(4) Message Journey = A dedicated view of a single message path from the producer to all of its consumers
-
-![Resend Mechanism](<../../.gitbook/assets/image (1) (1).png>)
-
-###
+* For **"Unacknowledged"** message - The message will be resent directly to the unacknowledged consumer group/s. Traditional message brokers usually reproduce the message back to the queue, but that behavior will produce an already ACK message to all of the consumer groups, both the ones that ACK the message and those who do not and can bring duplicate processing. Memphis implemented a mechanism to resend the message only to unacknowledged consumer groups to avoid such a scenario.
+* For "**Schema violation**" message - Observability only. Resend is currently not available. Future releases will enable the user to change the schema if needed and push the message back to the station as it did not consume by any CG.&#x20;
 
 ### Message Journey
 
