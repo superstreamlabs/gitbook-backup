@@ -30,7 +30,7 @@
   * [Formats](memphis/schemaverse-schema-management/formats/README.md)
     * [Protobuf](memphis/schemaverse-schema-management/formats/protobuf.md)
     * [JSON Schema](memphis/schemaverse-schema-management/formats/json-schema.md)
-    * [GraphQL](memphis/schemaverse-schema-management/formats/graphql.md)
+    * [GraphQL](memphis/schemaverse-schema-management/formats/protobuf-1.md)
     * [Avro](memphis/schemaverse-schema-management/formats/avro.md)
   * [FAQs](memphis/schemaverse-schema-management/faqs.md)
 * [Cluster configuration](memphis/cluster-configuration.md)
