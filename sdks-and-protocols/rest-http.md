@@ -29,6 +29,10 @@ For scale requirements, the "HTTP Proxy" component is separate from the brokers'
 Memphis REST (HTTP) gateway makes use of JWT-type identification.\
 [JSON Web Tokens](https://jwt.io/) are an open, industry-standard RFC 7519 method for representing claims securely between two parties.
 
+## Sequence diagram
+
+<figure><img src="../.gitbook/assets/REST Gateway (1).jpeg" alt=""><figcaption></figcaption></figure>
+
 ## Usage
 
 {% hint style="info" %}
