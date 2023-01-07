@@ -41,33 +41,7 @@ A message will be flagged as "Poison" and sent to the dead-letter station **when
 
 <figure><img src="../../.gitbook/assets/dls.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Identification
-
-How to identify poison messages?
-
-![Station overview](../../.gitbook/assets/identification.jpg)
-
-After receiving an alert from some consumer - head over to the Memphis dashboard, identify the station, and reach its station overview.
-
-**Legend**
-
-(1) Dead-letter. In this tab, the poisoned messages will be displayed with further options.
-
-(2) Each message's metadata is displayed on the right panel, like Failed CGs.
-
-(3) Amount of poison message per CG. If that number is > 0, you have a growing issue.
-
-(4) Show the defined parameter.
-
-Each message that crosses the number of redeliveries per CG will create and preserved automatically in the Dead-letter-station.
-
-{% hint style="warning" %}
-Dead-letter station (DLS) message retention is 3 hours
-{% endhint %}
-
-The dead-letter station will not be created unless there is a reason.
-
-![](<../../.gitbook/assets/image (4).png>)
+###
 
 ### Recovery
 
