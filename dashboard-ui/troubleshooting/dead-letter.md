@@ -48,9 +48,11 @@ The DLS will automatically (based on user decision) catch messages of the follow
 * **Unacknowledged**. Messages that passed the `maxAckDeliveries` parameter.
 * **Schema violation.** Messages that did not pass the attached schema validation. As Memphis mission is to narrow data loss, and increase observability, messages that did not pass schema validation can be important and indicate some producer issues. Therefore, Memphis supports storing such messages.
 
-![](<../../.gitbook/assets/Screen Shot 2023-01-07 at 21.10.04.png>)
+<img src="../../.gitbook/assets/Screen Shot 2023-01-07 at 21.10.04.png" alt="" data-size="original">
 
-### How to recover (=Resend) a DLS message
+<figure><img src="../../.gitbook/assets/schemaverse.jpeg" alt=""><figcaption><p>How "Schema violation" messages reach DLS</p></figcaption></figure>
+
+### How to recover (=resend) a DLS message
 
 Message recovery or "resend" does not require any code change or downtime to the consumers. Memphis will push the message over the same "station connection."
 
