@@ -32,7 +32,6 @@
     * [JSON Schema](memphis/schemaverse-schema-management/formats/json-schema.md)
     * [GraphQL](memphis/schemaverse-schema-management/formats/graphql.md)
     * [Avro](memphis/schemaverse-schema-management/formats/avro.md)
-  * [Getting Started](memphis/schemaverse-schema-management/getting-started.md)
   * [FAQs](memphis/schemaverse-schema-management/faqs.md)
 * [Cluster configuration](memphis/cluster-configuration.md)
 * [Comparisons](memphis/comparisons/README.md)
