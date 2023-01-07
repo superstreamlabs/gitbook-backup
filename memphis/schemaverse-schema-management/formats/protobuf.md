@@ -62,8 +62,6 @@ Soon.
 {% tab title="Node.js" %}
 Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
-#### Producer (Protobuf example)
-
 {% code lineNumbers="true" %}
 ```javascript
 const memphis = require("memphis-dev");
@@ -119,3 +117,67 @@ var protobuf = require("protobufjs");
 {% endtabs %}
 
 ### Consume a message (Deserialization)
+
+{% tabs %}
+{% tab title="Node.js" %}
+
+
+{% code lineNumbers="true" %}
+```javascript
+const memphis = require("memphis-dev");
+var protobuf = require("protobufjs");
+
+(async function () {
+    try {
+        await memphis.connect({
+            host: "localhost",
+            username: "root",
+            connectionToken: "memphis"
+        });
+
+        const consumer = await memphis.consumer({
+            stationName: "marketing",
+            consumerName: "cons1",
+            consumerGroup: "cg_cons1",
+            maxMsgDeliveries: 3,
+            maxAckTimeMs: 2000,
+            genUniqueSuffix: true
+        });
+
+        const root = await protobuf.load("schema.proto");
+        var TestMessage = root.lookupType("Test");
+
+        consumer.on("message", message => {
+            const x = message.getData()
+            var msg = TestMessage.decode(x);
+            console.log(msg)
+            message.ack();
+        });
+        consumer.on("error", error => {
+            console.log(error);
+        });
+    } catch (ex) {
+        console.log(ex);
+        memphis.close();
+    }
+})();
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Go" %}
+
+{% endtab %}
+
+{% tab title="Python" %}
+
+{% endtab %}
+
+{% tab title="TypeScript" %}
+
+{% endtab %}
+
+{% tab title=".NET" %}
+
+{% endtab %}
+{% endtabs %}
