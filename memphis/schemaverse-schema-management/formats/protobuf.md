@@ -20,7 +20,7 @@ Protocol Buffers (Protobuf) is a free and open-source cross-platform data format
 
 ## Getting started
 
-### Attach
+### Attach a schema
 
 #### Step 1: Create a new schema
 
