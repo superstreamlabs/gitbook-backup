@@ -11,9 +11,10 @@ Protocol Buffers (Protobuf) is a free and open-source cross-platform data format
 
 ### Supported Features
 
+* Produce messages without .proto files
 * Versioning
 * Embedded serialization
-* Producer Live evolution
+* Live evolution
 * Import packages (soon)
 * Import types (soon)
 
@@ -56,5 +57,65 @@ Soon.
 {% endtabs %}
 
 ### Produce a message (Serialization)
+
+{% tabs %}
+{% tab title="Node.js" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
+
+#### Producer (Protobuf example)
+
+{% code lineNumbers="true" %}
+```javascript
+const memphis = require("memphis-dev");
+var protobuf = require("protobufjs");
+
+(async function () {
+    try {
+        await memphis.connect({
+            host: "localhost",
+            username: "root",
+            connectionToken: "memphis"
+        });
+        const producer = await memphis.producer({
+            stationName: "marketing-partners.prod",
+            producerName: "prod.1"
+        });
+        var payload = {
+            fname: "AwesomeString",
+            lname: "AwesomeString",
+            id: 54,
+        };
+        try {
+            await producer.produce({
+                message: payload
+        });
+        } catch (ex) {
+            console.log(ex.message)
+        }
+    } catch (ex) {
+        console.log(ex);
+        memphis.close();
+    }
+})();
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Go" %}
+
+{% endtab %}
+
+{% tab title="Python" %}
+
+{% endtab %}
+
+{% tab title="TypeScript" %}
+
+{% endtab %}
+
+{% tab title=".NET" %}
+
+{% endtab %}
+{% endtabs %}
 
 ### Consume a message (Deserialization)
