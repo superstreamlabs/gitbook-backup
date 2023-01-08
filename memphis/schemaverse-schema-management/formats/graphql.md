@@ -38,7 +38,7 @@ Head to your station, and on the top-left corner, click on "+ Attach schema"
 {% endtab %}
 
 {% tab title="SDK" %}
-Soon.
+It can be found through the different [SDKs](broken-reference) docs.
 {% endtab %}
 {% endtabs %}
 
@@ -50,37 +50,6 @@ Memphis abstracts the need for external serialization functions and embeds them 
 
 {% code lineNumbers="true" %}
 ```javascript
-const memphis = require("memphis-dev");
-var protobuf = require("protobufjs");
-
-(async function () {
-    try {
-        await memphis.connect({
-            host: "localhost",
-            username: "root",
-            connectionToken: "memphis"
-        });
-        const producer = await memphis.producer({
-            stationName: "marketing-partners.prod",
-            producerName: "prod.1"
-        });
-        var payload = {
-            fname: "AwesomeString",
-            lname: "AwesomeString",
-            id: 54,
-        };
-        try {
-            await producer.produce({
-                message: payload
-        });
-        } catch (ex) {
-            console.log(ex.message)
-        }
-    } catch (ex) {
-        console.log(ex);
-        memphis.close();
-    }
-})();
 ```
 {% endcode %}
 {% endtab %}
@@ -106,47 +75,8 @@ var protobuf = require("protobufjs");
 
 {% tabs %}
 {% tab title="Node.js" %}
-
-
 {% code lineNumbers="true" %}
 ```javascript
-const memphis = require("memphis-dev");
-var protobuf = require("protobufjs");
-
-(async function () {
-    try {
-        await memphis.connect({
-            host: "localhost",
-            username: "root",
-            connectionToken: "memphis"
-        });
-
-        const consumer = await memphis.consumer({
-            stationName: "marketing",
-            consumerName: "cons1",
-            consumerGroup: "cg_cons1",
-            maxMsgDeliveries: 3,
-            maxAckTimeMs: 2000,
-            genUniqueSuffix: true
-        });
-
-        const root = await protobuf.load("schema.proto");
-        var TestMessage = root.lookupType("Test");
-
-        consumer.on("message", message => {
-            const x = message.getData()
-            var msg = TestMessage.decode(x);
-            console.log(msg)
-            message.ack();
-        });
-        consumer.on("error", error => {
-            console.log(error);
-        });
-    } catch (ex) {
-        console.log(ex);
-        memphis.close();
-    }
-})();
 ```
 {% endcode %}
 {% endtab %}
