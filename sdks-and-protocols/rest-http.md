@@ -24,10 +24,16 @@ Common use cases that benefit from the REST Gateway are&#x20;
 
 For scale requirements, the "HTTP Proxy" component is separate from the brokers' pod and can scale out individually.
 
-## Security Mechanism
+## Security Mechanisms
+
+### JWT
 
 Memphis REST (HTTP) gateway makes use of JWT-type identification.\
 [JSON Web Tokens](https://jwt.io/) are an open, industry-standard RFC 7519 method for representing claims securely between two parties.
+
+### API Token
+
+Soon.
 
 ## Sequence diagram
 
