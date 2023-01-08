@@ -11,7 +11,7 @@ Protocol Buffers (Protobuf) is a free and open-source cross-platform data format
 
 ### Supported Features
 
-* Produce messages without .proto files
+* Retrieve compiled protobuf schemas (Produce messages without .proto files)
 * Versioning
 * Embedded serialization
 * Live evolution
@@ -52,7 +52,7 @@ Head to your station, and on the top-left corner, click on "+ Attach schema"
 {% endtab %}
 
 {% tab title="SDK" %}
-Soon.
+It can be found through the different SDKs docs.
 {% endtab %}
 {% endtabs %}
 
@@ -62,26 +62,40 @@ Soon.
 {% tab title="Node.js" %}
 Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+In node.js, we can simply produce an object. Behind the scenes, the object will be serialized based on the attached schema and data format - protobuf.
+
+**Example schema:**
+
+```protobuf
+syntax = "proto3";
+message Test {
+            string field1 = 1;
+            string  field2 = 2;
+            int32  field3 = 3;
+}
+```
+
+**Code:**
+
 {% code lineNumbers="true" %}
 ```javascript
 const memphis = require("memphis-dev");
-var protobuf = require("protobufjs");
 
 (async function () {
     try {
         await memphis.connect({
-            host: "localhost",
-            username: "root",
-            connectionToken: "memphis"
+            host: "MEMPHIS_BROKER_URL",
+            username: "APPLICATION_USER",
+            connectionToken: "CONNECTION_TOKEN"
         });
         const producer = await memphis.producer({
-            stationName: "marketing-partners.prod",
-            producerName: "prod.1"
+            stationName: "STATION_NAME",
+            producerName: "PRODUCER_NAME"
         });
         var payload = {
             fname: "AwesomeString",
             lname: "AwesomeString",
-            id: 54,
+            id: 54
         };
         try {
             await producer.produce({
@@ -100,6 +114,8 @@ var protobuf = require("protobufjs");
 {% endtab %}
 
 {% tab title="Go" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
+
 
 {% endtab %}
 
