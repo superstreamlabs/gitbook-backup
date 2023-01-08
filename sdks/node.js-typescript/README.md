@@ -34,20 +34,20 @@ npm install memphis-dev
 
 For <mark style="color:green;">**javascript**</mark>, you can choose to use the `import` or `required` keyword
 
-```
+```javascript
 const memphis = require("memphis-dev");
 ```
 
 For <mark style="color:blue;">**Typescript**</mark>, use the import keyword to aid for `typechecking` assistance
 
-```
+```javascript
 import memphis from 'memphis-dev';
 import type { Memphis } from 'memphis-dev/types';
 ```
 
 To leverage the <mark style="color:red;">**NestJS**</mark> dependency injection feature
 
-```
+```javascript
 import { Module } from '@nestjs/common';
 import { MemphisModule, MemphisService } from 'memphis-dev/nest';
 import type { Memphis } from 'memphis-dev/types';
@@ -55,7 +55,7 @@ import type { Memphis } from 'memphis-dev/types';
 
 ## Connecting to Memphis
 
-```
+```javascript
 await memphis.connect({
             host: "<memphis-host>",
             port: <port>, // defaults to 6666
@@ -70,7 +70,7 @@ await memphis.connect({
 
 ### NestJS injection
 
-```
+```javascript
 @Module({
     imports: [MemphisModule.register()],
 })
@@ -101,21 +101,23 @@ class ConsumerModule {
 
 To disconnect from Memphis, call `close()` on the Memphis object.
 
-```
+```javascript
 memphis.close();
 ```
 
 ## Creating a Station
 
-```
+```javascript
 const station = await memphis.station({
     name: '<station-name>',
+    schemaName: '<schema-name>',
     retentionType: memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS, // defaults to memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS
     retentionValue: 604800, // defaults to 604800
     storageType: memphis.storageTypes.DISK, // defaults to memphis.storageTypes.DISK
     replicas: 1, // defaults to 1
-    dedupEnabled: false, // defaults to false
-    dedupWindowMs: 0 // defaults to 0
+    idempotencyWindowMs: 0, // defaults to 120000
+    sendPoisonMsgToDls: true, // defaults to true
+    sendSchemaFailedMsgToDls: true // defaults to true
 });
 ```
 
@@ -123,19 +125,19 @@ const station = await memphis.station({
 
 Memphis currently supports the following types of retention:
 
-```
+```javascript
 memphis.retentionTypes.MAX_MESSAGE_AGE_SECONDS
 ```
 
 The above means that every message persists for the value set in the retention value field (in seconds).
 
-```
+```javascript
 memphis.retentionTypes.MESSAGES
 ```
 
 The above means that after the maximum number of saved messages (set in retention value) has been reached, the oldest messages will be deleted.
 
-```
+```javascript
 memphis.retentionTypes.BYTES
 ```
 
@@ -145,13 +147,13 @@ The above means that after maximum number of saved bytes (set in retention value
 
 Memphis currently supports the following types of messages storage:
 
-```
+```javascript
 memphis.storageTypes.DISK
 ```
 
 The above means that messages persist on disk.
 
-```
+```javascript
 memphis.storageTypes.MEMORY
 ```
 
@@ -161,8 +163,20 @@ The above means that messages persist on the main memory.
 
 Destroying a station will remove all its resources (including producers and consumers).
 
-```
+```javascript
 await station.destroy();
+```
+
+### Attaching a Schema to an Existing Station
+
+```javascript
+await memphisConnection.attachSchema({ name: '<schema-name>', stationName: '<station-name>' });
+```
+
+### Detaching a Schema from Station
+
+```javascript
+await memphisConnection.detachSchema({ stationName: '<station-name>' });
 ```
 
 ## Produce and Consume Messages
@@ -178,7 +192,7 @@ The consumer will be terminated regardless of whether there are messages in-flig
 
 ### Creating a Producer
 
-```
+```javascript
 const producer = await memphisConnection.producer({
     stationName: '<station-name>',
     producerName: '<producer-name>',
@@ -188,29 +202,29 @@ const producer = await memphisConnection.producer({
 
 ### Producing a Message
 
-```
+```javascript
 await producer.produce({
-            message: "<bytes array>", // Uint8Arrays
+            message: '<bytes array>/object/string/DocumentNode graphql', // Uint8Arrays/object (schema validated station - protobuf) or Uint8Arrays/object (schema validated station - json schema) or Uint8Arrays/string/DocumentNode graphql (schema validated station - graphql schema)
             ackWaitSec: 15 // defaults to 15
 });
 ```
 
 ### Add Header
 
-```
+```javascript
 const headers = memphis.headers()
 headers.add('key', 'value');
 await producer.produce({
-    message: '<bytes array>/object', // Uint8Arrays / object in case your station is schema validated
+    message: '<bytes array>/object/string/DocumentNode graphql', // Uint8Arrays/object (schema validated station - protobuf) or Uint8Arrays/object (schema validated station - json schema) or Uint8Arrays/string/DocumentNode graphql (schema validated station - graphql schema)
     headers: headers // defults to empty
 });
 ```
 
 ### Async produce
 
-```
+```javascript
 await producer.produce({
-    message: '<bytes array>/object', // Uint8Arrays / object in case your station is schema validated
+    message: '<bytes array>/object/string/DocumentNode graphql', // Uint8Arrays/object (schema validated station - protobuf) or Uint8Arrays/object (schema validated station - json schema) or Uint8Arrays/string/DocumentNode graphql (schema validated station - graphql schema)
     ackWaitSec: 15, // defaults to 15
     asyncProduce: true // defaults to false
 });
@@ -218,13 +232,13 @@ await producer.produce({
 
 ### Destroying a Producer
 
-```
+```javascript
 await producer.destroy();
 ```
 
 ### Creating a Consumer
 
-```
+```javascript
 const consumer = await memphisConnection.consumer({
     stationName: '<station-name>',
     consumerName: '<consumer-name>',
@@ -240,9 +254,9 @@ const consumer = await memphisConnection.consumer({
 
 ## Connection creation in NestJS
 
-```
+```javascript
 import { MemphisServer } from 'memphis-dev/nest'
-
+st
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
@@ -262,7 +276,7 @@ bootstrap();
 
 ## Consume messages in NestJS
 
-```
+```javascript
 export class Controller {
     import { consumeMessage } from 'memphis-dev/nest';
     import { Message } from 'memphis-dev/types';
@@ -281,7 +295,7 @@ export class Controller {
 
 ### Read consumed messages
 
-```
+```javascript
 consumer.on('message', (message) => {
     // processing
     console.log(message.getData());
@@ -294,7 +308,7 @@ consumer.on('message', (message) => {
 
 Acknowledging a message indicates to the Memphis server to not re-send the same message again to the same consumer or consumers group.
 
-```
+```javascript
 message.ack();
 ```
 
@@ -302,13 +316,13 @@ message.ack();
 
 Get headers per message
 
-```
+```javascript
 headers = message.getHeaders()
 ```
 
 ### Catching Async Errors
 
-```
+```javascript
 consumer.on("error", error => {
         // error handling
 });
@@ -316,6 +330,6 @@ consumer.on("error", error => {
 
 ### Destroying a Consumer
 
-```
+```javascript
 await consumer.destroy();
 ```
