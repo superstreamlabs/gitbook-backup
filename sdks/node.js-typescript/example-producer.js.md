@@ -35,5 +35,4 @@ const memphis = require("memphis-dev");
         if (memphisConnection) memphisConnection.close();
     }
 })();
-
 ```

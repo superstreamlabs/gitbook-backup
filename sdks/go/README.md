@@ -63,16 +63,20 @@ Stations can be created from `Conn`
 
 Passing optional parameters using functions&#x20;
 
-<pre class="language-go"><code class="lang-go">s0, err = c.CreateStation("&#x3C;station-name>")
+```go
+s0, err = c.CreateStation("<station-name>")
 
-s1, err = c.CreateStation("&#x3C;station-name>", 
- RetentionTypeOpt(&#x3C;Messages/MaxMeMessageAgeSeconds/Bytes>),
-<strong> RetentionVal(&#x3C;int>), 
-</strong> StorageTypeOpt(&#x3C;Memory/Disk>), 
- Replicas(&#x3C;int>), 
- EnableDedup(), 
- DedupWindow(&#x3C;time.Duration>))
-</code></pre>
+s1, err = c.CreateStation("<station-name>", 
+ memphis.RetentionTypeOpt(<Messages/MaxMeMessageAgeSeconds/Bytes>),
+ memphis.RetentionVal(<int>), 
+ memphis.StorageTypeOpt(<Memory/Disk>), 
+ memphis.Replicas(<int>), 
+ memphis.IdempotencyWindow(<time.Duration>)), // defaults to 2 minutes
+ memphis.SchemaName(<string>),
+ memphis.SendPoisonMsgToDls(<bool>), // defaults to true
+ memphis.SendSchemaFailedMsgToDls(<bool>) // defaults to true
+ )
+```
 
 ### Retention Types
 
@@ -147,7 +151,7 @@ p1, err := s.CreateProducer("<producer-name>")
 ### Producing a Message
 
 ```go
-p.Produce("<message in []byte or map[string]interface{}/[]byte or protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)>",
+p.Produce("<message in []byte or map[string]interface{}/[]byte or protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)> or []byte/string (schema validated station - graphql schema)>",
 memphis.AckWaitSec(15)) // defaults to 15 seconds
 ```
 
@@ -158,7 +162,7 @@ hdrs := memphis.Headers{}
 hdrs.New()
 err := hdrs.Add("key", "value")
 p.Produce(
-	"<message in []byte or map[string]interface{}/[]byte or protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)>",
+	"<message in []byte or map[string]interface{}/[]byte or protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)> or []byte/string (schema validated station - graphql schema)>",
     memphis.AckWaitSec(15),
 	memphis.MsgHeaders(hdrs) // defaults to empty
 )
@@ -170,7 +174,7 @@ Meaning your application won't wait for broker acknowledgement - use only in cas
 
 ```
 p.Produce(
-	"<message in []byte or map[string]interface{}/protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)>",
+	"<message in []byte or map[string]interface{}/protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)> or []byte/string (schema validated station - graphql schema)>",
     memphis.AckWaitSec(15),
 	memphis.AsyncProduce()
 )
