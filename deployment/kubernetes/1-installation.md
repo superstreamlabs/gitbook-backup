@@ -96,7 +96,7 @@ helm install memphis --set cluster.replicas=1,rootPwd="rootpassword" memphis/mem
 **Successful deployment** should print the following notes. If not, please raise an issue over [Github](https://github.com/Memphis-OS/memphis-k8s).
 
 ```
-NAME: my-memphis
+NAME: memphis
 LAST DEPLOYED: Sun Jan  8 20:59:30 2023
 NAMESPACE: memphis
 STATUS: deployed
