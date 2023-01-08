@@ -1,12 +1,12 @@
 ---
 description: Since v0.4.3, Memphis supports standard NATS SDKs
-cover: ../../.gitbook/assets/NATS + Memphis (1).jpeg
+cover: ../../.gitbook/assets/NATS + Memphis.jpeg
 coverY: -43.05148658448151
 ---
 
 # NATS
 
-Introduction
+## Introduction
 
 As memphis started from NATS, it was natural to support NATS SDKs as well.&#x20;
 
@@ -21,3 +21,9 @@ The added motivation is -
 * Without Memphis SDK, the following Memphis features will be disabled:
   * Producers/Consumers observability
   * Schemaverse
+
+## Instructions for specific integrations
+
+{% content-ref url="argo-and-memphis.md" %}
+[argo-and-memphis.md](argo-and-memphis.md)
+{% endcontent-ref %}
