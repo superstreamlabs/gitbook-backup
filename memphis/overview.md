@@ -1,5 +1,5 @@
 ---
-description: 0.4.2-beta
+description: 0.4.3-beta
 cover: ../.gitbook/assets/Overview..jpg
 coverY: 0
 ---
