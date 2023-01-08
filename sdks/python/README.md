@@ -1,7 +1,3 @@
----
-description: Experimental
----
-
 # Python
 
 {% content-ref url="example-producer.md" %}
@@ -71,7 +67,7 @@ To disconnect from Memphis, call `Close()` on the Memphis connection object.
 await memphis.close()
 ```
 
-### Creating a Station
+## Creating a Station
 
 ```python
 station = await memphis.station(
@@ -133,19 +129,7 @@ Destroying a station will remove all its resources (including producers and cons
 station.destroy()
 ```
 
-### Attaching a Schema to an Existing Station
-
-```python
-await memphis.attach_schema("<schema-name>", "<station-name>")
-```
-
-### Detaching a Schema from Station
-
-```python
-await memphis.detach_schema("<station-name>")
-```
-
-### Produce and Consume Messages
+## Produce and Consume Messages
 
 The most common client operations are `produce` to send messages and `consume` to receive messages.
 
@@ -239,7 +223,7 @@ Acknowledging a message indicates to the Memphis server to not re-send the same 
 await message.ack()
 ```
 
-### Get headers
+## Get headers
 
 Get headers per message
 
@@ -253,3 +237,16 @@ headers = message.get_headers()
 consumer.destroy()
 ```
 
+## Schemaverse
+
+### Attaching a Schema to an Existing Station
+
+```python
+await memphis.attach_schema("<schema-name>", "<station-name>")
+```
+
+### Detaching a Schema from Station
+
+```python
+await memphis.detach_schema("<station-name>")
+```
