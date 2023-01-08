@@ -20,13 +20,13 @@ First, install Memphis via [K8S](../../deployment/kubernetes/) / [Docker](../../
 
 In your project's directory:
 
-```
+```bash
 pip3 install memphis-py
 ```
 
 ## Update
 
-```
+```bash
 pip3 install --upgrade memphis-py
 ```
 
@@ -76,6 +76,7 @@ await memphis.close()
 ```python
 station = await memphis.station(
   name="<station-name>",
+  schema_name="<schema-name>",
   retention_type=retention_types.MAX_MESSAGE_AGE_SECONDS, # MAX_MESSAGE_AGE_SECONDS/MESSAGES/BYTES. Defaults to MAX_MESSAGE_AGE_SECONDS
   retention_value=604800, # defaults to 604800
   storage_type=storage_types.DISK, # storage_types.DISK/storage_types.MEMORY. Defaults to DISK
@@ -130,6 +131,18 @@ Destroying a station will remove all its resources (including producers and cons
 
 ```python
 station.destroy()
+```
+
+### Attaching a Schema to an Existing Station
+
+```python
+await memphis.attach_schema("<schema-name>", "<station-name>")
+```
+
+### Detaching a Schema from Station
+
+```python
+await memphis.detach_schema("<station-name>")
 ```
 
 ### Produce and Consume Messages
@@ -230,7 +243,7 @@ await message.ack()
 
 Get headers per message
 
-```
+```python
 headers = message.get_headers()
 ```
 
