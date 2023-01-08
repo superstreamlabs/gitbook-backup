@@ -114,8 +114,9 @@ const station = await memphis.station({
     retentionValue: 604800, // defaults to 604800
     storageType: memphis.storageTypes.DISK, // defaults to memphis.storageTypes.DISK
     replicas: 1, // defaults to 1
-    dedupEnabled: false, // defaults to false
-    dedupWindowMs: 0 // defaults to 0
+    idempotencyWindowMs: 0, // defaults to 120000
+    sendPoisonMsgToDls: true, // defaults to true
+    sendSchemaFailedMsgToDls: true // defaults to true
 });
 ```
 
@@ -190,7 +191,7 @@ const producer = await memphisConnection.producer({
 
 ```
 await producer.produce({
-            message: "<bytes array>", // Uint8Arrays
+            message: '<bytes array>/object/string/DocumentNode graphql', // Uint8Arrays/object (schema validated station - protobuf) or Uint8Arrays/object (schema validated station - json schema) or Uint8Arrays/string/DocumentNode graphql (schema validated station - graphql schema)
             ackWaitSec: 15 // defaults to 15
 });
 ```
@@ -201,7 +202,7 @@ await producer.produce({
 const headers = memphis.headers()
 headers.add('key', 'value');
 await producer.produce({
-    message: '<bytes array>/object', // Uint8Arrays / object in case your station is schema validated
+    message: '<bytes array>/object/string/DocumentNode graphql', // Uint8Arrays/object (schema validated station - protobuf) or Uint8Arrays/object (schema validated station - json schema) or Uint8Arrays/string/DocumentNode graphql (schema validated station - graphql schema)
     headers: headers // defults to empty
 });
 ```
@@ -210,7 +211,7 @@ await producer.produce({
 
 ```
 await producer.produce({
-    message: '<bytes array>/object', // Uint8Arrays / object in case your station is schema validated
+    message: '<bytes array>/object/string/DocumentNode graphql', // Uint8Arrays/object (schema validated station - protobuf) or Uint8Arrays/object (schema validated station - json schema) or Uint8Arrays/string/DocumentNode graphql (schema validated station - graphql schema)
     ackWaitSec: 15, // defaults to 15
     asyncProduce: true // defaults to false
 });
