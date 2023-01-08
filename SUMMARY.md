@@ -78,6 +78,7 @@
 * [Rust](sdks/rust.md)
 * [Java](sdks/java.md)
 * [Scala](sdks/scala.md)
+* [NATS](sdks-and-protocols/nats.md)
 
 ## Dashboard (GUI)
 

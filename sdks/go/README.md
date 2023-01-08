@@ -16,13 +16,13 @@ First, install Memphis via [K8S](../../deployment/kubernetes/) / [Docker](../../
 
 In your project's directory:
 
-```
+```bash
 go get github.com/memphisdev/memphis.go
 ```
 
 ## Importing
 
-```
+```go
 import "github.com/memphisdev/memphis.go"
 ```
 
@@ -94,7 +94,7 @@ memphis.Messages
 
 The above means that after the maximum number of saved messages (set in retention value) has been reached, the oldest messages will be deleted.
 
-```
+```go
 memphis.Bytes
 ```
 
@@ -104,13 +104,13 @@ The above means that after maximum number of saved bytes (set in retention value
 
 Memphis currently supports the following types of messages storage:
 
-```
+```go
 memphis.Disk
 ```
 
 The above means that messages persist on disk.
 
-```
+```go
 memphis.Memory
 ```
 
@@ -122,6 +122,18 @@ Destroying a station will remove all its resources (including producers and cons
 
 ```go
 err := s.Destroy();
+```
+
+### Attaching a Schema to an Existing Station
+
+```go
+err := conn.AttachSchema("<schema-name>", "<station-name>")
+```
+
+### Detaching a Schema from Station
+
+```go
+err := conn.DetachSchema("<station-name>")
 ```
 
 ### Produce and Consume Messages
