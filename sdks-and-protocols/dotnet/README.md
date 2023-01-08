@@ -67,7 +67,7 @@ To disconnect from Memphis, call `Dispose()` on the `MemphisClient`.
 await memphisClient.Dispose()
 ```
 
-### Creating a Station
+## Creating a Station
 
 ```csharp
 try
@@ -144,18 +144,6 @@ Destroying a station will remove all its resources (including producers and cons
 
 ```csharp
 station.DestroyAsync()
-```
-
-### Attaching a Schema to an Existing Station
-
-```csharp
-await client.AttachSchema(stationName: "<station-name>", schemaName: "<schema-name>");
-```
-
-### Detaching a Schema from Station
-
-```
-await client.DetachSchema(stationName: station.Name);
 ```
 
 ### Produce and Consume Messages
@@ -300,3 +288,16 @@ msg.GetHeaders()
 await consumer.DestroyAsync();
 ```
 
+## [Schemaverse](./#schemaverse)
+
+### Attaching a Schema to an Existing Station
+
+```csharp
+await client.AttachSchema(stationName: "<station-name>", schemaName: "<schema-name>");
+```
+
+### Detaching a Schema from Station
+
+```
+await client.DetachSchema(stationName: station.Name);
+```

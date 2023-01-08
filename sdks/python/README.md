@@ -237,7 +237,7 @@ headers = message.get_headers()
 consumer.destroy()
 ```
 
-## Schemaverse
+## [Schemaverse](./#schemaverse)
 
 ### Attaching a Schema to an Existing Station
 
