@@ -80,8 +80,9 @@ station = await memphis.station(
   retention_value=604800, # defaults to 604800
   storage_type=storage_types.DISK, # storage_types.DISK/storage_types.MEMORY. Defaults to DISK
   replicas=1, # defaults to 1
-  dedup_enabled=False, # defaults to false
-  dedup_window_ms: 0, # defaults to 0
+  idempotency_window_ms=120000, # defaults to 2 minutes
+  send_poison_msg_to_dls=True, # defaults to true
+  send_schema_failed_msg_to_dls=True # defaults to true
 )
 ```
 
@@ -149,7 +150,7 @@ producer = await memphis.producer(station_name="", producer_name="", generate_ra
 
 ```python
 await prod.produce(
-  message='bytearray/protobuf class', # bytearray / protobuf class in case your station is schema validated
+  message='bytearray/protobuf class/dict/ string/graphql.language.ast.DocumentNode', # bytearray / protobuf class (schema validated station - protobuf) or bytearray/dict (schema validated station - json schema) or string/bytearray/graphql.language.ast.DocumentNode (schema validated station - graphql schema)
   ack_wait_sec=15) # defaults to 15
 ```
 
@@ -159,7 +160,7 @@ await prod.produce(
 headers= Headers()
 headers.add("key", "value")
 await producer.produce(
-  message='bytearray/protobuf class', # bytearray / protobuf class in case your station is schema validated
+  message='bytearray/protobuf class/dict/ string/graphql.language.ast.DocumentNode', # bytearray / protobuf class (schema validated station - protobuf) or bytearray/dict (schema validated station - json schema) or string/bytearray/graphql.language.ast.DocumentNode (schema validated station - graphql schema)
   headers=headers) # default to {}
 ```
 
@@ -169,7 +170,7 @@ Meaning your application won't wait for broker acknowledgement - use only in cas
 
 ```
 await producer.produce(
-  message='bytearray/protobuf class', # bytearray / protobuf class in case your station is schema validated
+  message='bytearray/protobuf class/dict/ string/graphql.language.ast.DocumentNode', # bytearray / protobuf class (schema validated station - protobuf) or bytearray/dict (schema validated station - json schema) or string/bytearray/graphql.language.ast.DocumentNode (schema validated station - graphql schema)
   headers={}, async_produce=True)
 ```
 
