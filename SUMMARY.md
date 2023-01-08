@@ -41,7 +41,7 @@
   * [Apache Kafka vs Memphis](memphis/comparisons/apache-kafka-vs-memphis.md)
   * [Apache Pulsar vs Memphis](memphis/comparisons/apache-pulsar-vs-memphis.md)
   * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
-* [Roadmap](memphis/roadmap.md)
+* [Roadmap](https://memphis.dev/roadmap)
 * [Privacy](memphis/privacy.md)
 
 ## 📦 Deployment
