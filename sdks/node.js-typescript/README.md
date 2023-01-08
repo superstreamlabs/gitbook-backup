@@ -167,6 +167,18 @@ Destroying a station will remove all its resources (including producers and cons
 await station.destroy();
 ```
 
+### Attaching a Schema to an Existing Station
+
+```javascript
+await memphisConnection.attachSchema({ name: '<schema-name>', stationName: '<station-name>' });
+```
+
+### Detaching a Schema from Station
+
+```javascript
+await memphisConnection.detachSchema({ stationName: '<station-name>' });
+```
+
 ## Produce and Consume Messages
 
 The most common client operations are producing messages and consuming messages.
@@ -320,18 +332,4 @@ consumer.on("error", error => {
 
 ```javascript
 await consumer.destroy();
-```
-
-## [Schemaverse](./#schemaverse)
-
-### Attaching a Schema to an Existing Station
-
-```javascript
-await memphisConnection.attachSchema({ name: '<schema-name>', stationName: '<station-name>' });
-```
-
-### Detaching a Schema from Station
-
-```javascript
-await memphisConnection.detachSchema({ stationName: '<station-name>' });
 ```

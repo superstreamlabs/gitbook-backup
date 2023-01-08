@@ -26,7 +26,7 @@ go get github.com/memphisdev/memphis.go
 import "github.com/memphisdev/memphis.go"
 ```
 
-### Connecting to Memphis
+## Connecting to Memphis
 
 ```go
 c, err := memphis.Connect("<memphis-host>", 
@@ -57,7 +57,7 @@ To disconnect from Memphis, call `Close()` on the Memphis connection object.
 c.Close();
 ```
 
-### Creating a Station
+## Creating a Station
 
 Stations can be created from `Conn`
 
@@ -124,19 +124,7 @@ Destroying a station will remove all its resources (including producers and cons
 err := s.Destroy();
 ```
 
-### Attaching a Schema to an Existing Station
-
-```go
-err := conn.AttachSchema("<schema-name>", "<station-name>")
-```
-
-### Detaching a Schema from Station
-
-```go
-err := conn.DetachSchema("<station-name>")
-```
-
-### Produce and Consume Messages
+## Produce and Consume Messages
 
 The most common client operations are producing messages and consuming messages.
 
@@ -160,7 +148,7 @@ p0, err := c.CreateProducer(
 p1, err := s.CreateProducer("<producer-name>")
 ```
 
-### Producing a Message
+### Producing a message
 
 ```go
 p.Produce("<message in []byte or map[string]interface{}/[]byte or protoreflect.ProtoMessage or map[string]interface{}(schema validated station - protobuf)/struct with json tags or map[string]interface{} or interface{}(schema validated station - json schema)> or []byte/string (schema validated station - graphql schema)>",
@@ -263,4 +251,18 @@ headers := msg.GetHeaders()
 
 ```go
 consumer.Destroy();
+```
+
+## Schemaverse
+
+### Attaching a Schema to an Existing Station
+
+```go
+err := conn.AttachSchema("<schema-name>", "<station-name>")
+```
+
+### Detaching a Schema from Station
+
+```go
+err := conn.DetachSchema("<station-name>")
 ```
