@@ -96,8 +96,8 @@ helm install memphis --set cluster.replicas=1,rootPwd="rootpassword" memphis/mem
 **Successful deployment** should print the following notes. If not, please raise an issue over [Github](https://github.com/Memphis-OS/memphis-k8s).
 
 ```
-NAME: memphis
-LAST DEPLOYED: Thu May  5 17:05:40 2022
+NAME: my-memphis
+LAST DEPLOYED: Sun Jan  8 20:59:30 2023
 NAMESPACE: memphis
 STATUS: deployed
 REVISION: 1
@@ -113,13 +113,19 @@ Melvis thank you for installing memphis!
 A dev first event-processing platform.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-Memphis UI can be accessed on the following DNS name from within your cluster: memphis-ui.memphis.svc.cluster.local
-To access Memphis from localhost, run the below command:
-  1. kubectl port-forward service/memphis-cluster 6666:6666 9000:9000 7770:7770 --namespace memphis > /dev/null &
+Memphis UI can be accessed on the following DNS name from within your cluster: memphis-cluster.memphis.svc.cluster.local:9000
 
-Dashboard: http://localhost:9000
-Memphis broker: localhost:6666 (Client/SDK connections)
-Memphis broker: localhost:9000 (CLI connection)
+To access Memphis using UI/CLI/SDK from localhost, run the below commands:
+
+  - kubectl port-forward service/memphis-cluster 6666:6666 9000:9000 7770:7770 --namespace memphis > /dev/null &
+
+For interacting with the broker via HTTP:
+
+  - kubectl port-forward service/memphis-http-proxy 4444:4444 --namespace memphis > /dev/null &
+
+Dashboard/CLI: http://localhost:9000
+Broker: localhost:6666 (Client Connections)
+HTTP proxy: localhost:4444 (Data + Mgmt)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Read more about networking options here: https://docs.memphis.dev/deployment/kubernetes
@@ -130,12 +136,13 @@ Documentations: https://docs.memphis.dev
 Deployment Information
 -------------------------
 ## Secrets ##
-UI/CLI/SDK root username - root
-UI/CLI root Password     - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
+UI/CLI/SDK root username        - root
+UI/CLI root Password            - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
+SDK root connection token       - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 --decode
+
 
 ## Components ##
-3 Brokers - MQ
-UI - GUI Dashboard
+Broker - Where data flows through
 MongoDB - Internal Database for management
 ```
 
