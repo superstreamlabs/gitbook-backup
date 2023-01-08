@@ -16,8 +16,8 @@ First, install Memphis via [K8S](../../deployment/kubernetes/) / [Docker](../../
 
 In your project's directory:
 
-```bash
-go get github.com/memphisdev/memphis.go
+```go
+go install github.com/memphisdev/memphis.go@latest
 ```
 
 ## Importing

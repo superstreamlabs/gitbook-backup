@@ -52,7 +52,7 @@ Head to your station, and on the top-left corner, click on "+ Attach schema"
 {% endtab %}
 
 {% tab title="SDK" %}
-It can be found through the different SDKs docs.
+It can be found through the different [SDKs](broken-reference) docs.
 {% endtab %}
 {% endtabs %}
 
@@ -128,7 +128,7 @@ Memphis abstracts the need for external serialization functions and embeds them 
 {% endtab %}
 
 {% tab title=".NET" %}
-
+Soon.
 {% endtab %}
 {% endtabs %}
 
