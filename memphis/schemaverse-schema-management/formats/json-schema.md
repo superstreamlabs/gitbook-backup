@@ -202,26 +202,23 @@ Memphis abstracts the need for external serialization functions and embeds them 
 
 ```python
 import asyncio
+import json
 from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisSchemaError
 
-class Contact:
-  def __init__(self, fname, lname):
-    self.fname = fname
-    self.lname = lname
-    
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_BROKER_URL", username="APPLICATION_TYPE_USERNAME", connection_token="CONNECTION_TOKEN")
+    await memphis.connect(host="broker.sandbox.memphis.dev", username="json.test", connection_token="XrHmszw6rgm8IyOPNNTy")
     producer = await memphis.producer(
-        station_name="STATION_NAME", producer_name="PRODUCER_NAME")
+        station_name="json-test", producer_name="PRODUCER_NAME")
 
     headers = Headers()
     headers.add("key", "value")
 
-    obj = Contact("Daniel", "Craig")
-    
+    msg = '{ "fname":"John", "lname":"Mayer"}'
+    msg = json.loads(msg)
+
     try:
-        await producer.produce(obj, headers=headers)
+        await producer.produce(msg, headers=headers)
 
     except Exception as e:
         print(e)
@@ -236,7 +233,64 @@ if __name__ == '__main__':
 {% endtab %}
 
 {% tab title="TypeScript" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+**Example schema:**
+
+```json
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "contact_details",
+	"type": "object",
+	"properties": {
+		"fname": {
+			"type": "string"
+		},
+		"lname": {
+			"type": "string"
+		}
+	}
+}
+```
+
+**Code:**
+
+```
+import memphis from 'memphis-dev';
+import type { Memphis } from 'memphis-dev/types';
+
+(async function () {
+    let memphisConnection: Memphis;
+
+    try {
+        memphisConnection = await memphis.connect({
+            host: 'MEMPHIS_BROKER_URL',
+            username: 'APPLICATION_TYPE_USERNAME',
+            connectionToken: 'CONNECTION_TOKEN'
+        });
+
+        const producer = await memphisConnection.producer({
+            stationName: 'STATION_NAME',
+            producerName: 'PRODUCER_NAME'
+        });
+
+        const headers = memphis.headers()
+        headers.add('key', 'value');
+        const msg = {
+            fname: "Bob",
+            lname: "Marley",
+        }
+        await producer.produce({
+            message: msg,
+            headers: headers
+        });
+
+        memphisConnection.close();
+    } catch (ex) {
+        console.log(ex);
+    }
+})();
+```
 {% endtab %}
 
 {% tab title=".NET" %}
