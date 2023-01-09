@@ -75,7 +75,7 @@ message Test {
 }
 ```
 
-**Code:**
+**Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
 
 {% code lineNumbers="true" %}
 ```javascript
@@ -139,7 +139,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "APPLICATION_TYPE_PASSWORD")
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "CONNECTION_TOKEN")
     if err != nil {
         os.Exit(1)
     }
@@ -182,12 +182,12 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("localhost",  "root", "memphis")
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "CONNECTION_TOKEN")
     if err != nil {
         os.Exit(1)
     }
     defer conn.Close()
-    p, err := conn.CreateProducer("idanasulin6", "p.3")
+    p, err := conn.CreateProducer("STATION_NAME", "PRODUCER_NAME")
 
     hdrs := memphis.Headers{}
     hdrs.New()
@@ -216,7 +216,54 @@ func main() {
 {% endtab %}
 
 {% tab title="Python" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+**Example schema:**
+
+```protobuf
+syntax = "proto3";
+message Test {
+            string field1 = 1;
+            string field2 = 2;
+            int32 field3 = 3;
+}
+```
+
+**Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
+
+```python
+import asyncio
+from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisSchemaError
+
+import schema_pb2 as PB
+
+async def main():
+    memphis = Memphis()
+    await memphis.connect(host="MEMPHIS_BROKER_URL", username="APPLICATION_TYPE_USERNAME", connection_token="CONNECTION_TOKEN")
+    producer = await memphis.producer(
+        station_name="STATION_NAME", producer_name="PRODUCER_NAME")
+
+    headers = Headers()
+    headers.add("key", "value")
+
+    obj = PB.GGG()
+    obj.field1 = "Hello"
+    obj.field2 = "Amazing"
+    obj.field3 = World
+    
+    try:
+        await producer.produce(obj, headers=headers)
+
+    except Exception as e:
+        print(e)
+    finally:
+        await asyncio.sleep(3)
+
+    await memphis.close()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
 {% endtab %}
 
 {% tab title="TypeScript" %}
