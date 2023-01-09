@@ -114,9 +114,105 @@ const memphis = require("memphis-dev");
 {% endtab %}
 
 {% tab title="Go" %}
-Memphis abstracts the need for external serialization functions and embeds them within the SDK.
+Memphis abstracts the need for external serialization functions and embeds it within the SDK.
 
+**Example schema:**
 
+```protobuf
+syntax = "proto3";
+message Test {
+            string field1 = 1;
+            string field2 = 2;
+            int32 field3 = 3;
+}
+```
+
+**Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
+
+```go
+package main
+
+import (
+    "fmt"
+    "os"
+    "github.com/memphisdev/memphis.go"
+)
+
+func main() {
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "APPLICATION_TYPE_PASSWORD")
+    if err != nil {
+        os.Exit(1)
+    }
+    defer conn.Close()
+    p, err := conn.CreateProducer("STATION_NAME", "PRODUCER_NAME")
+
+    hdrs := memphis.Headers{}
+    hdrs.New()
+    err = hdrs.Add("key", "value")
+
+    if err != nil {
+        fmt.Printf("Header failed: %v\n", err)
+        os.Exit(1)
+    }
+	msg := make(map[string]interface{})
+	msg["field1"] = "value1"
+	msg["field2"] = "value2"
+	msg["field3"] = 32
+
+    err = p.Produce(msg, memphis.MsgHeaders(hdrs))
+
+    if err != nil {
+        fmt.Printf("Produce failed: %v\n", err)
+        os.Exit(1)
+    }
+}
+
+```
+
+**Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
+
+```go
+package main
+
+import (
+    "fmt"
+    "os"
+    "demo/schemapb"
+    "github.com/memphisdev/memphis.go"
+)
+
+func main() {
+    conn, err := memphis.Connect("localhost",  "root", "memphis")
+    if err != nil {
+        os.Exit(1)
+    }
+    defer conn.Close()
+    p, err := conn.CreateProducer("idanasulin6", "p.3")
+
+    hdrs := memphis.Headers{}
+    hdrs.New()
+    err = hdrs.Add("key", "value")
+
+    if err != nil {
+        fmt.Printf("Header failed: %v\n", err)
+        os.Exit(1)
+    }
+    s1 := "Hello"
+    s2 := "World"
+    pbInstance := schemapb.Test{
+	Field1: &s1,
+	Field2: &s2,
+    }
+
+    err = p.Produce(&pbInstance, memphis.MsgHeaders(hdrs))
+
+    if err != nil {
+        fmt.Printf("Produce failed: %v\n", err)
+        os.Exit(1)
+    }
+}
+        
+```
 {% endtab %}
 
 {% tab title="Python" %}
