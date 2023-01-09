@@ -267,7 +267,58 @@ if __name__ == '__main__':
 {% endtab %}
 
 {% tab title="TypeScript" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+**Example schema:**
+
+```protobuf
+syntax = "proto3";
+message Test {
+            string field1 = 1;
+            string field2 = 2;
+            int32 field3 = 3;
+}
+```
+
+**Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
+
+```typescript
+import memphis from 'memphis-dev';
+import type { Memphis } from 'memphis-dev/types';
+
+(async function () {
+    let memphisConnection: Memphis;
+
+    try {
+        memphisConnection = await memphis.connect({
+            host: 'MEMPHIS_BROKER_URL',
+            username: 'APPLICATION_TYPE_USERNAME',
+            connectionToken: 'CONNECTION_TOKEN'
+        });
+
+        const producer = await memphisConnection.producer({
+            stationName: 'STATION_NAME',
+            producerName: 'PRODUCER_NAME'
+        });
+
+        const headers = memphis.headers()
+        headers.add('key', 'value');
+        const msg = {
+            field1: "Hello",
+            field2: "Amazing",
+            field3: "World"
+        }
+        await producer.produce({
+            message: msg,
+            headers: headers
+        });
+
+        memphisConnection.close();
+    } catch (ex) {
+        console.log(ex);
+    }
+})();
+```
 {% endtab %}
 
 {% tab title=".NET" %}
@@ -279,8 +330,6 @@ Soon.
 
 {% tabs %}
 {% tab title="Node.js" %}
-
-
 {% code lineNumbers="true" %}
 ```javascript
 const memphis = require("memphis-dev");
