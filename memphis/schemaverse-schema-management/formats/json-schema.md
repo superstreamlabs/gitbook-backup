@@ -61,13 +61,55 @@ In node.js, we can simply produce an object. Behind the scenes, the object will 
 
 **Example schema:**
 
-```protobuf
+```json
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "contact_details",
+	"type": "object",
+	"properties": {
+		"fname": {
+			"type": "string"
+		},
+		"lname": {
+			"type": "string"
+		}
+	}
+}
 ```
 
 **Code:**
 
 {% code lineNumbers="true" %}
 ```javascript
+const memphis = require("memphis-dev");
+
+(async function () {
+    try {
+        await memphis.connect({
+            host: "MEMPHIS_BROKER_URL",
+            username: "APPLICATION_USER",
+            connectionToken: "CONNECTION_TOKEN"
+        });
+        const producer = await memphis.producer({
+            stationName: "STATION_NAME",
+            producerName: "PRODUCER_NAME"
+        });
+        var payload = {
+            fname: "Daniel",
+            lname: "Craig",
+        };
+        try {
+            await producer.produce({
+                message: payload
+        });
+        } catch (ex) {
+            console.log(ex.message)
+        }
+    } catch (ex) {
+        console.log(ex);
+        memphis.close();
+    }
+})();
 ```
 {% endcode %}
 {% endtab %}
@@ -75,11 +117,122 @@ In node.js, we can simply produce an object. Behind the scenes, the object will 
 {% tab title="Go" %}
 Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+**Example schema:**
 
+```json
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "contact_details",
+	"type": "object",
+	"properties": {
+		"fname": {
+			"type": "string"
+		},
+		"lname": {
+			"type": "string"
+		}
+	}
+}
+```
+
+**Code:**
+
+```go
+package main
+
+import (
+    "fmt"
+    "os"
+    "github.com/memphisdev/memphis.go"
+)
+
+func main() {
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "CONNECTION_TOKEN")
+    if err != nil {
+        os.Exit(1)
+    }
+    defer conn.Close()
+    p, err := conn.CreateProducer("STATION_NAME", "PRODUCER_NAME")
+
+    hdrs := memphis.Headers{}
+    hdrs.New()
+    err = hdrs.Add("key", "value")
+
+    if err != nil {
+        fmt.Printf("Header failed: %v\n", err)
+        os.Exit(1)
+    }
+	msg := make(map[string]interface{})
+	msg["fname"] = "Daniel"
+	msg["lname"] = "Craig"
+
+    err = p.Produce(msg, memphis.MsgHeaders(hdrs))
+
+    if err != nil {
+        fmt.Printf("Produce failed: %v\n", err)
+        os.Exit(1)
+    }
+}
+
+```
 {% endtab %}
 
 {% tab title="Python" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+**Example schema:**
+
+```json
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "contact_details",
+	"type": "object",
+	"properties": {
+		"fname": {
+			"type": "string"
+		},
+		"lname": {
+			"type": "string"
+		}
+	}
+}
+```
+
+**Code:**
+
+```python
+import asyncio
+from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisSchemaError
+
+class Contact:
+  def __init__(self, fname, lname):
+    self.fname = fname
+    self.lname = lname
+    
+async def main():
+    memphis = Memphis()
+    await memphis.connect(host="MEMPHIS_BROKER_URL", username="APPLICATION_TYPE_USERNAME", connection_token="CONNECTION_TOKEN")
+    producer = await memphis.producer(
+        station_name="STATION_NAME", producer_name="PRODUCER_NAME")
+
+    headers = Headers()
+    headers.add("key", "value")
+
+    obj = Contact("Daniel", "Craig")
+    
+    try:
+        await producer.produce(obj, headers=headers)
+
+    except Exception as e:
+        print(e)
+    finally:
+        await asyncio.sleep(3)
+
+    await memphis.close()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
 {% endtab %}
 
 {% tab title="TypeScript" %}

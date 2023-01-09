@@ -246,10 +246,10 @@ async def main():
     headers = Headers()
     headers.add("key", "value")
 
-    obj = PB.GGG()
+    obj = PB.Test()
     obj.field1 = "Hello"
     obj.field2 = "Amazing"
-    obj.field3 = World
+    obj.field3 = "World"
     
     try:
         await producer.produce(obj, headers=headers)
