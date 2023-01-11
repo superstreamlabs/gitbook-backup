@@ -98,10 +98,8 @@ const memphis = require("memphis-dev");
 
 **Code (string):**
 
-```
-
-const memphis = require("memphis-dev");
-
+<pre class="language-graphql"><code class="lang-graphql"><strong>const memphis = require("memphis-dev");
+</strong>
 (async function () {
     try {
         await memphis.connect({
@@ -116,7 +114,39 @@ const memphis = require("memphis-dev");
         const graphqlMsg = 'query myQuery {greeting} mutation msg { updateUserEmail( email:"http://github.com" id:1){id name}}'
         try {
             await producer.produce({
-                message: graphqlExample
+                message: graphqlMsg
+        });
+        } catch (ex) {
+            console.log(ex.message)
+        }
+    } catch (ex) {
+        console.log(ex);
+        memphis.close();
+    }
+})();
+</code></pre>
+
+**Code (DocumentNode):**
+
+```graphql
+const memphis = require("memphis-dev");
+
+(async function () {
+    try {
+        await memphis.connect({
+            host: "MEMPHIS_BROKER_URL",
+            username: "APPLICATION_USER",
+            connectionToken: "CONNECTION_TOKEN"
+        });
+        const producer = await memphis.producer({
+            stationName: "STATION_NAME",
+            producerName: "PRODUCER_NAME"
+        });
+        const graphqlMsg = 'query myQuery {greeting} mutation msg { updateUserEmail( email:"http://github.com" id:1){id name}}'
+        const doc = parse(graphqlMsg)
+        try {
+            await producer.produce({
+                message: doc
         });
         } catch (ex) {
             console.log(ex.message)
@@ -150,10 +180,7 @@ const memphis = require("memphis-dev");
 
 {% tabs %}
 {% tab title="Node.js" %}
-{% code lineNumbers="true" %}
-```javascript
-```
-{% endcode %}
+Soon.
 {% endtab %}
 
 {% tab title="Go" %}
