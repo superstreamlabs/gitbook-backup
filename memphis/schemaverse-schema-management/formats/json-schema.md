@@ -255,7 +255,7 @@ Memphis abstracts the need for external serialization functions and embeds them 
 
 **Code:**
 
-```
+```typescript
 import memphis from 'memphis-dev';
 import type { Memphis } from 'memphis-dev/types';
 
