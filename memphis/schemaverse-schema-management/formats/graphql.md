@@ -48,10 +48,85 @@ It can be found through the different [SDKs](broken-reference) docs.
 {% tab title="Node.js" %}
 Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
+**Example schema:**
+
 {% code lineNumbers="true" %}
-```javascript
+```graphql
+type Query {
+            greeting:String
+            students:[Student]
+         }
+         
+         type Student {
+            id:ID!
+            firstName:String
+            lastName:String
+         }
 ```
 {% endcode %}
+
+**Code (Uint8Arrays):**
+
+```javascript
+const memphis = require("memphis-dev");
+
+(async function () {
+    try {
+        await memphis.connect({
+            host: "MEMPHIS_BROKER_URL",
+            username: "APPLICATION_USER",
+            connectionToken: "CONNECTION_TOKEN"
+        });
+        const producer = await memphis.producer({
+            stationName: "STATION_NAME",
+            producerName: "PRODUCER_NAME"
+        });
+        const graphqlMsg = 'query myQuery {greeting} mutation msg { updateUserEmail( email:"http://github.com" id:1){id name}}'
+        try {
+            await producer.produce({
+                message: Buffer.from(graphqlMsg)
+        });
+        } catch (ex) {
+            console.log(ex.message)
+        }
+    } catch (ex) {
+        console.log(ex);
+        memphis.close();
+    }
+})();
+```
+
+**Code (string):**
+
+```
+
+const memphis = require("memphis-dev");
+
+(async function () {
+    try {
+        await memphis.connect({
+            host: "MEMPHIS_BROKER_URL",
+            username: "APPLICATION_USER",
+            connectionToken: "CONNECTION_TOKEN"
+        });
+        const producer = await memphis.producer({
+            stationName: "STATION_NAME",
+            producerName: "PRODUCER_NAME"
+        });
+        const graphqlMsg = 'query myQuery {greeting} mutation msg { updateUserEmail( email:"http://github.com" id:1){id name}}'
+        try {
+            await producer.produce({
+                message: graphqlExample
+        });
+        } catch (ex) {
+            console.log(ex.message)
+        }
+    } catch (ex) {
+        console.log(ex);
+        memphis.close();
+    }
+})();
+```
 {% endtab %}
 
 {% tab title="Go" %}
