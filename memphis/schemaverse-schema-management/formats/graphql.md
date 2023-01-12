@@ -285,9 +285,9 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="broker.sandbox.memphis.dev", username="json.test", connection_token="XrHmszw6rgm8IyOPNNTy")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
     producer = await memphis.producer(
-        station_name="json-test", producer_name="PRODUCER_NAME")
+        station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
     headers = Headers()
     headers.add("key", "value")
@@ -317,9 +317,9 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="broker.sandbox.memphis.dev", username="json.test", connection_token="XrHmszw6rgm8IyOPNNTy")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
     producer = await memphis.producer(
-        station_name="json-test", producer_name="PRODUCER_NAME")
+        station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
     headers = Headers()
     headers.add("key", "value")
@@ -349,9 +349,9 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="broker.sandbox.memphis.dev", username="json.test", connection_token="XrHmszw6rgm8IyOPNNTy")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
     producer = await memphis.producer(
-        station_name="json-test", producer_name="PRODUCER_NAME")
+        station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
     headers = Headers()
     headers.add("key", "value")
@@ -535,14 +535,140 @@ type Query {
 {% endtab %}
 
 {% tab title="Go" %}
+```go
+package main
 
+import (
+    "fmt"
+    "os"
+    "time"
+
+    "github.com/memphisdev/memphis.go"
+)
+
+func main() {
+    conn, err := memphis.Connect("<memphis-host>", "<application type username>", "<broker-token>")
+    if err != nil {
+        os.Exit(1)
+    }
+    defer conn.Close()
+
+    consumer, err := conn.CreateConsumer("<station-name>", "<consumer-name>", memphis.PullInterval(15*time.Second))
+
+    if err != nil {
+        fmt.Printf("Consumer creation failed: %v\n", err)
+        os.Exit(1)
+    }
+
+    handler := func(msgs []*memphis.Msg, err error) {
+        if err != nil {
+            fmt.Printf("Fetch failed: %v\n", err)
+            return
+        }
+
+        for _, msg := range msgs {
+            fmt.Println(string(msg.Data()))
+            msg.Ack()
+            headers := msg.GetHeaders()
+            fmt.Println(headers)
+        }
+    }
+
+    consumer.Consume(handler)
+
+    // The program will close the connection after 30 seconds,
+    // the message handler may be called after the connection closed
+    // so the handler may receive a timeout error
+    time.Sleep(30 * time.Second)
+}
+```
 {% endtab %}
 
 {% tab title="Python" %}
+```python
+import asyncio
+from memphis import Memphis, MemphisError, MemphisConnectError, MemphisHeaderError
+from graphql import parse
 
+async def main():
+  async def msg_handler(msgs, error):
+    try:
+      for msg in msgs:
+        message = msg.get_data()
+        decoded_str = message.decode("utf-8")
+        document_node = parse(decoded_str)
+        print("document_node graphQL", document_node.to_dict())
+        await msg.ack()
+        headers = msg.get_headers()
+      if error:
+        print(error)
+    except (MemphisError, MemphisConnectError, MemphisHeaderError, Exception) as e:
+      print(e)
+      return
+
+  try:
+    memphis = Memphis()
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
+    consumer = await memphis.consumer(
+      station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CG_NAME")
+    consumer.consume(msg_handler)
+    # Keep your main thread alive so the consumer will keep receiving data
+    await asyncio.Event().wait()
+
+
+  except (MemphisError, MemphisConnectError) as e:
+    print(e)
+
+  finally:
+    await memphis.close()
+
+if __name__ == '__main__':
+  asyncio.run(main())
+```
 {% endtab %}
 
 {% tab title="TypeScript" %}
+```typescript
+import memphis from 'memphis-dev';
+import {Memphis, Message} from 'memphis-dev/types';
+import {parse} from 'graphql'
 
+
+(async function () {
+    let memphisConnection: Memphis;
+
+    try {
+        memphisConnection = await memphis.connect({
+            host: 'MEMPHIS_BROKER_URL',
+            username: 'APPLICATION_USER',
+            connectionToken: 'CONNECTION_TOKEN'
+        });
+
+        const consumer = await memphisConnection.consumer({
+            stationName: 'STATION_NAME',
+            consumerName: 'CONSUMER_NAME',
+            consumerGroup: 'CG_NAME', 
+        });
+
+
+        consumer.on('message', (message: Message) => {
+            //string or bytearray
+            //parsing
+            const doc = parse(message.getData().toString())
+            const headers = message.getHeaders();
+            console.log(doc)
+            message.ack();
+        });
+
+        consumer.on('error', (error) => {
+            console.log(error);
+        });
+    } catch (ex) {
+        
+        console.log(ex);
+        if (memphisConnection) memphisConnection.close();
+    }
+})();
+```
 {% endtab %}
 {% endtabs %}
