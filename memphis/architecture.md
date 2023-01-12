@@ -4,7 +4,7 @@ description: This section describes Memphis' architecture
 
 # Architecture
 
-### Connectivity Diagram
+## Connectivity Diagram
 
 Memphis deployment comprised four components:
 
@@ -16,23 +16,31 @@ Memphis deployment comprised four components:
 
 <figure><img src="../.gitbook/assets/connectivity diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
-Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will consume all the messages residing inside a station. The user must create consumers within the same consumer group if a client requires a horizontal scale and split messages across different consitency group members.
+### Port list
 
-MongoDB is not necessary for data traffic or standard broker behavior but rather responsible for UI state and metadata only.
+|   |   |   |
+| - | - | - |
+|   |   |   |
+|   |   |   |
+|   |   |   |
 
-### Cluster mode component diagram (For production)
+Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will consume all the messages residing inside a station. The user must create consumers within the same consumer group if a client requires a horizontal scale and split messages across different consistency group members.
+
+MongoDB is not for data traffic or standard broker behavior but rather responsible for UI state and metadata only.
+
+## Memphis cluster component diagram (For production)
 
 Full Kubernetes-based layout.
 
 <figure><img src="../.gitbook/assets/Memphis Architecture (1).jpg" alt=""><figcaption></figcaption></figure>
 
-### Ordering
+## Ordering
 
 Ordering is guaranteed only while working with a single consumer group.
 
 ![](../.gitbook/assets/ordering.jpeg)
 
-### Mirroring
+## Mirroring
 
 Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis, called RAFT, and compared to Apache ZooKeeper, widely used by other projects like Kafka, does not require a witness or a standalone Quorum. RAFT is also equivalent to Paxos in fault tolerance and performance.
 
