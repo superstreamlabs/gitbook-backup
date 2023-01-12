@@ -18,11 +18,15 @@ Memphis deployment comprised four components:
 
 ### Port list
 
-|   |   |   |
-| - | - | - |
-|   |   |   |
-|   |   |   |
-|   |   |   |
+| Name                 | Port | TCP/UDP | Inter/External | Description                                                    |
+| -------------------- | ---- | ------- | -------------- | -------------------------------------------------------------- |
+| Dashboard/CLI        | 9000 | TCP     | External       | External port that serve CLI clients and Web UI dashboard      |
+| Client connections   | 6666 | TCP     | External       | Port for TCP-based client connections with memphis SDKs        |
+| REST Gateway         | 4444 | TCP     | External       | REST gateway endpoint                                          |
+| Websocket            | 7770 | TCP     | External       | Websocket port                                                 |
+| Metrics              | 8222 | TCP     | Internal       | Memphis monitor port                                           |
+| Cluster connectivity | 4222 | TCP     | Internal       | Internal port for connectiovity between brokers in the cluster |
+| Exporter             | 7777 | TCP     | Inter/External | Memphis metrics exporter port for Prometheus                   |
 
 Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will consume all the messages residing inside a station. The user must create consumers within the same consumer group if a client requires a horizontal scale and split messages across different consistency group members.
 
