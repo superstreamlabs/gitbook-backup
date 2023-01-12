@@ -16,7 +16,7 @@ Memphis deployment comprised four components:
 
 <figure><img src="../.gitbook/assets/connectivity diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Port list
+### Ports list
 
 | Name                 | Port | TCP/UDP | Inter/External | Description                                                    |
 | -------------------- | ---- | ------- | -------------- | -------------------------------------------------------------- |
