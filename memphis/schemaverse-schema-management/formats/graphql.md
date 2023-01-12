@@ -1,7 +1,5 @@
 # GraphQL
 
-## GraphQL
-
 GraphQL is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data. GraphQL was developed internally by Facebook in 2012 before being publicly released in 2015. On 7 November 2018, the GraphQL project was moved from Facebook to the newly established GraphQL Foundation, hosted by the non-profit Linux Foundation.
 
 ## Getting started
@@ -506,10 +504,6 @@ import type { Memphis } from 'memphis-dev/types';
 })();
 ```
 {% endtab %}
-
-{% tab title=".NET" %}
-
-{% endtab %}
 {% endtabs %}
 
 ### Consume a message (Deserialization)
@@ -528,10 +522,6 @@ Soon.
 {% endtab %}
 
 {% tab title="TypeScript" %}
-
-{% endtab %}
-
-{% tab title=".NET" %}
 
 {% endtab %}
 {% endtabs %}
