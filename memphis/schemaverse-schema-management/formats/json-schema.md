@@ -1,5 +1,7 @@
 # JSON Schema
 
+## JSON
+
 JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.\
 It provides clear human- and machine-readable documentation and offers data validation which is useful for Automated testing—ensuring the quality of client-submitted data.
 
@@ -290,6 +292,10 @@ import type { Memphis } from 'memphis-dev/types';
 })();
 ```
 {% endtab %}
+
+{% tab title=".NET" %}
+Soon.
+{% endtab %}
 {% endtabs %}
 
 ### Consume a message (Deserialization)
@@ -311,6 +317,10 @@ import type { Memphis } from 'memphis-dev/types';
 {% endtab %}
 
 {% tab title="TypeScript" %}
+
+{% endtab %}
+
+{% tab title=".NET" %}
 
 {% endtab %}
 {% endtabs %}

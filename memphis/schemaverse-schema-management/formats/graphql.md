@@ -510,7 +510,28 @@ import type { Memphis } from 'memphis-dev/types';
 
 {% tabs %}
 {% tab title="Node.js" %}
+In coming versions, Memphis will abstract the need for external deserialization functions and embeds them within the SDK.
 
+**Example received schema:**
+
+{% code lineNumbers="true" %}
+```graphql
+type Query {
+            greeting:String
+            students:[Student]
+         }
+         
+         type Student {
+            id:ID!
+            firstName:String
+            lastName:String
+         }
+```
+{% endcode %}
+
+**Code:**
+
+****
 {% endtab %}
 
 {% tab title="Go" %}
