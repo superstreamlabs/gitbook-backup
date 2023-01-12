@@ -510,7 +510,7 @@ import type { Memphis } from 'memphis-dev/types';
 
 {% tabs %}
 {% tab title="Node.js" %}
-Soon.
+
 {% endtab %}
 
 {% tab title="Go" %}

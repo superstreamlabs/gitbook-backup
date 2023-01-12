@@ -318,10 +318,6 @@ import type { Memphis } from 'memphis-dev/types';
 })();
 ```
 {% endtab %}
-
-{% tab title=".NET" %}
-Soon.
-{% endtab %}
 {% endtabs %}
 
 ### Consume a message (Deserialization)
@@ -380,10 +376,6 @@ var protobuf = require("protobufjs");
 {% endtab %}
 
 {% tab title="TypeScript" %}
-
-{% endtab %}
-
-{% tab title=".NET" %}
 
 {% endtab %}
 {% endtabs %}
