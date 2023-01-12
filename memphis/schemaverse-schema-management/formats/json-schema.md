@@ -1,7 +1,5 @@
 # JSON Schema
 
-## JSON
-
 JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.\
 It provides clear human- and machine-readable documentation and offers data validation which is useful for Automated testing—ensuring the quality of client-submitted data.
 
@@ -207,9 +205,9 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="broker.sandbox.memphis.dev", username="json.test", connection_token="XrHmszw6rgm8IyOPNNTy")
+    await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", connection_token="MEMPHIS_CONNECTION_TOKEN")
     producer = await memphis.producer(
-        station_name="json-test", producer_name="PRODUCER_NAME")
+        station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
     headers = Headers()
     headers.add("key", "value")
@@ -292,10 +290,6 @@ import type { Memphis } from 'memphis-dev/types';
 })();
 ```
 {% endtab %}
-
-{% tab title=".NET" %}
-Soon.
-{% endtab %}
 {% endtabs %}
 
 ### Consume a message (Deserialization)
@@ -317,10 +311,6 @@ Soon.
 {% endtab %}
 
 {% tab title="TypeScript" %}
-
-{% endtab %}
-
-{% tab title=".NET" %}
 
 {% endtab %}
 {% endtabs %}
