@@ -16,6 +16,8 @@ Memphis deployment comprised four components:
 
 <figure><img src="../.gitbook/assets/connectivity diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
+MongoDB is not for data traffic but rather responsible for UI state and metadata only and will be removed soon.
+
 ### Ports list
 
 | Name                 | Port | TCP/UDP | Inter/External | Description                                                    |
@@ -27,10 +29,6 @@ Memphis deployment comprised four components:
 | Metrics              | 8222 | TCP     | Internal       | Memphis monitor port                                           |
 | Cluster connectivity | 4222 | TCP     | Internal       | Internal port for connectiovity between brokers in the cluster |
 | Exporter             | 7777 | TCP     | Inter/External | Memphis metrics exporter port for Prometheus                   |
-
-Consumers are pull-based. The pull interval and the batch size can be configured. Each consumer will consume all the messages residing inside a station. The user must create consumers within the same consumer group if a client requires a horizontal scale and split messages across different consistency group members.
-
-MongoDB is not for data traffic or standard broker behavior but rather responsible for UI state and metadata only.
 
 ## Memphis cluster component diagram (For production)
 
