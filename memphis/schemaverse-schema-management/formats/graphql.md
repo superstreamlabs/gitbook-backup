@@ -98,7 +98,7 @@ const memphis = require("memphis-dev");
 
 **Code (string):**
 
-<pre class="language-graphql"><code class="lang-graphql"><strong>const memphis = require("memphis-dev");
+<pre class="language-javascript"><code class="lang-javascript"><strong>const memphis = require("memphis-dev");
 </strong>
 (async function () {
     try {
@@ -128,7 +128,7 @@ const memphis = require("memphis-dev");
 
 **Code (DocumentNode):**
 
-```graphql
+```javascript
 const memphis = require("memphis-dev");
 
 (async function () {
