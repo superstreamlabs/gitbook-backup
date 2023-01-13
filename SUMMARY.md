@@ -74,10 +74,10 @@
   * [Example: Consumer](sdks/python/example-consumer.md)
 * [Kotlin](https://github.com/memphisdev/memphis.kt)
 * [.NET](https://github.com/memphisdev/memphis.net)
+* [Java](https://github.com/memphisdev/memphis.java)
 * [NATS](sdks-and-protocols/nats/README.md)
   * [Argo and Memphis](sdks-and-protocols/nats/argo-and-memphis.md)
 * [Rust](sdks/rust.md)
-* [Java](sdks/java.md)
 * [Scala](sdks/scala.md)
 
 ## Dashboard (GUI)
