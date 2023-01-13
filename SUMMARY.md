@@ -72,14 +72,13 @@
 * [Python](sdks/python/README.md)
   * [Example: Producer](sdks/python/example-producer.md)
   * [Example: Consumer](sdks/python/example-consumer.md)
-* [.NET](sdks-and-protocols/dotnet/README.md)
-  * [Example: Producer](sdks-and-protocols/dotnet/example-producer.md)
-  * [Example: Consumer](sdks-and-protocols/dotnet/example-consumer.md)
+* [Kotlin](https://github.com/memphisdev/memphis.kt)
+* [.NET](https://github.com/memphisdev/memphis.net)
+* [NATS](sdks-and-protocols/nats/README.md)
+  * [Argo and Memphis](sdks-and-protocols/nats/argo-and-memphis.md)
 * [Rust](sdks/rust.md)
 * [Java](sdks/java.md)
 * [Scala](sdks/scala.md)
-* [NATS](sdks-and-protocols/nats/README.md)
-  * [Argo and Memphis](sdks-and-protocols/nats/argo-and-memphis.md)
 
 ## Dashboard (GUI)
 
