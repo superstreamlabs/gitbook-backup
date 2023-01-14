@@ -41,7 +41,6 @@
   * [Apache Kafka vs Memphis](memphis/comparisons/apache-kafka-vs-memphis.md)
   * [Apache Pulsar vs Memphis](memphis/comparisons/apache-pulsar-vs-memphis.md)
   * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
-* [Roadmap](https://memphis.dev/roadmap)
 * [Privacy](memphis/privacy.md)
 
 ## 📦 Deployment
@@ -58,7 +57,7 @@
 
 ## SDKs and Protocols
 
-* [REST (HTTP)](sdks-and-protocols/rest-http.md)
+* [REST (HTTP)](https://github.com/memphisdev/memphis-http-proxy)
 * [Node.js / TypeScript / NestJS](https://github.com/memphisdev/memphis.js)
 * [Go](https://github.com/memphisdev/memphis.go)
 * [Python](https://github.com/memphisdev/memphis.py)

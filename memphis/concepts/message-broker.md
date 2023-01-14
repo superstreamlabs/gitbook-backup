@@ -43,7 +43,7 @@ A publish-subscribe system (also known as Pub-Sub) allows you to automatically r
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
-* [HTTP](../../sdks-and-protocols/rest-http.md)
+* [HTTP](broken-reference)
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
 * WASM \* Soon \*

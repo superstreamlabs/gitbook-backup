@@ -76,7 +76,7 @@ While in most messaging systems, it is the client's responsibility to track the 
 ## Supported Protocols
 
 * NATS Protocol (Client SDKs)
-* [HTTP](../../sdks-and-protocols/rest-http.md)
+* [HTTP](broken-reference)
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
 * WASM \* Soon \*

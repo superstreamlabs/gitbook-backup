@@ -66,7 +66,7 @@ By adding more producers, the throughput will be increased accordingly due to th
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
-* [HTTP](../../sdks-and-protocols/rest-http.md)
+* [HTTP](broken-reference)
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
 * WASM \* Soon \*
