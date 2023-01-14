@@ -13,8 +13,6 @@ Please follow the steps below based on your preferred language.
 {% tab title="Node.JS / Typescript" %}
 Please make sure you have node.js [installed](https://nodejs.org/en/download/)
 
-
-
 **Step 0:** Create an empty dir for node.js project
 
 ```
@@ -172,12 +170,12 @@ package main
 {% endtab %}
 
 {% tab title="Python" %}
-{% content-ref url="../sdks/python/example-producer.md" %}
-[example-producer.md](../sdks/python/example-producer.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
-{% content-ref url="../sdks/python/example-consumer.md" %}
-[example-consumer.md](../sdks/python/example-consumer.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 
