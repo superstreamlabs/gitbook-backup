@@ -4,8 +4,7 @@
 
 * [Step 1 - Installation](README.md)
 * [Step 2 - Hello World](getting-started/2-hello-world.md)
-* [Tutorials](getting-started/tutorials/README.md)
-  * [Supabase CDC](getting-started/tutorials/supabase-cdc.md)
+* [Tutorials](getting-started/tutorials.md)
 * [Use cases](getting-started/3-use-cases.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
 * [Roadmap](https://memphis.dev/roadmap)
