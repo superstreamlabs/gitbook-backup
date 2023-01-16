@@ -142,7 +142,95 @@ npm init -y
 npm install memphis-dev
 ```
 
-**Step 4:** Create a new .js file called `producer.js`
+**Step 4:** Create a new .ts file called `producer.ts`
+
+{% code title="producer.ts" lineNumbers="true" %}
+```typescript
+import memphis from 'memphis-dev';
+import type { Memphis } from 'memphis-dev/types';
+
+(async function () {
+    let memphisConnection: Memphis;
+
+    try {
+        memphisConnection = await memphis.connect({
+            host: '<Memphis_hostname>',
+            username: '<application_type_user>',
+            connectionToken: '<connection_token>'
+        });
+
+        const producer = await memphisConnection.producer({
+            stationName: 'STATION_NAME',
+            producerName: 'PRODUCER_NAME'
+        });
+
+            const headers = memphis.headers()
+            headers.add('key', 'value');
+            await producer.produce({
+                message: Buffer.from("Message: Hello world"),
+                headers: headers
+            });
+
+        memphisConnection.close();
+    } catch (ex) {
+        console.log(ex);
+        if (memphisConnection) memphisConnection.close();
+    }
+})();
+```
+{% endcode %}
+
+**Step 5:** Run `producer.ts`
+
+```bash
+node producer.ts
+```
+
+**Step 6:** Create a new .ts file called `consumer.ts`
+
+{% code title="consumer.ts" lineNumbers="true" %}
+```typescript
+import memphis from 'memphis-dev';
+import { Memphis, Message } from 'memphis-dev/types';
+
+(async function () {
+    let memphisConnection: Memphis;
+
+    try {
+        memphisConnection = await memphis.connect({
+            host: '<Memphis_hostname>',
+            username: '<application_type_user>',
+            connectionToken: '<connection_token>'
+        });
+
+        const consumer = await memphisConnection.consumer({
+            stationName: 'STATION_NAME',
+            consumerName: 'CONSUMER_NAME',
+            consumerGroup: 'CONSUMER_GROUP_NAME'
+        });
+
+        consumer.on('message', (message: Message) => {
+            console.log(message.getData().toString());
+            message.ack();
+            const headers = message.getHeaders()
+        });
+
+        consumer.on('error', (error) => {
+            console.log(error);
+        });
+    } catch (ex) {
+        console.log(ex);
+        if (memphisConnection) memphisConnection.close();
+    }
+})();
+```
+{% endcode %}
+
+**Step 7:** Run `consumer.ts`
+
+```bash
+node consumer.ts
+```
 {% endtab %}
 
 {% tab title="Go" %}
