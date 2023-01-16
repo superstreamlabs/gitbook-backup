@@ -5,13 +5,13 @@ coverY: 0
 
 # Step 1 - Installation
 
-## What is Memphis{dev}?
+## What is Memphis?
 
 **Memphis** is a next-generation message broker.
 
-A simple, robust, and durable cloud-native message broker wrapped with an entire ecosystem that enables fast and reliable development of next-generation event-driven use cases.
+A simple, robust, and durable cloud-native message broker wrapped with an ecosystem that enables fast and reliable development of next-generation event-driven use cases.
 
-Memphis.dev enables building modern applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
+Memphis enables building modern applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
 
 **Memphis focuses on four pillars -**
 
