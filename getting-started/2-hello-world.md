@@ -26,13 +26,13 @@ cd memphis-demo
 npm init -y
 ```
 
-**Step 2:** Install memphis node.js SDK
+**Step 3:** Install memphis node.js SDK
 
 ```bash
 npm install memphis-dev
 ```
 
-**Step 3:** Create a new .js file called `producer.js`
+**Step 4:** Create a new .js file called `producer.js`
 
 {% code title="producer.js" lineNumbers="true" %}
 ```javascript
@@ -70,13 +70,13 @@ const memphis = require("memphis-dev");
 ```
 {% endcode %}
 
-**Step 4:** Run `producer.js`
+**Step 5:** Run `producer.js`
 
 ```bash
 node producer.js
 ```
 
-**Step 5:** Create a new .js file called `consumer.js`
+**Step 6:** Create a new .js file called `consumer.js`
 
 {% code title="consumer.js" lineNumbers="true" %}
 ```javascript
@@ -113,11 +113,36 @@ const memphis = require('memphis-dev');
 ```
 {% endcode %}
 
-**Step 6:** Run `consumer.js`
+**Step 7:** Run `consumer.js`
 
 ```bash
 node consumer.js
 ```
+{% endtab %}
+
+{% tab title="TypeScript" %}
+Please make sure you have node.js [installed](https://nodejs.org/en/download/)
+
+**Step 1:** Create an empty dir for the node.js project
+
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
+
+**Step 2:** Create a new node project (If needed)
+
+```bash
+npm init -y
+```
+
+**Step 3:** Install memphis node.js SDK
+
+```bash
+npm install memphis-dev
+```
+
+**Step 4:** Create a new .js file called `producer.js`
 {% endtab %}
 
 {% tab title="Go" %}
@@ -128,7 +153,7 @@ mkdir memphis-demo && \
 cd memphis-demo
 ```
 
-**Step 2:** In your project's directory, install Memphis:
+**Step 2:** In your project's directory, install Memphis Go SDK
 
 ```
 go get github.com/memphisdev/memphis.go
@@ -242,61 +267,99 @@ go run consumer.go
 {% endtab %}
 
 {% tab title="Python" %}
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
+**Step 1:** Create an empty dir for the Go project
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-
-
-#### Step 1: Install Memphis py SDK
-
-Within your code directory, run
-
-```
-pip3 install memphis-py
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
 ```
 
-#### Step 2: Import Memphis SDK to your code
+**Step 2:** In your project's directory, install Memphis Python SDK
 
+```bash
+pip3 install --upgrade memphis-py
 ```
-from memphis import Memphis
-from memphis import retention_types, storage_types
-```
 
-#### Step 3: Run a code example
+**Step 3:** Create a new Python file called `producer.py`
 
-Don't forget to replace the placeholders
-
-```
+{% code title="producer.py" lineNumbers="true" %}
+```python
+import asyncio
+from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError
+        
 async def main():
-  try:
-    memphis = Memphis()
-    await memphis.connect(
-      host="<memphis-host>",
-      username="<application-type username>",
-      connection_token="<broker-token>",
-      port="<port>", # defaults to 6666
-      reconnect=True, # defaults to False
-      max_reconnect=10, # defaults to 10
-      reconnect_interval_ms=1500, # defaults to 1500
-      timeout_ms=1500 # defaults to 1500
-      )
-  except Exception as e:
-    print(e)
-  finally:
-    await memphis.close()
-
+    try:
+        memphis = Memphis()
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        
+        producer = await memphis.producer(station_name="STATION_NAME", producer_name="PRODUCER_NAME")
+        headers = Headers()
+        headers.add("key", "value") 
+        for i in range(5):
+            await producer.produce(bytearray('Message #'+str(i)+': Hello world', 'utf-8'), headers=headers)
+        
+    except (MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError) as e:
+        print(e)
+        
+    finally:
+        await memphis.close()
+        
 if __name__ == '__main__':
-  asyncio.run(main())
+    asyncio.run(main())
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="TypeScript" %}
+**Step 4:** Run `producer.py`
 
+```bash
+python3 producer.py
+```
+
+**Step 5:** Create a new Python file called `consumer.py`
+
+{% code title="consumer.py" lineNumbers="true" %}
+```python
+import asyncio
+from memphis import Memphis, MemphisError, MemphisConnectError, MemphisHeaderError
+        
+async def main():
+    async def msg_handler(msgs, error):
+        try:
+            for msg in msgs:
+                print("message: ", msg.get_data())
+                await msg.ack()
+                headers = msg.get_headers()
+                if error:
+                    print(error)
+        except (MemphisError, MemphisConnectError, MemphisHeaderError) as e:
+            print(e)
+            return
+        
+    try:
+        memphis = Memphis()
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        
+        consumer = await memphis.consumer(station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CONSUMER_GROUP_NAME")
+        consumer.consume(msg_handler)
+        # Keep your main thread alive so the consumer will keep receiving data
+        await asyncio.Event().wait()
+        
+    except (MemphisError, MemphisConnectError) as e:
+        print(e)
+        
+    finally:
+        await memphis.close()
+        
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+{% endcode %}
+
+**Step 6:** Run `consumer.py`
+
+```bash
+python3 consumer.py
+```
 {% endtab %}
 {% endtabs %}
 
