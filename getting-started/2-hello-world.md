@@ -10,82 +10,120 @@ Creating your 1st station, producer, and consumer!
 Please follow the steps below based on your preferred language.
 
 {% tabs %}
-{% tab title="Node.JS / Typescript" %}
+{% tab title="Node.js" %}
 Please make sure you have node.js [installed](https://nodejs.org/en/download/)
 
-**Step 0:** Create an empty dir for node.js project
+**Step 1:** Create an empty dir for the node.js project
 
-```
+```bash
 mkdir memphis-demo && \
 cd memphis-demo
 ```
 
-**Step 1:** Create a new node project (If needed)
+**Step 2:** Create a new node project (If needed)
 
-```
+```bash
 npm init -y
 ```
 
 **Step 2:** Install memphis node.js SDK
 
-```
+```bash
 npm install memphis-dev
 ```
 
-**Step 3:** Create a new text file called `index.js`
+**Step 3:** Create a new .js file called `producer.js`
 
-```
+```javascript
 const memphis = require("memphis-dev");
 
 (async function () {
+    let memphisConnection
+
     try {
-        await memphis.connect({
-            host: "broker.sandbox.memphis.dev",
-            username: "root",
-            connectionToken: "XrHmszw6rgm8IyOPNNTy"
-        });
-        
-        // consumer
-        
-        const consumer = await memphis.consumer({
-            stationName: "hello_world",
-            consumerName: "consumer_app1",
-            consumerGroup: "consumer_group1"
-        });
-        consumer.on("message", message => {
-            console.log(message.getData().toString());
-            message.ack();
-        });
-        consumer.on("error", error => {
-            console.log(error);
+        memphisConnection = await memphis.connect({
+            host: '<Memphis_hostname>',
+            username: '<application_type_user>',
+            connectionToken: '<connection_token>'
         });
 
-        // producer
-
-        const producer = await memphis.producer({
-            stationName: "hello_world",
-            producerName: "producer_app"
+        const producer = await memphisConnection.producer({
+            stationName: '<station_name>',
+            producerName: '<producer_name>'
         });
-        for (let index = 0; index < 100; index++) {
-            await producer.produce({
-                message: Buffer.from('Hello world')
-            });
-            console.log("Message sent");
-        }
-        console.log("All messages sent");
+
+        const headers = memphis.headers()
+        headers.add('key', 'value')
+        await producer.produce({
+            message: Buffer.from("Message: Hello world"),
+            headers: headers
+        });
+
+        memphisConnection.close();
     } catch (ex) {
         console.log(ex);
-        memphis.close();
+        if (memphisConnection) memphisConnection.close();
+    }
+})();
+        
+```
+
+**Step 4:** Run `producer.js`
+
+```bash
+node producer.js
+```
+
+**Step 5:** Create a new .js file called `consumer.js`
+
+```javascript
+const memphis = require('memphis-dev');
+
+(async function () {
+    let memphisConnection;
+
+    try {
+        memphisConnection = await memphis.connect({
+            host: '<Memphis_hostname>',
+            username: '<application_type_user>',
+            connectionToken: '<connection_token>'
+        });
+
+        const consumer = await memphisConnection.consumer({
+            stationName: '<station_name',
+            consumerName: '<consumer_name>',
+            consumerGroup: '<consumer_group_name>'
+        });
+
+        consumer.on('message', (message) => {
+            console.log(message.getData().toString());
+            message.ack();
+            const headers = message.getHeaders()
+        });
+
+        consumer.on('error', (error) => {});
+    } catch (ex) {
+        console.log(ex);
+        if (memphisConnection) memphisConnection.close();
     }
 })();
 ```
 
-```
-node index.js
+**Step 6:** Run `consumer.js`
+
+```bash
+node consumer.js
 ```
 {% endtab %}
 
 {% tab title="Go" %}
+**Step 1:** Create an empty dir for the node.js project
+
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
+
 **Step 1:** In your project's directory:
 
 ```
@@ -222,7 +260,13 @@ if __name__ == '__main__':
   asyncio.run(main())
 ```
 {% endtab %}
+
+{% tab title="TypeScript" %}
+
+{% endtab %}
 {% endtabs %}
+
+
 
 
 

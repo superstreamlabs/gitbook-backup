@@ -39,7 +39,7 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker
 
 ### How does it work?
 
-<figure><img src=".gitbook/assets/overview.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Key Features (v0.4.3)
 
