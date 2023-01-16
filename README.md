@@ -11,9 +11,9 @@ coverY: 0
 
 A simple, robust, and durable cloud-native message broker wrapped with an entire ecosystem that enables fast and reliable development of next-generation event-driven use cases.
 
-Memphis.dev enables building next-generation applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
+Memphis.dev enables building modern applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
 
-**Memphis focuses on four pillars**
+**Memphis focuses on four pillars -**
 
 1. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
 2. Observability - Reduces troubleshooting time to near zero.
@@ -22,6 +22,35 @@ Memphis.dev enables building next-generation applications that require large vol
 
 ## **Getting started**
 
-### **Choose your preferred environment -**&#x20;
+### **Quick start**
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-type="files"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Kubernetes (Production)</strong></td><td><a href="deployment/kubernetes/1-installation.md">Here</a></td><td>Kubernetes (Production)</td><td></td><td><a href=".gitbook/assets/kubernetes banner (1).jpeg">kubernetes banner (1).jpeg</a></td><td><a href=".gitbook/assets/kubernetes banner (2).jpeg">kubernetes banner (2).jpeg</a></td><td></td></tr><tr><td><strong>Cloud Providers (Prod)</strong></td><td><a href="deployment/cloud-deployment/">Here</a></td><td></td><td></td><td></td><td><a href=".gitbook/assets/cloud providors banner.jpeg">cloud providors banner.jpeg</a></td><td></td></tr><tr><td><strong>Docker (Dev)</strong></td><td><a href="deployment/docker-compose.md">Here</a></td><td></td><td></td><td></td><td><a href=".gitbook/assets/Docker banner.jpeg">Docker banner.jpeg</a></td><td></td></tr></tbody></table>
+Kubernetes
+
+```
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
+helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
+```
+
+Docker compose (Syntax for v2)
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
+
+### How does it work?
+
+<figure><img src=".gitbook/assets/overview.jpeg" alt=""><figcaption></figcaption></figure>
+
+## Key Features (v0.4.3)
+
+* Fully optimized message broker in under 3 minutes
+* Easy-to-use UI, CLI, and SDKs
+* Dead-letter station (DLQ)
+* Data-level observability
+* Runs on your Docker or Kubernetes
+* Real-time event tracing
+* SDKs: Python, Go, Node.js, Typescript, Nest.JS, Kotlin, .NET, Java
+* Embedded schema management using Protobuf, JSON Schema, GraphQL, Avro
+* Slack integration
+
+A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.dev/roadmap)

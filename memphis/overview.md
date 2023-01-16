@@ -25,22 +25,24 @@ Memphis.dev enables building next-generation applications that require large vol
 
 1. Too many data sources become too complicated to handle.
 2. Different and complex schemas get in the way.
-3. It's difficult to transform schema and analyze streamed data per source.
-4. Currently, stream processing requires stitching multiple applications together like Apache Kafka, Flink, and NiFi. Real-time becomes near-real-time, or far-real-time.
+3. It isn't easy to transform schema and analyze streamed data per source.
+4. Currently, stream processing requires stitching multiple applications together, like Apache Kafka, Flink, and NiFi. Real-time becomes near-real-time or far-real-time.
 5. Loss of messages due to lack of retransmits, crashes, and monitoring.
 6. The event's journey is challenging to debug and troubleshoot.
 7. Kafka, RabbitMQ, NATS, and other MQs are HARD to deploy, manage, secure, update, onboard, and tune.
 8. Turning batch processes into real-time can be complicated and time-consuming.
 
-### Key Features (v0.4.2)
+### Key Features (v0.4.3)
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs
+* Dead-letter station (DLQ)
 * Data-level observability
 * Runs on your Docker or Kubernetes
 * Real-time event tracing
-* SDKs: Python, Go, Node.js, Typescript, Nest.JS
-* Embedded schema management using Avro, and Protobuf
+* SDKs: Python, Go, Node.js, Typescript, Nest.JS, Kotlin, .NET, Java
+* Embedded schema management using Protobuf, JSON Schema, GraphQL, Avro
+* Slack integration
 
 A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.dev/roadmap)
 
