@@ -233,6 +233,101 @@ node consumer.ts
 ```
 {% endtab %}
 
+{% tab title="NestJS" %}
+Please make sure you have node.js [installed](https://nodejs.org/en/download/)
+
+**Step 1:** Create an empty dir for the node.js project
+
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
+
+**Step 2:** Create a new node project (If needed)
+
+```bash
+npm init -y
+```
+
+**Step 3:** Install memphis node.js SDK
+
+```bash
+npm install memphis-dev
+```
+
+**Step 4:** Create a new .ts file called `producer.module.ts`
+
+{% code title="producer.module.ts" lineNumbers="true" %}
+```typescript
+import { Module } from "@nestjs/common";
+import { MemphisModule, MemphisService } from "memphis-dev/nest"
+import type { Memphis } from 'memphis-dev/types';
+@Module({
+    imports: [MemphisModule.register()],
+})
+export class ProducerModule {
+    constructor(private memphis: MemphisService) { }
+
+    startProducer() {
+        (async function () {
+            let memphisConnection: Memphis;
+            
+            try {
+                memphisConnection = await this.memphis.connect({
+                    host: '<Memphis_hostname>',
+                    username: '<application_type_user>',
+                    connectionToken: '<connection_token>'
+                });
+
+                const producer = await memphisConnection.producer({
+                    stationName: 'STATION_NAME',
+                    producerName: 'PRODUCER_NAME'
+                });
+
+                for (let index = 0; index < 100; index++) {
+                    await producer.produce({
+                        message: Buffer.from(`Message #${index}: Hello world`)
+                    });
+                    console.log("Message sent");
+                }
+
+                console.log("All messages sent");
+                memphisConnection.close();
+            } catch (ex) {
+                console.log(ex);
+                if (memphisConnection)
+                    memphisConnection.close();
+            }
+        })();
+    }
+}
+```
+{% endcode %}
+
+**Step 5:** Create a new .ts file called `consumer.controller.ts`
+
+{% code title="consumer.controller.ts" lineNumbers="true" %}
+```typescript
+import { Controller } from '@nestjs/common';
+import { consumeMessage } from 'memphis-dev/nest';
+import type { Message } from 'memphis-dev/types';
+
+@Controller('auth')
+export class ExampleController {
+    @consumeMessage({
+        stationName: '<station-name>',
+        consumerName: '<consumer-name>',
+        consumerGroup: ''
+    })
+    async messageHandler(message: Message) {
+        console.log(message.getData().toString());
+        message.ack();
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+
 {% tab title="Go" %}
 **Step 1:** Create an empty dir for the Go project
 
@@ -450,10 +545,3 @@ python3 consumer.py
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-
-
