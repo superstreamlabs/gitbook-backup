@@ -85,7 +85,7 @@
   * [Notifications](dashboard-gui/integrations/notifications/README.md)
     * [Slack](dashboard-gui/integrations/notifications/slack.md)
   * [Storage](dashboard-gui/integrations/storage/README.md)
-    * [AWS S3](dashboard-gui/integrations/storage/aws-s3.md)
+    * [Amazon S3](dashboard-gui/integrations/storage/amazon-s3.md)
 
 ## CLI
 
