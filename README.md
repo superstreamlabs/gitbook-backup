@@ -31,11 +31,15 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&
 helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
+[For more detailed information about Memphis K8S deployment](deployment/kubernetes/).
+
 Docker compose (Syntax for v2)
 
 ```
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
 ```
+
+[For more detailed information about Memphis docker deployment](deployment/docker-compose.md).
 
 ### How does it work?
 
