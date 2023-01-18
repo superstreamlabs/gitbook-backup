@@ -82,6 +82,8 @@
 * [Integrations](dashboard-gui/integrations/README.md)
   * [Notifications](dashboard-gui/integrations/notifications/README.md)
     * [Slack](dashboard-gui/integrations/notifications/slack.md)
+  * [Storage](dashboard-gui/integrations/storage/README.md)
+    * [AWS S3](dashboard-gui/integrations/storage/aws-s3.md)
 * [Users](dashboard-gui/users.md)
 * [Settings](dashboard-gui/settings.md)
 

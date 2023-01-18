@@ -7,7 +7,7 @@ coverY: 0
 
 Creating your 1st station, producer, and consumer!
 
-Please follow the steps below based with your preferred language.
+Please follow the steps below in your preferred language.
 
 {% tabs %}
 {% tab title="Node.js" %}
