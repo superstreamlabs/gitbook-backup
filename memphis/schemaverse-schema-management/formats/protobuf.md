@@ -368,14 +368,139 @@ var protobuf = require("protobufjs");
 {% endtab %}
 
 {% tab title="Go" %}
+```go
+package main
 
+import (
+	"demo/schemapb" // local protobuf struct
+	"fmt"
+	"os"
+	"time"
+
+	"github.com/memphisdev/memphis.go"
+	"google.golang.org/protobuf/proto"
+)
+
+type Test struct {
+	Name string
+	LastName string
+
+}
+
+func main() {
+	conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_USER", "MEMPHIS_CONNECTION_TOKEN")
+	if err != nil {
+		os.Exit(1)
+	}
+	defer conn.Close()
+
+	consumer, err := conn.CreateConsumer("CONSUMER_NAME", "CONSUMER_GROUP_NAME")
+	if err != nil {
+		fmt.Printf("Consumer creation failed: %v\n", err)
+		os.Exit(1)
+	}
+
+	handler := func(msgs []*memphis.Msg, err error) {
+		if err != nil {
+			fmt.Printf("Fetch failed: %v\n", err)
+			return
+		}
+
+		for _, msg := range msgs {
+			var message schemapb.Test
+			err := proto.Unmarshal(msg.Data(), &message)
+			if err != nil {
+				fmt.Println(err)
+			}			
+
+			fmt.Println(&message)
+			msg.Ack()
+		}
+	}
+
+	consumer.Consume(handler)
+	time.Sleep(3000 * time.Second)
+}
+```
 {% endtab %}
 
 {% tab title="Python" %}
+```python
+import asyncio
+from memphis import Memphis
+import schema_pb2 as PB # protobuf class // .proto file
 
+async def main():
+    async def msg_handler(msgs, error):
+        try:
+            for msg in msgs:
+                obj = PB.Message()
+                obj.ParseFromString(msg.get_data())
+                await msg.ack()
+            if error:
+                print(error)
+        except Exception as e:
+            print(e)
+
+    try:
+        memphis = Memphis()
+        await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        consumer = await memphis.consumer(
+            station_name="STATION_NAME", consumer_name="CONSUMER_NAME")
+        consumer.consume(msg_handler)
+        # Keep your main thread alive so the consumer will keep receiving data
+        await asyncio.Event().wait()
+    except Exception as e:
+        print(e)
+    finally:
+        await memphis.close()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
 {% endtab %}
 
 {% tab title="TypeScript" %}
+```typescript
+import memphis from 'memphis-dev';
+import type { Memphis } from 'memphis-dev/types';
+var protobuf = require("protobufjs");
 
+(async function () {
+    let memphisConnection: Memphis;
+    try {
+        memphisConnection = await memphis.connect({
+            host: 'MEMPHIS_BROKER_URL',
+            username: 'APPLICATION_TYPE_USERNAME',
+            connectionToken: 'CONNECTION_TOKEN'
+        });
+
+        const consumer = await memphis.consumer({
+            stationName: "STATION_NAME",
+            consumerName: "CONSUMER_NAME",
+            consumerGroup: "CONSUMER_GROUP_NAME",
+            maxMsgDeliveries: 3,
+            maxAckTimeMs: 2000,
+            genUniqueSuffix: true
+        });
+
+        const root = await protobuf.load("schema.proto");
+        var TestMessage = root.lookupType("Test");
+
+        consumer.on("message", message => {
+            const x = message.getData()
+            var msg = TestMessage.decode(x);
+            console.log(msg)
+            message.ack();
+        });
+        consumer.on("error", error => {
+            console.log(error);
+        });
+    } catch (ex) {
+        console.log(ex);
+        memphis.close();
+    }
+})();type
+```
 {% endtab %}
 {% endtabs %}
