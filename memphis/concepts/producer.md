@@ -48,6 +48,9 @@ await producer.produce({
 * `maxReconnect`: Amount of time the client will try to reconnect before backing off
 * `reconnectIntervalMs`: Time window between one retry to another
 * `timeoutMs`: Ability to kill a dead connection after explicit time
+* `keyFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<key-client.pem>'
+* `certFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<cert-client.pem>'
+* `caFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<rootCA.pem>'
 
 **Producer**
 
