@@ -333,40 +333,10 @@ message Test {
 }
 ```
 
-**Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
+**Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
 
 {% code lineNumbers="true" %}
 ```javascript
-const memphis = require("memphis-dev");
-
-(async function () {
-    try {
-        await memphis.connect({
-            host: "MEMPHIS_BROKER_URL",
-            username: "APPLICATION_USER",
-            connectionToken: "CONNECTION_TOKEN"
-        });
-        const producer = await memphis.producer({
-            stationName: "STATION_NAME",
-            producerName: "PRODUCER_NAME"
-        });
-        var payload = {
-            fname: "AwesomeString",
-            lname: "AwesomeString",
-            id: 54
-        };
-        try {
-            await producer.produce({
-                message: payload
-        });
-        } catch (ex) {
-            console.log(ex.message)
-        }
-    } catch (ex) {
-        console.log(ex);
-        memphis.close();
-    }
-})();
 ```
 {% endcode %}
 {% endtab %}
