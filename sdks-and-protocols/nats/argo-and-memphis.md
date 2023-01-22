@@ -59,11 +59,11 @@ spec:
       # jsonBody specifies that all event body payload coming from this
       # source will be JSON
       jsonBody: true
-      # subject name
-      subject: <a data-footnote-ref href="#user-content-fn-2">foo</a>
+      # subject name = memphis station
+      subject: argo_workflows
       auth:
         token:
-          name: <a data-footnote-ref href="#user-content-fn-3">memphis-creds</a>
+          name: <a data-footnote-ref href="#user-content-fn-2">memphis-creds</a>
           key: CONNECTION_TOKEN
       # optional backoff time for connection retries.
       # if not provided, default connection backoff time will be used.
@@ -152,8 +152,8 @@ As Memphis works with streams, wrapping the subject will enable Memphis to contr
 
 ```markup
 nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>::<MEMPHIS_CONNECTION_TOKEN> 
-? Stream Name argo_event_source
-? Subjects foo
+? Stream Name argo_workflows
+? Subjects argo_workflows
 ? Storage file
 ? Replication 3
 ? Retention Policy Limits
@@ -167,11 +167,9 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>:
 ? Allow message Roll-ups No
 ? Allow message deletion Yes
 ? Allow purging subjects or the entire stream Yes
-Stream argo_event_source was created
+Stream argo_workflows was created
 ```
 
 [^1]: 
 
-[^2]: \=Memphis station
-
-[^3]: A secret that will be created in step 2
+[^2]: A secret that will be created in step 2
