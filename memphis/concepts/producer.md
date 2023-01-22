@@ -69,6 +69,7 @@ By adding more producers, the throughput will be increased accordingly due to th
 * [HTTP](broken-reference)
 * WebSockets \* Soon \*
 * gRPC \* Soon \*
-* WASM \* Soon \*
 * MQTT \* Soon \*
+* AMQP \* Soon \*
+* Kafka \* Soon \*
 
