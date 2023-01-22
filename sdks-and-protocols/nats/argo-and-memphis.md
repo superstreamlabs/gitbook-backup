@@ -8,11 +8,38 @@ coverY: 0
 
 ## Introduction
 
-[Argo CD](https://argo-cd.readthedocs.io/en/stable/) is a declarative, GitOps continuous delivery tool for Kubernetes.
+[Argo](https://argoproj.github.io/) is a collection of open-source tools for Kubernetes to run workflows,manage clusters, and do GitOps easily.&#x20;
 
-Memphis can trigger Argo workflows via Argo EventSource.
+[Memphis](https://memphis.dev) is an open-source next-generation alternative to traditional message brokers.
 
-An EventSource defines the configurations required to consume events from external sources like Memphis, NATS, AWS SNS, SQS, GCP PubSub, Webhooks, etc.
+Among Argo tools, Argo Workflows can be found.\
+Kubernetes-native workflow engine supporting DAG and step-based workflows.\
+**Some of Argo Workflows features -**&#x20;
+
+* Define workflows where each step in the workflow is a container.
+* Model multi-step workflows as a sequence of tasks or capture the dependencies between tasks using a graph (DAG).
+* Easily run compute-intensive jobs for machine learning or data processing in a fraction of the time using Argo Workflows on Kubernetes.
+* Run CI/CD pipelines natively on Kubernetes without configuring complex software development products.
+
+Argo-defined workflows can be triggered by incoming events which arrive from a component called "Event Source." \
+Multiple event sources can be used simultaneously.
+
+## Using Memphis as an Argo workflows event source
+
+Memphis provides multiple features that enhance the experience with Argo, like:
+
+* Full GUI with real-time observability
+* Schema management and transformation
+* REST Webhooks
+* Dead-Letter Queue with automatic message retransmit
+* Serverless stream enrichments
+* SDKs: Node.JS, Go, Python, TypeScript, NestJS
+
+One of the key advantages of using Memphis is the ability to troubleshoot complicated async processes using message tracing, data-level observability, self-healing policies, and real-time notifications, which can be a great help, especially for auditing and logging when events and triggers are fired from multiple places towards your Argo and potentially can create highly expensive resources and workflows.
+
+Memphis can trigger Argo workflows via Argo Event Source.
+
+An Event Source defines the configurations required to consume events from external sources like Memphis, NATS, AWS SNS, SQS, GCP PubSub, Webhooks, etc.
 
 <figure><img src="../../.gitbook/assets/argo and memphis.jpeg" alt=""><figcaption><p>Integrating Memphis as a NATS Event Source of Argo</p></figcaption></figure>
 
