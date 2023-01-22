@@ -7,11 +7,11 @@ coverY: 0
 
 ## What is Memphis?
 
-**Memphis** is a next-generation message broker.
+**Memphis** is a next-generation alternative to traditional message brokers.
 
-A simple, robust, and durable cloud-native message broker wrapped with an ecosystem that enables fast and reliable development of next-generation event-driven use cases.
+A simple, robust, and durable cloud-native message broker wrapped with an entire ecosystem that enables cost-effective, fast, and reliable development of modern queue-based use cases.
 
-Memphis enables building modern applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
+Memphis enables the building of modern queue-based applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
 
 **Memphis focuses on four pillars -**
 
