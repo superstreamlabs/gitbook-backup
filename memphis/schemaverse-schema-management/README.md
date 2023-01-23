@@ -86,6 +86,10 @@ That process establishes the message's initial validation before it reaches the 
 
 <figure><img src="https://lh5.googleusercontent.com/9ifhev7freLnIYyD_Y3zmrgZAp9-2Bf8eYsSAps0N_77PblO4eG0LGodJY6C6bBmhCxYDRMocztYK3Sge8WMezMMrZFyODEBOw5YZ2xmB7xqqrkhJcds-f67XqHSXNTydr3PpcI2e09yze32L4h0_kg3CcZAxPepTFtJJ_oStF-myZdomFjy2t7XVxZf" alt=""><figcaption></figcaption></figure>
 
+## Getting Started
+
+For code producer/consumer code examples, choose a [data format](formats/).
+
 ## To consider
 
 * Schema attachment can be disruptive because it will update producers (live) to drop messages that are not aligned with the attached schema.
