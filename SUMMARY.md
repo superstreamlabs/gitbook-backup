@@ -27,7 +27,6 @@
   * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
 * [Schemaverse - Schema Management](memphis/schemaverse-schema-management/README.md)
-  * [Overview and Architecture](memphis/schemaverse-schema-management/overview-and-architecture.md)
   * [Formats](memphis/schemaverse-schema-management/formats/README.md)
     * [Protobuf](memphis/schemaverse-schema-management/formats/protobuf.md)
     * [JSON Schema](memphis/schemaverse-schema-management/formats/json-schema.md)
