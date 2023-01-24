@@ -16,11 +16,11 @@ Please make sure you have the [Datadog K8S agent](https://docs.datadoghq.com/con
 
 ## Getting started
 
-### Step 1: Install Datadog&#x20;
+### Step 1: Install Datadog
 
 ### Step 1: Make sure your Memphis Prometheus exporter is on
 
-If you haven't installed Memphis with the `exporter.enabled` yet - \
+If you haven't installed Memphis with the `exporter.enabled` yet -\
 (\* `websocket.tls` are optional for a superior GUI experience)
 
 ```
@@ -36,6 +36,70 @@ websocket.tls.key="memphis-key_local.pem",\
 
 If Memphis is already installed -
 
+### Step 2: Add Datadog annotation to Memphis statefulset
 
+Add Datadog annotation to the `memphis-broker` statefulset to expose Prometheus metrics to datadog agent:
 
-### Step 2: Make sure your Memphis Prometheus exporter is on
+```bash
+kubectl edit sts memphis-broker -n memphis
+```
+
+```yaml
+# (...)
+spec:
+# (...)
+  template:
+    metadata:
+      annotations:
+        # (...)
+        # Add the following section
+        ad.datadoghq.com/metrics.checks: |
+           {
+             "openmetrics": {
+               "instances": [
+                 {
+                   "openmetrics_endpoint": "http://%%host%%:%%port%%/metrics",
+                   "namespace": "memphis",
+                   "metrics": [".*"]
+                 }
+               ]
+             }
+           }
+# (...)
+  spec:
+    name: metrics
+```
+
+Or, in a one-liner command -
+
+```bash
+cat <<EOF | kubectl -n memphis patch sts memphis-broker --patch '
+spec:
+  template:
+    metadata:
+      annotations:
+        ad.datadoghq.com/metrics.checks: |
+           {
+             "openmetrics": {
+               "instances": [
+                 {
+                   "openmetrics_endpoint": "http://%%host%%:%%port%%/metrics",
+                   "namespace": "memphis",
+                   "metrics": [".*"]
+                 }
+               ]
+             }
+           }'
+EOF
+```
+
+### Step 3: Check Datadog for Memphis metrics
+
+Reach your Datadog account -> Metrics -> Summary, and check if "memphis" metrics arrives.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-01-24 at 12.14.53.png" alt=""><figcaption></figcaption></figure>
+
+### Step 4: Import the Memphis dashboard
+
+A Datadog [tutorial](https://docs.datadoghq.com/dashboards/#copy-import-or-export-dashboard-json) on how to import a dashboard.
+

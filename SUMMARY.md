@@ -80,7 +80,7 @@
   * [System Logs](dashboard-gui/troubleshooting/system-logs.md)
 * [Users](dashboard-gui/users.md)
 * [Settings](dashboard-gui/settings.md)
-* [🔌 Integrations](dashboard-gui/integrations/README.md)
+* [Integrations](dashboard-gui/integrations/README.md)
   * [Monitoring](dashboard-gui/integrations/monitoring/README.md)
     * [Datadog](dashboard-gui/integrations/monitoring/datadog.md)
   * [Notifications](dashboard-gui/integrations/notifications/README.md)
