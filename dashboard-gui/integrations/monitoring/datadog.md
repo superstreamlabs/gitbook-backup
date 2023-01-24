@@ -16,8 +16,6 @@ Please make sure you have the [Datadog K8S agent](https://docs.datadoghq.com/con
 
 ## Getting started
 
-### Step 1: Install Datadog
-
 ### Step 1: Make sure your Memphis Prometheus exporter is on
 
 If you haven't installed Memphis with the `exporter.enabled` yet -\
