@@ -34,6 +34,24 @@ websocket.tls.key="memphis-key_local.pem",\
 
 If Memphis is already installed -
 
+Get current deployment values.
+
+```
+helm get values memphis --namespace memphis
+```
+
+```
+USER-SUPPLIED VALUES:
+cluster:
+  enabled: true
+```
+
+Run the following command.
+
+```
+helm upgrade --set cluster.enabled=true --set exporter.enabled=true memphis --namespace memphis
+```
+
 ### Step 2: Add Datadog annotation to Memphis statefulset
 
 Add Datadog annotation to the `memphis-broker` statefulset to expose Prometheus metrics to datadog agent:
