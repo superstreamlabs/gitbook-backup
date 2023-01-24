@@ -103,3 +103,6 @@ Reach your Datadog account -> Metrics -> Summary, and check if "memphis" metrics
 
 A Datadog [tutorial](https://docs.datadoghq.com/dashboards/#copy-import-or-export-dashboard-json) on how to import a dashboard.
 
+Memphis dashboard .json file to download -
+
+{% embed url="https://raw.githubusercontent.com/memphisdev/gitbook-backup/master/dashboard-gui/integrations/monitoring/MemphisDashboard--2023-01-23T21_06_03.json" %}
