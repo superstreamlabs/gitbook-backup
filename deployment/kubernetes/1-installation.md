@@ -85,6 +85,7 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 | connectionToken           | Token for connecting an app to the Memphis Message Queue. Auto generated                                 | `""`          | `"memphis"`                   |
 | dashboard.port            | Dashboard's (GUI) port                                                                                   | 9000          | 9000                          |
 | cluster.enabled           | Cluster mode for HA and Performance                                                                      | `"false"`     | `"false"`                     |
+| exporter.enabled          | Prometheus exporter                                                                                      | `"false"`     | `"false"`                     |
 | analytics                 | Collection of anonymous metadata                                                                         | `"true"`      | `"true"`                      |
 | websocket.tls.secret.name | <p>*Optional* Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>      | ""            | `"memphis-ws-tls-secret"`     |
 | websocket.tls.cert        | <p>*Optional*<br>Memphis GUI using websockets for live rendering.<br>.pem file to use</p>                | ""            | `"memphis_local.pem"`         |
