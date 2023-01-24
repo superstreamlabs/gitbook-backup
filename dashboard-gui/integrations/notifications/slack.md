@@ -1,5 +1,5 @@
 ---
-description: Memphis notifications to slack channel
+description: Deliver Memphis notifications to a slack channel
 cover: ../../../.gitbook/assets/Slack + Memphis.jpeg
 coverY: 0
 ---
@@ -10,7 +10,7 @@ coverY: 0
 
 Receive alerts and notifications directly to your chosen slack channel for faster response and better real-time observability.
 
-## Guide
+## Getting started
 
 ### Step 1: Create an app
 
