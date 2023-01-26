@@ -56,7 +56,7 @@ const memphis = require("memphis-dev");
         const headers = memphis.headers()
         headers.add('key', 'value')
         await producer.produce({
-            message: Buffer.from("Message: Hello world"),
+            message: Buffer.from("Message: Hello world"), // you can also send JS object - {}
             headers: headers
         });
 
@@ -98,7 +98,8 @@ const memphis = require('memphis-dev');
             consumerGroup: '<consumer_group_name>'
         });
 
-        consumer.on('message', (message) => {
+        consumer.setContext({ key: "value" });
+        consumer.on('message', (message, context) => {
             console.log(message.getData().toString());
             message.ack();
             const headers = message.getHeaders()
@@ -167,7 +168,7 @@ import type { Memphis } from 'memphis-dev/types';
             const headers = memphis.headers()
             headers.add('key', 'value');
             await producer.produce({
-                message: Buffer.from("Message: Hello world"),
+                message: Buffer.from("Message: Hello world"), // you can also send JS object - {}
                 headers: headers
             });
 
@@ -209,7 +210,8 @@ import { Memphis, Message } from 'memphis-dev/types';
             consumerGroup: 'CONSUMER_GROUP_NAME'
         });
 
-        consumer.on('message', (message: Message) => {
+        consumer.setContext({ key: "value" });
+        consumer.on('message', (message: Message, context: object) => {
             console.log(message.getData().toString());
             message.ack();
             const headers = message.getHeaders()
@@ -286,7 +288,7 @@ export class ProducerModule {
 
                 for (let index = 0; index < 100; index++) {
                     await producer.produce({
-                        message: Buffer.from(`Message #${index}: Hello world`)
+                        message: Buffer.from(`Message #${index}: Hello world`) // you can also send JS object - {}
                     });
                     console.log("Message sent");
                 }
@@ -396,6 +398,7 @@ package main
 
 import (
     "fmt"
+    "context"
     "os"
     "time"
 
@@ -417,7 +420,7 @@ func main() {
         os.Exit(1)
     }
 
-    handler := func(msgs []*memphis.Msg, err error) {
+    handler := func(msgs []*memphis.Msg, err error, ctx context.Context) {
         if err != nil {
             fmt.Printf("Fetch failed: %v
 ", err)
@@ -432,6 +435,9 @@ func main() {
         }
     }
 
+    ctx := context.Background()
+    ctx = context.WithValue(ctx, "key", "value)
+    consumer.SetContext(ctx)
     consumer.Consume(handler)
 
     // The program will close the connection after 30 seconds,
@@ -479,7 +485,7 @@ async def main():
         headers = Headers()
         headers.add("key", "value") 
         for i in range(5):
-            await producer.produce(bytearray('Message #'+str(i)+': Hello world', 'utf-8'), headers=headers)
+            await producer.produce(bytearray('Message #'+str(i)+': Hello world', 'utf-8'), headers=headers) # you can send the message parameter as dict as well
         
     except (MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError) as e:
         print(e)
@@ -506,7 +512,7 @@ import asyncio
 from memphis import Memphis, MemphisError, MemphisConnectError, MemphisHeaderError
         
 async def main():
-    async def msg_handler(msgs, error):
+    async def msg_handler(msgs, error, context):
         try:
             for msg in msgs:
                 print("message: ", msg.get_data())
@@ -523,6 +529,7 @@ async def main():
         await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", connection_token="MEMPHIS_CONNECTION_TOKEN")
         
         consumer = await memphis.consumer(station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CONSUMER_GROUP_NAME")
+        consumer.set_context({"key": "value"})
         consumer.consume(msg_handler)
         # Keep your main thread alive so the consumer will keep receiving data
         await asyncio.Event().wait()
