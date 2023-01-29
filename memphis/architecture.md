@@ -6,7 +6,7 @@ description: This section describes Memphis' architecture
 
 ## Connectivity Diagram
 
-Memphis deployment comprised four components:
+Memphis' deployment is comprised of four components:
 
 **1.** GUI - The dashboard of Memphis.
 
@@ -33,7 +33,7 @@ MongoDB is not for data traffic but rather responsible for UI state and metadata
 
 ## Memphis cluster component diagram (For production)
 
-Full Kubernetes-based layout.
+The diagram below depicts a full Kubernetes-based deployment.
 
 <figure><img src="../.gitbook/assets/Memphis Architecture (1).jpg" alt=""><figcaption></figcaption></figure>
 
@@ -45,9 +45,9 @@ Ordering is guaranteed only while working with a single consumer group.
 
 ## Mirroring
 
-Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis, called RAFT, and compared to Apache ZooKeeper, widely used by other projects like Kafka, does not require a witness or a standalone Quorum. RAFT is also equivalent to Paxos in fault tolerance and performance.
+Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis is called RAFT and does not require a witness or a standalom Qorum, unlike others such as Apache ZooKeeper which is widely used by projects like Kafka. RAFT is also equivalent to [Paxos](https://en.wikipedia.org/wiki/Paxos_(computer_science)) in fault tolerance and performance.
 
-To ensure data consistency and zero loss within complete broker’s restarts, Memphis brokers should run on different nodes and try to do it automatically. To comply with RAFT requirements which are ½ cluster size + 1, On K8S environment, three Memphis brokers will be deployed. The minimum number of brokers is three to ensure at least one node failure.
+To ensure data consistency and zero loss within complete broker(s) restarts, Memphis brokers should run on different nodes and try to do it automatically. To comply with RAFT requirements which are ½ cluster size + 1, On K8S environment, three Memphis brokers will be deployed. The minimum number of brokers is three to ensure at least one node failure.
 
 ![](../.gitbook/assets/replications.jpeg)
 
