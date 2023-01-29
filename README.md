@@ -31,7 +31,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&
 helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
-[For more detailed information about Memphis K8S deployment](deployment/kubernetes/).
+More info can be found in the [Memphis k8s deployment](deployment/kubernetes/) documentation.
 
 **Docker compose (Syntax for v2)**
 
@@ -39,13 +39,13 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
 ```
 
-[For more detailed information about Memphis docker deployment](deployment/docker-compose.md).
+More info can be found in the [Memphis Docker deployment](deployment/docker-compose.md) documentation.
 
 ### How does it work?
 
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-## Key Features (v0.4.3)
+## Key features (v0.4.3)
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs
@@ -57,4 +57,4 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker
 * Embedded schema management using Protobuf, JSON Schema, GraphQL, Avro
 * Slack integration
 
-A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.dev/roadmap)
+A full roadmap can be found [here](https://memphis.dev/roadmap).
