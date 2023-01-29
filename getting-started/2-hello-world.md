@@ -5,13 +5,11 @@ coverY: 0
 
 # Step 2 - Hello World
 
-Creating your 1st station, producer, and consumer!
-
-Please follow the steps below in your preferred language.
+Create your first station, producer, and consumer in your preferred language as shown in the tabs below:
 
 {% tabs %}
 {% tab title="Node.js" %}
-Please make sure you have node.js [installed](https://nodejs.org/en/download/)
+Please make sure you have node.js [installed](https://nodejs.org/en/download/).
 
 **Step 1:** Create an empty dir for the node.js project
 
@@ -122,7 +120,7 @@ node consumer.js
 {% endtab %}
 
 {% tab title="TypeScript" %}
-Please make sure you have node.js [installed](https://nodejs.org/en/download/)
+Please make sure you have node.js [installed](https://nodejs.org/en/download/).
 
 **Step 1:** Create an empty dir for the node.js project
 
@@ -236,7 +234,7 @@ node consumer.ts
 {% endtab %}
 
 {% tab title="NestJS" %}
-Please make sure you have node.js [installed](https://nodejs.org/en/download/)
+Please make sure you have node.js [installed](https://nodejs.org/en/download/).
 
 **Step 1:** Create an empty dir for the node.js project
 
