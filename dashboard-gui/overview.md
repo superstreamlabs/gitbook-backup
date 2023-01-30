@@ -22,6 +22,8 @@ Memphis "System components" panel uses k8s "[metric-server](https://kubernetes-s
 
 #### Installation
 
+#### K8s
+
 The latest Metrics Server release can be installed by running:
 
 ```
@@ -29,6 +31,14 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/late
 ```
 
 Installation instructions for previous releases can be found in [Metrics Server releases](https://github.com/kubernetes-sigs/metrics-server/releases).
+
+#### minikube
+
+Within minikube enable the metrics-server addon by running:
+
+```
+minikube addon enable metrics-server
+```
 
 Compatibility matrix:
 
