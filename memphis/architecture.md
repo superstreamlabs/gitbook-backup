@@ -27,7 +27,7 @@ MongoDB is not for data traffic but rather responsible for UI state and metadata
 | REST Gateway         | 4444  | TCP     | External          | REST gateway endpoint                                          |
 | Websocket            | 7770  | TCP     | External          | Websocket port                                                 |
 | Metrics              | 8222  | TCP     | Internal          | Memphis monitor port                                           |
-| Cluster connectivity | 4222  | TCP     | Internal          | Internal port for connectiovity between brokers in the cluster |
+| Cluster connectivity | 6222  | TCP     | Internal          | Internal port for connectiovity between brokers in the cluster |
 | Exporter             | 7777  | TCP     | Internal          | Memphis metrics exporter port for Prometheus                   |
 | MongoDB              | 27017 | TCP     | Internal          | MongoDB port                                                   |
 
