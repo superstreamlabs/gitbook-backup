@@ -55,10 +55,10 @@ To ensure data consistency and zero loss within complete broker(s) restarts, Mem
 
 * [TCP-based SDKs](broken-reference)
 * [HTTP](broken-reference)
-* WebSockets \* Soon \*
+* [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
 * gRPC \* Soon \*
-* WASM \* Soon \*
 * MQTT \* Soon \*
+* AMQP \* Soon \*
 
 ## Deployment sequence
 

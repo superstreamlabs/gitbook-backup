@@ -45,7 +45,7 @@ More info can be found in the [Memphis Docker deployment](deployment/docker-comp
 
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-## Key features (v0.4.3)
+## Key Features (v0.4.4)
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs

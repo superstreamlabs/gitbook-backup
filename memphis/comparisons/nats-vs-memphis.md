@@ -90,7 +90,7 @@ The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial
 
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Message tracing (aka Stream lineage)
 
@@ -226,7 +226,7 @@ NATS Jetstream does not offer stream lineage, but it can be achieved using OpenT
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Data-Level Observability
 

@@ -70,7 +70,7 @@ By adding more producers, the throughput will be increased accordingly due to th
 
 * [TCP-based SDKs](broken-reference)
 * [HTTP](broken-reference)
-* WebSockets \* Soon \*
+* [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
 * gRPC \* Soon \*
 * MQTT \* Soon \*
 * AMQP \* Soon \*
