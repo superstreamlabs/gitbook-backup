@@ -49,7 +49,7 @@ kubectl create secret generic tls-secret --from-file=memphis.pem --from-file=mem
 3\. Reinstall Memphis with the cert
 
 ```
-helm install my-memphis memphis --set analytics='false',cluster.enabled="true",websocket.tls.cert="memphis.pem",websocket.tls.key="memphis-key.pem",websocket.tls.secret.name="tls-secret" --create-namespace --namespace memphis --wait
+helm install my-memphis memphis --set analytics="false",cluster.enabled="true",websocket.tls.cert="memphis.pem",websocket.tls.key="memphis-key.pem",websocket.tls.secret.name="tls-secret" --create-namespace --namespace memphis --wait
 ```
 
 #### Step 2: Create the LB

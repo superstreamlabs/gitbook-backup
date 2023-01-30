@@ -7,7 +7,7 @@ coverY: 0
 
 This document describes authentication and authorisation features in Memphis. Together they allow the operator to control access to the system.
 
-### The Basics
+## The Basics
 
 Memphis has two types of credentials:
 
@@ -22,7 +22,7 @@ Memphis has two types of credentials:
 **Production environments** should not use the default user and create new user accounts with generated credentials instead.
 {% endhint %}
 
-### Adding a new user
+## Adding a new user
 
 <details>
 

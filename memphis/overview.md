@@ -1,5 +1,5 @@
 ---
-description: 0.4.3-beta
+description: 0.4.4-beta
 cover: ../.gitbook/assets/Overview..jpg
 coverY: 0
 ---
@@ -32,7 +32,7 @@ Memphis enables the building of modern queue-based applications that require lar
 7. Kafka, RabbitMQ, NATS, and other MQs are HARD to deploy, manage, secure, update, onboard, and tune.
 8. Turning batch processes into real-time can be complicated and time-consuming.
 
-### Key Features (v0.4.3)
+### Key Features (v0.4.4)
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs

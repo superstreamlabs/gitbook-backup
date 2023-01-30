@@ -5,7 +5,7 @@ coverY: 0
 
 # Consumer Group
 
-### What is a consumer group?
+## What is a consumer group?
 
 A consumer group is a group of consumers, usually combine multiple clients the same characteristics and/or replicas/workers of the same application/client.
 

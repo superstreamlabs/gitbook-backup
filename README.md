@@ -45,7 +45,7 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker
 
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-## Key Features (v0.4.3)
+## Key Features (v0.4.4)
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs

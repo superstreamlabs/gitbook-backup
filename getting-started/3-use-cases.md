@@ -2,7 +2,7 @@
 description: Memphis is great for the following use cases
 ---
 
-# 3 - Use cases
+# Use cases
 
 #### A growing list of use cases based on our users' usage
 
@@ -12,6 +12,7 @@ description: Memphis is great for the following use cases
 * Async communication between services on k8s
 * Queuing
 * Multiple destinations to a single message
+* Stream video frames
 
 #### Projects examples that utilize the power of data streaming
 
