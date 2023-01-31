@@ -31,6 +31,10 @@ MongoDB is not for data traffic but rather responsible for UI state and metadata
 | Exporter             | 7777  | TCP     | Internal          | Memphis metrics exporter port for Prometheus                   |
 | MongoDB              | 27017 | TCP     | Internal          | MongoDB port                                                   |
 
+### Network architecture diagram
+
+<figure><img src="../.gitbook/assets/Memphis Port Diagram.drawio (1).png" alt=""><figcaption></figcaption></figure>
+
 ## Memphis cluster component diagram (For production)
 
 Full Kubernetes-based layout.
