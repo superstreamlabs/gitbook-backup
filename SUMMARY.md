@@ -53,6 +53,7 @@
 * [Kubernetes](deployment/kubernetes/README.md)
   * [1 - Installation](deployment/kubernetes/1-installation.md)
   * [2 - Access](deployment/kubernetes/2-access.md)
+  * [3 - Upgrade](deployment/kubernetes/how-to-upgrade.md)
 * [Docker](deployment/docker-compose.md)
 
 ## SDKs and Protocols
@@ -93,7 +94,6 @@
 
 ## 🗒 Release notes
 
-* [How to upgrade memphis](release-notes/how-to-upgrade.md)
 * [Releases](release-notes/releases/README.md)
   * [v0.4.4 - beta](release-notes/releases/v0.4.4-beta.md)
   * [v0.4.3 - beta](release-notes/releases/v0.4.3-beta.md)
