@@ -6,7 +6,7 @@ description: Deploy Memphis over Docker using Docker compose
 
 {% embed url="https://youtu.be/cXAk60hMtHs" %}
 
-### Requirements
+## Requirements
 
 {% tabs %}
 {% tab title="Docker" %}
@@ -22,6 +22,8 @@ description: Deploy Memphis over Docker using Docker compose
 {% endtabs %}
 
 **Please make sure you have** [**docker-compose**](https://docs.docker.com/compose/) **installed.**
+
+## Getting started
 
 ### Step 1: Download compose.yaml file
 
@@ -131,3 +133,23 @@ await memphis.connect({
 {% content-ref url="../getting-started/2-hello-world.md" %}
 [2-hello-world.md](../getting-started/2-hello-world.md)
 {% endcontent-ref %}
+
+## How to upgrade?
+
+### Step 1: shutdown Memphis containers
+
+```bash
+docker rm -f $(docker ps -a | grep -i memphis | awk '{print $1}')
+```
+
+### Step 2: remove memphis docker images
+
+```bash
+docker image rm -f $(docker image ls | grep -i memphis)
+```
+
+### Step 3: Reinstall memphis
+
+```bash
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```

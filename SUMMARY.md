@@ -53,7 +53,7 @@
 * [Kubernetes](deployment/kubernetes/README.md)
   * [1 - Installation](deployment/kubernetes/1-installation.md)
   * [2 - Access](deployment/kubernetes/2-access.md)
-  * [3 - Upgrade](deployment/kubernetes/how-to-upgrade.md)
+  * [3 - Upgrade](release-notes/how-to-upgrade.md)
 * [Docker](deployment/docker-compose.md)
 
 ## SDKs and Protocols
