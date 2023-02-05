@@ -436,7 +436,7 @@ func main() {
     }
 
     ctx := context.Background()
-    ctx = context.WithValue(ctx, "key", "value)
+    ctx = context.WithValue(ctx, "key", "value")
     consumer.SetContext(ctx)
     consumer.Consume(handler)
 
