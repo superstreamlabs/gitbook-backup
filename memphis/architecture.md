@@ -58,7 +58,7 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
-* [HTTP](broken-reference)
+* [HTTP](https://github.com/memphisdev/memphis-http-proxy)
 * [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
 * gRPC \* Soon \*
 * MQTT \* Soon \*
