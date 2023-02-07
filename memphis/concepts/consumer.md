@@ -79,7 +79,7 @@ While in most messaging systems, it is the client's responsibility to track the 
 ## Supported Protocols
 
 * [NATS Protocol (Client SDKs)](broken-reference)
-* [HTTP](broken-reference)
+* [HTTP](https://github.com/memphisdev/memphis-http-proxy)
 * [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
 * gRPC \* Soon \*
 * MQTT \* Soon \*
