@@ -195,7 +195,7 @@ c) Create self-signed certificates for client
 $ mkcert -client -cert-file client.pem -key-file key-client.pem  localhost ::1 
 ```
 
-### 1. Create namespace + a secret for the TLS certs
+### 1. Create namespace + secret for the TLS certs
 
 a) Create a dedicated namespace for memphis
 
@@ -241,3 +241,27 @@ nats.tls.ca="rootCA.pem"
 ```
 {% endcode %}
 
+## Upgrade existing deployment
+
+### For adding TLS support
+
+1. Create a k8s secret with the provided TLS certs
+
+```
+kubectl create secret generic memphis-client-tls-secret \
+--from-file=memphis_client.pem \
+--from-file=memphis-key_client.pem \
+--from-file=rootCA.pem -n memphis
+```
+
+2. Upgrade Memphis to use the TLS certs
+
+```bash
+helm upgrade memphis memphis -n memphis --reuse-values \
+--set \
+nats.tls.verify="true",\
+nats.tls.cert="memphis_client.pem",\
+nats.tls.key="memphis-key_client.pem",\
+nats.tls.secret.name="tls-client-secret",\
+nats.tls.ca="rootCA.pem"
+```
