@@ -99,7 +99,7 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 An example with configured options:
 
 ```
-helm install memphis --set cluster.replicas=1,rootPwd="rootpassword" memphis/memphis --create-namespace --namespace memphis
+helm install memphis --set cluster.replicas=3,rootPwd="rootpassword" memphis/memphis --create-namespace --namespace memphis
 ```
 
 **Successful deployment** should print the following notes. If not, please raise an issue over [Github](https://github.com/Memphis-OS/memphis-k8s).

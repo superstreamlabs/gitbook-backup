@@ -7,7 +7,7 @@ description: Procedure for upgrading memphis
 ### Step 1: Uninstall existing helm installation
 
 ```
-helm uninstall my-memphis -n memphis
+helm uninstall memphis -n memphis
 ```
 
 {% hint style="warning" %}

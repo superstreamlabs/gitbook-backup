@@ -34,22 +34,8 @@ websocket.tls.key="memphis-key_local.pem",\
 
 **If Memphis is already installed -**
 
-Get current deployment values.
-
 ```
-helm get values memphis --namespace memphis
-```
-
-```
-USER-SUPPLIED VALUES:
-cluster:
-  enabled: true
-```
-
-Run the following command.
-
-```
-helm upgrade --set cluster.enabled=true --set exporter.enabled=true memphis --namespace memphis
+helm upgrade --set exporter.enabled=true memphis --namespace memphis --reuse-values
 ```
 
 ### Step 2: Add Datadog annotation to Memphis statefulset
