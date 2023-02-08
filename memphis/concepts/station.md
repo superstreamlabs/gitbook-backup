@@ -76,6 +76,4 @@ As seen in the illustration below, each **consumer group** will receive **all** 
 |                  |                                             |                                        |
 |                  |                                             |                                        |
 
-### Max message size
-
 Searched terms: max message, max message size, retention, Retention

@@ -166,3 +166,8 @@ helm get notes memphis -n memphis
 * **memphis-broker-0:** Memphis worker. Responsible for data ingestion and process, just like "Kafka's" brokers
 * **memphis-ui-xxx:** UI. Responsible for delivering a graphical user interface for managing the cluster.
 * **memphis-mongodb-0/1:** MongoDB, for Memphis internal usage.
+
+## Deploy Memphis with TLS (encrypted communication)
+
+
+
