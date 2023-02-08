@@ -90,7 +90,7 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 | websocket.tls.secret.name | <p><strong>*Optional*</strong> Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>      | ""            | `"memphis-ws-tls-secret"`     |
 | websocket.tls.cert        | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>.pem file to use</p>                | ""            | `"memphis_local.pem"`         |
 | websocket.tls.key         | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>key file</p>                        | ""            | `"memphis-key_local.pem"`     |
-| nats.tls.verify           | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.</p>                                         | ""            | `"true"`                      |
+| nats.tls.verify           | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication. Verification for the CA autority</p>        | ""            | `"true"`                      |
 | nats.tls.secret.name      | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>K8S secret name that holds the certs</p> | ""            | `"memphis-client-tls-secret"` |
 | nats.tls.cert             | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>.pem file to use</p>                     | ""            | `"memphis_client.pem"`        |
 | nats.tls.key              | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>Private key file to use</p>              | ""            | `"memphis-key_client.pem"`    |
@@ -167,7 +167,77 @@ helm get notes memphis -n memphis
 * **memphis-ui-xxx:** UI. Responsible for delivering a graphical user interface for managing the cluster.
 * **memphis-mongodb-0/1:** MongoDB, for Memphis internal usage.
 
+
+
 ## Deploy Memphis with TLS (encrypted communication)
 
+### 0. Optional: Create self-signed certificates
 
+a) Generate a self-signed certificate using `mkcert`
+
+```bash
+$ mkcert -client \
+-cert-file memphis_client.pem \
+-key-file memphis-key_client.pem  \
+"127.0.0.1" "localhost" "*.memphis.dev" ::1 \
+email@localhost valera@Valeras-MBP-2.lan
+```
+
+b) Find the `rootCA`
+
+```
+$ mkcert -CAROOT
+```
+
+c) Create self-signed certificates for client
+
+```bash
+$ mkcert -client -cert-file client.pem -key-file key-client.pem  localhost ::1 
+```
+
+### 1. Create namespace + a secret for the TLS certs
+
+a) Create a dedicated namespace for memphis
+
+```bash
+kubectl create namespace memphis
+```
+
+b) Create a k8s secret with the required certs
+
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+kubectl create secret generic memphis-client-tls-secret \
+--from-file=memphis_client.pem \
+--from-file=memphis-key_client.pem \
+--from-file=rootCA.pem -n memphis
+```
+{% endcode %}
+
+{% code title="memphis-client-tls-secret" lineNumbers="true" %}
+```yaml
+tls:
+  secret:
+    name: memphis-client-tls-secret
+  ca: "rootCA.pem"
+  cert: "memphis_client.pem"
+  key: "memphis-key_client.pem"
+```
+{% endcode %}
+
+### 2. Deploy Memphis with the generated certificate
+
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+helm install memphis memphis \
+--create-namespace --namespace memphis --wait \
+--set \
+cluster.enabled="true",\
+nats.tls.verify="true",\
+nats.tls.cert="memphis_client.pem",\
+nats.tls.key="memphis-key_client.pem",\
+nats.tls.secret.name="memphis-client-tls-secret",\
+nats.tls.ca="rootCA.pem"
+```
+{% endcode %}
 
