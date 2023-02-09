@@ -32,7 +32,7 @@
     * [JSON Schema](memphis/schemaverse-schema-management/formats/json-schema.md)
     * [GraphQL](memphis/schemaverse-schema-management/formats/graphql.md)
     * [Avro](memphis/schemaverse-schema-management/formats/avro.md)
-  * [FAQs](memphis/schemaverse-schema-management/faqs.md)
+  * [KB](memphis/schemaverse-schema-management/kb.md)
 * [Cluster configuration](memphis/cluster-configuration.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [NATS Jetstream vs Memphis](memphis/comparisons/nats-vs-memphis.md)
