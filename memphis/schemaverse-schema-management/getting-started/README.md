@@ -3,7 +3,7 @@ cover: ../../../.gitbook/assets/schema - formats.jpeg
 coverY: 0
 ---
 
-# Formats
+# ⭐ Getting started
 
 This section describes the formats that Memphis Schemaverse currently supports or will be in the future.
 
