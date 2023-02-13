@@ -14,13 +14,13 @@ In a federated data platform, in which responsibilities are distributed between 
 
 The very basic building block to control and ensure the quality of data that flows through your organization between the different owners is by defining well-written schemas and data models.
 
-## Why should you use schemas?
+### Why should you use schemas?
 
 Data pipelines are constantly breaking and creating data quality issues, usability issues, and there is a communication chasm between service implementers, data engineers, and data consumers.
 
 By defining a well-struct schema and enforcing it over your different data producers, you increase the quality of your data, lower the client logic needed to transform unstructured data, and decrease pipelines and consumer breaks.
 
-## Schemaverse Architecture
+## Meet Schemaverse
 
 <figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption><p>Overview</p></figcaption></figure>
 
@@ -66,7 +66,7 @@ A quick overview of the most popular formats supported by Schemaverse.
 
 The very first step would be to create a schema, based on the required data model, and apply it over a station.&#x20;
 
-When creating a schema, the creator must choose a data format that will also determine the data format of the ingested messages and several more characteristics. Each format has its own advantages, as described [here](getting-started/).
+When creating a schema, the creator must choose a data format that will also determine the data format of the ingested messages and several more characteristics. Each format has its own advantages, as described [here](formats/).
 
 #### 2. Validation
 
@@ -88,7 +88,7 @@ That process establishes the message's initial validation before it reaches the 
 
 ## Getting Started
 
-For code producer/consumer code examples, choose a [data format](getting-started/).
+For code producer/consumer code examples, choose a [data format](formats/).
 
 ## To consider
 
