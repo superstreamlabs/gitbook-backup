@@ -82,6 +82,7 @@
 * [🔌 Integrations](dashboard-gui/integrations/README.md)
   * [Monitoring](dashboard-gui/integrations/monitoring/README.md)
     * [Datadog](dashboard-gui/integrations/monitoring/datadog.md)
+    * [Grafana](dashboard-gui/integrations/monitoring/grafana.md)
   * [Notifications](dashboard-gui/integrations/notifications/README.md)
     * [Slack](dashboard-gui/integrations/notifications/slack.md)
   * [Storage](dashboard-gui/integrations/storage/README.md)

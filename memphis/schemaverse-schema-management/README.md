@@ -4,7 +4,7 @@ cover: ../../.gitbook/assets/schema - overview.jpeg
 coverY: 0
 ---
 
-# Schemaverse - Schema Management
+# Schemaverse
 
 ## Introduction
 
@@ -14,13 +14,13 @@ In a federated data platform, in which responsibilities are distributed between 
 
 The very basic building block to control and ensure the quality of data that flows through your organization between the different owners is by defining well-written schemas and data models.
 
-## Why should you use schemas?
+### Why should you use schemas?
 
 Data pipelines are constantly breaking and creating data quality issues, usability issues, and there is a communication chasm between service implementers, data engineers, and data consumers.
 
 By defining a well-struct schema and enforcing it over your different data producers, you increase the quality of your data, lower the client logic needed to transform unstructured data, and decrease pipelines and consumer breaks.
 
-## Schemaverse Architecture
+## Meet Schemaverse
 
 <figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption><p>Overview</p></figcaption></figure>
 
