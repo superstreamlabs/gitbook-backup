@@ -60,13 +60,12 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 
 ### Tier 2 (Cold storage)
 
-The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.
-
-Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.
-
-Each message that expels from the station will automatically migrate to the 2nd storage tier.
+The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
+Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.\
+Each message that expels from the station will automatically migrate to the 2nd storage tier.\
+Possible integrations [here](../../dashboard-gui/integrations/storage/).
 
 * **S3 (Object storage)**\
   ****Built to store and retrieve any amount of data from anywhere using S3 protocol.\
   Object storage offers different storage classes with different costs and performance requirements.\
-  Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and [more](https://documentation.commvault.com/v11/essential/9237\_supported\_cloud\_storage\_s3\_compatible\_object\_storage\_vendors.html).
+  Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and more.
