@@ -18,14 +18,18 @@ Please make sure you have the [Datadog K8S agent](https://docs.datadoghq.com/con
 
 ### Step 1: Make sure your Memphis Prometheus exporter is on
 
-**If you haven't** installed Memphis with the `exporter.enabled` yet&#x20;
+**If you haven't** installed Memphis with the `exporter.enabled` yet -\
+(\* `websocket.tls` are optional for a superior GUI experience)
 
 ```
 helm install memphis memphis \
 --create-namespace --namespace memphis --wait \
 --set \
 cluster.enabled="true",\
-exporter.enabled="true"
+exporter.enabled="true", \
+websocket.tls.secret.name="tls-secret",\
+websocket.tls.cert="memphis_local.pem",\
+websocket.tls.key="memphis-key_local.pem",\
 ```
 
 **If Memphis is already installed -**

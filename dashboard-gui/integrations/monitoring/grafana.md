@@ -40,18 +40,14 @@ honor_labels: true
 
 ### Step 1: Enabling Memphis Prometheus exporter
 
-**If you haven't** installed Memphis with the `exporter.enabled` yet -\
-(\* `websocket.tls` are optional for a superior GUI experience)
+**If you haven't** installed Memphis with the `exporter.enabled` yet&#x20;
 
 ```
 helm install memphis memphis \
 --create-namespace --namespace memphis --wait \
 --set \
 cluster.enabled="true",\
-exporter.enabled="true", \
-websocket.tls.secret.name="tls-secret",\
-websocket.tls.cert="memphis_local.pem",\
-websocket.tls.key="memphis-key_local.pem",\
+exporter.enabled="true"
 ```
 
 **If Memphis is already installed -**
