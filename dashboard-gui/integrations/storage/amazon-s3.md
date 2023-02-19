@@ -8,4 +8,8 @@ coverY: 0
 
 ## Introduction
 
-Receive alerts and notifications directly to your chosen slack channel for faster response and better real-time observability.
+The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
+Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.\
+Each message that expels from the station will automatically migrate to the 2nd storage tier.\
+
+
