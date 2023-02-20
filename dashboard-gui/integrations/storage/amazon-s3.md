@@ -10,6 +10,8 @@ coverY: 0
 
 The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
 Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.\
-Each message that expels from the station will automatically migrate to the 2nd storage tier.\
+Each message that expels from the station will automatically migrate to the 2nd storage tier.
 
+## Getting Started
 
+First, configure Amazon S3 at the integration center
