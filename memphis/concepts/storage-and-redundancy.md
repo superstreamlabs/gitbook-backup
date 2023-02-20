@@ -34,7 +34,7 @@ The number of replicas cannot be changed after station creation. (Will be in the
 
 Memphis offers a range of storage types that you can choose from based on your workload's data access, resiliency, frequency, and cost requirements, and configured per station.
 
-### Tier 1 (Hot storage)
+### Tier 1 (Local storage)
 
 The first type of storage each message will initially be stored at.
 
@@ -58,14 +58,23 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
-### Tier 2 (Cold storage)
+### Tier 2 (Remote storage)
 
 The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
 Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.\
 Each message that expels from the station will automatically migrate to the 2nd storage tier.\
 Possible integrations [here](../../dashboard-gui/integrations/storage/).
 
+#### Behind the scenes
+
+<figure><img src="../../.gitbook/assets/storage tier arch (2).jpeg" alt=""><figcaption></figcaption></figure>
+
+#### Growing list of options
+
 * **S3 (Object storage)**\
   ****Built to store and retrieve any amount of data from anywhere using S3 protocol.\
   Object storage offers different storage classes with different costs and performance requirements.\
   Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and more.
+* **MinIO**
+* **Azure blob storage**
+* ****
