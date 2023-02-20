@@ -67,14 +67,14 @@ Possible integrations [here](../../dashboard-gui/integrations/storage/).
 
 #### Behind the scenes
 
-<figure><img src="../../.gitbook/assets/storage tier arch (2).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/storage tier arch (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 #### Growing list of options
 
-* **S3 (Object storage)**\
+* ****[**S3 (Object storage)**](../../dashboard-gui/integrations/storage/amazon-s3.md)****\
   ****Built to store and retrieve any amount of data from anywhere using S3 protocol.\
   Object storage offers different storage classes with different costs and performance requirements.\
   Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and more.
-* **MinIO**
-* **Azure blob storage**
-* ****
+* **MinIO \*soon\***
+* **Azure blob storage \*soon\***
+* **GCP cloud storage \*soon\***
