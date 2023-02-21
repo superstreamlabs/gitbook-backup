@@ -1,10 +1,11 @@
-# Settings
+---
+description: For managing personal profile perferences
+---
 
-User settings can be found at the bottom of the sidebar shown below:
+# Profile
 
-![](<../.gitbook/assets/Screenshot 2022-12-11 at 15.45.40 (1).png>)
+"Profile" settings can be found at the bottom of the sidebar.
 
-![](<../.gitbook/assets/Screenshot 2022-12-11 at 15.46.08 (1).png>)
+<figure><img src="../.gitbook/assets/Screen Shot 2023-02-21 at 11.17.29.png" alt=""><figcaption></figcaption></figure>
 
-* Add or change your company logo.
-* Select your avatar.
+<figure><img src="../.gitbook/assets/Screen Shot 2023-02-21 at 11.22.31.png" alt=""><figcaption></figcaption></figure>
