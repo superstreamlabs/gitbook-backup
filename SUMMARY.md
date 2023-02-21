@@ -32,6 +32,7 @@
     * [JSON Schema](memphis/schemaverse-schema-management/formats/json-schema.md)
     * [GraphQL](memphis/schemaverse-schema-management/formats/graphql.md)
     * [Avro](memphis/schemaverse-schema-management/formats/avro.md)
+  * [Comparison](memphis/schemaverse-schema-management/comparison.md)
   * [KB](memphis/schemaverse-schema-management/kb.md)
 * [Memphis configuration](memphis/memphis-configuration.md)
 * [Comparisons](memphis/comparisons/README.md)
