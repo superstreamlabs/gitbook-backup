@@ -90,11 +90,11 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 | websocket.tls.secret.name | <p><strong>*Optional*</strong> Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>      | ""            | `"memphis-ws-tls-secret"`     |
 | websocket.tls.cert        | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>.pem file to use</p>                | ""            | `"memphis_local.pem"`         |
 | websocket.tls.key         | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>key file</p>                        | ""            | `"memphis-key_local.pem"`     |
-| nats.tls.verify           | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication. Verification for the CA autority</p>        | ""            | `"true"`                      |
-| nats.tls.secret.name      | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>K8S secret name that holds the certs</p> | ""            | `"memphis-client-tls-secret"` |
-| nats.tls.cert             | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>.pem file to use</p>                     | ""            | `"memphis_client.pem"`        |
-| nats.tls.key              | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>Private key file to use</p>              | ""            | `"memphis-key_client.pem"`    |
-| nats.tls.ca               | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>CA file to use</p>                       | ""            | `"rootCA.pem"`                |
+| memphis.tls.verify        | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication. Verification for the CA autority</p>        | ""            | `"true"`                      |
+| memphis.tls.secret.name   | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>K8S secret name that holds the certs</p> | ""            | `"memphis-client-tls-secret"` |
+| memphis.tls.cert          | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>.pem file to use</p>                     | ""            | `"memphis_client.pem"`        |
+| memphis.tls.key           | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>Private key file to use</p>              | ""            | `"memphis-key_client.pem"`    |
+| memphis.tls.ca            | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>CA file to use</p>                       | ""            | `"rootCA.pem"`                |
 
 An example with configured options:
 
@@ -233,11 +233,11 @@ helm install memphis memphis \
 --create-namespace --namespace memphis --wait \
 --set \
 cluster.enabled="true",\
-nats.tls.verify="true",\
-nats.tls.cert="memphis_client.pem",\
-nats.tls.key="memphis-key_client.pem",\
-nats.tls.secret.name="memphis-client-tls-secret",\
-nats.tls.ca="rootCA.pem"
+memphis.tls.verify="true",\
+memphis.tls.cert="memphis_client.pem",\
+memphis.tls.key="memphis-key_client.pem",\
+memphis.tls.secret.name="memphis-client-tls-secret",\
+memphis.tls.ca="rootCA.pem"
 ```
 {% endcode %}
 
@@ -259,9 +259,9 @@ kubectl create secret generic memphis-client-tls-secret \
 ```bash
 helm upgrade memphis memphis -n memphis --reuse-values \
 --set \
-nats.tls.verify="true",\
-nats.tls.cert="memphis_client.pem",\
-nats.tls.key="memphis-key_client.pem",\
-nats.tls.secret.name="tls-client-secret",\
-nats.tls.ca="rootCA.pem"
+memphis.tls.verify="true",\
+memphis.tls.cert="memphis_client.pem",\
+memphis.tls.key="memphis-key_client.pem",\
+memphis.tls.secret.name="tls-client-secret",\
+memphis.tls.ca="rootCA.pem"
 ```
