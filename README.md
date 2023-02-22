@@ -44,17 +44,3 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker
 ### How does it work?
 
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
-
-## Key Features (v0.4.4)
-
-* Fully optimized message broker in under 3 minutes
-* Easy-to-use UI, CLI, and SDKs
-* Dead-letter station (DLQ)
-* Data-level observability
-* Runs on your Docker or Kubernetes
-* Real-time event tracing
-* SDKs: Python, Go, Node.js, Typescript, Nest.JS, Kotlin, .NET, Java
-* Embedded schema management using Protobuf, JSON Schema, GraphQL, Avro
-* Slack integration
-
-A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.dev/roadmap)
