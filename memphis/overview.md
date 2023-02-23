@@ -60,7 +60,7 @@ Implementing one will require you to -
 * Storage tiering including remote storage classes like AWS S3
 * Runs on your Docker or Kubernetes
 * Real-time event tracing
-* SDKs: Python, Go, Node.js, Typescript, Nest.JS, Kotlin, .NET, Java
+* SDKs: Python, Go, Node.js, Typescript, Nest.JS, Kotlin, .NET, Java, REST
 * Embedded schema management using Protobuf, JSON Schema, GraphQL, Avro
 * Slack integration
 
