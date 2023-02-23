@@ -551,4 +551,93 @@ if __name__ == '__main__':
 python3 consumer.py
 ```
 {% endtab %}
+
+{% tab title="REST" %}
+Producing messages to Memphis via REST api can be implemented using any REST-supported language like Go, Python, Java, Node.js, .NET, etc...
+
+For the following tutorial we will use Node.js .
+
+
+
+Please make sure you have node.js [installed](https://nodejs.org/en/download/).
+
+**Step 1:** Create an empty dir for the node.js project
+
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
+
+**Step 2:** Create a new node project (If needed)
+
+```bash
+npm init -y
+```
+
+**Step 3:** Generate a new JWT token `generate.js`
+
+{% code title="generate.js" lineNumbers="true" %}
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "username": "application_type_username",
+  "connection_token": "connection_token",
+  "token_expiry_in_minutes": 123,
+  "refresh_token_expiry_in_minutes": 10000092
+});
+
+var config = {
+  method: 'post',
+  url: 'BROKER_RESTGW_URL',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+{% endcode %}
+
+**Step 4:** Run `generate.js` and copy the returned JWT
+
+```bash
+node generate.js
+```
+
+**Step 5:** Create a new file called `producer.js`
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "message": "New Message"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://BROKER_RESTGW_URL/stations/hps/produce/single',
+  headers: { 
+    'Authorization': 'Bearer <jwt>', 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+**Consume** messages via REST will soon be released.
+{% endtab %}
 {% endtabs %}
