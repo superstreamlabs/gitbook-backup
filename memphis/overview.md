@@ -26,19 +26,19 @@ Memphis enables the building of modern queue-based applications that require lar
 When your application requires a message broker or a queue,\
 Implementing one will require you to -
 
-* Build a dead-letter queue
-* Create observability
+* Build a dead-letter queue, create observability, and a retry mechanism
 * Build a scalable environment
 * Create client wrappers
+* Tag events for "fake" multi-tenancy
+* Enforce schemas and handle transformations
 * Handle back pressure. Client or queue side
-* Create a retry mechanism
 * Configure monitoring and real-time alerts
-* Deal with ACLs
-* Somehow create a cloud-agnostic implementation
+* Create a cloud-agnostic implementation
 * Create config alignment between production to a dev environment
 * Spent weeks and months learning the internals through archival documentation, ebooks, and courses
-* Onboard your developers\
-  And the list continues...
+* Onboard your developers
+
+And the list continues...
 
 ### The use cases behind the struggles.
 
