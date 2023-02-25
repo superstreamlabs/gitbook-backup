@@ -59,6 +59,6 @@ helm upgrade --set exporter.enabled=true memphis --namespace memphis --reuse-val
 ### Step 2: Import Memphis dashboard
 
 Import Memphis dashboard using Memphis dashboard ID: **18050**\
-[https://grafana.com/grafana/dashboards/18050-memphis-dev/](https://grafana.com/grafana/dashboards/18050-memphis-dev/)
+[https://grafana.com/grafana/dashboards/18050-memphis/](https://grafana.com/grafana/dashboards/18050-memphis/)
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
