@@ -79,22 +79,22 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 
 #### Helm Install Options
 
-| Option                    | Description                                                                                                               | Default Value | Example                       |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------- |
-| rootPwd                   | Root password for the dashboard                                                                                           | `"memphis"`   | `"memphis"`                   |
-| connectionToken           | Token for connecting an app to the Memphis Message Queue. Auto generated                                                  | `""`          | `"memphis"`                   |
-| dashboard.port            | Dashboard's (GUI) port                                                                                                    | 9000          | 9000                          |
-| cluster.enabled           | Cluster mode for HA and Performance                                                                                       | `"false"`     | `"false"`                     |
-| exporter.enabled          | Prometheus exporter                                                                                                       | `"false"`     | `"false"`                     |
-| analytics                 | Collection of anonymous metadata                                                                                          | `"true"`      | `"true"`                      |
-| websocket.tls.secret.name | <p><strong>*Optional*</strong> Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>      | ""            | `"memphis-ws-tls-secret"`     |
-| websocket.tls.cert        | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>.pem file to use</p>                | ""            | `"memphis_local.pem"`         |
-| websocket.tls.key         | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>key file</p>                        | ""            | `"memphis-key_local.pem"`     |
-| memphis.tls.verify        | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication. Verification for the CA autority</p>        | ""            | `"true"`                      |
-| memphis.tls.secret.name   | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>K8S secret name that holds the certs</p> | ""            | `"memphis-client-tls-secret"` |
-| memphis.tls.cert          | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>.pem file to use</p>                     | ""            | `"memphis_client.pem"`        |
-| memphis.tls.key           | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>Private key file to use</p>              | ""            | `"memphis-key_client.pem"`    |
-| memphis.tls.ca            | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>CA file to use</p>                       | ""            | `"rootCA.pem"`                |
+| Option                    | Description                                                                                                                     | Default Value | Example                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------- |
+| rootPwd                   | Root password for the dashboard                                                                                                 | `"memphis"`   | `"memphis"`                   |
+| connectionToken           | Token for connecting an app to the Memphis Message Queue. Auto generated                                                        | `""`          | `"memphis"`                   |
+| dashboard.port            | Dashboard's (GUI) port                                                                                                          | 9000          | 9000                          |
+| cluster.enabled           | Cluster mode for HA and Performance                                                                                             | `"false"`     | `"false"`                     |
+| exporter.enabled          | Prometheus exporter                                                                                                             | `"false"`     | `"false"`                     |
+| analytics                 | Collection of anonymous metadata                                                                                                | `"true"`      | `"true"`                      |
+| websocket.tls.secret.name | <p><strong>*Optional*</strong> Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>            | ""            | `"memphis-ws-tls-secret"`     |
+| websocket.tls.cert        | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>.pem file to use</p>                      | ""            | `"memphis_local.pem"`         |
+| websocket.tls.key         | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>key file</p>                              | ""            | `"memphis-key_local.pem"`     |
+| memphis.tls.verify        | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication. Verification for the CA autority. SSL.</p>        | ""            | `"true"`                      |
+| memphis.tls.secret.name   | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>K8S secret name that holds the certs. SSL.</p> | ""            | `"memphis-client-tls-secret"` |
+| memphis.tls.cert          | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>.pem file to use. SSL.</p>                     | ""            | `"memphis_client.pem"`        |
+| memphis.tls.key           | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>Private key file to use. SSL.</p>              | ""            | `"memphis-key_client.pem"`    |
+| memphis.tls.ca            | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>CA file to use. SSL.</p>                       | ""            | `"rootCA.pem"`                |
 
 An example with configured options:
 
