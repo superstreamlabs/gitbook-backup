@@ -90,4 +90,4 @@ Soon. Please [upvote](https://github.com/memphisdev/memphis/issues/766) to make 
 * Kafka \* Soon \*
 * AMQP \* Soon \*
 
-Search terms: max message deliveries
+Search terms: max message deliveries, batch, batches
