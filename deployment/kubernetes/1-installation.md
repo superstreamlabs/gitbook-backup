@@ -169,7 +169,7 @@ helm get notes memphis -n memphis
 
 
 
-## Deploy Memphis with TLS (encrypted communication)
+## Deploy Memphis with TLS (encrypted communication via SSL)
 
 ### 0. Optional: Create self-signed certificates
 
