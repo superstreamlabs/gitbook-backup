@@ -70,11 +70,15 @@ For more information about how to create and connect a consumer to Memphis,&#x20
 please head [here](broken-reference)
 {% endhint %}
 
-### Offsets
+### Sequence (Offsets)
 
-The offset is a simple integer number that is used by Memphis to maintain the current position of a consumer group. The current offset (just like disk offset) is a pointer to the last record that Memphis has already sent to a consumer group in its most recent poll. So, the consumer group doesn't get the same record twice because of the current offset.
+The offset is a simple integer number that is used by Memphis to maintain the current position of a consumer group. The current offset (like disk offset) is a pointer to the last record that Memphis sent to a consumer group in its most recent poll. So, the consumer group doesn't get the same record twice because of the current offset.
 
-While in most messaging systems, it is the client's responsibility to track the read offsets, in Memphis, the broker and SDK communicate with each other and record the acknowledged offsets automatically for the client. If needed, a specific offset can be used to re-read an acknowledged message.
+While in most messaging systems, it is the client's responsibility to track the read offsets, in Memphis, the broker and SDK communicate with each other and record the acknowledged offsets automatically for the client. A specific offset can be used to re-read an acknowledged message if needed.
+
+### Prefetching
+
+Soon. Please [upvote](https://github.com/memphisdev/memphis/issues/766) to make it sooner.
 
 ## Supported Protocols
 
@@ -85,3 +89,5 @@ While in most messaging systems, it is the client's responsibility to track the 
 * MQTT \* Soon \*
 * Kafka \* Soon \*
 * AMQP \* Soon \*
+
+Search terms: max message deliveries
