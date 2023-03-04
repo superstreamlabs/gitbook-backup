@@ -35,6 +35,7 @@
   * [Comparison](memphis/schemaverse-schema-management/comparison.md)
   * [KB](memphis/schemaverse-schema-management/kb.md)
 * [Memphis configuration](memphis/memphis-configuration.md)
+* [Benchmark](memphis/benchmark.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [NATS Jetstream vs Memphis](memphis/comparisons/nats-vs-memphis.md)
   * [RabbitMQ vs Memphis](memphis/comparisons/rabbitmq-vs-memphis.md)
