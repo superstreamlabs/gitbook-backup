@@ -82,6 +82,7 @@
 * [Users](dashboard-gui/users.md)
 * [Profile](dashboard-gui/settings.md)
 * [🔌 Integrations](dashboard-gui/integrations/README.md)
+  * [3rd Parties](dashboard-gui/integrations/3rd-parties.md)
   * [Monitoring](dashboard-gui/integrations/monitoring/README.md)
     * [Datadog](dashboard-gui/integrations/monitoring/datadog.md)
     * [Grafana](dashboard-gui/integrations/monitoring/grafana.md)
