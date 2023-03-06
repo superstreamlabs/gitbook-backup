@@ -15,7 +15,7 @@ The motivation -
 
 ## Limitations
 
-* NATS SDKs version - Compatibility with NATS 2.9 and above.
+* NATS SDKs version - Compatibility with NATS Jetstream 2.9 and above.
 * Without Memphis SDK, the following Memphis features will be disabled:
   * Producers/Consumers observability
   * Schemaverse

@@ -67,8 +67,8 @@
 * [Kotlin](https://github.com/memphisdev/memphis.kt)
 * [.NET](https://github.com/memphisdev/memphis.net)
 * [Java](https://github.com/memphisdev/memphis.java)
-* [NATS Jetstream](sdks-and-protocols/nats/README.md)
-  * [Argo and Memphis](sdks-and-protocols/nats/argo-and-memphis.md)
+* [NATS Jetstream](sdks-and-protocols/nats-jetstream/README.md)
+  * [Argo and Memphis](sdks-and-protocols/nats-jetstream/argo-and-memphis.md)
 * [Rust](sdks/rust.md)
 * [Scala](sdks/scala.md)
 
