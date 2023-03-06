@@ -100,7 +100,7 @@
 ## 🗒 Release notes
 
 * [Releases](release-notes/releases/README.md)
-  * [v0.4.5 - beta](release-notes/releases/v0.4.5-beta.md)
+  * [Latest - v0.4.5 - beta](release-notes/releases/latest-v0.4.5-beta.md)
   * [v0.4.4 - beta](release-notes/releases/v0.4.4-beta.md)
   * [v0.4.3 - beta](release-notes/releases/v0.4.3-beta.md)
   * [v0.4.2 - beta](release-notes/releases/v0.4.2-beta.md)
