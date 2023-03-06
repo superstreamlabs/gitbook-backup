@@ -1,16 +1,14 @@
 ---
-description: Since v0.4.3, Memphis supports standard NATS SDKs
+description: Memphis compatability with NATS Jetstream
 cover: ../../.gitbook/assets/NATS + Memphis.jpeg
 coverY: -43.05148658448151
 ---
 
-# NATS
+# NATS Jetstream
 
 ## Introduction
 
-As memphis started from NATS, it was natural to support NATS SDKs as well.&#x20;
-
-The added motivation is -
+The motivation -
 
 * To enable Memphis users to enjoy the broad reach and integrations of the NATS ecosystem.
 * To enable NATS users to make use of Memphis without code changes
