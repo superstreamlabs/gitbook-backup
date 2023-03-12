@@ -51,11 +51,11 @@
 
 ## 📦 Deployment
 
-* [Terraform](deployment/terraform/README.md)
-  * [Deploy on AWS](deployment/terraform/deploy-on-aws.md)
-  * [Deploy on GCP](deployment/terraform/deploy-on-gcp.md)
-  * [Deploy on DigitalOcean](deployment/terraform/deploy-on-digitalocean.md)
-  * [Deploy on Azure](deployment/terraform/deploy-on-azure.md)
+* [Terraform](deployment/cloud-deployment/README.md)
+  * [Deploy on AWS](deployment/cloud-deployment/deploy-on-aws.md)
+  * [Deploy on GCP](deployment/cloud-deployment/deploy-on-gcp.md)
+  * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
+  * [Deploy on Azure](deployment/cloud-deployment/deploy-on-azure.md)
 * [Kubernetes](deployment/kubernetes/README.md)
   * [1 - Installation](deployment/kubernetes/1-installation.md)
   * [2 - Access](deployment/kubernetes/2-access.md)
