@@ -45,6 +45,10 @@
   * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
 * [Privacy](memphis/privacy.md)
 
+## ☁ Memphis Cloud
+
+* [Pricing](memphis-cloud/pricing.md)
+
 ## 📦 Deployment
 
 * [Terraform](deployment/terraform/README.md)
@@ -113,7 +117,3 @@
   * [v0.2.1 - beta](release-notes/releases/v0.2.1-beta.md)
   * [v0.2.0 - beta](release-notes/releases/v0.2.0-beta.md)
   * [v0.1.0 - beta](release-notes/releases/v0.1.0-beta.md)
-
-## ☁ Memphis Cloud
-
-* [Pricing](memphis-cloud/pricing.md)
