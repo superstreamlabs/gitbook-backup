@@ -1,10 +1,10 @@
 ---
 description: Argo and Memphis using NATS Event source
-cover: ../../.gitbook/assets/Argo + Memphis.jpeg
+cover: ../../../.gitbook/assets/Argo + Memphis.jpeg
 coverY: 0
 ---
 
-# Argo and Memphis
+# Argo
 
 ## Introduction
 
@@ -41,7 +41,7 @@ Memphis can trigger Argo workflows via Argo Event Source.
 
 An Event Source defines the configurations required to consume events from external sources like Memphis, NATS, AWS SNS, SQS, GCP PubSub, Webhooks, etc.
 
-<figure><img src="../../.gitbook/assets/argo and memphis.jpeg" alt=""><figcaption><p>Integrating Memphis as a NATS Event Source of Argo</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/argo and memphis.jpeg" alt=""><figcaption><p>Integrating Memphis as a NATS Event Source of Argo</p></figcaption></figure>
 
 ## Getting started
 

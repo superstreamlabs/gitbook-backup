@@ -71,8 +71,7 @@
 * [Kotlin](https://github.com/memphisdev/memphis.kt)
 * [.NET](https://github.com/memphisdev/memphis.net)
 * [Java](https://github.com/memphisdev/memphis.java)
-* [NATS Jetstream](sdks-and-protocols/nats-jetstream/README.md)
-  * [Argo and Memphis](sdks-and-protocols/nats-jetstream/argo-and-memphis.md)
+* [NATS Jetstream](sdks-and-protocols/nats-jetstream.md)
 * [Rust](sdks/rust.md)
 * [Scala](sdks/scala.md)
 
@@ -95,6 +94,7 @@
     * [Amazon S3](dashboard-gui/integrations/storage/amazon-s3.md)
   * [Other platforms](dashboard-gui/integrations/other-platforms/README.md)
     * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
+    * [Argo](dashboard-gui/integrations/other-platforms/argo-and-memphis.md)
 
 ## CLI
 

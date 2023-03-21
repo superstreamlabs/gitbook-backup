@@ -1,6 +1,6 @@
 ---
 description: Memphis compatability with NATS Jetstream
-cover: ../../.gitbook/assets/NATS + Memphis.jpeg
+cover: ../.gitbook/assets/NATS + Memphis.jpeg
 coverY: -43.05148658448151
 ---
 
@@ -48,6 +48,6 @@ Stream argo_event_source was created
 
 ## Instructions for specific integrations
 
-{% content-ref url="argo-and-memphis.md" %}
-[argo-and-memphis.md](argo-and-memphis.md)
+{% content-ref url="../dashboard-gui/integrations/other-platforms/argo-and-memphis.md" %}
+[argo-and-memphis.md](../dashboard-gui/integrations/other-platforms/argo-and-memphis.md)
 {% endcontent-ref %}
