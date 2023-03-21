@@ -71,7 +71,7 @@
 * [Kotlin](https://github.com/memphisdev/memphis.kt)
 * [.NET](https://github.com/memphisdev/memphis.net)
 * [Java](https://github.com/memphisdev/memphis.java)
-* [NATS Jetstream](sdks-and-protocols/nats-jetstream.md)
+* [NATS Jetstream](sdks-and-protocols/nats-jetstream/README.md)
 * [Rust](sdks/rust.md)
 * [Scala](sdks/scala.md)
 
@@ -84,17 +84,19 @@
 * [Stations](dashboard-gui/stations.md)
 * [Users](dashboard-gui/users.md)
 * [Profile](dashboard-gui/settings.md)
-* [🔌 Integrations](dashboard-gui/integrations/README.md)
-  * [Monitoring](dashboard-gui/integrations/monitoring/README.md)
-    * [Datadog](dashboard-gui/integrations/monitoring/datadog.md)
-    * [Grafana](dashboard-gui/integrations/monitoring/grafana.md)
-  * [Notifications](dashboard-gui/integrations/notifications/README.md)
-    * [Slack](dashboard-gui/integrations/notifications/slack.md)
-  * [Storage](dashboard-gui/integrations/storage/README.md)
-    * [Amazon S3](dashboard-gui/integrations/storage/amazon-s3.md)
-  * [Other platforms](dashboard-gui/integrations/other-platforms/README.md)
-    * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
-    * [Argo](dashboard-gui/integrations/other-platforms/argo-and-memphis.md)
+
+## 🔌 Integrations
+
+* [Monitoring](integrations/monitoring/README.md)
+  * [Datadog](integrations/monitoring/datadog.md)
+  * [Grafana](integrations/monitoring/grafana.md)
+* [Notifications](integrations/notifications/README.md)
+  * [Slack](integrations/notifications/slack.md)
+* [Storage](integrations/storage/README.md)
+  * [Amazon S3](integrations/storage/amazon-s3.md)
+* [Other platforms](integrations/other-platforms/README.md)
+  * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
+  * [Argo](integrations/other-platforms/argo-and-memphis.md)
 
 ## CLI
 
