@@ -98,72 +98,13 @@ An example with configured options:
 helm install memphis --set cluster.replicas=3,rootPwd="rootpassword" memphis/memphis --create-namespace --namespace memphis
 ```
 
-**Successful deployment** should print the following notes. If not, please raise an issue over [Github](https://github.com/Memphis-OS/memphis-k8s).
+#### Deployed pods
 
-```
-NAME: memphis
-LAST DEPLOYED: Sun Jan  8 20:59:30 2023
-NAMESPACE: memphis
-STATUS: deployed
-REVISION: 1
-NOTES:
-__  __                      _     _
-|  \/  | ___ _ __ ___  _ __ | |__ (_)___
-| |\/| |/ _ \ '_ ` _ \| '_ \| '_ \| / __|
-| |  | |  __/ | | | | | |_) | | | | \__ \
-|_|  |_|\___|_| |_| |_| .__/|_| |_|_|___/
-                      |_|
+* **memphis.** Memphis broker.
+* **memphis-rest-gateway.** Memphis REST Gateway.
+* **memphis-metadata.** Metadata store.
 
-Melvis thank you for installing memphis!
-A dev first event-processing platform.
-
----------------------------------------------------------------------------------------------------------------------------------------------
-Memphis UI can be accessed on the following DNS name from within your cluster: memphis-cluster.memphis.svc.cluster.local:9000
-
-To access Memphis using UI/CLI/SDK from localhost, run the below commands:
-
-  - kubectl port-forward service/memphis-cluster 6666:6666 9000:9000 7770:7770 --namespace memphis > /dev/null &
-
-For interacting with the broker via HTTP:
-
-  - kubectl port-forward service/memphis-http-proxy 4444:4444 --namespace memphis > /dev/null &
-
-Dashboard/CLI: http://localhost:9000
-Broker: localhost:6666 (Client Connections)
-HTTP proxy: localhost:4444 (Data + Mgmt)
-
----------------------------------------------------------------------------------------------------------------------------------------------
-Read more about networking options here: https://docs.memphis.dev/deployment/kubernetes
-
-Website: https://memphis.dev
-Documentations: https://docs.memphis.dev
-
-Deployment Information
--------------------------
-## Secrets ##
-UI/CLI/SDK root username        - root
-UI/CLI root Password            - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
-SDK root connection token       - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 --decode
-
-
-## Components ##
-Broker - Where data flows through
-MongoDB - Internal Database for management
-```
-
-If the output did not save, or regeneration is needed, please use the following command:
-
-```
-helm get notes memphis -n memphis
-```
-
-#### Deployed Pods
-
-* **memphis-broker-0:** Memphis worker. Responsible for data ingestion and process, just like "Kafka's" brokers
-* **memphis-ui-xxx:** UI. Responsible for delivering a graphical user interface for managing the cluster.
-* **memphis-mongodb-0/1:** MongoDB, for Memphis internal usage.
-
-
+For more information on each component, please head to the [architecture section](../../memphis/architecture.md#key-components).
 
 ## Deploy Memphis with TLS (encrypted communication via SSL)
 
