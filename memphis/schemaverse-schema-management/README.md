@@ -20,13 +20,24 @@ Data pipelines are constantly breaking and creating data quality issues, usabili
 
 By defining a well-struct schema and enforcing it over your different data producers, you increase the quality of your data, lower the client logic needed to transform unstructured data, and decrease pipelines and consumer breaks.
 
-## Meet Schemaverse
+## Meet Schemaverse!
+
+* No code.
+* No client reboots.&#x20;
+* Runtime updates.
+* Transparent serialization.
 
 <figure><img src="../../.gitbook/assets/Schema Management Overview (2).jpg" alt=""><figcaption><p>Overview</p></figcaption></figure>
 
+### Behind the stage
+
 <figure><img src="../../.gitbook/assets/schemaverse.jpeg" alt=""><figcaption><p>Sequence diagram</p></figcaption></figure>
 
-Memphis Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources. With a unique and modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations and choose if the schema should be enforced or not. Memphis' low-code approach removes the serialization part as it is embedded within the producer library. Schemaverse supports versioning, GitOps methodologies, and schema evolution.
+Memphis Schemaverse provides a robust schema store and schema management layer on top of memphis broker without a standalone compute or dedicated resources.&#x20;
+
+With a unique and modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations, and choose if the schema should be enforced or not.&#x20;
+
+Memphis' low-code approach removes the serialization part as it is embedded within the producer library. Schemaverse supports versioning, GitOps methodologies, and schema evolution.
 
 Also includes -&#x20;
 
