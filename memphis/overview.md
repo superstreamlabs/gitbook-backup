@@ -57,12 +57,12 @@ And the list continues...
 * Easy-to-use UI, CLI, and SDKs
 * Dead-letter station (DLQ)
 * Data-level observability
-* Storage tiering including remote storage classes like AWS S3
+* [Storage tiering](concepts/storage-and-redundancy.md#storage-tiering), including remote storage classes like AWS S3
 * Runs on your Docker or Kubernetes
 * Real-time event tracing
 * SDKs: Python, Go, Node.js, Typescript, Nest.JS, Kotlin, .NET, Java, REST
 * Embedded schema management using Protobuf, JSON Schema, GraphQL, Avro
-* Slack integration
+* [Integration center](broken-reference)
 
 A full roadmap can be found here [https://memphis.dev/roadmap](https://memphis.dev/roadmap)
 
