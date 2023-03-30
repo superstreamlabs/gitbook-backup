@@ -36,15 +36,11 @@ Memphis platform comprised three main components:
 
 ### Network architecture diagram
 
-<figure><img src="../.gitbook/assets/Memphis Port Diagram.drawio (1).png" alt=""><figcaption></figcaption></figure>
-
-## K8S Deployment diagram
-
-<figure><img src="../.gitbook/assets/Memphis Architecture (1).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/network diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Ordering
 
-Ordering is guaranteed only while working with a single consumer group.
+Currently, ordering is guaranteed only while working with a single consumer group.
 
 ![](../.gitbook/assets/ordering.jpeg)
 
@@ -52,7 +48,9 @@ Ordering is guaranteed only while working with a single consumer group.
 
 Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis, called RAFT, and compared to Apache ZooKeeper, widely used by other projects like Kafka, does not require a witness or a standalone Quorum. RAFT is also equivalent to Paxos in fault tolerance and performance.
 
-To ensure data consistency and zero loss within complete broker’s restarts, Memphis brokers should run on different nodes and try to do it automatically. To comply with RAFT requirements which are ½ cluster size + 1, On K8S environment, three Memphis brokers will be deployed. The minimum number of brokers is three to ensure at least one node failure.
+Memphis brokers should run on different nodes to ensure data consistency and zero loss within complete broker’s reboots.&#x20;
+
+To comply with RAFT requirements which are ½ cluster size + 1 an odd number of Memphis brokers shall be deployed. The minimum number of brokers is one, and the next scale would be 3, 5, and so forth.
 
 ![](../.gitbook/assets/replications.jpeg)
 
@@ -107,7 +105,7 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 
 This is achieved by the combination of published messages being persisted to the station as well as the consumer tracking delivery and acknowledgment of each message as clients receive and process them.
 
-* [Exactly once (Idempotence)](key-concepts/idempotency.md)
+* [Exactly once (Idempotence)](concepts/idempotency.md)
 
 
 
