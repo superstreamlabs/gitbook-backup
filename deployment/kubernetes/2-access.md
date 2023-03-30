@@ -4,11 +4,11 @@ description: How to access Memphis after installation
 
 # 2 - Access
 
-## How to configure public access to Memphis
+## How to access Memphis
 
-### <mark style="color:purple;">Localhost</mark>
+### Internal access
 
-Run
+Run the following to expose Memphis via `port-forward`
 
 ```
 kubectl port-forward service/memphis-cluster 6666:6666 9000:9000 7770:7770 --namespace memphis > /dev/null &
@@ -21,13 +21,9 @@ UI/CLI root username - root
 UI/CLI root Password - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
 ```
 
-[http://localhost:9000](http://localhost:9000)
+Head to [http://localhost:9000](http://localhost:9000)
 
-{% hint style="info" %}
-If a simpler localhost connection is needed for more services, use [Kubefwd](https://kubefwd.com/).
-{% endhint %}
-
-### <mark style="color:purple;">Production</mark>
+### Public access
 
 #### Step 1: Deploy self-signed cert
 

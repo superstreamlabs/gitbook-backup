@@ -21,3 +21,29 @@ helm repo update
 ```
 
 ### Step 3: Reinstall Memphis
+
+<details>
+
+<summary>Production</summary>
+
+Production-grade Memphis with three memphis brokers configured in cluster-mode
+
+```bash
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
+helm install memphis --set cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis --wait
+```
+
+</details>
+
+<details>
+
+<summary>Dev</summary>
+
+Standard installation of Memphis with a single broker
+
+```bash
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
+helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
+```
+
+</details>
