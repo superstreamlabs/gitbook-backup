@@ -65,7 +65,7 @@ To comply with RAFT requirements which are ½ cluster size + 1 an odd number of 
 
 ## Deployment sequence
 
-<figure><img src="../.gitbook/assets/Deployment process.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/deployment.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Requirements
 
