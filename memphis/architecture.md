@@ -71,13 +71,13 @@ To comply with RAFT requirements which are ½ cluster size + 1 an odd number of 
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-**Minimum Requirements (No HA)**
+**Minimum Requirements (Without high availability)**
 
 <table><thead><tr><th>Resource</th><th>Quantity</th><th data-hidden></th></tr></thead><tbody><tr><td>K8S Nodes</td><td>1</td><td></td></tr><tr><td>CPU</td><td>2 CPU</td><td></td></tr><tr><td>Memory</td><td>4GB RAM</td><td></td></tr><tr><td>Storage</td><td>12GB PVC</td><td></td></tr></tbody></table>
 
 ****
 
-**Recommended Requirements (HA)**
+**Recommended Requirements for production (With high availability)**
 
 | Resource  | Minimum Quantity  |
 | --------- | ----------------- |
