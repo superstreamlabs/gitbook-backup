@@ -4,40 +4,41 @@ description: This section describes Memphis' architecture
 
 # Architecture
 
+## Key components
+
+Memphis platform comprised three main components:
+
+1. Memphis.\
+   The broker itself which acts as the data storage layer. That is the component that stores and controls the ingested messages and their entire lifecycle management.
+2. Metadata store.\
+   Responsible for storing the platform metadata only, such as general information, monitoring, GUI state, and pointers to dead-letter messages. The metadata store uses Postgres.
+3. REST Gateway.\
+   Responsible for exposing Memphis management and data ingestion through REST requests.
+
+<figure><img src="../.gitbook/assets/memphis key components.jpeg" alt=""><figcaption></figcaption></figure>
+
 ## Connectivity Diagram
 
-Memphis deployment comprised four components:
-
-**1.** GUI - The dashboard of Memphis.
-
-**2.** Broker (or brokers in cluster mode)
-
-**3.** MongoDB - Only for UI state persistency (not used for storing messages). Will be replaced in the coming versions.
-
-<figure><img src="../.gitbook/assets/connectivity diagram.jpeg" alt=""><figcaption></figcaption></figure>
-
-MongoDB is not for data traffic but rather responsible for UI state and metadata only and will be removed soon.
+<figure><img src="../.gitbook/assets/connectivity.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Ports list
 
-| Name                 | Port  | TCP/UDP | Inter/External    | Description                                                    |
-| -------------------- | ----- | ------- | ----------------- | -------------------------------------------------------------- |
-| Dashboard/CLI        | 9000  | TCP     | External          | External port that serve CLI clients and Web UI dashboard      |
-| Client connections   | 6666  | TCP     | Internal/External | Port for TCP-based client connections with memphis SDKs        |
-| REST Gateway         | 4444  | TCP     | External          | REST gateway endpoint                                          |
-| Websocket            | 7770  | TCP     | External          | Websocket port                                                 |
-| Metrics              | 8222  | TCP     | Internal          | Memphis monitor port                                           |
-| Cluster connectivity | 6222  | TCP     | Internal          | Internal port for connectiovity between brokers in the cluster |
-| Exporter             | 7777  | TCP     | Internal          | Memphis metrics exporter port for Prometheus                   |
-| MongoDB              | 27017 | TCP     | Internal          | MongoDB port                                                   |
+| Name                 | Port | TCP/UDP | Inter/External    | Description                                                    |
+| -------------------- | ---- | ------- | ----------------- | -------------------------------------------------------------- |
+| Dashboard/CLI        | 9000 | TCP     | External          | External port that serve CLI clients and Web UI dashboard      |
+| Client connections   | 6666 | TCP     | Internal/External | Port for TCP-based client connections with memphis SDKs        |
+| REST Gateway         | 4444 | TCP     | External          | REST gateway endpoint                                          |
+| Websocket            | 7770 | TCP     | External          | Websocket port                                                 |
+| Metrics              | 8222 | TCP     | Internal          | Memphis monitor port                                           |
+| Cluster connectivity | 6222 | TCP     | Internal          | Internal port for connectiovity between brokers in the cluster |
+| Exporter             | 7777 | TCP     | Internal          | Memphis metrics exporter port for Prometheus                   |
+| Postgres             | 5432 | TCP     | Internal          | MongoDB port                                                   |
 
 ### Network architecture diagram
 
 <figure><img src="../.gitbook/assets/Memphis Port Diagram.drawio (1).png" alt=""><figcaption></figcaption></figure>
 
-## Memphis cluster component diagram (For production)
-
-Full Kubernetes-based layout.
+## K8S Deployment diagram
 
 <figure><img src="../.gitbook/assets/Memphis Architecture (1).jpg" alt=""><figcaption></figcaption></figure>
 
@@ -106,7 +107,7 @@ To ensure data consistency and zero loss within complete broker’s restarts, Me
 
 This is achieved by the combination of published messages being persisted to the station as well as the consumer tracking delivery and acknowledgment of each message as clients receive and process them.
 
-* [Exactly once (Idempotence)](concepts/idempotency.md)
+* [Exactly once (Idempotence)](key-concepts/idempotency.md)
 
 
 

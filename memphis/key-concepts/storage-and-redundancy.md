@@ -58,7 +58,7 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
-### Tier 2 (Remote storage)
+### Tier 2 (Remote storage) \* Optional \*
 
 The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
 Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.\
@@ -69,7 +69,7 @@ Possible integrations [here](../../integrations/storage/).
 
 <figure><img src="../../.gitbook/assets/storage tier arch (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-#### Growing list of options
+#### A growing list of options:
 
 * ****[**S3 (Object storage)**](../../integrations/storage/amazon-s3.md)****\
   ****Built to store and retrieve any amount of data from anywhere using S3 protocol.\
