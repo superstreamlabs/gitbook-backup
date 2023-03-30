@@ -43,14 +43,14 @@ const memphis = require("memphis-dev");
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'memphis_broker_hostname',
+            username: 'application_type_user',
+            connectionToken: 'connection_token'
         });
 
         const producer = await memphisConnection.producer({
-            stationName: '<station_name>',
-            producerName: '<producer_name>'
+            stationName: 'station_name',
+            producerName: 'producer_name'
         });
 
         const headers = memphis.headers()
@@ -87,15 +87,15 @@ const memphis = require('memphis-dev');
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'memphis_broker_hostname',
+            username: 'application_type_user',
+            connectionToken: 'connection_token'
         });
 
         const consumer = await memphisConnection.consumer({
-            stationName: '<station_name',
-            consumerName: '<consumer_name>',
-            consumerGroup: '<consumer_group_name>'
+            stationName: 'station_name',
+            consumerName: 'consumer_name',
+            consumerGroup: 'consumer_group_name'
         });
 
         consumer.setContext({ key: "value" });
@@ -155,9 +155,9 @@ import type { Memphis } from 'memphis-dev/types';
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'memphis_broker_hostname',
+            username: 'application_type_user',
+            connectionToken: 'connection_token'
         });
 
         const producer = await memphisConnection.producer({
