@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/Your_streaming_journey_starts_here..jpg
+cover: ../.gitbook/assets/LinkedIn personal (1).png
 coverY: 0
 ---
 

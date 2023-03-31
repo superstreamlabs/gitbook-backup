@@ -1,6 +1,6 @@
 ---
-cover: .gitbook/assets/Your_streaming_journey_starts_here..jpg
-coverY: 0
+cover: .gitbook/assets/LinkedIn personal.png
+coverY: -58
 ---
 
 # Step 1 - Installation
