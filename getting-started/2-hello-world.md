@@ -476,13 +476,13 @@ pip3 install --upgrade memphis-py
 
 {% code title="producer.py" lineNumbers="true" %}
 ```python
-import asyncio
-from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError
+from memphis import Memphis, Headers
+from memphis.types import Retention, Storage
         
 async def main():
     try:
         memphis = Memphis()
-        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD")
         
         producer = await memphis.producer(station_name="STATION_NAME", producer_name="PRODUCER_NAME")
         headers = Headers()
@@ -511,8 +511,8 @@ python3 producer.py
 
 {% code title="consumer.py" lineNumbers="true" %}
 ```python
-import asyncio
-from memphis import Memphis, MemphisError, MemphisConnectError, MemphisHeaderError
+from memphis import Memphis, Headers
+from memphis.types import Retention, Storage
         
 async def main():
     async def msg_handler(msgs, error, context):
@@ -529,7 +529,7 @@ async def main():
         
     try:
         memphis = Memphis()
-        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD")
         
         consumer = await memphis.consumer(station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CONSUMER_GROUP_NAME")
         consumer.set_context({"key": "value"})
