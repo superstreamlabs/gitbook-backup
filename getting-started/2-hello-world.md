@@ -36,25 +36,25 @@ npm install memphis-dev
 
 {% code title="producer.js" lineNumbers="true" %}
 ```javascript
-const memphis = require("memphis-dev");
+const { memphis } = require("memphis-dev");
 
 (async function () {
     let memphisConnection
 
     try {
         memphisConnection = await memphis.connect({
-            host: 'memphis_broker_hostname',
-            username: 'application_type_user',
-            connectionToken: 'connection_token'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const producer = await memphisConnection.producer({
-            stationName: 'station_name',
-            producerName: 'producer_name'
+            stationName: 'STATION_NAME',
+            producerName: 'PRODUCER_NAME'
         });
 
         const headers = memphis.headers()
-        headers.add('key', 'value')
+        headers.add('KEY', 'VALUE')
         await producer.produce({
             message: Buffer.from("Message: Hello world"), // you can also send JS object - {}
             headers: headers
@@ -66,7 +66,6 @@ const memphis = require("memphis-dev");
         if (memphisConnection) memphisConnection.close();
     }
 })();
-        
 ```
 {% endcode %}
 
