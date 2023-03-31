@@ -79,22 +79,22 @@ node producer.js
 
 {% code title="consumer.js" lineNumbers="true" %}
 ```javascript
-const memphis = require('memphis-dev');
+const { memphis } = require("memphis-dev");
 
 (async function () {
     let memphisConnection;
 
     try {
         memphisConnection = await memphis.connect({
-            host: 'memphis_broker_hostname',
-            username: 'application_type_user',
-            connectionToken: 'connection_token'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const consumer = await memphisConnection.consumer({
-            stationName: 'station_name',
-            consumerName: 'consumer_name',
-            consumerGroup: 'consumer_group_name'
+            stationName: 'STATION_NAME',
+            consumerName: 'CONSUMER_NAME',
+            consumerGroup: 'CONSUMER_GROUP_NAME'
         });
 
         consumer.setContext({ key: "value" });
@@ -146,17 +146,16 @@ npm install memphis-dev
 
 {% code title="producer.ts" lineNumbers="true" %}
 ```typescript
-import memphis from 'memphis-dev';
-import type { Memphis } from 'memphis-dev/types';
+import { memphis, Memphis } from 'memphis-dev';
 
 (async function () {
     let memphisConnection: Memphis;
 
     try {
         memphisConnection = await memphis.connect({
-            host: 'memphis_broker_hostname',
-            username: 'application_type_user',
-            connectionToken: 'connection_token'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const producer = await memphisConnection.producer({
@@ -190,17 +189,16 @@ node producer.ts
 
 {% code title="consumer.ts" lineNumbers="true" %}
 ```typescript
-import memphis from 'memphis-dev';
-import { Memphis, Message } from 'memphis-dev/types';
+import { memphis, Memphis } from 'memphis-dev';
 
 (async function () {
     let memphisConnection: Memphis;
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const consumer = await memphisConnection.consumer({
