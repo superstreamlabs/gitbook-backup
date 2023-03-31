@@ -556,13 +556,11 @@ python3 consumer.py
 {% endtab %}
 
 {% tab title="REST" %}
-Producing messages to Memphis via REST api can be implemented using any REST-supported language like Go, Python, Java, Node.js, .NET, etc...
+Producing messages to Memphis via REST API can be implemented using any REST-supported language like Go, Python, Java, Node.js, .NET, etc...
 
-For the following tutorial we will use Node.js .
+For the following tutorial, we will use Node.js .
 
 
-
-Please make sure you have node.js [installed](https://nodejs.org/en/download/).
 
 **Step 1:** Create an empty dir for the node.js project
 
@@ -583,8 +581,8 @@ npm init -y
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
-  "username": "application_type_username",
-  "connection_token": "connection_token",
+  "username": "APPLICATION_TYPE_USERNAME",
+  "password": "PASSWORD",
   "token_expiry_in_minutes": 123,
   "refresh_token_expiry_in_minutes": 10000092
 });
