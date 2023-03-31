@@ -48,7 +48,7 @@
 
 ## ☁ Memphis Cloud
 
-* [Pricing](memphis-cloud/pricing.md)
+* [Signup](memphis-cloud/signup.md)
 
 ## 📦 Deployment
 
@@ -62,6 +62,7 @@
   * [2 - Access](deployment/kubernetes/2-access.md)
   * [3 - Upgrade](release-notes/how-to-upgrade.md)
 * [Docker](deployment/docker-compose.md)
+* [How to upgrade](deployment/how-to-upgrade.md)
 
 ## SDKs and Protocols
 

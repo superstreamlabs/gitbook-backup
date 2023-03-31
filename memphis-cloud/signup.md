@@ -2,9 +2,9 @@
 description: Fully-managed Memphis
 ---
 
-# Pricing
+# Signup
 
-Until our pricing page is ready, you can always reach out to us via one of the following -&#x20;
+Until our cloud page is ready, you can always reach out to us via one of the following -&#x20;
 
 * Email us: **team@memphis.dev**
 * Or, **** [**Schedule**](https://calendly.com/yanivbhemo/onboard-call-to-memphis-dev) a quick discovery call
