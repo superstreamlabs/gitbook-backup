@@ -24,6 +24,7 @@
   * [Scaling](memphis/concepts/scaling.md)
   * [Ordering](memphis/concepts/ordering.md)
   * [Dead-letter Station (DLS)](dashboard-ui/troubleshooting/dead-letter.md)
+  * [Delayed messages](memphis/key-concepts/delayed-messages.md)
   * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
 * [Schemaverse](memphis/schemaverse-schema-management/README.md)
