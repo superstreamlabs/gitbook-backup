@@ -259,8 +259,8 @@ npm install memphis-dev
 {% code title="producer.module.ts" lineNumbers="true" %}
 ```typescript
 import { Module } from "@nestjs/common";
-import { MemphisModule, MemphisService } from "memphis-dev/nest"
-import type { Memphis } from 'memphis-dev/types';
+import { Memphis, MemphisModule, MemphisService } from "memphis-dev"
+
 @Module({
     imports: [MemphisModule.register()],
 })
@@ -272,10 +272,10 @@ export class ProducerModule {
             let memphisConnection: Memphis;
             
             try {
-                memphisConnection = await this.memphis.connect({
-                    host: '<Memphis_hostname>',
-                    username: '<application_type_user>',
-                    connectionToken: '<connection_token>'
+                memphisConnection = await memphis.connect({
+                    host: 'MEMPHIS_BROKER_HOSTNAME',
+                    username: 'APPLICATION_TYPE_USERNAME',
+                    password: 'PASSWORD'
                 });
 
                 const producer = await memphisConnection.producer({
@@ -314,9 +314,9 @@ import type { Message } from 'memphis-dev/types';
 @Controller('auth')
 export class ExampleController {
     @consumeMessage({
-        stationName: '<station-name>',
-        consumerName: '<consumer-name>',
-        consumerGroup: ''
+        stationName: 'STATION_NAME',
+        consumerName: 'CONSUMER_NAME',
+        consumerGroup: 'CONSUMER_GROUP_NAME'
     })
     async messageHandler(message: Message) {
         console.log(message.getData().toString());
@@ -335,13 +335,19 @@ mkdir memphis-demo && \
 cd memphis-demo
 ```
 
-**Step 2:** In your project's directory, install Memphis Go SDK
+**Step 2:** Init the newly created project
+
+```
+go mod init memphis-demo
+```
+
+**Step 3:** In your project's directory, install Memphis Go SDK
 
 ```
 go get github.com/memphisdev/memphis.go
 ```
 
-**Step 3:** Create a new Go file called `producer.go`
+**Step 4:** Create a new Go file called `producer.go`
 
 {% code title="producer.go" lineNumbers="true" %}
 ```go
@@ -355,7 +361,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", "MEMPHIS_CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
@@ -403,7 +409,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", "MEMPHIS_CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
