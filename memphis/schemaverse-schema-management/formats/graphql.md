@@ -127,6 +127,7 @@ const memphis = require("memphis-dev");
 **Code (DocumentNode):**
 
 ```javascript
+import {parse} from 'graphql'
 const memphis = require("memphis-dev");
 
 (async function () {
@@ -472,6 +473,7 @@ import type { Memphis } from 'memphis-dev/types';
 ```javascript
 import memphis from 'memphis-dev';
 import type { Memphis } from 'memphis-dev/types';
+import {parse} from 'graphql'
 
 (async function () {
     let memphisConnection: Memphis;
