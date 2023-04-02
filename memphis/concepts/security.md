@@ -65,7 +65,7 @@ Memphis has two types of credentials:
 
 <summary>CLI</summary>
 
-1. [Install](../../cli/installation.md) the CLI
+1. Install the CLI
 2.  Address the CLI to the cluster&#x20;
 
     ```powershell
