@@ -103,7 +103,7 @@ const memphis = require("memphis-dev");
         await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            connectionToken: "CONNECTION_TOKEN"
+            password: "PASSWORD"
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -135,7 +135,7 @@ const memphis = require("memphis-dev");
         await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            connectionToken: "CONNECTION_TOKEN"
+            password: "PASSWORD"
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -190,7 +190,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
@@ -229,7 +229,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
@@ -286,7 +286,7 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD")
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -318,7 +318,7 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD")
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -408,7 +408,7 @@ import type { Memphis } from 'memphis-dev/types';
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            connectionToken: 'CONNECTION_TOKEN'
+            password: 'PASSWORD'
         });
 
         const producer = await memphisConnection.producer({
@@ -544,7 +544,7 @@ const graphql = require('graphql');
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_HOSTNAME',
             username: 'MEMPHIS_USERNAME',
-            connectionToken: 'MEMPHIS_CONNECTION_TOKEN'
+            password: "PASSWORD"
         });
 
         const consumer = await memphisConnection.consumer({
@@ -583,7 +583,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("<memphis-host>", "<application type username>", "<broker-token>")
+    conn, err := memphis.Connect("<memphis-host>", "<application type username>", memphis.Password: "password")
     if err != nil {
         os.Exit(1)
     }
@@ -644,7 +644,7 @@ async def main():
 
   try:
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD")
     consumer = await memphis.consumer(
       station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CG_NAME")
     consumer.consume(msg_handler)
@@ -677,7 +677,7 @@ import {parse} from 'graphql'
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_USER',
-            connectionToken: 'CONNECTION_TOKEN'
+            password: 'PASSWORD'
         });
 
         const consumer = await memphisConnection.consumer({
