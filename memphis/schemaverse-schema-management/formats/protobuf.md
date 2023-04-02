@@ -84,7 +84,7 @@ const memphis = require("memphis-dev");
         await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            connectionToken: "CONNECTION_TOKEN"
+            password: "PASSWORD"
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -137,7 +137,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
@@ -180,7 +180,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", "CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
@@ -237,7 +237,7 @@ import schema_pb2 as PB
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_BROKER_URL", username="APPLICATION_TYPE_USERNAME", connection_token="CONNECTION_TOKEN")
+    await memphis.connect(host="MEMPHIS_BROKER_URL", username="APPLICATION_TYPE_USERNAME", password="PASSWORD")
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -291,7 +291,7 @@ import type { Memphis } from 'memphis-dev/types';
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            connectionToken: 'CONNECTION_TOKEN'
+            password: 'PASSWORD'
         });
 
         const producer = await memphisConnection.producer({
@@ -356,7 +356,7 @@ var protobuf = require("protobufjs");
         await memphis.connect({
             host: "localhost",
             username: "root",
-            connectionToken: "memphis"
+            password: "memphis"
         });
 
         const consumer = await memphis.consumer({
@@ -410,7 +410,7 @@ type Test struct {
 }
 
 func main() {
-	conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_USER", "MEMPHIS_CONNECTION_TOKEN")
+	conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_USER", memphis.Password("PASSWORD"))
 	if err != nil {
 		os.Exit(1)
 	}
@@ -466,7 +466,7 @@ async def main():
 
     try:
         memphis = Memphis()
-        await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", password="PASSWORD")
         consumer = await memphis.consumer(
             station_name="STATION_NAME", consumer_name="CONSUMER_NAME")
         consumer.consume(msg_handler)
@@ -494,7 +494,7 @@ var protobuf = require("protobufjs");
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            connectionToken: 'CONNECTION_TOKEN'
+            password: 'PASSWORD'
         });
 
         const consumer = await memphis.consumer({
