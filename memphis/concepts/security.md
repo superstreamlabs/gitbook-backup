@@ -8,6 +8,42 @@ coverY: 0
 
 # Security/Authentication
 
+## Methods
+
+When deploying Memphis, there is an option to choose the authentication method. The method should be chosen based on the app and the organization's security requirements.
+
+* **Username + password (Default).**\
+  Each new user (both application and management) gets created with a dedicated username and password.
+
+Kubernetes deployment command:
+
+```
+helm install memphis --set user_pass_based_auth="true" memphis/memphis --create-namespace --namespace memphis
+```
+
+Docker deployment command: To change the auth method value, \
+please modify the `docker-compose.yml` file
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
+
+* **Username + connection token**\
+  Each new application-type user gets created with a dedicated username but the <mark style="color:red;">same connection token</mark> as the other app-type users.
+
+Kubernetes deployment command:
+
+```
+helm install memphis --set user_pass_based_auth="false" memphis/memphis --create-namespace --namespace memphis
+```
+
+Docker deployment command: To change the auth method value, \
+please modify the `docker-compose.yml` file
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
+
 ## The Basics
 
 Memphis has two types of credentials:

@@ -78,6 +78,7 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 | Option                    | Description                                                                                                                     | Default Value | Example                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------- |
 | rootPwd                   | Root password for the dashboard                                                                                                 | `"memphis"`   | `"memphis"`                   |
+| user\_pass\_auth          | <p>Authentication method selector.<br><code>true = User + pass</code><br><code>false = User + connection token</code></p>       | `"true"`      | `"true"`                      |
 | connectionToken           | Token for connecting an app to the Memphis Message Queue. Auto generated                                                        | `""`          | `"memphis"`                   |
 | dashboard.port            | Dashboard's (GUI) port                                                                                                          | 9000          | 9000                          |
 | cluster.enabled           | Cluster mode for HA and Performance                                                                                             | `"false"`     | `"false"`                     |
