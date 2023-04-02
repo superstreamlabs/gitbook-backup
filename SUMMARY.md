@@ -102,8 +102,7 @@
 
 ## CLI
 
-* [Installation](cli/installation.md)
-* [Usage](cli/usage.md)
+* [Getting started](https://github.com/memphisdev/memphis-cli)
 
 ## 🗒 Release notes
 
