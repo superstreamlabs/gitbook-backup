@@ -54,8 +54,7 @@ Memphis is cloud-native and cloud-agnostic to any Kubernetes on **any cloud**.
 Production-grade Memphis with three memphis brokers configured in cluster-mode
 
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --set global.cluster.enabled="true" --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -81,7 +80,7 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 | user\_pass\_auth          | <p>Authentication method selector.<br><code>true = User + pass</code><br><code>false = User + connection token</code></p>       | `"true"`      | `"true"`                      |
 | connectionToken           | Token for connecting an app to the Memphis Message Queue. Auto generated                                                        | `""`          | `"memphis"`                   |
 | dashboard.port            | Dashboard's (GUI) port                                                                                                          | 9000          | 9000                          |
-| cluster.enabled           | Cluster mode for HA and Performance                                                                                             | `"false"`     | `"false"`                     |
+| global.cluster.enabled    | Cluster mode for HA and Performance                                                                                             | `"false"`     | `"false"`                     |
 | exporter.enabled          | Prometheus exporter                                                                                                             | `"false"`     | `"false"`                     |
 | analytics                 | Collection of anonymous metadata                                                                                                | `"true"`      | `"true"`                      |
 | websocket.tls.secret.name | <p><strong>*Optional*</strong> Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>            | ""            | `"memphis-ws-tls-secret"`     |
