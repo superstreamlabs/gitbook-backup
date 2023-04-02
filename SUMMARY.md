@@ -20,7 +20,7 @@
   * [Consumer API](memphis/concepts/consumer.md)
   * [Consumer Group](memphis/concepts/consumer-groups.md)
   * [Storage and Redundancy](memphis/concepts/storage-and-redundancy.md)
-  * [Authentication](memphis/concepts/security.md)
+  * [Security/Authentication](memphis/concepts/security.md)
   * [Scaling](memphis/concepts/scaling.md)
   * [Ordering](memphis/concepts/ordering.md)
   * [Dead-letter Station (DLS)](dashboard-ui/troubleshooting/dead-letter.md)

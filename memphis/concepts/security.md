@@ -1,12 +1,12 @@
 ---
 description: >-
-  This section describes authentication and authorisation features in Memphis.
-  Together they allow the operator to control access to the system.
+  This section describes authentication and authorization features in Memphis.
+  Both methods enable the operator to control access to Memphis.
 cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
-# Authentication
+# Security/Authentication
 
 ## The Basics
 
