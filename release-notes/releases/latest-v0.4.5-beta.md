@@ -2,7 +2,7 @@
 description: 'Release date: 21 February 2023'
 ---
 
-# Latest - v0.4.5 - beta
+# v0.4.5 - beta
 
 Upgrade procedure for production users (Kubernetes deployments)
 
