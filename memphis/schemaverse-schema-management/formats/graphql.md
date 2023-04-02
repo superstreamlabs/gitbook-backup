@@ -347,6 +347,7 @@ if __name__ == '__main__':
 import asyncio
 import json
 from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisSchemaError
+from graphql import parse
 
 async def main():
     memphis = Memphis()
