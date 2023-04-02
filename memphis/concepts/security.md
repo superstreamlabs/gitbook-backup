@@ -49,11 +49,11 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker
 Memphis has two types of credentials:
 
 * **Application**.\
-  Every connection has an associated user and a connection token which is authenticated.\
-  App credentials includes username, connection token, and (optionally) client certificate\* are specified at connection initiation time.\
+  Every connection has an associated user and a password or a connection token that is authenticated.\
+  App credentials, including username, password/connection token, and (optionally) client certificate, are specified during connection initiation time.\
   There is a **default pair of credentials** called the root user and its detailes will appear on the post-installation notes.
 * **Management**.\
-  For management purposes only, and to allow control over the UI and CLI, not data, a dedicated user can be created.
+  A dedicated user can be created for management purposes only, and to allow control over the UI and CLI, not data.
 
 {% hint style="warning" %}
 **Production environments** should not use the default user and create new user accounts with generated credentials instead.
