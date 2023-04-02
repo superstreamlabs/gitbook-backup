@@ -32,7 +32,7 @@ Memphis platform comprised three main components:
 | Metrics              | 8222 | TCP     | Internal          | Memphis monitor port                                           |
 | Cluster connectivity | 6222 | TCP     | Internal          | Internal port for connectiovity between brokers in the cluster |
 | Exporter             | 7777 | TCP     | Internal          | Memphis metrics exporter port for Prometheus                   |
-| Postgres             | 5432 | TCP     | Internal          | MongoDB port                                                   |
+| Meta-data            | 5432 | TCP     | Internal          | Meta-data storage port                                         |
 
 ### Network architecture diagram
 
