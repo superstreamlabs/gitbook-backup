@@ -107,6 +107,7 @@ Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring
 | Data-Level Observability             | Yes                                                     | Yes                                                   |
 | Self-healing                         | Yes + Managed service                                   | Managed service                                       |
 | Deduplication                        | Yes. Modified bloom filter                              | Deduplication interval of 5 minutes                   |
+| Delayed queues                       | Yes. Atomic per message.                                | Yes. Not atomic, and per entire queue.                |
 | Dead-letter                          | Yes                                                     | Yes                                                   |
 | REST Gateway                         | Yes                                                     | No                                                    |
 | Consumer internal communication      | Experimental                                            | No                                                    |
