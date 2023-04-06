@@ -1,5 +1,5 @@
 ---
-description: 0.4.5-beta
+description: v1.0.0 - LTS
 cover: ../.gitbook/assets/Overview..jpg
 coverY: 0
 ---
