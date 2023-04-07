@@ -176,3 +176,16 @@ Here are some of the missing components that will need to be constructed when us
 | Licensing                 | <p>Memphis Self-hosted enterprise licensing for partners. Flat. </p><p><mark style="color:purple;"><strong>$1,100 – $2,000</strong></mark></p> | Included.                                                                                                                                                    |
 | Cost                      | <mark style="color:purple;">**$6,574**</mark>                                                                                                  | Based on average dev hourly rate of $70 <mark style="color:orange;">**$56,655.60 ($50,081 difference)**</mark>                                               |
 
+### Summary
+
+|                                                                                          | 15K RPS | 30K RPS |  60K RPS |
+| ---------------------------------------------------------------------------------------- | ------: | ------: | -------: |
+| <p><mark style="color:purple;"><strong>Memphis.</strong></mark></p><p>Implementation</p> |    $100 |    $100 |     $100 |
+| <p><mark style="color:purple;"><strong>Memphis.</strong></mark></p><p>Infrastructure</p> |  $4,330 |  $6,574 |   $9,909 |
+| <p><mark style="color:purple;"><strong>Memphis.</strong></mark></p><p>Total</p>          |  $4,430 |  $6,674 |  $10,009 |
+| <p><mark style="color:orange;"><strong>AWS SQS.</strong></mark></p><p>Implementation</p> |  $4,643 |  $4,643 |   $4,643 |
+| <p><mark style="color:orange;"><strong>AWS SQS.</strong></mark></p><p>Infrastructure</p> | $35,709 | $56,655 |  $99,516 |
+| <p><mark style="color:orange;"><strong>AWS SQS.</strong></mark></p><p>Total</p>          | $40,352 | $61,298 | $104,159 |
+| <p>Summary.</p><p>Implementation</p>                                                     |     x46 |     x46 |      x46 |
+| <p>Summary.<br>Infrastructure</p>                                                        |    x8.2 |    x8.6 |      x10 |
+| <p>Summary.<br>TCO</p>                                                                   |    x9.1 |    x9.1 |    x10.4 |
