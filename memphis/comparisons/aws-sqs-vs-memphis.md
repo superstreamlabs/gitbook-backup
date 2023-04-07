@@ -189,3 +189,5 @@ Here are some of the missing components that will need to be constructed when us
 | <p>Summary.</p><p>Implementation</p>                                                     |     x46 |     x46 |      x46 |
 | <p>Summary.<br>Infrastructure</p>                                                        |    x8.2 |    x8.6 |      x10 |
 | <p>Summary.<br>TCO</p>                                                                   |    x9.1 |    x9.1 |    x10.4 |
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-04-07 at 13.21.14.png" alt=""><figcaption></figcaption></figure>
