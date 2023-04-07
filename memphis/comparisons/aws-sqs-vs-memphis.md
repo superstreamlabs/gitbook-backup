@@ -118,11 +118,16 @@ Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring
 
 ## Performance comparison
 
-|   |   |   |   |   |
-| - | - | - | - | - |
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
+**AWS SQS** Client node: 1 x m4.2xlarge / 50 threads
+
+**Memphis** Client node: 1 x m5n.8xlarge / 20 threads
+
+| 1KB Messages          | Memphis | AWS SQS |
+| --------------------- | ------- | ------- |
+| 100K messages = 100MB |         |         |
+| 500K messages = 500MB |         |         |
+| 1M messages = 1GB     |         |         |
+| 10M messages = 10GB   |         |         |
 
 ## TCO comparison
 
@@ -148,13 +153,13 @@ Here are some of the missing components that will need to be constructed when us
 
 ### Implementation costs
 
-| Feature                      | AWS SQS                                                                                                                                                    | Memphis                                                                                                                                                                     |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Performance                  | <p>Required to use threads.</p><p><mark style="color:orange;"><strong>130 dev hours</strong></mark></p>                                                    | <p>Built-in. Automatic.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           |
-| Multi-Cloud                  | <p>Required to build abstraction to different cloud queues and APIs.<br><mark style="color:orange;"><strong>378 dev hours</strong></mark></p>              | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           |
-| Multi-tenancy                | <p>Required to build. Using different queues and/or tagging data.</p><p><mark style="color:orange;"><strong>63 dev hours</strong></mark></p>               | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           |
-| Monitoring and Notifications | <p>Required to build + use 3rd party open-source/paid tools.</p><p><mark style="color:orange;"><strong>126 DevOps hours + 49 dev hours</strong></mark></p> | <p>Built-in. Ready-to-use slack notifications / Grafana / Datadog / prometheus.</p><p><mark style="color:purple;"><strong>12 dev hours + 2 DevOps hours</strong></mark></p> |
-| Runtime DLQ consumption      | <p>Required to build.</p><p><mark style="color:orange;"><strong>30 dev hours</strong></mark></p>                                                           | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      |
-| Delayed consumers            | <p>Required to build.</p><p><mark style="color:orange;"><strong>20 dev hours</strong></mark></p>                                                           | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      |
-| Cost                         | <p>Based on average dev hourly rate of $70.</p><p><mark style="color:orange;"><strong>$55,720 ($54,720 difference)</strong></mark></p>                     | <mark style="color:purple;">**$1,000**</mark>                                                                                                                               |
+| Feature                      | Memphis                                                                                                                                                                     | AWS SQS                                                                                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Performance                  | <p>Built-in. Automatic.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           | <p>Required to use threads.</p><p><mark style="color:orange;"><strong>130 dev hours</strong></mark></p>                                                    |
+| Multi-Cloud                  | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           | <p>Required to build abstraction to different cloud queues and APIs.<br><mark style="color:orange;"><strong>378 dev hours</strong></mark></p>              |
+| Multi-tenancy                | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           | <p>Required to build. Using different queues and/or tagging data.</p><p><mark style="color:orange;"><strong>63 dev hours</strong></mark></p>               |
+| Monitoring and Notifications | <p>Built-in. Ready-to-use slack notifications / Grafana / Datadog / prometheus.</p><p><mark style="color:purple;"><strong>12 dev hours + 2 DevOps hours</strong></mark></p> | <p>Required to build + use 3rd party open-source/paid tools.</p><p><mark style="color:orange;"><strong>126 DevOps hours + 49 dev hours</strong></mark></p> |
+| Runtime DLQ consumption      | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      | <p>Required to build.</p><p><mark style="color:orange;"><strong>30 dev hours</strong></mark></p>                                                           |
+| Delayed consumers            | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      | <p>Required to build.</p><p><mark style="color:orange;"><strong>20 dev hours</strong></mark></p>                                                           |
+| Cost                         | <mark style="color:purple;">**$1,000**</mark>                                                                                                                               | <p>Based on average dev hourly rate of $70.</p><p><mark style="color:orange;"><strong>$55,720 ($54,720 difference)</strong></mark></p>                     |
 
