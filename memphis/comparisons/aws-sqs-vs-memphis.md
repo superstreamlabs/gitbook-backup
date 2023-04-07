@@ -122,12 +122,12 @@ Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring
 
 **Memphis** Client node: 1 x m5n.8xlarge / 20 threads
 
-| 1KB Messages          | Memphis | AWS SQS |
-| --------------------- | ------- | ------- |
-| 100K messages = 100MB |         |         |
-| 500K messages = 500MB |         |         |
-| 1M messages = 1GB     |         |         |
-| 10M messages = 10GB   |         |         |
+| 1KB Messages          | Memphis     | AWS SQS  |
+| --------------------- | ----------- | -------- |
+| 100K messages = 100MB | 0.16951 sec | 5.88 sec |
+| 500K messages = 500MB | 2.74 sec    | 29 sec   |
+| 1M messages = 1GB     | 9.419 sec   | 58 sec   |
+| 10M messages = 10GB   | 106.576 sec | 588 sec  |
 
 ## TCO comparison
 
