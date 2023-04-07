@@ -115,3 +115,46 @@ Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring
 | Storage tiering                      | Disk, Memory, **S3 for Archiving**                      | Disk                                                  |
 | Notifications                        | Slack, Email, More                                      | With SNS and Cloudwatch                               |
 | SDK support                          | Node js, Python, Go, .NET, Java, NestJS, and Typescript | C++, Go, Java, .NET, Python, node.js, Rust, Ruby, PHP |
+
+## Performance comparison
+
+|   |   |   |   |   |
+| - | - | - | - | - |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+
+## TCO comparison
+
+### Defining a cost model for data streaming
+
+In this economic climate, costs are top of mind for everyone.
+
+Total Cost of Ownership (TCO) should be a primary consideration when evaluating the Return on Investment (ROI) of adopting a new software platform. TCO is the blended cost of deploying, configuring, securing, productionizing, and operating the software over its expected lifetime, including all infrastructure, personnel, training, and subscription costs.&#x20;
+
+For this comparison, we define TCO as a combination of the following components:
+
+1. Implementation: The cost of implementing a new streaming technology
+2. Infrastructure: The cost of computing and storage, in this case on AWS
+
+For the infrastructure cost comparison, we ran benchmarks to compare the performance of AWS SQS against Memphis.
+
+### Implementation costs
+
+Oftentimes, there is a misconception that cloud services are a turnkey solution. \
+Here are some of the missing components that will need to be constructed when using AWS SQS -&#x20;
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td>Performance heavily relies on the client’s threads</td><td></td></tr><tr><td></td><td>What if you required to run on GCP for specific customer?</td><td></td></tr><tr><td></td><td><p>Not built for SaaS.</p><p>No multi-tenancy</p></td><td></td></tr><tr><td></td><td>Consumer-side delay queues</td><td></td></tr><tr><td></td><td>Monitoring and notification</td><td></td></tr><tr><td></td><td>Consumption from DLQ</td><td></td></tr></tbody></table>
+
+### Implementation costs
+
+| Feature                      | AWS SQS                                                                                                                                                    | Memphis                                                                                                                                                                     |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Performance                  | <p>Required to use threads.</p><p><mark style="color:orange;"><strong>130 dev hours</strong></mark></p>                                                    | <p>Built-in. Automatic.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           |
+| Multi-Cloud                  | <p>Required to build abstraction to different cloud queues and APIs.<br><mark style="color:orange;"><strong>378 dev hours</strong></mark></p>              | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           |
+| Multi-tenancy                | <p>Required to build. Using different queues and/or tagging data.</p><p><mark style="color:orange;"><strong>63 dev hours</strong></mark></p>               | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           |
+| Monitoring and Notifications | <p>Required to build + use 3rd party open-source/paid tools.</p><p><mark style="color:orange;"><strong>126 DevOps hours + 49 dev hours</strong></mark></p> | <p>Built-in. Ready-to-use slack notifications / Grafana / Datadog / prometheus.</p><p><mark style="color:purple;"><strong>12 dev hours + 2 DevOps hours</strong></mark></p> |
+| Runtime DLQ consumption      | <p>Required to build.</p><p><mark style="color:orange;"><strong>30 dev hours</strong></mark></p>                                                           | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      |
+| Delayed consumers            | <p>Required to build.</p><p><mark style="color:orange;"><strong>20 dev hours</strong></mark></p>                                                           | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      |
+| Cost                         | <p>Based on average dev hourly rate of $70.</p><p><mark style="color:orange;"><strong>$55,720 ($54,720 difference)</strong></mark></p>                     | <mark style="color:purple;">**$1,000**</mark>                                                                                                                               |
+
