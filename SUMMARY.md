@@ -62,7 +62,7 @@
   * [2 - Access](deployment/kubernetes/2-access.md)
   * [3 - Upgrade](release-notes/how-to-upgrade.md)
 * [Docker](deployment/docker-compose.md)
-* [How to upgrade](deployment/how-to-upgrade.md)
+* [Production Best Practices](deployment/production-best-practices.md)
 
 ## SDKs and Protocols
 
@@ -90,6 +90,7 @@
 ## 🔌 Integrations
 
 * [Monitoring](integrations/monitoring/README.md)
+  * [Elasticsearch Observability](integrations/monitoring/elasticsearch-observability.md)
   * [Datadog](integrations/monitoring/datadog.md)
   * [Grafana](integrations/monitoring/grafana.md)
 * [Notifications](integrations/notifications/README.md)
