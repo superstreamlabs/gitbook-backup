@@ -67,7 +67,7 @@
 
 ## SDKs and Protocols
 
-* [REST (HTTP)](https://github.com/memphisdev/memphis-http-proxy)
+* [REST (Webhook)](https://github.com/memphisdev/memphis-http-proxy)
 * [Node.js / TypeScript / NestJS](https://github.com/memphisdev/memphis.js)
 * [Go](https://github.com/memphisdev/memphis.go)
 * [Python](https://github.com/memphisdev/memphis.py)
