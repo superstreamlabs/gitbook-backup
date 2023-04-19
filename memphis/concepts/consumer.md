@@ -35,6 +35,10 @@ consumer.on('message', (message) => {
 
 <figure><img src="../../.gitbook/assets/consume 1.jpeg" alt=""><figcaption></figcaption></figure>
 
+{% hint style="warning" %}
+**Unexist stations** will be created **automatically** through the SDK on the first producer/consumer connection.
+{% endhint %}
+
 ### Parameters
 
 (\*) Names might be a bit different from one SDK to another. Meanings are the same.
