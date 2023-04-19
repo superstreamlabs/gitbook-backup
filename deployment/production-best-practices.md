@@ -6,7 +6,7 @@ description: >-
 
 # Production Best Practices
 
-## Rules-of-thumb
+## Rule(s)-of-thumb
 
 1. Use Memphis in cluster mode to enable parallel usage across multiple brokers
 2. Spread the workloads across as many stations as possible (if possible) to spread leaders across different brokers
