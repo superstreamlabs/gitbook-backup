@@ -104,7 +104,6 @@
 
 ## 🗒 Release notes
 
-* [Known issues](release-notes/known-issues.md)
 * [Releases](release-notes/releases/README.md)
   * [V1.0.0 - LTS](release-notes/releases/v1.0.0-lts.md)
   * [v0.4.5 - beta](release-notes/releases/latest-v0.4.5-beta.md)
