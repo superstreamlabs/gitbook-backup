@@ -69,5 +69,5 @@ export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadat
 ### Step 2:  Upgrade chart release with the credentials:
 
 ```bash
-helm upgrade my-memphis memphis -n memphis --reuse-values --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD
+helm upgrade memphis memphis/memphis -n memphis --reuse-values --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD
 ```
