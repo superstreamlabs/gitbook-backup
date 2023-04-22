@@ -1,6 +1,6 @@
 ---
 description: Use Datadog as an external monitoring tool to monitor Memphis
-cover: ../../../.gitbook/assets/Datadog and Memphis.jpeg
+cover: ../../.gitbook/assets/Datadog and Memphis.jpeg
 coverY: 0
 ---
 
@@ -24,7 +24,7 @@ Please make sure you have the [Datadog K8S agent](https://docs.datadoghq.com/con
 helm install memphis memphis \
 --create-namespace --namespace memphis --wait \
 --set \
-cluster.enabled="true",\
+global.cluster.enabled="true",\
 exporter.enabled="true"
 ```
 
@@ -95,7 +95,7 @@ EOF
 
 Reach your Datadog account -> Metrics -> Summary, and check if "memphis" metrics arrives.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-01-24 at 12.14.53.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-01-24 at 12.14.53.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 4: Import the Memphis dashboard
 
