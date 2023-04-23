@@ -54,11 +54,12 @@ helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postg
 
 ### Step 1: Obtain the metadata store credentials of your current deployment.
 
-```bash
-export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
-export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
+<pre class="language-bash"><code class="lang-bash">export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
+export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
+<strong>export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
+</strong>export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
 export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
-```
+</code></pre>
 
 ### Step 2: Uninstall existing helm installation
 
@@ -86,7 +87,7 @@ Production-grade Memphis with three memphis brokers configured in cluster-mode
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set cluster.enabled="true",metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis --set global.cluster.enabled="true",metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD  memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -99,7 +100,7 @@ Standard installation of Memphis with a single broker
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD  memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -109,6 +110,8 @@ helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postg
 ### Step 1: Obtain the credentials used to hold the Metadata data on your current release:
 
 ```bash
+export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
+export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
 export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
 export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
 export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
@@ -117,5 +120,5 @@ export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadat
 ### Step 2:  Use helm upgrade with the credentials:
 
 ```bash
-helm upgrade memphis memphis/memphis -n memphis --reuse-values --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD
+helm upgrade memphis memphis/memphis -n memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD
 ```
