@@ -28,11 +28,11 @@ helm repo update
 
 <summary>Production</summary>
 
-Production-grade Memphis with three memphis brokers configured in cluster-mode
+Production-grade Memphis with minimum of three memphis brokers configured in cluster-mode
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set cluster.enabled="true",metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis --set global.cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -41,11 +41,11 @@ helm install memphis --set cluster.enabled="true",metadata.postgresql.password=$
 
 <summary>Dev</summary>
 
-Standard installation of Memphis with a single broker
+Standalone installation of Memphis with a single broker
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
