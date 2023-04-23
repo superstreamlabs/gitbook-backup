@@ -18,6 +18,8 @@ As the user configures a client connection to Memphis, it comprises several obje
 
 <figure><img src="../../.gitbook/assets/Producer.jpeg" alt=""><figcaption></figcaption></figure>
 
+Memphis consumers are “long-polling” by design and will wait for infinite time till a new message gets ingested into the Memphis station, including out-of-the-box retry connection and polling mechanisms to make sure consumers retry to connect in case of disconnection and repoll unack message.
+
 ### Broker Data Format
 
 Memphis started from NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
