@@ -169,7 +169,7 @@ tls:
 helm install memphis memphis \
 --create-namespace --namespace memphis --wait \
 --set \
-cluster.enabled="true",\
+global.cluster.enabled="true",\
 memphis.tls.verify="true",\
 memphis.tls.cert="memphis_client.pem",\
 memphis.tls.key="memphis-key_client.pem",\
@@ -201,6 +201,32 @@ memphis.tls.cert="memphis_client.pem",\
 memphis.tls.key="memphis-key_client.pem",\
 memphis.tls.secret.name="tls-client-secret",\
 memphis.tls.ca="rootCA.pem"
+```
+
+## Deploy Memphis with an external PostgreSQL instance
+
+### Step 1: Create postgresql\_values.yaml according to the following example:
+
+```
+metadata:
+  enabled: false
+  external:
+    enabled: true
+    dbTlsMutual: true
+    dbName: memphis
+    dbHost: <URL>
+    dbPort: 5432
+    dbUser: postgres
+    dbPass: "12345678"
+```
+
+### Step 2: Deploy Memphis cluster with external PostgreSQL:
+
+```bash
+helm install memphis memphis -f postgresql_values.yaml \
+--create-namespace --namespace memphis --wait \
+--set \
+global.cluster.enabled="true"
 ```
 
 ## Deployment diagram
