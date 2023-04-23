@@ -6,6 +6,12 @@ description: Procedure for upgrading memphis
 
 ## Below v1.0.0 (Not included)
 
+### Step 0: Obtain user-supplied values.
+
+```bash
+helm get values memphis --namespace memphis
+```
+
 ### Step 1: Obtain the credentials of your current deployment.
 
 ```bash
@@ -35,7 +41,7 @@ helm repo update
 
 <summary>Production</summary>
 
-Production-grade Memphis with minimum of three memphis brokers configured in cluster-mode
+Production-grade Memphis with a minimum of three memphis brokers configured in cluster-mode. Add user-supplied values if necessary.
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
@@ -48,7 +54,7 @@ helm install memphis --set global.cluster.enabled="true",connectionToken=$CT,roo
 
 <summary>Dev</summary>
 
-Standalone installation of Memphis with a single broker
+Standalone installation of Memphis with a single broker. Add user-supplied values if necessary.
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
@@ -58,6 +64,12 @@ helm install memphis --set connectionToken=$CT,rootPwd=$ROOT_PASSWORD memphis/me
 </details>
 
 ## Above v1.0.0 (Included)
+
+### Step 0: Obtain user-supplied values.
+
+```bash
+helm get values memphis --namespace memphis
+```
 
 ### Step 1: Obtain the credentials of your current deployment.
 
@@ -71,7 +83,7 @@ export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadat
 ### Step 2: Uninstall existing helm installation
 
 ```
-helm uninstall memphis -n memphis
+helm uninstall memphis --namespace memphis
 ```
 
 {% hint style="warning" %}
@@ -90,7 +102,7 @@ helm repo update
 
 <summary>Production</summary>
 
-Production-grade Memphis with three memphis brokers configured in cluster-mode
+Production-grade Memphis with a minimum of three memphis brokers configured in cluster-mode. Add user-supplied values if necessary.
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
@@ -103,7 +115,7 @@ helm install memphis --set global.cluster.enabled="true",metadata.postgresql.pas
 
 <summary>Dev</summary>
 
-Standard installation of Memphis with a single broker
+Standalone installation of Memphis with a single broker. Add user-supplied values if necessary.
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
@@ -113,6 +125,12 @@ helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postg
 </details>
 
 ### Upgrade Memphis using helm upgrade
+
+### Step 0: Obtain user-supplied values.
+
+```bash
+helm get values memphis --namespace memphis
+```
 
 #### Step 1: Obtain the credentials of your current deployment
 
@@ -127,5 +145,5 @@ export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadat
 #### Step 2:  Run helm upgrade with the stored credentials
 
 ```bash
-helm upgrade memphis memphis/memphis -n memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD
+helm upgrade memphis memphis/memphis --namespace memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD
 ```
