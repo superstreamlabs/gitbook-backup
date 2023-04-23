@@ -6,7 +6,14 @@ description: Procedure for upgrading memphis
 
 ## Below v1.0.0 (Not included)
 
-### Step 1: Uninstall existing helm installation
+### Step 1: Obtain the credentials of your current deployment.
+
+```bash
+export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
+export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
+```
+
+### Step 2: Uninstall existing helm installation
 
 ```
 helm uninstall memphis -n memphis
@@ -16,13 +23,13 @@ helm uninstall memphis -n memphis
 **Data will not be lost!** PVCs are not removed and will be re-attached to the new installation
 {% endhint %}
 
-### Step 2: Upgrade Memphis helm repo
+### Step 3: Upgrade Memphis helm repo
 
 ```
 helm repo update
 ```
 
-### Step 3: Reinstall Memphis
+### Step 4: Reinstall Memphis
 
 <details>
 
@@ -32,7 +39,7 @@ Production-grade Memphis with minimum of three memphis brokers configured in clu
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set global.cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis --set global.cluster.enabled="true",connectionToken=$CT,rootPwd=$ROOT_PASSWORD memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -45,14 +52,14 @@ Standalone installation of Memphis with a single broker
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis --set connectionToken=$CT,rootPwd=$ROOT_PASSWORD memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
 
 ## Above v1.0.0 (Included)
 
-### Step 1: Obtain the metadata store credentials of your current deployment.
+### Step 1: Obtain the credentials of your current deployment.
 
 <pre class="language-bash"><code class="lang-bash">export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
 export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
