@@ -123,27 +123,3 @@ helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postg
 ```
 
 </details>
-
-### Upgrade Memphis using helm upgrade
-
-### Step 0: Obtain user-supplied values.
-
-```bash
-helm get values memphis --namespace memphis
-```
-
-#### Step 1: Obtain the credentials of your current deployment
-
-```bash
-export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
-export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
-export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
-export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
-export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
-```
-
-#### Step 2:  Run helm upgrade with the stored credentials
-
-```bash
-helm upgrade memphis memphis/memphis --namespace memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD
-```
