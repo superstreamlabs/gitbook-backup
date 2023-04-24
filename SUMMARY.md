@@ -107,7 +107,7 @@
 * [Releases](release-notes/releases/README.md)
   * [v1.0.2](release-notes/releases/v1.0.2.md)
   * [v1.0.1](release-notes/releases/v1.0.1.md)
-  * [V1.0.0 - GA](release-notes/releases/v1.0.0-ga.md)
+  * [V1.0.0 - GA](release-notes/releases/v1.0.0-lts.md)
   * [v0.4.5 - beta](release-notes/releases/latest-v0.4.5-beta.md)
   * [v0.4.4 - beta](release-notes/releases/v0.4.4-beta.md)
   * [v0.4.3 - beta](release-notes/releases/v0.4.3-beta.md)
