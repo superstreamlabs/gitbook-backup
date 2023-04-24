@@ -308,17 +308,16 @@ export class ProducerModule {
 {% code title="consumer.controller.ts" lineNumbers="true" %}
 ```typescript
 import { Controller } from '@nestjs/common';
-import { consumeMessage } from 'memphis-dev/nest';
-import type { Message } from 'memphis-dev/types';
+import { MemphisConsume, Message } from 'memphis-dev';
 
 @Controller('auth')
 export class ExampleController {
-    @consumeMessage({
-        stationName: 'STATION_NAME',
-        consumerName: 'CONSUMER_NAME',
-        consumerGroup: 'CONSUMER_GROUP_NAME'
-    })
-    async messageHandler(message: Message) {
+    @MemphisConsume({
+        stationName: '<station-name>',
+        consumerName: '<consumer-name>',
+        consumerGroup: ''
+    }, {}) // {} for passing the consumerContext to consumer.setContext
+    async messageHandler(message: Message, context: object) {
         console.log(message.getData().toString());
         message.ack();
     }
