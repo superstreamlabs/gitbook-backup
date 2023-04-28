@@ -47,9 +47,9 @@
   * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
 * [Privacy](memphis/privacy.md)
 
-## ☁ Memphis Cloud
+## ☁ Memphis cloud
 
-* [Signup](memphis-cloud/signup.md)
+* [Private beta](https://memphis.dev/cloud)
 
 ## 📦 Deployment
 
