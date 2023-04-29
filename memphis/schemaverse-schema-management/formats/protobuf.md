@@ -328,15 +328,39 @@ In HTTP, we can simply produce an object. Behind the scenes, the object will be 
 syntax = "proto3";
 message Test {
             string field1 = 1;
-            string  field2 = 2;
-            int32  field3 = 3;
+            string field2 = 2;
+            int32 field3 = 3;
 }
 ```
 
-**Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
+**Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
 
 {% code lineNumbers="true" %}
 ```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "field1": "foo",
+  "field2": "bar",
+  "field3": 123,
+});
+
+var config = {
+  method: 'post',
+  url: 'https://BROKER_RESTGW_URL/stations/hps/produce/single',
+  headers: { 
+    'Authorization': 'Bearer <jwt>', 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
 ```
 {% endcode %}
 {% endtab %}
