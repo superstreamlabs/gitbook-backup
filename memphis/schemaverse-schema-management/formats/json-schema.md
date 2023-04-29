@@ -291,26 +291,3 @@ import type { Memphis } from 'memphis-dev/types';
 ```
 {% endtab %}
 {% endtabs %}
-
-### Consume a message (Deserialization)
-
-{% tabs %}
-{% tab title="Node.js" %}
-{% code lineNumbers="true" %}
-```javascript
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="Go" %}
-
-{% endtab %}
-
-{% tab title="Python" %}
-
-{% endtab %}
-
-{% tab title="TypeScript" %}
-
-{% endtab %}
-{% endtabs %}
