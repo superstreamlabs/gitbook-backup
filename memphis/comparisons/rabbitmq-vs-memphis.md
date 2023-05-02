@@ -26,7 +26,7 @@ Memphis.dev enables building next-generation applications that require large vol
 
 | Parameter                 | Memphis.dev                              | RabbitMQ       |
 | ------------------------- | ---------------------------------------- | -------------- |
-| License                   | Apache 2.0                               | Mozilla Public |
+| License                   | BSL 1.0                                  | Mozilla Public |
 | Components                | Memphis + MongoDB (MDB is being removed) | RabbitMQ       |
 | Message consumption model | Pull                                     | Push           |
 | Storage architecture      | Log                                      | Index          |

@@ -22,7 +22,7 @@ Memphis.dev enables building next-generation applications that require large vol
 
 | Parameter                 | Memphis.dev                              | Apache Kafka                           |
 | ------------------------- | ---------------------------------------- | -------------------------------------- |
-| License                   | Apache 2.0                               | Apache 2.0                             |
+| License                   | BSL 1.0                                  | Apache 2.0                             |
 | Components                | Memphis + MongoDB (MDB is being removed) | Kafka + Zookeeper(ZK is being removed) |
 | Message consumption model | Pull                                     | Pull                                   |
 | Storage architecture      | Log                                      | Log                                    |
