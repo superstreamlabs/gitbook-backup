@@ -1,3 +1,7 @@
+---
+description: A centralized place for returned errors and FAQs
+---
+
 # KB
 
 ### Error: authorization\_violation
