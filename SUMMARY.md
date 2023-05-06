@@ -65,7 +65,7 @@
 * [Docker](deployment/docker-compose.md)
 * [Production Best Practices](deployment/production-best-practices.md)
 
-## SDKs and Protocols
+## Client Libraries
 
 * [REST (Webhook)](https://github.com/memphisdev/memphis-http-proxy)
 * [Node.js / TypeScript / NestJS](https://github.com/memphisdev/memphis.js)
@@ -74,9 +74,9 @@
 * [Kotlin](https://github.com/memphisdev/memphis.kt)
 * [.NET](https://github.com/memphisdev/memphis.net)
 * [Java](https://github.com/memphisdev/memphis.java)
-* [NATS Jetstream](sdks-and-protocols/nats-jetstream/README.md)
-* [Rust](sdks/rust.md)
-* [Scala](sdks/scala.md)
+* [NATS Jetstream](client-libraries/nats-jetstream.md)
+* [Rust](client-libraries/rust.md)
+* [Scala](client-libraries/scala.md)
 
 ## Dashboard (GUI)
 
