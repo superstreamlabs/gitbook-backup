@@ -15,6 +15,7 @@
 * [Overview](memphis/overview.md)
 * [Architecture](memphis/architecture.md)
 * [Key concepts](memphis/concepts/README.md)
+  * [Troubleshooting process](memphis/key-concepts/troubleshooting-process.md)
   * [Message broker](memphis/concepts/message-broker.md)
   * [Station](memphis/concepts/station.md)
   * [Producer API](memphis/concepts/producer.md)
