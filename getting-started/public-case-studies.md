@@ -4,4 +4,6 @@
 Made by Gastromatic.de
 {% endembed %}
 
+{% embed url="https://memphis.dev/blog/how-kela-is-using-memphis-dev-for-real-time-cyber-threats-identification/" %}
+
 Search terms: Gastromatic, gastromatic

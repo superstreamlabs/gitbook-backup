@@ -39,6 +39,8 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker
 
 [For more detailed information about Memphis docker deployment](deployment/docker-compose.md).
 
-### How does it work?
+### Walkthrough
+
+{% embed url="https://app.storylane.io/share/upo0paxdvynz" %}
 
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
