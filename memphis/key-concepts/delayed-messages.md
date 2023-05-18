@@ -23,3 +23,38 @@ The uniqueness of Memphis implementation is&#x20;
 5. After crossing the requested `delayInMilliseconds` the broker will stop the main stream of messages and push the delayed message again
 
 <figure><img src="../../.gitbook/assets/delayed queues.jpeg" alt=""><figcaption></figcaption></figure>
+
+## Code example
+
+```javascript
+const { memphis } = require('memphis-dev');
+
+(async function () {
+    let memphisConnection;
+
+    try {
+        memphisConnection = await memphis.connect({
+            host: '<memphis-host>',
+            username: '<application type username>',
+            connectionToken: '<broker-token>'
+        });
+
+        const consumer = await memphisConnection.consumer({
+            stationName: '<station-name>',
+            consumerName: '<consumer-name>',
+            consumerGroup: ''
+        });
+
+        consumer.setContext({ key: "value" });
+        consumer.on('message', (message, context) => {
+            console.log("Delaying message for 1 minute");
+            message.delay(60000);
+        });
+
+        consumer.on('error', (error) => { });
+    } catch (ex) {
+        console.log(ex);
+        if (memphisConnection) memphisConnection.close();
+    }
+})();ava
+```
