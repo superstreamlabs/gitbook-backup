@@ -5,11 +5,13 @@ coverY: 0
 
 # Step 1 - Installation
 
-## What is Memphis?
+## What is Memphis.dev?
 
-**Memphis** is a next-generation alternative to traditional message brokers.
+**Memphis.dev** is a next-generation alternative to traditional message brokers.
 
 It enables building modern queue-based applications that require large volumes of streamed and enriched data, modern protocols, zero ops, up to x9 faster development, up to x46 fewer costs, and significantly lower dev time for data-oriented developers and data engineers.
+
+Low footprint, highly resilient, cloud-native, and run on any Kubernetes, on any cloud.
 
 **Memphis focuses on four pillars -**
 
