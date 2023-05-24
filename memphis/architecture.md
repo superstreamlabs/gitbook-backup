@@ -6,7 +6,7 @@ description: This section describes Memphis' architecture
 
 ## Key components
 
-Memphis platform comprised three main components:
+Memphis platform is comprised of three main components:
 
 1. Memphis.\
    The broker itself which acts as the data storage layer. That is the component that stores and controls the ingested messages and their entire lifecycle management.
@@ -36,6 +36,8 @@ Memphis platform comprised three main components:
 
 ### Network architecture diagram
 
+The diagram below depicts a full Kubernetes-based deployment.
+
 <figure><img src="../.gitbook/assets/network diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Ordering
@@ -46,10 +48,9 @@ Currently, ordering is guaranteed only while working with a single consumer grou
 
 ## Mirroring
 
-Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis, called RAFT, and compared to Apache ZooKeeper, widely used by other projects like Kafka, does not require a witness or a standalone Quorum. RAFT is also equivalent to Paxos in fault tolerance and performance.
+Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis is called RAFT and does not require a witness or a standalom Qorum, unlike others such as Apache ZooKeeper which is widely used by projects like Kafka. RAFT is also equivalent to [Paxos](https://en.wikipedia.org/wiki/Paxos_(computer_science)) in fault tolerance and performance.
 
 Memphis brokers should run on different nodes to ensure data consistency and zero loss within complete broker’s reboots.&#x20;
-
 To comply with RAFT requirements which are ½ cluster size + 1 an odd number of Memphis brokers shall be deployed. The minimum number of brokers is one, and the next scale would be 3, 5, and so forth.
 
 ![](../.gitbook/assets/replications.jpeg)

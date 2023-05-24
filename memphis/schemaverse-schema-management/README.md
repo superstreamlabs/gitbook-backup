@@ -8,7 +8,12 @@ coverY: 0
 
 ## Introduction
 
-In a federated data platform, in which responsibilities are distributed between stakeholders, teams, and sources, it’s harder to control and establish a single standard. This is where the data contracts concept comes into play. Why do data contracts matter? Because (a) they provide insights into who owns what data products. (b) they support setting standards and managing your data pipelines with confidence. They also provide crucial information on what data is being consumed, by whom, and for what purpose. Bottom line: data contracts are essential for robust data management!
+In a federated data platform, in which responsibilities are distributed between stakeholders, teams, and sources, it’s harder to control and establish a single standard. This is where the data contracts concept comes into play. Why do data contracts matter? Because they:
+  
+* Provide insights into who owns what data products
+* Support setting standards and managing your data pipelines with confidence
+
+ They also provide crucial information on what data is being consumed, by whom, and for what purpose. Bottom line: data contracts are essential for robust data management!
 
 <figure><img src="../../.gitbook/assets/schema 1.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -16,7 +21,7 @@ The very basic building block to control and ensure the quality of data that flo
 
 ### Why should you use schemas?
 
-Data pipelines are constantly breaking and creating data quality issues, usability issues, and there is a communication chasm between service implementers, data engineers, and data consumers.
+Data pipelines are constantly breaking, creating data quality and usability issues, and there is a communication chasm between service implementers, data engineers, and data consumers.
 
 By defining a well-struct schema and enforcing it over your different data producers, you increase the quality of your data, lower the client logic needed to transform unstructured data, and decrease pipelines and consumer breaks.
 

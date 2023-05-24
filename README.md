@@ -18,7 +18,7 @@ Low footprint, highly resilient, cloud-native, and run on any Kubernetes, on any
 1. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
 2. Observability - Reduces troubleshooting time to near zero.
 3. Performance and Efficiency - Provide good performance while maintaining efficient resource consumption.
-4. Stability - Queues and brokers play a critical part in the modern application's structure and should be highly available and stable as possible.
+4. Reliability - Queues and brokers play a critical part in the modern application's structure and should be highly available and stable as possible.
 
 ## **Getting started**
 
@@ -31,7 +31,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&
 helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
-[For more detailed information about Memphis K8S deployment](deployment/kubernetes/).
+More info can be found in the [Memphis k8s deployment](deployment/kubernetes/) documentation.
 
 **Docker compose (Syntax for v2)**
 
@@ -39,10 +39,11 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
 ```
 
-[For more detailed information about Memphis docker deployment](deployment/docker-compose.md).
+More info can be found in the [Memphis Docker deployment](deployment/docker-compose.md) documentation.
 
 ### Walkthrough
 
 {% embed url="https://app.storylane.io/share/upo0paxdvynz" %}
 
+A full roadmap can be found [here](https://memphis.dev/roadmap).
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
