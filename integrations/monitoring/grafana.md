@@ -1,6 +1,6 @@
 ---
 description: How to configure a Grafana dashboard to visualize Memphis metrics
-cover: ../../../.gitbook/assets/Grafana + Memphis (1).jpeg
+cover: ../../.gitbook/assets/Grafana + Memphis (1).jpeg
 coverY: 0
 ---
 
@@ -52,8 +52,18 @@ exporter.enabled="true"
 
 **If Memphis is already installed -**
 
+#### Obtain the credentials used to hold the Metadata data on your current release:
+
+```bash
+export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
+export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
+export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
 ```
-helm upgrade --set exporter.enabled=true memphis --namespace memphis --reuse-values
+
+#### Use helm upgrade to add exporter to the deployment:
+
+```
+helm upgrade memphis memphis/memphis -n memphis --set exporter.enabled=true,metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD
 ```
 
 ### Step 2: Import Memphis dashboard
@@ -61,4 +71,4 @@ helm upgrade --set exporter.enabled=true memphis --namespace memphis --reuse-val
 Import Memphis dashboard using Memphis dashboard ID: **18050**\
 [https://grafana.com/grafana/dashboards/18050-memphis/](https://grafana.com/grafana/dashboards/18050-memphis/)
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

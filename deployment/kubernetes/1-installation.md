@@ -54,8 +54,7 @@ Memphis is cloud-native and cloud-agnostic to any Kubernetes on **any cloud**.
 Production-grade Memphis with three memphis brokers configured in cluster-mode
 
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set cluster.enabled="true" memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --set global.cluster.enabled="true" --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -75,22 +74,39 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 
 #### \* Optional \* Helm deployment options
 
-| Option                    | Description                                                                                                                     | Default Value | Example                       |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------- |
-| rootPwd                   | Root password for the dashboard                                                                                                 | `"memphis"`   | `"memphis"`                   |
-| connectionToken           | Token for connecting an app to the Memphis Message Queue. Auto generated                                                        | `""`          | `"memphis"`                   |
-| dashboard.port            | Dashboard's (GUI) port                                                                                                          | 9000          | 9000                          |
-| cluster.enabled           | Cluster mode for HA and Performance                                                                                             | `"false"`     | `"false"`                     |
-| exporter.enabled          | Prometheus exporter                                                                                                             | `"false"`     | `"false"`                     |
-| analytics                 | Collection of anonymous metadata                                                                                                | `"true"`      | `"true"`                      |
-| websocket.tls.secret.name | <p><strong>*Optional*</strong> Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>            | ""            | `"memphis-ws-tls-secret"`     |
-| websocket.tls.cert        | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>.pem file to use</p>                      | ""            | `"memphis_local.pem"`         |
-| websocket.tls.key         | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>key file</p>                              | ""            | `"memphis-key_local.pem"`     |
-| memphis.tls.verify        | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication. Verification for the CA autority. SSL.</p>        | ""            | `"true"`                      |
-| memphis.tls.secret.name   | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>K8S secret name that holds the certs. SSL.</p> | ""            | `"memphis-client-tls-secret"` |
-| memphis.tls.cert          | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>.pem file to use. SSL.</p>                     | ""            | `"memphis_client.pem"`        |
-| memphis.tls.key           | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>Private key file to use. SSL.</p>              | ""            | `"memphis-key_client.pem"`    |
-| memphis.tls.ca            | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>CA file to use. SSL.</p>                       | ""            | `"rootCA.pem"`                |
+| Option                                 | Description                                                                                                                     | Default Value | Example                       |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------- |
+| rootPwd                                | Root password for the dashboard                                                                                                 | `"memphis"`   | `"memphis"`                   |
+| user\_pass\_based\_auth                | <p>Authentication method selector.<br><code>true = User + pass</code><br><code>false = User + connection token</code></p>       | `"true"`      | `"true"`                      |
+| logsRetentionInDays                    | Amount of days to retain system logs                                                                                            | 3             | 3                             |
+| connectionToken                        | Token for connecting an app to the Memphis Message Queue. Auto generated                                                        | `""`          | `"memphis"`                   |
+| dashboard.port                         | Dashboard's (GUI) port                                                                                                          | 9000          | 9000                          |
+| global.cluster.enabled                 | Cluster mode for HA and Performance                                                                                             | `"false"`     | `"false"`                     |
+| exporter.enabled                       | Prometheus exporter                                                                                                             | `"false"`     | `"false"`                     |
+| analytics                              | Collection of anonymous metadata                                                                                                | `"true"`      | `"true"`                      |
+| cluster.enabled                        | Enables Memphis cluster deployment. For fully HA configuration use global.cluster.enabled                                       | `"false"`     | `"true"`                      |
+| cluster.replicas                       | Memphis broker replicas                                                                                                         | `"3"`         | `"5"`                         |
+| websocket.tls.secret.name              | <p><strong>*Optional*</strong> Memphis GUI using websockets for live rendering.<br>K8S secret name for the certs</p>            | ""            | `"memphis-ws-tls-secret"`     |
+| websocket.tls.cert                     | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>.pem file to use</p>                      | ""            | `"memphis_local.pem"`         |
+| websocket.tls.key                      | <p><strong>*Optional*</strong><br>Memphis GUI using websockets for live rendering.<br>key file</p>                              | ""            | `"memphis-key_local.pem"`     |
+| memphis.tls.verify                     | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication. Verification for the CA autority. SSL.</p>        | ""            | `"true"`                      |
+| memphis.tls.secret.name                | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>K8S secret name that holds the certs. SSL.</p> | ""            | `"memphis-client-tls-secret"` |
+| memphis.tls.cert                       | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>.pem file to use. SSL.</p>                     | ""            | `"memphis_client.pem"`        |
+| memphis.tls.key                        | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>Private key file to use. SSL.</p>              | ""            | `"memphis-key_client.pem"`    |
+| memphis.tls.ca                         | <p><strong>*Optional*</strong><br>For encrypted client-memphis communication.<br>CA file to use. SSL.</p>                       | ""            | `"rootCA.pem"`                |
+| metadata.postgresql.username           | <p><strong>*Optional*</strong><br>Username for postgres db</p>                                                                  | "postgres"    | "postgres"                    |
+| metadata.pgpool.tls.enabled            | <p><strong>*Optional*</strong><br>Enabling TLS-based communication with PG</p>                                                  | "false"       | "false"                       |
+| metadata.pgpool.tls.certificatesSecret | <p><strong>*Optional*</strong><br>PG TLS cert secret to be used</p>                                                             | ""            | "tls-secret"                  |
+| metadata.pgpool.tls.certFilename       | <p><strong>*Optional*</strong><br>PG TLS cert file to be used</p>                                                               | ""            | "tls.crt"                     |
+| metadata.pgpool.tls.certKeyFilename    | <p><strong>*Optional*</strong><br>PG TLS key to be used</p>                                                                     | ""            | "tls.key"                     |
+| metadata.pgpool.tls.certCAFilename     | <p><strong>*Optional*</strong><br>PG TLS cert CA to be used</p>                                                                 | ""            | "ca.crt"                      |
+| metadata.external.enabled              | <p><strong>*Optional*</strong><br>For using external PG instead of deploying dedicated one for Memphis</p>                      | "false"       | "true"                        |
+| metadata.external.dbTlsMutual          | <p><strong>*Optional*</strong><br>External PG TLS-basec communication</p>                                                       | "true"        | "true"                        |
+| metadata.external.dbName               | <p><strong>*Optional*</strong><br>External PG db name</p>                                                                       | ""            | "memphis"                     |
+| metadata.external.dbHost               | <p><strong>*Optional*</strong><br>External PG db hostname</p>                                                                   | ""            | "metadata.example.url"        |
+| metadata.external.dbPort               | <p><strong>*Optional*</strong><br>External PG db port</p>                                                                       | ""            | 5432                          |
+| metadata.external.dbUser               | <p><strong>*Optional*</strong><br>External PG db user</p>                                                                       | ""            | "postgres"                    |
+| metadata.external.dbPass               | <p><strong>*Optional*</strong><br>External PG db password</p>                                                                   | ""            | "12345678"                    |
 
 Here is how to run an installation command with additional options -&#x20;
 
@@ -169,7 +185,7 @@ tls:
 helm install memphis memphis \
 --create-namespace --namespace memphis --wait \
 --set \
-cluster.enabled="true",\
+global.cluster.enabled="true",\
 memphis.tls.verify="true",\
 memphis.tls.cert="memphis_client.pem",\
 memphis.tls.key="memphis-key_client.pem",\
@@ -201,6 +217,32 @@ memphis.tls.cert="memphis_client.pem",\
 memphis.tls.key="memphis-key_client.pem",\
 memphis.tls.secret.name="tls-client-secret",\
 memphis.tls.ca="rootCA.pem"
+```
+
+## Deploy Memphis with an external PostgreSQL instance
+
+### Step 1: Create postgresql\_values.yaml according to the following example:
+
+```
+metadata:
+  enabled: false
+  external:
+    enabled: true
+    dbTlsMutual: true
+    dbName: memphis
+    dbHost: <URL>
+    dbPort: 5432
+    dbUser: postgres
+    dbPass: "12345678"
+```
+
+### Step 2: Deploy Memphis cluster with external PostgreSQL:
+
+```bash
+helm install memphis memphis -f postgresql_values.yaml \
+--create-namespace --namespace memphis --wait \
+--set \
+global.cluster.enabled="true"
 ```
 
 ## Deployment diagram

@@ -1,23 +1,59 @@
 ---
 description: >-
-  This section describes authentication and authorisation features in Memphis.
-  Together they allow the operator to control access to the system.
+  This section describes authentication and authorization features in Memphis.
+  Both methods enable the operator to control access to Memphis.
 cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
-# Authentication
+# Security/Authentication
+
+## Methods
+
+When deploying Memphis, there is an option to choose the authentication method. The method should be chosen based on the app and the organization's security requirements.
+
+* **Username + password (Default).**\
+  Each new user (both application and management) gets created with a dedicated username and password.
+
+Kubernetes deployment command:
+
+```
+helm install memphis --set user_pass_based_auth="true" memphis/memphis --create-namespace --namespace memphis
+```
+
+Docker deployment command: To change the auth method value, \
+please modify the `docker-compose.yml` file
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
+
+* **Username + connection token**\
+  Each new application-type user gets created with a dedicated username but the <mark style="color:red;">same connection token</mark> as the other app-type users.
+
+Kubernetes deployment command:
+
+```
+helm install memphis --set user_pass_based_auth="false" memphis/memphis --create-namespace --namespace memphis
+```
+
+Docker deployment command: To change the auth method value, \
+please modify the `docker-compose.yml` file
+
+```
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
 
 ## The Basics
 
 Memphis has two types of credentials:
 
 * **Application**.\
-  Every connection has an associated user and a connection token which is authenticated.\
-  App credentials includes username, connection token, and (optionally) client certificate\* are specified at connection initiation time.\
+  Every connection has an associated user and a password or a connection token that is authenticated.\
+  App credentials, including username, password/connection token, and (optionally) client certificate, are specified during connection initiation time.\
   There is a **default pair of credentials** called the root user and its detailes will appear on the post-installation notes.
 * **Management**.\
-  For management purposes only, and to allow control over the UI and CLI, not data, a dedicated user can be created.
+  A dedicated user can be created for management purposes only, and to allow control over the UI and CLI, not data.
 
 {% hint style="warning" %}
 **Production environments** should not use the default user and create new user accounts with generated credentials instead.
@@ -29,7 +65,7 @@ Memphis has two types of credentials:
 
 <summary>CLI</summary>
 
-1. [Install](../../cli/installation.md) the CLI
+1. Install the CLI
 2.  Address the CLI to the cluster&#x20;
 
     ```powershell

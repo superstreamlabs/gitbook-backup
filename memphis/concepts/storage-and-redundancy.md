@@ -23,12 +23,14 @@ It is up to the user to define which type of storage will this stream object be 
 
 ## Replicas (Mirroring)
 
-Available in cluster mode only. During station creation, the user can choose the number of station replicas. Replicas are an exact mirror of the entire station data, and each produced message will be mirrored across the configured replicas. Each replica will be stored on a different broker; therefore, the maximum number of replicas is derived from the number of brokers in a cluster.\
+Available in cluster mode only.
+
+During station creation, the user can choose the number of station replicas. Replicas are an exact mirror of the entire station data, and each produced message will be mirrored across the configured replicas. Each replica will be stored on a different broker; therefore, the maximum number of replicas is derived from the number of brokers in a cluster.\
 In case of a broker or disk loss, replicas will be used to rebuild the missing replica to maintain the required amount of replicas and, at the same time, ensure data availability through a different broker.
 
 Replicas can be defined using the SDK, GUI, or CLI.
 
-The number of replicas cannot be changed after station creation. (Will be in the future)
+The number of replicas cannot be changed after station creation (but can be in the future)
 
 ## Storage tiering
 
@@ -41,7 +43,7 @@ The first type of storage each message will initially be stored at.
 The options are Memory or Disk. Each with its strengths and weaknesses.
 
 * **Memory.**\
-  ****For faster performance.\
+  For faster performance.\
   Due to its nature as a volatile type of storage, the risk of losing data in case of failure is higher because it resides in the broker's memory, and in the case of a station without configured replicas, data can be lost.
 
 <figure><img src="../../.gitbook/assets/storage type memory.jpeg" alt=""><figcaption><p>Stream object as it construct and stored</p></figcaption></figure>
@@ -49,7 +51,7 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 <figure><img src="../../.gitbook/assets/mem ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
 * **Disk.**\
-  ****For higher availability.\
+  For higher availability.\
   Disk storage might be slower than memory, but it offers greater availability and resiliency to broker failures.
 
 <figure><img src="../../.gitbook/assets/disk.jpeg" alt=""><figcaption></figcaption></figure>
@@ -71,8 +73,8 @@ Possible integrations [here](../../integrations/storage/).
 
 #### A growing list of options:
 
-* ****[**S3 (Object storage)**](../../integrations/storage/amazon-s3.md)****\
-  ****Built to store and retrieve any amount of data from anywhere using S3 protocol.\
+* [**S3 (Object storage)**](../../integrations/storage/amazon-s3.md)\
+  Built to store and retrieve any amount of data from anywhere using S3 protocol.\
   Object storage offers different storage classes with different costs and performance requirements.\
   Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and more.
 * **MinIO \*soon\***

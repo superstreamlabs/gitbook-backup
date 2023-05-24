@@ -1,5 +1,5 @@
 ---
-description: 0.4.5-beta
+description: v1.0.0 - LTS
 cover: ../.gitbook/assets/Overview..jpg
 coverY: 0
 ---
@@ -51,7 +51,7 @@ And the list continues...
 * Kafka, RabbitMQ, NATS, and other MQs are HARD to deploy, manage, secure, update, onboard, and tune.
 * Turning batch processes into real-time can be complicated and time-consuming.
 
-## Key Features (v0.4.5)
+## Key Features (v0.1)
 
 * Fully optimized message broker in under 3 minutes
 * Easy-to-use UI, CLI, and SDKs

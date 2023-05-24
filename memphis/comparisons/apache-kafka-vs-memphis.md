@@ -20,12 +20,12 @@ Memphis.dev enables building next-generation applications that require large vol
 
 ## General
 
-| Parameter                 | Memphis.dev                              | Apache Kafka                           |
-| ------------------------- | ---------------------------------------- | -------------------------------------- |
-| License                   | Apache 2.0                               | Apache 2.0                             |
-| Components                | Memphis + MongoDB (MDB is being removed) | Kafka + Zookeeper(ZK is being removed) |
-| Message consumption model | Pull                                     | Pull                                   |
-| Storage architecture      | Log                                      | Log                                    |
+| Parameter                 | Memphis.dev           | Apache Kafka                           |
+| ------------------------- | --------------------- | -------------------------------------- |
+| License                   | BSL 1.0               | Apache 2.0                             |
+| Components                | Memphis + PostgreSQL  | Kafka + Zookeeper(ZK is being removed) |
+| Message consumption model | Pull                  | Pull                                   |
+| Storage architecture      | Log                   | Log                                    |
 
 ### License
 
@@ -34,7 +34,7 @@ Both technologies are available under fully open-source licenses. Memphis also h
 ### Components
 
 Kafka uses Apache Zookeeper™ for consensus and message storage.\
-Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Memphis achieves consensus by using RAFT.
+Memphis uses PostgreSQL for GUI state management only and will be removed soon, making Memphis without any external dependency. Memphis achieves consensus by using RAFT.
 
 ### Message Consumption Model
 
@@ -54,7 +54,7 @@ Memphis also offers storage tiering for offloading messages to S3-compatible sto
 
 | Parameter                            | Memphis.dev               | Apache Kafka                           |
 | ------------------------------------ | ------------------------- | -------------------------------------- |
-| Deployment                           | Stright forward           | Requires deep understanding and design |
+| Deployment                           | Straight forward          | Requires deep understanding and design |
 | Enterprise support                   | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Managed cloud offerings              | Yes                       | 3rd parties like Confluent, AWS MSK    |
 | Self-Healing                         | Yes                       | No                                     |
@@ -115,7 +115,7 @@ Memphis provides stream lineage per message with out-of-the-box visualization fo
 
 Kafka Replication means having multiple copies of the data spread across multiple servers/brokers. This helps maintain high availability if one of the brokers goes down and is unavailable to serve the requests.
 
-Memphis station replication works similarly. During station (=topic) creation, the user can choose the number of replicas derived from the number of available brokers. messages will be replicated in a raid-1 manner across the chosen number of brokers.
+Memphis station replication works similarly. During station (=topic) creation, the user can choose the number of replicas derived from the number of available brokers. Messages will be replicated in a RAID-1 manner across the chosen number of brokers.
 
 ### Multi-tenancy
 
@@ -123,7 +123,7 @@ Multi-tenancy refers to the mode of operation of software where multiple indepen
 
 Apache Kafka does not natively support multi-tenancy. It can be achieved via complex client logic, different topics, and ACL.
 
-As Memphis pushes to enable the next generation of applications and especially SaaS-type architectures, Memphis supports Multi-tenancy across all the layers from stations (=topics) to security, consumers, and producers, all the way to node selection for complete hardware isolation in case of need. It is enabled using namespaces and can be managed in a unified console.
+As Memphis pushes to enable the next generation of applications and especially SaaS-type architectures, Memphis supports multi-tenancy across all the layers from stations (=topics) to security, consumers, and producers, all the way to node selection for complete hardware isolation in case of need. It is enabled using namespaces and can be managed in a unified console.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-12-22 at 14.10.43.png" alt=""><figcaption></figcaption></figure>
 
@@ -182,7 +182,7 @@ Dead-letter queue is both a concept and a solution that is useful for debugging 
 
 The Kafka architecture does not support DLQ within the broker; it is the client or consumer's responsibility to implement such behavior for good and bad.
 
-One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
+One of Memphis' core building blocks is avoiding unexpected data loss, enabling rapid development, and shortening troubleshooting cycles. Therefore, Memphis provides a native solution for dead-letter that acts as the station recycle bin for various failures such as unacknowledged messages, schema violations, and custom exceptions.
 
 ### Schema Management
 

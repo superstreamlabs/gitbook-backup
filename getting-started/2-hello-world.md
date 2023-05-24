@@ -5,9 +5,7 @@ coverY: 0
 
 # Step 2 - Hello World
 
-Creating your 1st station, producer, and consumer!
-
-Please follow the steps below in your preferred language.
+Create your first station, producer, and consumer in your preferred language as shown in the tabs below:
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -126,7 +124,7 @@ node consumer.js
 {% endtab %}
 
 {% tab title="TypeScript" %}
-Please make sure you have Node.js [installed](https://nodejs.org/en/download/)
+Please make sure you have Node.js [installed](https://nodejs.org/en/download/).
 
 **Step 1:** Create an empty dir for the TypeScript project
 
@@ -243,7 +241,7 @@ node consumer.ts
 {% endtab %}
 
 {% tab title="NestJS" %}
-Please make sure you have Node.js [installed](https://nodejs.org/en/download/)
+Please make sure you have Node.js [installed](https://nodejs.org/en/download/).
 
 **Step 1:** Create an empty dir for the NestJS project
 
@@ -319,21 +317,20 @@ export class ProducerModule {
 {% code title="consumer.controller.ts" lineNumbers="true" %}
 
 ```typescript
-import { Controller } from "@nestjs/common";
-import { consumeMessage } from "memphis-dev/nest";
-import type { Message } from "memphis-dev/types";
+import { Module } from '@nestjs/common';
+import { Memphis, MemphisModule, MemphisService, MemphisConsume, Message } from 'memphis-dev';
 
 @Controller("auth")
 export class ExampleController {
-  @consumeMessage({
-    stationName: "STATION_NAME",
-    consumerName: "CONSUMER_NAME",
-    consumerGroup: "CONSUMER_GROUP_NAME",
-  })
-  async messageHandler(message: Message) {
-    console.log(message.getData().toString());
-    message.ack();
-  }
+    @MemphisConsume({
+        stationName: "STATION_NAME",
+        consumerName: "CONSUMER_NAME",
+        consumerGroup: "CONSUMER_GROUP_NAME",
+    }, {}) // {} for passing the consumerContext to consumer.setContext
+    async messageHandler(message: Message, context: object) {
+        console.log(message.getData().toString());
+        message.ack();
+    }
 }
 ```
 
