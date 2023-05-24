@@ -6,7 +6,7 @@ cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
-# Dead-letter Station (DLQ)
+# Dead-letter Station (DLS)
 
 ## Introduction
 

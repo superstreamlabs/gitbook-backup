@@ -26,8 +26,8 @@ A modal will appear with customization options.
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-11 at 15.14.03.png" alt=""><figcaption></figcaption></figure>
 
 * **Retention** - The default value is seven days. You can choose a custom retention value by time, message size, and message amount.
-* ****[**Storage type**](broken-reference) - Choose whether to store your messages in a file or memory.
-* ****[**Replicas**](../memphis/architecture.md#replicas) - Choose how many replicas to create behind your station.
+* [**Storage type**](broken-reference) - Choose whether to store your messages in a file or memory.
+* [**Replicas**](../memphis/architecture.md#replicas) - Choose how many replicas to create behind your station.
 
 ### Station overview
 

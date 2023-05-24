@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/Your_streaming_journey_starts_here..jpg
+cover: ../.gitbook/assets/LinkedIn personal (3).png
 coverY: 0
 ---
 
@@ -34,25 +34,25 @@ npm install memphis-dev
 
 {% code title="producer.js" lineNumbers="true" %}
 ```javascript
-const memphis = require("memphis-dev");
+const { memphis } = require("memphis-dev");
 
 (async function () {
     let memphisConnection
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const producer = await memphisConnection.producer({
-            stationName: '<station_name>',
-            producerName: '<producer_name>'
+            stationName: 'STATION_NAME',
+            producerName: 'PRODUCER_NAME'
         });
 
         const headers = memphis.headers()
-        headers.add('key', 'value')
+        headers.add('KEY', 'VALUE')
         await producer.produce({
             message: Buffer.from("Message: Hello world"), // you can also send JS object - {}
             headers: headers
@@ -64,7 +64,6 @@ const memphis = require("memphis-dev");
         if (memphisConnection) memphisConnection.close();
     }
 })();
-        
 ```
 {% endcode %}
 
@@ -78,22 +77,22 @@ node producer.js
 
 {% code title="consumer.js" lineNumbers="true" %}
 ```javascript
-const memphis = require('memphis-dev');
+const { memphis } = require("memphis-dev");
 
 (async function () {
     let memphisConnection;
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const consumer = await memphisConnection.consumer({
-            stationName: '<station_name',
-            consumerName: '<consumer_name>',
-            consumerGroup: '<consumer_group_name>'
+            stationName: 'STATION_NAME',
+            consumerName: 'CONSUMER_NAME',
+            consumerGroup: 'CONSUMER_GROUP_NAME'
         });
 
         consumer.setContext({ key: "value" });
@@ -145,17 +144,16 @@ npm install memphis-dev
 
 {% code title="producer.ts" lineNumbers="true" %}
 ```typescript
-import memphis from 'memphis-dev';
-import type { Memphis } from 'memphis-dev/types';
+import { memphis, Memphis } from 'memphis-dev';
 
 (async function () {
     let memphisConnection: Memphis;
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const producer = await memphisConnection.producer({
@@ -189,17 +187,16 @@ node producer.ts
 
 {% code title="consumer.ts" lineNumbers="true" %}
 ```typescript
-import memphis from 'memphis-dev';
-import { Memphis, Message } from 'memphis-dev/types';
+import { memphis, Memphis } from 'memphis-dev';
 
 (async function () {
     let memphisConnection: Memphis;
 
     try {
         memphisConnection = await memphis.connect({
-            host: '<Memphis_hostname>',
-            username: '<application_type_user>',
-            connectionToken: '<connection_token>'
+            host: 'MEMPHIS_BROKER_HOSTNAME',
+            username: 'APPLICATION_TYPE_USERNAME',
+            password: 'PASSWORD'
         });
 
         const consumer = await memphisConnection.consumer({
@@ -260,8 +257,8 @@ npm install memphis-dev
 {% code title="producer.module.ts" lineNumbers="true" %}
 ```typescript
 import { Module } from "@nestjs/common";
-import { MemphisModule, MemphisService } from "memphis-dev/nest"
-import type { Memphis } from 'memphis-dev/types';
+import { Memphis, MemphisModule, MemphisService } from "memphis-dev"
+
 @Module({
     imports: [MemphisModule.register()],
 })
@@ -273,10 +270,10 @@ export class ProducerModule {
             let memphisConnection: Memphis;
             
             try {
-                memphisConnection = await this.memphis.connect({
-                    host: '<Memphis_hostname>',
-                    username: '<application_type_user>',
-                    connectionToken: '<connection_token>'
+                memphisConnection = await memphis.connect({
+                    host: 'MEMPHIS_BROKER_HOSTNAME',
+                    username: 'APPLICATION_TYPE_USERNAME',
+                    password: 'PASSWORD'
                 });
 
                 const producer = await memphisConnection.producer({
@@ -309,17 +306,16 @@ export class ProducerModule {
 {% code title="consumer.controller.ts" lineNumbers="true" %}
 ```typescript
 import { Controller } from '@nestjs/common';
-import { consumeMessage } from 'memphis-dev/nest';
-import type { Message } from 'memphis-dev/types';
+import { MemphisConsume, Message } from 'memphis-dev';
 
 @Controller('auth')
 export class ExampleController {
-    @consumeMessage({
+    @MemphisConsume({
         stationName: '<station-name>',
         consumerName: '<consumer-name>',
         consumerGroup: ''
-    })
-    async messageHandler(message: Message) {
+    }, {}) // {} for passing the consumerContext to consumer.setContext
+    async messageHandler(message: Message, context: object) {
         console.log(message.getData().toString());
         message.ack();
     }
@@ -336,13 +332,19 @@ mkdir memphis-demo && \
 cd memphis-demo
 ```
 
-**Step 2:** In your project's directory, install Memphis Go SDK
+**Step 2:** Init the newly created project
+
+```
+go mod init memphis-demo
+```
+
+**Step 3:** In your project's directory, install Memphis Go SDK
 
 ```
 go get github.com/memphisdev/memphis.go
 ```
 
-**Step 3:** Create a new Go file called `producer.go`
+**Step 4:** Create a new Go file called `producer.go`
 
 {% code title="producer.go" lineNumbers="true" %}
 ```go
@@ -356,7 +358,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", "MEMPHIS_CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
@@ -404,7 +406,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", "MEMPHIS_CONNECTION_TOKEN")
+    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
     if err != nil {
         os.Exit(1)
     }
@@ -434,7 +436,7 @@ func main() {
     }
 
     ctx := context.Background()
-    ctx = context.WithValue(ctx, "key", "value)
+    ctx = context.WithValue(ctx, "key", "value")
     consumer.SetContext(ctx)
     consumer.Consume(handler)
 
@@ -471,13 +473,13 @@ pip3 install --upgrade memphis-py
 
 {% code title="producer.py" lineNumbers="true" %}
 ```python
-import asyncio
-from memphis import Memphis, Headers, MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError
+from memphis import Memphis, Headers
+from memphis.types import Retention, Storage
         
 async def main():
     try:
         memphis = Memphis()
-        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD")
         
         producer = await memphis.producer(station_name="STATION_NAME", producer_name="PRODUCER_NAME")
         headers = Headers()
@@ -506,8 +508,8 @@ python3 producer.py
 
 {% code title="consumer.py" lineNumbers="true" %}
 ```python
-import asyncio
-from memphis import Memphis, MemphisError, MemphisConnectError, MemphisHeaderError
+from memphis import Memphis, Headers
+from memphis.types import Retention, Storage
         
 async def main():
     async def msg_handler(msgs, error, context):
@@ -524,7 +526,7 @@ async def main():
         
     try:
         memphis = Memphis()
-        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", connection_token="MEMPHIS_CONNECTION_TOKEN")
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD")
         
         consumer = await memphis.consumer(station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CONSUMER_GROUP_NAME")
         consumer.set_context({"key": "value"})
@@ -548,5 +550,92 @@ if __name__ == '__main__':
 ```bash
 python3 consumer.py
 ```
+{% endtab %}
+
+{% tab title="REST" %}
+Producing messages to Memphis via REST API can be implemented using any REST-supported language like Go, Python, Java, Node.js, .NET, etc...
+
+For the following tutorial, we will use Node.js .
+
+
+
+**Step 1:** Create an empty dir for the node.js project
+
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
+
+**Step 2:** Create a new node project (If needed)
+
+```bash
+npm init -y
+```
+
+**Step 3:** Generate a new JWT token `generate.js`
+
+{% code title="generate.js" lineNumbers="true" %}
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "username": "APPLICATION_TYPE_USERNAME",
+  "password": "PASSWORD",
+  "token_expiry_in_minutes": 123,
+  "refresh_token_expiry_in_minutes": 10000092
+});
+
+var config = {
+  method: 'post',
+  url: 'BROKER_RESTGW_URL',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+{% endcode %}
+
+**Step 4:** Run `generate.js` and copy the returned JWT
+
+```bash
+node generate.js
+```
+
+**Step 5:** Create a new file called `producer.js`
+
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "message": "New Message"
+});
+
+var config = {
+  method: 'post',
+  url: 'https://BROKER_RESTGW_URL/stations/hps/produce/single',
+  headers: { 
+    'Authorization': 'Bearer <jwt>', 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+
+**Consume** messages via REST will soon be released.
 {% endtab %}
 {% endtabs %}

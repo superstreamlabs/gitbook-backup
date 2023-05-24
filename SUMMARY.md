@@ -6,6 +6,7 @@
 * [Step 2 - Hello World](getting-started/2-hello-world.md)
 * [Tutorials](getting-started/tutorials/README.md)
 * [Use cases](getting-started/3-use-cases.md)
+* [Public Case Studies](getting-started/public-case-studies.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
 * [Roadmap](https://memphis.dev/roadmap)
 
@@ -13,27 +14,31 @@
 
 * [Overview](memphis/overview.md)
 * [Architecture](memphis/architecture.md)
-* [Concepts](memphis/concepts/README.md)
+* [Key concepts](memphis/concepts/README.md)
   * [Message broker](memphis/concepts/message-broker.md)
   * [Station](memphis/concepts/station.md)
   * [Producer API](memphis/concepts/producer.md)
   * [Consumer API](memphis/concepts/consumer.md)
   * [Consumer Group](memphis/concepts/consumer-groups.md)
   * [Storage and Redundancy](memphis/concepts/storage-and-redundancy.md)
-  * [Authentication](memphis/concepts/security.md)
+  * [Security/Authentication](memphis/concepts/security.md)
   * [Scaling](memphis/concepts/scaling.md)
   * [Ordering](memphis/concepts/ordering.md)
   * [Dead-letter Station (DLS)](dashboard-ui/troubleshooting/dead-letter.md)
+  * [Delayed messages](memphis/key-concepts/delayed-messages.md)
   * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
-* [Schemaverse - Schema Management](memphis/schemaverse-schema-management/README.md)
-  * [Formats](memphis/schemaverse-schema-management/formats/README.md)
+  * [Troubleshooting process](memphis/key-concepts/troubleshooting-process.md)
+* [Schemaverse](memphis/schemaverse-schema-management/README.md)
+  * [⭐ Getting started](memphis/schemaverse-schema-management/formats/README.md)
     * [Protobuf](memphis/schemaverse-schema-management/formats/protobuf.md)
     * [JSON Schema](memphis/schemaverse-schema-management/formats/json-schema.md)
     * [GraphQL](memphis/schemaverse-schema-management/formats/graphql.md)
     * [Avro](memphis/schemaverse-schema-management/formats/avro.md)
-  * [FAQs](memphis/schemaverse-schema-management/faqs.md)
-* [Cluster configuration](memphis/cluster-configuration.md)
+  * [Comparison](memphis/schemaverse-schema-management/comparison.md)
+  * [KB](memphis/schemaverse-schema-management/kb.md)
+* [Memphis configuration](memphis/memphis-configuration.md)
+* [Benchmark](memphis/benchmark.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [NATS Jetstream vs Memphis](memphis/comparisons/nats-vs-memphis.md)
   * [RabbitMQ vs Memphis](memphis/comparisons/rabbitmq-vs-memphis.md)
@@ -43,9 +48,13 @@
   * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
 * [Privacy](memphis/privacy.md)
 
+## ☁ Memphis cloud
+
+* [Private beta](https://memphis.dev/cloud)
+
 ## 📦 Deployment
 
-* [Cloud Deployment](deployment/cloud-deployment/README.md)
+* [Terraform](deployment/cloud-deployment/README.md)
   * [Deploy on AWS](deployment/cloud-deployment/deploy-on-aws.md)
   * [Deploy on GCP](deployment/cloud-deployment/deploy-on-gcp.md)
   * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
@@ -53,21 +62,22 @@
 * [Kubernetes](deployment/kubernetes/README.md)
   * [1 - Installation](deployment/kubernetes/1-installation.md)
   * [2 - Access](deployment/kubernetes/2-access.md)
+  * [3 - Upgrade](release-notes/how-to-upgrade.md)
 * [Docker](deployment/docker-compose.md)
+* [Production Best Practices](deployment/production-best-practices.md)
 
-## SDKs and Protocols
+## Client Libraries
 
-* [REST (HTTP)](https://github.com/memphisdev/memphis-http-proxy)
+* [REST (Webhook)](https://github.com/memphisdev/memphis-http-proxy)
 * [Node.js / TypeScript / NestJS](https://github.com/memphisdev/memphis.js)
 * [Go](https://github.com/memphisdev/memphis.go)
 * [Python](https://github.com/memphisdev/memphis.py)
 * [Kotlin](https://github.com/memphisdev/memphis.kt)
 * [.NET](https://github.com/memphisdev/memphis.net)
 * [Java](https://github.com/memphisdev/memphis.java)
-* [NATS](sdks-and-protocols/nats/README.md)
-  * [Argo and Memphis](sdks-and-protocols/nats/argo-and-memphis.md)
-* [Rust](sdks/rust.md)
-* [Scala](sdks/scala.md)
+* [NATS Jetstream](client-libraries/nats-jetstream.md)
+* [Rust](client-libraries/rust.md)
+* [Scala](client-libraries/scala.md)
 
 ## Dashboard (GUI)
 
@@ -77,24 +87,31 @@
 * [Overview](dashboard-gui/overview.md)
 * [Stations](dashboard-gui/stations.md)
 * [Users](dashboard-gui/users.md)
-* [Settings](dashboard-gui/settings.md)
-* [🔌 Integrations](dashboard-gui/integrations/README.md)
-  * [Monitoring](dashboard-gui/integrations/monitoring/README.md)
-    * [Datadog](dashboard-gui/integrations/monitoring/datadog.md)
-  * [Notifications](dashboard-gui/integrations/notifications/README.md)
-    * [Slack](dashboard-gui/integrations/notifications/slack.md)
-  * [Storage](dashboard-gui/integrations/storage/README.md)
-    * [Amazon S3](dashboard-gui/integrations/storage/amazon-s3.md)
+* [Profile](dashboard-gui/settings.md)
 
-## CLI
+## 🔌 Integrations
 
-* [Installation](cli/installation.md)
-* [Usage](cli/usage.md)
+* [Monitoring](integrations/monitoring/README.md)
+  * [Elasticsearch Observability](integrations/monitoring/elasticsearch-observability.md)
+  * [Datadog](integrations/monitoring/datadog.md)
+  * [Grafana](integrations/monitoring/grafana.md)
+* [Notifications](integrations/notifications/README.md)
+  * [Slack](integrations/notifications/slack.md)
+* [Storage](integrations/storage/README.md)
+  * [Amazon S3](integrations/storage/amazon-s3.md)
+* [Other platforms](integrations/other-platforms/README.md)
+  * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
+  * [Argo](integrations/other-platforms/argo-and-memphis.md)
 
-## 🗒 Release notes
+## 🗒 Product Updates
 
-* [How to upgrade memphis](release-notes/how-to-upgrade.md)
+* [KB](product-updates/kb.md)
 * [Releases](release-notes/releases/README.md)
+  * [v1.0.2-stable](release-notes/releases/v1.0.2-stable.md)
+  * [v1.0.1](release-notes/releases/v1.0.1.md)
+  * [V1.0.0 - GA](release-notes/releases/v1.0.0-lts.md)
+  * [v0.4.5 - beta](release-notes/releases/latest-v0.4.5-beta.md)
+  * [v0.4.4 - beta](release-notes/releases/v0.4.4-beta.md)
   * [v0.4.3 - beta](release-notes/releases/v0.4.3-beta.md)
   * [v0.4.2 - beta](release-notes/releases/v0.4.2-beta.md)
   * [v0.4.1 - beta](release-notes/releases/v0.4.1-beta.md)

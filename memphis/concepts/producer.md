@@ -18,9 +18,9 @@ As the user configures a client connection to Memphis, it comprises several obje
 
 <figure><img src="../../.gitbook/assets/Producer.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Broker Data Format
+### Broker's Data Format
 
-Memphis started from NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
+Memphis forked NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
 
 When a producer produces messages to Memphis station, they should be converted into binary.
 
@@ -33,6 +33,10 @@ await producer.produce({
 ```
 
 <figure><img src="../../.gitbook/assets/produce 1.jpeg" alt=""><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+**Unexist stations** will be created **automatically** through the SDK on the first producer/consumer connection.
+{% endhint %}
 
 ### Parameters
 
@@ -69,7 +73,7 @@ By adding more producers, the throughput will be increased accordingly due to th
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
-* [HTTP](broken-reference)
+* [HTTP](https://github.com/memphisdev/memphis-http-proxy)
 * [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
 * gRPC \* Soon \*
 * MQTT \* Soon \*

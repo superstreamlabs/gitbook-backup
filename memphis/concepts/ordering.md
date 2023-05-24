@@ -7,7 +7,7 @@ coverY: 0
 
 ### Ordering
 
-Ordering is guaranteed only while working with a single consumer.
+Ordering is guaranteed only when working with a single consumer group.
 
 ![](../../.gitbook/assets/ordering.jpeg)
 

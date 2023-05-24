@@ -3,9 +3,9 @@ cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
 
-# Scaling 
+# Scaling
 
-The following section outlines the Memphis scaling process and provides instructions on how to implement it. 
+The following section outlines the Memphis scaling process and provides instructions on how to implement it.
 
 ## Scaling Up vs Scaling Out / Vertical vs Horizontal Scaling
 
@@ -23,8 +23,7 @@ Below, you'll find examples, instructions and best practices on how to scale up/
 
 ### Scaling up / Vertical Scaling
 
-Addition of CPU / memory / storage to every broker itself (can be only one).
-As mentioned in the hardware requirement table, Memphis can be installed with only one memphis broker over a Kubernetes cluster with a single worker equipped with 2 CPUs, 4GB of RAM, and 16GB of storage. Note  that these are the minimum requirements. You can go below them at your own risk but may experience instability in your Memphis ecosystem.
+Addition of CPU / memory / storage to every broker itself (can be only one). As mentioned in the hardware requirement table, Memphis can be installed with only one memphis broker over a Kubernetes cluster with a single worker equipped with 2 CPUs, 4GB of RAM, and 16GB of storage. Note that these are the minimum requirements. You can go below them at your own risk but may experience instability in your Memphis ecosystem.
 
 As the demand for computing resources increases with the growth of workload and data transfer through Memphis, it may be necessary to allocate additional resources. One approach to doing this is to increase the number of CPUs in the Kubernetes nodes and, depending on the storage requirements of the system, adding more memory and/or storage capacity.
 
@@ -64,6 +63,6 @@ vi memphis-broker-config.yaml
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2022-11-13 at 17.08.25.png" alt=""><figcaption></figcaption></figure>
 
-Add the new StatefulSet in the marked line with the following pattern -&#x20;
+Add the new StatefulSet in the marked line with the following pattern -
 
 `, nats://memphis-broker-`<mark style="color:red;">**`X`**</mark>`.memphis-cluster.memphis.svc.cluster.local:6222`

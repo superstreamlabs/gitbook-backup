@@ -12,6 +12,7 @@ description: Memphis is great for the following use cases
 * Async communication between services on k8s
 * Queuing
 * Multiple destinations to a single message
+* Ingest Grafana loki logs
 * Stream video frames
 
 #### Projects examples that utilize the power of data streaming

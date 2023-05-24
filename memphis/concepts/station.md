@@ -68,7 +68,12 @@ As seen in the illustration below, each **consumer group** will receive **all** 
 
 <figure><img src="../../.gitbook/assets/ordering.jpeg" alt=""><figcaption></figcaption></figure>
 
-Searched terms: retention, Retention
+## Parameters
 
+| Parameter               | Description                                 | Potential values                       |
+| ----------------------- | ------------------------------------------- | -------------------------------------- |
+| Max message size        | The maximum message size possible to ingest | Up to 64Mb. By default the size is 8Mb |
+| Station name max length | The maximum length of a station name        | Up to 128 characters                   |
+|                         |                                             |                                        |
 
-
+Searched terms: max message, max message size, retention, Retention

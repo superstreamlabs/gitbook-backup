@@ -20,12 +20,12 @@ Memphis.dev enables building next-generation applications that require large vol
 
 ## General
 
-| Parameter                 | Memphis.dev                              | Apache Kafka                           |
-| ------------------------- | ---------------------------------------- | -------------------------------------- |
-| License                   | Apache 2.0                               | Apache 2.0                             |
-| Components                | Memphis + MongoDB (MDB is being removed) | Kafka + Zookeeper(ZK is being removed) |
-| Message consumption model | Pull                                     | Pull                                   |
-| Storage architecture      | Log                                      | Log                                    |
+| Parameter                 | Memphis.dev           | Apache Kafka                           |
+| ------------------------- | --------------------- | -------------------------------------- |
+| License                   | BSL 1.0               | Apache 2.0                             |
+| Components                | Memphis + PostgreSQL  | Kafka + Zookeeper(ZK is being removed) |
+| Message consumption model | Pull                  | Pull                                   |
+| Storage architecture      | Log                   | Log                                    |
 
 ### License
 
@@ -34,7 +34,7 @@ Both technologies are available under fully open-source licenses. Memphis also h
 ### Components
 
 Kafka uses Apache Zookeeper™ for consensus and message storage.\
-Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Memphis achieves consensus by using RAFT.
+Memphis uses PostgreSQL for GUI state management only and will be removed soon, making Memphis without any external dependency. Memphis achieves consensus by using RAFT.
 
 ### Message Consumption Model
 

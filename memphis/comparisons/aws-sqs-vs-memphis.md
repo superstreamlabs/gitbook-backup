@@ -107,6 +107,7 @@ Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring
 | Data-Level Observability             | Yes                                                     | Yes                                                   |
 | Self-healing                         | Yes + Managed service                                   | Managed service                                       |
 | Deduplication                        | Yes. Modified bloom filter                              | Deduplication interval of 5 minutes                   |
+| Delayed queues                       | Yes. Atomic per message.                                | Yes. Not atomic, and per entire queue.                |
 | Dead-letter                          | Yes                                                     | Yes                                                   |
 | REST Gateway                         | Yes                                                     | No                                                    |
 | Consumer internal communication      | Experimental                                            | No                                                    |
@@ -114,3 +115,79 @@ Memphis offers full Infra-to-cluster-to-data GUI-based observability, monitoring
 | Storage tiering                      | Disk, Memory, **S3 for Archiving**                      | Disk                                                  |
 | Notifications                        | Slack, Email, More                                      | With SNS and Cloudwatch                               |
 | SDK support                          | Node js, Python, Go, .NET, Java, NestJS, and Typescript | C++, Go, Java, .NET, Python, node.js, Rust, Ruby, PHP |
+
+## Performance comparison
+
+**AWS SQS** Client node: 1 x m4.2xlarge / 50 threads
+
+**Memphis** Client node: 1 x m5n.8xlarge / 20 threads
+
+| 1KB Messages          | Memphis     | AWS SQS  |
+| --------------------- | ----------- | -------- |
+| 100K messages = 100MB | 0.16951 sec | 5.88 sec |
+| 500K messages = 500MB | 2.74 sec    | 29 sec   |
+| 1M messages = 1GB     | 9.419 sec   | 58 sec   |
+| 10M messages = 10GB   | 106.576 sec | 588 sec  |
+
+## TCO comparison
+
+### Defining a cost model for data streaming
+
+In this economic climate, costs are top of mind for everyone.
+
+Total Cost of Ownership (TCO) should be a primary consideration when evaluating the Return on Investment (ROI) of adopting a new software platform. TCO is the blended cost of deploying, configuring, securing, productionizing, and operating the software over its expected lifetime, including all infrastructure, personnel, training, and subscription costs.&#x20;
+
+For this comparison, we define TCO as a combination of the following components:
+
+1. Implementation: The cost of implementing a new streaming technology
+2. Infrastructure: The cost of computing and storage, in this case on AWS
+
+For the infrastructure cost comparison, we ran benchmarks to compare the performance of AWS SQS against Memphis.
+
+### Implementation costs
+
+Oftentimes, there is a misconception that cloud services are a turnkey solution. \
+Here are some of the missing components that will need to be constructed when using AWS SQS -&#x20;
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td>Performance heavily relies on the client’s threads</td><td></td></tr><tr><td></td><td>What if you required to run on GCP for specific customer?</td><td></td></tr><tr><td></td><td><p>Not built for SaaS.</p><p>No multi-tenancy</p></td><td></td></tr><tr><td></td><td>Consumer-side delay queues</td><td></td></tr><tr><td></td><td>Monitoring and notification</td><td></td></tr><tr><td></td><td>Consumption from DLQ</td><td></td></tr></tbody></table>
+
+### Implementation costs
+
+| Feature                      | Memphis                                                                                                                                                                     | AWS SQS                                                                                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Performance                  | <p>Built-in. Automatic.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           | <p>Required to use threads.</p><p><mark style="color:orange;"><strong>130 dev hours</strong></mark></p>                                                    |
+| Multi-Cloud                  | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           | <p>Required to build abstraction to different cloud queues and APIs.<br><mark style="color:orange;"><strong>378 dev hours</strong></mark></p>              |
+| Multi-tenancy                | <p>Built-in. By design.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                           | <p>Required to build. Using different queues and/or tagging data.</p><p><mark style="color:orange;"><strong>63 dev hours</strong></mark></p>               |
+| Monitoring and Notifications | <p>Built-in. Ready-to-use slack notifications / Grafana / Datadog / prometheus.</p><p><mark style="color:purple;"><strong>12 dev hours + 2 DevOps hours</strong></mark></p> | <p>Required to build + use 3rd party open-source/paid tools.</p><p><mark style="color:orange;"><strong>126 DevOps hours + 49 dev hours</strong></mark></p> |
+| Runtime DLQ consumption      | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      | <p>Required to build.</p><p><mark style="color:orange;"><strong>30 dev hours</strong></mark></p>                                                           |
+| Delayed consumers            | <p>Built-in.</p><p><mark style="color:purple;"><strong>0 dev hours</strong></mark></p>                                                                                      | <p>Required to build.</p><p><mark style="color:orange;"><strong>20 dev hours</strong></mark></p>                                                           |
+| Cost                         | <mark style="color:purple;">**$1,000**</mark>                                                                                                                               | <p>Based on average dev hourly rate of $70.</p><p><mark style="color:orange;"><strong>$55,720 ($54,720 difference)</strong></mark></p>                     |
+
+### Infrastructure costs - 15K RPS or 60MB/s
+
+| Metric                    | Memphis                                                                                                                                        | AWS SQS                                                                                                                                                      |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Requests per month        | 30,000 messages per second = 77,760 million messages per month                                                                                 | <p>30,000 messages per second = 155,520 million requests per month</p><p>*Every Amazon SQS action counts as a request, including DLQ, publish, subscribe</p> |
+| EKS                       | Organizational.                                                                                                                                |  None.                                                                                                                                                       |
+| Nodes                     | 3 x i3en.large (On-demand). <mark style="color:purple;">**$547**</mark>                                                                        | Included.                                                                                                                                                    |
+| Client nodes              | <p>1 X M4.2xlarge.</p><p><mark style="color:purple;"><strong>$324.12</strong></mark></p>                                                       | <p>12 X M4.2xlarge</p><p><mark style="color:orange;"><strong>$3,889.44</strong></mark></p>                                                                   |
+| Retention (Storage)       | <p>3 days X 10 kb message X 77,760M = 6Tb. </p><p><mark style="color:purple;"><strong>$1,737.52</strong></mark></p>                            | 3 days                                                                                                                                                       |
+| Data Transfer between AZs | <mark style="color:purple;">**$2,866**</mark>                                                                                                  | <mark style="color:orange;">**$1,433.60**</mark>                                                                                                             |
+| Licensing                 | <p>Memphis Self-hosted enterprise licensing for partners. Flat. </p><p><mark style="color:purple;"><strong>$1,100 – $2,000</strong></mark></p> | Included.                                                                                                                                                    |
+| Cost                      | <mark style="color:purple;">**$6,574**</mark>                                                                                                  | Based on average dev hourly rate of $70 <mark style="color:orange;">**$56,655.60 ($50,081 difference)**</mark>                                               |
+
+### Summary
+
+|                                                                                          | 15K RPS | 30K RPS |  60K RPS |
+| ---------------------------------------------------------------------------------------- | ------: | ------: | -------: |
+| <p><mark style="color:purple;"><strong>Memphis.</strong></mark></p><p>Implementation</p> |    $100 |    $100 |     $100 |
+| <p><mark style="color:purple;"><strong>Memphis.</strong></mark></p><p>Infrastructure</p> |  $4,330 |  $6,574 |   $9,909 |
+| <p><mark style="color:purple;"><strong>Memphis.</strong></mark></p><p>Total</p>          |  $4,430 |  $6,674 |  $10,009 |
+| <p><mark style="color:orange;"><strong>AWS SQS.</strong></mark></p><p>Implementation</p> |  $4,643 |  $4,643 |   $4,643 |
+| <p><mark style="color:orange;"><strong>AWS SQS.</strong></mark></p><p>Infrastructure</p> | $35,709 | $56,655 |  $99,516 |
+| <p><mark style="color:orange;"><strong>AWS SQS.</strong></mark></p><p>Total</p>          | $40,352 | $61,298 | $104,159 |
+| <p>Summary.</p><p>Implementation</p>                                                     |     x46 |     x46 |      x46 |
+| <p>Summary.<br>Infrastructure</p>                                                        |    x8.2 |    x8.6 |      x10 |
+| <p>Summary.<br>TCO</p>                                                                   |    x9.1 |    x9.1 |    x10.4 |
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-04-07 at 13.21.14.png" alt=""><figcaption></figcaption></figure>

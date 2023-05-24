@@ -4,7 +4,7 @@ cover: ../../.gitbook/assets/Argo + Memphis.jpeg
 coverY: 0
 ---
 
-# Argo and Memphis
+# Argo
 
 ## Introduction
 

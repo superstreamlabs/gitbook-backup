@@ -4,11 +4,11 @@ description: How to access Memphis after installation
 
 # 2 - Access
 
-## How to configure public access to Memphis
+## How to access Memphis
 
-### <mark style="color:purple;">Localhost</mark>
+### Internal access
 
-Run
+Run the following to expose Memphis via `port-forward`
 
 ```
 kubectl port-forward service/memphis-cluster 6666:6666 9000:9000 7770:7770 --namespace memphis > /dev/null &
@@ -21,13 +21,9 @@ UI/CLI root username - root
 UI/CLI root Password - kubectl get secret memphis-creds -n memphis -o jsonpath="{.data.ROOT_PASSWORD}" | base64 --decode
 ```
 
-[http://localhost:9000](http://localhost:9000)
+Head to [http://localhost:9000](http://localhost:9000)
 
-{% hint style="info" %}
-If a simpler localhost connection is needed for more services, use [Kubefwd](https://kubefwd.com/).
-{% endhint %}
-
-### <mark style="color:purple;">Production</mark>
+### Public access
 
 #### Step 1: Deploy self-signed cert
 
@@ -49,7 +45,7 @@ kubectl create secret generic tls-secret --from-file=memphis.pem --from-file=mem
 3\. Reinstall Memphis with the cert
 
 ```
-helm install my-memphis memphis --set analytics="false",cluster.enabled="true",websocket.tls.cert="memphis.pem",websocket.tls.key="memphis-key.pem",websocket.tls.secret.name="tls-secret" --create-namespace --namespace memphis --wait
+helm install my-memphis memphis --set analytics="false",global.cluster.enabled="true",websocket.tls.cert="memphis.pem",websocket.tls.key="memphis-key.pem",websocket.tls.secret.name="tls-secret" --create-namespace --namespace memphis --wait
 ```
 
 #### Step 2: Create the LB

@@ -4,42 +4,45 @@ description: This section describes Memphis' architecture
 
 # Architecture
 
+## Key components
+
+Memphis platform is comprised of three main components:
+
+1. Memphis.\
+   The broker itself which acts as the data storage layer. That is the component that stores and controls the ingested messages and their entire lifecycle management.
+2. Metadata store.\
+   Responsible for storing the platform metadata only, such as general information, monitoring, GUI state, and pointers to dead-letter messages. The metadata store uses Postgres.
+3. REST Gateway.\
+   Responsible for exposing Memphis management and data ingestion through REST requests.
+
+<figure><img src="../.gitbook/assets/memphis key components.jpeg" alt=""><figcaption></figcaption></figure>
+
 ## Connectivity Diagram
 
-Memphis' deployment is comprised of four components:
-
-**1.** GUI - The dashboard of Memphis.
-
-**2.** Broker (or brokers in cluster mode)
-
-**3.** MongoDB - Only for UI state persistency (not used for storing messages). Will be replaced in the coming versions.
-
-<figure><img src="../.gitbook/assets/connectivity diagram.jpeg" alt=""><figcaption></figcaption></figure>
-
-MongoDB is not for data traffic but rather responsible for UI state and metadata only and will be removed soon.
+<figure><img src="../.gitbook/assets/connectivity.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Ports list
 
-| Name                 | Port  | TCP/UDP | Inter/External    | Description                                                    |
-| -------------------- | ----- | ------- | ----------------- | -------------------------------------------------------------- |
-| Dashboard/CLI        | 9000  | TCP     | External          | External port that serve CLI clients and Web UI dashboard      |
-| Client connections   | 6666  | TCP     | Internal/External | Port for TCP-based client connections with memphis SDKs        |
-| REST Gateway         | 4444  | TCP     | External          | REST gateway endpoint                                          |
-| Websocket            | 7770  | TCP     | External          | Websocket port                                                 |
-| Metrics              | 8222  | TCP     | Internal          | Memphis monitor port                                           |
-| Cluster connectivity | 4222  | TCP     | Internal          | Internal port for connectiovity between brokers in the cluster |
-| Exporter             | 7777  | TCP     | Internal          | Memphis metrics exporter port for Prometheus                   |
-| MongoDB              | 27017 | TCP     | Internal          | MongoDB port                                                   |
+| Name                 | Port | TCP/UDP | Inter/External    | Description                                                    |
+| -------------------- | ---- | ------- | ----------------- | -------------------------------------------------------------- |
+| Dashboard/CLI        | 9000 | TCP     | External          | External port that serve CLI clients and Web UI dashboard      |
+| Client connections   | 6666 | TCP     | Internal/External | Port for TCP-based client connections with memphis SDKs        |
+| REST Gateway         | 4444 | TCP     | External          | REST gateway endpoint                                          |
+| Websocket            | 7770 | TCP     | External          | Websocket port                                                 |
+| Metrics              | 8222 | TCP     | Internal          | Memphis monitor port                                           |
+| Cluster connectivity | 6222 | TCP     | Internal          | Internal port for connectiovity between brokers in the cluster |
+| Exporter             | 7777 | TCP     | Internal          | Memphis metrics exporter port for Prometheus                   |
+| Meta-data            | 5432 | TCP     | Internal          | Meta-data storage port                                         |
 
-## Memphis cluster component diagram (For production)
+### Network architecture diagram
 
 The diagram below depicts a full Kubernetes-based deployment.
 
-<figure><img src="../.gitbook/assets/Memphis Architecture (1).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/network diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Ordering
 
-Ordering is guaranteed only while working with a single consumer group.
+Currently, ordering is guaranteed only while working with a single consumer group.
 
 ![](../.gitbook/assets/ordering.jpeg)
 
@@ -47,14 +50,15 @@ Ordering is guaranteed only while working with a single consumer group.
 
 Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis is called RAFT and does not require a witness or a standalom Qorum, unlike others such as Apache ZooKeeper which is widely used by projects like Kafka. RAFT is also equivalent to [Paxos](https://en.wikipedia.org/wiki/Paxos_(computer_science)) in fault tolerance and performance.
 
-To ensure data consistency and zero loss within complete broker(s) restarts, Memphis brokers should run on different nodes and try to do it automatically. To comply with RAFT requirements which are ½ cluster size + 1, On K8S environment, three Memphis brokers will be deployed. The minimum number of brokers is three to ensure at least one node failure.
+Memphis brokers should run on different nodes to ensure data consistency and zero loss within complete broker’s reboots.&#x20;
+To comply with RAFT requirements which are ½ cluster size + 1 an odd number of Memphis brokers shall be deployed. The minimum number of brokers is one, and the next scale would be 3, 5, and so forth.
 
 ![](../.gitbook/assets/replications.jpeg)
 
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
-* [HTTP](broken-reference)
+* [HTTP](https://github.com/memphisdev/memphis-http-proxy)
 * [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
 * gRPC \* Soon \*
 * MQTT \* Soon \*
@@ -62,19 +66,19 @@ To ensure data consistency and zero loss within complete broker(s) restarts, Mem
 
 ## Deployment sequence
 
-<figure><img src="../.gitbook/assets/Deployment process.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/deployment.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Requirements
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-**Minimum Requirements (No HA)**
+**Minimum Requirements (Without high availability)**
 
 <table><thead><tr><th>Resource</th><th>Quantity</th><th data-hidden></th></tr></thead><tbody><tr><td>K8S Nodes</td><td>1</td><td></td></tr><tr><td>CPU</td><td>2 CPU</td><td></td></tr><tr><td>Memory</td><td>4GB RAM</td><td></td></tr><tr><td>Storage</td><td>12GB PVC</td><td></td></tr></tbody></table>
 
-****
 
-**Recommended Requirements (HA)**
+
+**Recommended Requirements for production (With high availability)**
 
 | Resource  | Minimum Quantity  |
 | --------- | ----------------- |
