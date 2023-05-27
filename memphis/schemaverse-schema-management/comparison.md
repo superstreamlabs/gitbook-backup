@@ -12,13 +12,13 @@ Before delving into the different supporting technologies, let's establish a bas
 
 Schema = Structure.
 
-The structure of a "message" follows a specific format to ensure effective communication when it's delivered between different applications/services/electronic entities.
+Schema defines the structure of a "message" and follows a specific format to ensure effective communication between different applications/services/electronic entities.
 
-Schemas can be found in both SQL & NoSQL databases, defining the structure of the data the database expects to receive. For example, `first\_name:string` or `first.name` etc...
+Schemas can be found in both SQL & NoSQL databases, providing the structure expected by the database to receive data. For example, `first\_name:string` or `first.name` etc. An unfamiliar or noncompliant schema will result in data being dropped, and the database will not save the record. 
 
-An unfamiliar or noncompliant schema will result in data being dropped, and the database will not save the record. Schemas are also crucial when two logical entities communicate, such as two microservices. Consider a scenario where Service A writes a message to Service B, which expects a specific format like Protobuf, and its logic or code depends on specific keys and value types. A typo in a column name or an unexpected schema or format can cause issues for the consumer.
+Likewise, schemas are critical in communication between two logical entities, such as two microservices. Consider a scenario where Service A writes a message to Service B, which expects a specific format like Protobuf, and its logic or code depends on specific keys and value types. Even a simple typo in a column name or an unexpected schema or format can cause issues for the consumer.
 
-Schemas serve as a manual or automatic contract for maintaining stable communication, dictating how two entities should interact.
+Schemas serve as a manual or automatic contract that ensures stable communication and dictates how two entities should interact.
 
 The following comparison of technologies will help you establish and enforce schemas between services as data flows from one service to another.
 
