@@ -8,19 +8,19 @@ description: >-
 
 ## Introduction to schemas
 
-Before deepening into the different supporting technologies, let's create a baseline about schemas and message brokers or async server-server communication.
+Before delving into the different supporting technologies, let's establish a baseline understanding of schemas and their role in message brokers or async server-server communication.
 
-Schema = Struct.
+Schema = Structure.
 
-The shape and format of a "message" are built and delivered between different applications/services/electronic entities.
+Schema defines the structure of a "message" and follows a specific format to ensure effective communication between different applications/services/electronic entities.
 
-Schemas can be found in SQL & No SQL databases, in different shapes of the data the database expects to receive (for example, first\_name:string, first.name etc..).
+Schemas can be found in both SQL & NoSQL databases, providing the structure expected by the database to receive data. For example, `first\_name:string` or `first.name` etc. An unfamiliar or noncompliant schema will result in data being dropped, and the database will not save the record. 
 
-An unfamiliar or noncompliant schema will result in a drop, and the database will not save the record. Schemas can also be found when two logical entities are communicating, for example, two microservices. Imagine A writes a message to B, which expects a specific format (like Protobuf), and its logic or code also expects specific keys and value types, as an example, typo in column name. Unexpected schema or different format will result in a consumer.
+Likewise, schemas are critical in communication between two logical entities, such as two microservices. Consider a scenario where Service A writes a message to Service B, which expects a specific format like Protobuf, and its logic or code depends on specific keys and value types. Even a simple typo in a column name or an unexpected schema or format can cause issues for the consumer.
 
-Schemas are a manual or have an automatic contract for stable communication that dictates how two entities should communicate.
+Schemas serve as a manual or automatic contract that ensures stable communication and dictates how two entities should interact.
 
-The following compared technologies will help you maintain and enforce schemas between services as data flows from one service to another.
+The following comparison of technologies will help you establish and enforce schemas between services as data flows from one service to another.
 
 ## What is AWS Glue?
 
