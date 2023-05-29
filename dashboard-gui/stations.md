@@ -14,12 +14,16 @@ Its true power lies in offloading the business logic from the producers and cons
 
 Instead of endless amounts of producers, consumers, orchestrations, manual scaling, and scattered monitoring - just create a station.
 
+<div align="center">
+
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-11 at 14.57.04.png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 ### Create a station
 
 To create a new station, click "Create new station".\
-![](<../.gitbook/assets/Screenshot 2022-12-11 at 15.12.31 (2).png>)
+![](<../.gitbook/assets/Screenshot 2022-12-11 at 15.12.31 (1).png>)
 
 A modal will appear with customization options.
 
@@ -41,7 +45,11 @@ Press the SDK button to display the station's connection details.
 
 ![](<../.gitbook/assets/Screen Shot 2022-09-19 at 12.14.38.png>)
 
+<div align="left">
+
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-11 at 15.17.27.png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 * **Language** - The user can change the SDK details per their desired language (for now, Memphis supports Node.js).
 * **Installation** - Before the user can use the SDK, they must install Memphis.

@@ -42,11 +42,6 @@ minikube addon enable metrics-server
 
 Compatibility matrix:
 
-| Metrics Server | Metrics API group/version | Supported Kubernetes version |
-| -------------- | ------------------------- | ---------------------------- |
-| 0.6.x          | `metrics.k8s.io/v1beta1`  | \*1.19+                      |
-| 0.5.x          | `metrics.k8s.io/v1beta1`  | \*1.8+                       |
-| 0.4.x          | `metrics.k8s.io/v1beta1`  | \*1.8+                       |
-| 0.3.x          | `metrics.k8s.io/v1beta1`  | 1.8-1.21                     |
+<table><thead><tr><th width="165.33333333333331">Metrics Server</th><th>Metrics API group/version</th><th>Supported Kubernetes version</th></tr></thead><tbody><tr><td>0.6.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>*1.19+</td></tr><tr><td>0.5.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>*1.8+</td></tr><tr><td>0.4.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>*1.8+</td></tr><tr><td>0.3.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>1.8-1.21</td></tr></tbody></table>
 
 \*For <1.16 requires passing `--authorization-always-allow-paths=/livez,/readyz` command line flag

@@ -60,7 +60,7 @@ consumer.on('message', (message) => {
 
 * `stationName`: The name of the station to be connected
 * `consumerName`: In a station resolution, each connected consumer must have a unique identity
-* `consumerGroup`: Explained in detail [here](consumer-groups.md). Consumers are grouped under an object called "Consumer group." If not specified, a default CG will be created using the _consumerName_
+* `consumerGroup`: Explained in detail [here](broken-reference). Consumers are grouped under an object called "Consumer group." If not specified, a default CG will be created using the _consumerName_
 * `pullIntervalMs`: Configured in milliseconds, this parameter defines the intervals of each consume operation. For example, if the value is set to 1000, it means that every 1000 ms, the consumer will try to pull new messages
 * `batchSize`: Defines how many messages will be collected per pull operation
 * `batchMaxTimeToWaitMs`: Defines how much time (in milliseconds) the consumer should wait for the entire required batch to be collected

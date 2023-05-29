@@ -57,7 +57,7 @@ And the list continues...
 * Easy-to-use UI, CLI, and SDKs
 * Dead-letter station (DLQ)
 * Data-level observability
-* [Storage tiering](concepts/storage-and-redundancy.md#storage-tiering), including remote storage classes like AWS S3
+* [Storage tiering](broken-reference), including remote storage classes like AWS S3
 * Runs on your Docker or Kubernetes
 * Real-time event tracing
 * SDKs: Python, Go, Node.js, Typescript, Nest.JS, Kotlin, .NET, Java, REST

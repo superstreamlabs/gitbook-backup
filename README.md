@@ -15,16 +15,14 @@ Low footprint, highly resilient, cloud-native, and run on any Kubernetes, on any
 
 **Memphis focuses on four pillars -**
 
-1. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
-2. Observability - Reduces troubleshooting time to near zero.
-3. Performance and Efficiency - Provide good performance while maintaining efficient resource consumption.
-4. Reliability - Queues and brokers play a critical part in the modern application's structure and should be highly available and stable as possible.
+1. Reliability - Queues and brokers are a mission-critical component in the modern application architecture and should be highly available and stable as possible.
+2. Performance and Efficiency - Provide great performance while maintaining efficient resource consumption.
+3. Developer Experience - Enable rapid development and ultra-short time-to-production.
+4. Observability - Increase observability, integrations with 3rd-party monitoring tools, real-time notifications, stream lineage, and therefore troubleshooting time reduction.
 
-## **Getting started**
+## **Quick Start**
 
-### **Quick start**
-
-**Kubernetes**
+### **Kubernetes**
 
 ```
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
@@ -33,7 +31,7 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 
 More info can be found in the [Memphis k8s deployment](deployment/kubernetes/) documentation.
 
-**Docker compose (Syntax for v2)**
+### **Docker compose (Syntax for v2)**
 
 ```
 curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
@@ -41,9 +39,10 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker
 
 More info can be found in the [Memphis Docker deployment](deployment/docker-compose.md) documentation.
 
-### Walkthrough
+## Walkthrough
 
 {% embed url="https://app.storylane.io/share/upo0paxdvynz" %}
 
-A full roadmap can be found [here](https://memphis.dev/roadmap).
+## High-level diagram
+
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>

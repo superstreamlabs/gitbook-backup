@@ -16,7 +16,7 @@ Please make sure your **SDKs** are **updated** to the latest version to enjoy ne
 
 ## ![:sparkles:](https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-medium/2728.png) Added features
 
-* [Tiered storage](../../memphis/concepts/storage-and-redundancy.md#tier-2-remote-storage) - second storage class for out-of-retention messages to enable a better cost-efficient and longer message retention.
+* [Tiered storage](broken-reference) - second storage class for out-of-retention messages to enable a better cost-efficient and longer message retention.
 * Station name length increased to 128 characters.
 * Throughput visualization has improved.
 * [Datadog integration](../../integrations/monitoring/datadog.md) has been added to enable external monitoring over Memphis.

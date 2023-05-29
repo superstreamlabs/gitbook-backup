@@ -14,12 +14,10 @@ When data resides in the broker, it will be redundant and removed only when cros
 
 ### The object behind the station - Stream
 
-Each station implements a stream object that contains the messages stored in the station. \
+Each station implements a stream object that contains the messages stored in the station.\
 It is up to the user to define which type of storage will this stream object be saved.
 
 <figure><img src="../../.gitbook/assets/stream.jpeg" alt=""><figcaption></figcaption></figure>
-
-
 
 ## Replicas (Mirroring)
 
@@ -46,7 +44,7 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
   For faster performance.\
   Due to its nature as a volatile type of storage, the risk of losing data in case of failure is higher because it resides in the broker's memory, and in the case of a station without configured replicas, data can be lost.
 
-<figure><img src="../../.gitbook/assets/storage type memory.jpeg" alt=""><figcaption><p>Stream object as it construct and stored</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/storage type memory (1).jpeg" alt=""><figcaption><p>Stream object as it construct and stored</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/mem ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
@@ -55,8 +53,6 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
   Disk storage might be slower than memory, but it offers greater availability and resiliency to broker failures.
 
 <figure><img src="../../.gitbook/assets/disk.jpeg" alt=""><figcaption></figcaption></figure>
-
-
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
