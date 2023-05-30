@@ -6,34 +6,33 @@ description: Deploy Memphis over Docker using Docker compose
 
 ## Requirements
 
-{% tabs %}
-{% tab title="Docker" %}
-**Requirements (No HA)**
-
-| Resource | Quantity               |
-| -------- | ---------------------- |
-| OS       | Mac / Windows / Linux  |
-| CPU      | 1 CPU                  |
-| Memory   | 4GB                    |
-| Storage  | 6GB                    |
-{% endtab %}
-{% endtabs %}
-
-**Please make sure you have** [**docker-compose**](https://docs.docker.com/compose/) **installed.**
+| Resource       | Version / Quantity |
+| -------------- | ------------------ |
+| Docker Engine  | 17.03 and above    |
+| Docker compose | v2 and above       |
+| CPU            | 1 CPU              |
+| Memory         | 4GB                |
+| Storage        | 6GB                |
 
 ## Getting started
 
-### Step 1: Download compose.yaml file
+### Step 1: Run one of the following commands
 
-```
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml
-```
+Stable -&#x20;
 
-### Step 2: Run the compose file
+{% code overflow="wrap" %}
+```bash
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
+{% endcode %}
 
+Latest -
+
+{% code overflow="wrap" %}
+```bash
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-latest.yml -o docker-compose-latest.yml && docker compose -f docker-compose-latest.yml -p memphis up
 ```
-docker compose -f docker-compose.yml -p memphis up
-```
+{% endcode %}
 
 Output:
 
@@ -50,7 +49,7 @@ Output:
 * **memphis-metadata-1:** Responsible for storing the platform metadata only, such as general information, monitoring, GUI state, and pointers to dead-letter messages. The metadata store uses Postgres.
 * **memphis-rest-gateway-1:** Responsible for exposing Memphis management and data ingestion through REST requests.
 
-### Step 3: Access via UI / CLI / SDK
+### Step 2: Access via UI / CLI / SDK
 
 {% tabs %}
 {% tab title="UI" %}
