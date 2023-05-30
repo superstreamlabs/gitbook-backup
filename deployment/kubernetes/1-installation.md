@@ -14,13 +14,9 @@ Memphis is cloud-native and cloud-agnostic to any Kubernetes on **any cloud**.
 
 ## Requirements
 
-{% tabs %}
-{% tab title="Kubernetes" %}
 **Minimum Requirements (Without high availability)**
 
 <table><thead><tr><th>Resource</th><th>Quantity</th><th data-hidden></th></tr></thead><tbody><tr><td>Minimum Kubernetes version</td><td>1.20 and above</td><td></td></tr><tr><td>K8S Nodes</td><td>1</td><td></td></tr><tr><td>CPU</td><td>2 CPU</td><td></td></tr><tr><td>Memory</td><td>4GB RAM</td><td></td></tr><tr><td>Storage</td><td>12GB PVC</td><td></td></tr></tbody></table>
-
-***
 
 **Recommended Requirements (With high availability)**
 
@@ -31,19 +27,6 @@ Memphis is cloud-native and cloud-agnostic to any Kubernetes on **any cloud**.
 | CPU                        | 4 CPU             |
 | Memory                     | 8GB RAM           |
 | Storage                    | 12GB PVC Per node |
-{% endtab %}
-
-{% tab title="Docker" %}
-**Requirements (No HA)**
-
-| Resource | Quantity              |
-| -------- | --------------------- |
-| OS       | Mac / Windows / Linux |
-| CPU      | 1 CPU                 |
-| Memory   | 4GB                   |
-| Storage  | 6GB                   |
-{% endtab %}
-{% endtabs %}
 
 ## Installation
 
@@ -51,24 +34,47 @@ Memphis is cloud-native and cloud-agnostic to any Kubernetes on **any cloud**.
 
 <summary>Production</summary>
 
-Production-grade Memphis with three memphis brokers configured in cluster-mode
+Production-ready Memphis deployment with initial three memphis brokers configured in cluster mode for high availability and higher throughput.
 
+**Stable release**
+
+{% code overflow="wrap" %}
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --set global.cluster.enabled="true" --create-namespace --namespace memphis --wait
 ```
+{% endcode %}
+
+**Latest release**
+
+{% code overflow="wrap" %}
+```bash
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:latest",global.cluster.enabled="true" memphis memphis/memphis --create-namespace --namespace memphis --wait
+```
+{% endcode %}
 
 </details>
 
 <details>
 
-<summary>Dev</summary>
+<summary>Development</summary>
 
-Standard installation of Memphis with a single broker
+Minimal deployment of Memphis with a single broker
 
+**Stable release**
+
+{% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
+{% endcode %}
+
+**Latest release**
+
+{% code overflow="wrap" %}
+```bash
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:latest" memphis memphis/memphis --create-namespace --namespace memphis --wait
+```
+{% endcode %}
 
 </details>
 
