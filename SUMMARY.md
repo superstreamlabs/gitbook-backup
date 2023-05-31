@@ -103,11 +103,11 @@
   * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
   * [Argo](integrations/other-platforms/argo-and-memphis.md)
 
-## 🗒 Product Updates
+## 🗒 Release notes
 
-* [KB](product-updates/kb.md)
+* [KB](release-notes/kb.md)
 * [Releases](release-notes/releases/README.md)
-  * [v1.0.3-latest](product-updates/releases/v1.0.3-latest.md)
+  * [v1.0.3-latest](release-notes/releases/v1.0.3-latest.md)
   * [v1.0.2-stable](release-notes/releases/v1.0.2-stable.md)
   * [v1.0.1](release-notes/releases/v1.0.1.md)
   * [V1.0.0 - GA](release-notes/releases/v1.0.0-lts.md)

@@ -100,7 +100,7 @@ NATS Jetstream does not provide a native ability for stream lineage, but it can 
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
-<figure><img src="../../.gitbook/assets/image (5) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Availability and Messaging
 
@@ -186,7 +186,7 @@ A GUI for NATS and NATS Jetstream can be achieved via Synadia cloud offering.
 
 Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
-<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
 
 ### Schema Management
 
@@ -226,7 +226,7 @@ NATS Jetstream does not offer stream lineage, but it can be achieved using OpenT
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Data-Level Observability
 
