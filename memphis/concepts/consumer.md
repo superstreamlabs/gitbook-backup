@@ -6,6 +6,10 @@ coverY: 0
 
 # Consumer API
 
+##
+
+##
+
 ## What is a consumer?
 
 A consumer is a client that reads data or messages from the broker or, more specifically, from the station.&#x20;
@@ -50,7 +54,9 @@ consumer.on('message', (message) => {
 * `host`: Memphis URL
 * `port`: Memphis port
 * `username`: Can be root or any other application-type user
-* `connectionToken`: The token received when the user created. Will change in the future to more robust credentials and authentication system
+* `password`: Each application-type user comprises both a username and a password
+* `connectionToken`: \*Valid only in case connection-token-based authentication was chosen\*\
+  The token received when the user created. Will change in the future to more robust credentials and authentication system
 * `reconnect`: The connection entity will try to reconnect to Memphis in case of a disconnection
 * `maxReconnect`: Amount of time the client will try to reconnect before backing off
 * `reconnectIntervalMs`: Time window between one retry to another
