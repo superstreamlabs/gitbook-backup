@@ -84,7 +84,7 @@ While in most messaging systems, it is the client's responsibility to track the 
 
 ### Prefetching
 
-Soon. Please [upvote](https://github.com/memphisdev/memphis/issues/766) to make it sooner.
+
 
 ## Supported Protocols
 
