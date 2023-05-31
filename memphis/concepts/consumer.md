@@ -85,7 +85,30 @@ While in most messaging systems, it is the client's responsibility to track the 
 
 ### Prefetching
 
+\*Currently supported in **GO SDK only**\*
 
+#### Fetch a single batch of messages
+
+```
+msgs, err := conn.FetchMessages("<station-name>", "<consumer-name>",
+  memphis.FetchBatchSize(<int>) // defaults to 10
+  memphis.FetchConsumerGroup("<consumer-group>"), // defaults to consumer name
+  memphis.FetchBatchMaxWaitTime(<time.Duration>), // defaults to 5 seconds, has to be at least 1 ms
+  memphis.FetchMaxAckTime(<time.Duration>), // defaults to 30 sec
+  memphis.FetchMaxMsgDeliveries(<int>), // defaults to 10
+  memphis.FetchConsumerGenUniqueSuffix(),
+  memphis.FetchConsumerErrorHandler(func(*Consumer, error){})
+  memphis.FetchStartConsumeFromSeq(<uint64>)// start consuming from a specific sequence. defaults to 1
+  memphis.FetchLastMessages(<int64>)// consume the last N messages, defaults to -1 (all messages in the station))
+```
+
+#### Fetch a single batch of messages after consumer creation
+
+`prefetch = true` will prefetch the next batch of messages and store it in memory for future Fetch() requests. Note: Use a higher `MaxAckTime` as the messages will reside in a local cache for some time before being processed.
+
+```
+msgs, err := consumer.Fetch(<batch-size> int, <prefetch> bool)
+```
 
 ## Supported Protocols
 
