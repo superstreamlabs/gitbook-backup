@@ -58,17 +58,18 @@ consumer.on('message', (message) => {
 
 **Consumer**
 
-* `stationName`: The name of the station to be connected
-* `consumerName`: In a station resolution, each connected consumer must have a unique identity
-* `consumerGroup`: Explained in detail [here](broken-reference). Consumers are grouped under an object called "Consumer group." If not specified, a default CG will be created using the _consumerName_
-* `pullIntervalMs`: Configured in milliseconds, this parameter defines the intervals of each consume operation. For example, if the value is set to 1000, it means that every 1000 ms, the consumer will try to pull new messages
-* `batchSize`: Defines how many messages will be collected per pull operation
-* `batchMaxTimeToWaitMs`: Defines how much time (in milliseconds) the consumer should wait for the entire required batch to be collected
-* `maxAckTimeMs`: For the consumer to receive the next message, the current one must be acknowledged, meaning the consumer is ready to consume and handle the next message. Oftentimes, the consumer gets crashed/throws an exception / not able to handle the message. The _`maxAckTimeMs`_ ensure that until X millisecond Memphis has not received ACK, it will automatically retransmit the message. If not configured correctly, it can result in a duplicate processing
+* `the stationName`: The name of the station to be connected.
+* `consumerName`: In a station resolution, each connected consumer must have a unique identity.
+* `consumerGroup`: Explained in detail [here](broken-reference). Consumers are grouped under an object called "Consumer group." If not specified, a default CG will be created using the _consumerName._
+* `pullIntervalMs`: Configured in milliseconds, this parameter defines the intervals of each consume operation. For example, if the value is set to 1000, it means that every 1000 ms, the consumer will try to pull new messages.
+* `batchSize`: Defines how many messages will be collected per pull operation.
+* `batchMaxTimeToWaitMs`: Defines how much time (in milliseconds) the consumer should wait for the entire required batch to be collected.
+* `maxAckTimeMs`: For the consumer to receive the next message, the current one must be acknowledged, meaning the consumer is ready to consume and handle the next message. Oftentimes, the consumer gets crashed/throws an exception / not able to handle the message. The _`maxAckTimeMs`_ ensure that until X millisecond Memphis has not received ACK, it will automatically retransmit the message. If not configured correctly, it can result in duplicate processing.
 * `maxMsgDeliveries`: The number of times Memphis will retransmit the same message to the same consumer. Max message deliveries.
-* `caFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<rootCA.pem>'
-* `certFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<cert-client.pem>'
-* `keyFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<key-client.pem>'
+* `caFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<rootCA.pem>'.
+* `certFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<cert-client.pem>'.
+* `keyFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<key-client.pem>'.
+* `prefetch = true`: will prefetch the next batch of messages and store it in memory for future Fetch() requests.
 
 {% hint style="info" %}
 For more information about how to create and connect a consumer to Memphis,&#x20;
