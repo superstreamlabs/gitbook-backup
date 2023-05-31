@@ -87,6 +87,9 @@ While in most messaging systems, it is the client's responsibility to track the 
 
 \*Currently supported in **GO SDK only**\*
 
+Prefetching optimization to improve throughput. \
+Before returning a set of records to the user in consume(), the consumer will initiate the next round of fetches in order to pipeline the fetching overhead and message processing. While the consumer is processing the current batch of records, the broker can handle the consumer's fetch requests. The idea is to have data available when the consumer finishes processing, invokes consume() again and gets a batch of messages.
+
 #### Fetch a single batch of messages
 
 ```
