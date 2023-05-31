@@ -107,6 +107,7 @@
 
 * [KB](product-updates/kb.md)
 * [Releases](release-notes/releases/README.md)
+  * [v1.0.3-latest](product-updates/releases/v1.0.3-latest.md)
   * [v1.0.2-stable](release-notes/releases/v1.0.2-stable.md)
   * [v1.0.1](release-notes/releases/v1.0.1.md)
   * [V1.0.0 - GA](release-notes/releases/v1.0.0-lts.md)
