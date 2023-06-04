@@ -6,10 +6,6 @@ coverY: 0
 
 # Consumer API
 
-##
-
-##
-
 ## What is a consumer?
 
 A consumer is a client that reads data or messages from the broker or, more specifically, from the station.&#x20;
@@ -24,7 +20,7 @@ As the user configures a client connection to Memphis, it comprises several obje
 
 Memphis consumers are “long-polling” by design and will wait for infinite time till a new message gets ingested into the Memphis station, including out-of-the-box retry connection and polling mechanisms to make sure consumers retry to connect in case of disconnection and repoll unack message.
 
-### Broker Data Format
+## Broker Data Format
 
 Memphis started from NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
 
@@ -45,7 +41,7 @@ consumer.on('message', (message) => {
 **Unexist stations** will be created **automatically** through the SDK on the first producer/consumer connection.
 {% endhint %}
 
-### Parameters
+## Parameters
 
 (\*) Names might be a bit different from one SDK to another. Meanings are the same.
 
@@ -83,13 +79,13 @@ For more information about how to create and connect a consumer to Memphis,&#x20
 please head [here](broken-reference)
 {% endhint %}
 
-### Sequence (Offsets)
+## Sequence (Offsets)
 
 The offset is a simple integer number that is used by Memphis to maintain the current position of a consumer group. The current offset (like disk offset) is a pointer to the last record that Memphis sent to a consumer group in its most recent poll. So, the consumer group doesn't get the same record twice because of the current offset.
 
 While in most messaging systems, it is the client's responsibility to track the read offsets, in Memphis, the broker and SDK communicate with each other and record the acknowledged offsets automatically for the client. A specific offset can be used to re-read an acknowledged message if needed.
 
-### Prefetching
+## Prefetching
 
 \*Currently supported in **GO SDK only**\*
 
