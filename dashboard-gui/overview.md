@@ -6,7 +6,7 @@ Memphis dashboard is designed to provide a quick snapshot of the cluster's healt
 
 In one glimpse, the user or operator can check if there are any unhealthy stations, determine the stability of the system components, and monitor system resources.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ## System components panel
 

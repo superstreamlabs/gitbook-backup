@@ -44,25 +44,25 @@ Relevant for Memphis [cluster-mode](https://docs.memphis.dev/memphis/deployment/
 
 Scale-out is a concept that exists in distributed applications only.
 
-In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers. In Memphis's case, this means adding more Memphis Brokers to handle the increasing workload. Please refer down below for a example on how to add more Memphis brokers.
+In such a scale type, each cluster node act as a stateless worker of the cluster, and when more power is needed, we add more cluster workers. In Memphis's case, this means adding more Memphis Brokers to handle the increasing workload. Please refer down below for an example of how to add more Memphis brokers.
 
 #### A step-by-step guide to adding more Memphis brokers
 
 Step 1: Add more StatefulSets
 
 ```
-kubectl scale statefulsets memphis-broker --replicas=<new amount of replicas> -n memphis
+kubectl scale statefulsets memphis --replicas=<new amount of replicas> -n memphis
 ```
 
 Step 2: Edit Memphis ConfigMap route table
 
 ```
-kubectl get cm memphis-broker-config -o yaml > memphis-broker-config.yaml
-vi memphis-broker-config.yaml
+kubectl get cm memphis-config -o yaml -n memphis > memphis-config.yaml
+vi memphis-config.yaml
 ```
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2022-11-13 at 17.08.25.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 21.42.52.png" alt=""><figcaption></figcaption></figure>
 
 Add the new StatefulSet in the marked line with the following pattern -
 
-`, nats://memphis-broker-`<mark style="color:red;">**`X`**</mark>`.memphis-cluster.memphis.svc.cluster.local:6222`
+`, nats://memphis-`<mark style="color:red;">**`X`**</mark>`.memphis.memphis.svc.cluster.local:6222`
