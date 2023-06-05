@@ -37,7 +37,7 @@ Installation instructions for previous releases can be found in [Metrics Server 
 Within minikube enable the metrics-server addon by running:
 
 ```
-minikube addon enable metrics-server
+minikube addons enable metrics-server
 ```
 
 Compatibility matrix:
