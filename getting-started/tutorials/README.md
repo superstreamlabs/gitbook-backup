@@ -11,3 +11,5 @@
 {% embed url="https://memphis.dev/blog/part-1-integrating-debezium-server-and-memphis-dev-for-streaming-change-data-capture-cdc-events/" %}
 
 {% embed url="https://memphis.dev/blog/part-2-change-data-capture-cdc-for-mongodb-with-debezium-and-memphis-dev/" %}
+
+{% embed url="https://memphis.dev/blog/part-3-transforming-mongodb-cdc-event-messages/" %}
