@@ -1,18 +1,17 @@
 # How to contribute?
 
-That's amazing that you reached this page!
-
-Memphis is and always will be open-source and community-driven. Our community is our power.
+Memphis is and always will be open-source and community-driven. \
+Our community is our power. [💙](https://emojipedia.org/blue-heart/)
 
 ## Why should you become a contributor?
 
 {% hint style="info" %}
-"Working on Memphis helped me earn many of the skills I later used for my studies in university and my actual job. I think working on open source projects helps me as much as it helps the project!"
+"Working on Memphis OS project helped me earn many of the skills I later used for my studies in university and my actual job. I think working on open-source projects helps me as much as it helps the project!"
 {% endhint %}
 
-Contributing to open source can be a rewarding way to learn, teach, and build experience in just about any skill you can imagine.
+Contributing to open source can be a rewarding way to learn and increase your experience.
 
-Whether it’s coding, user interface design, graphic design, writing, or organizing, if you’re looking for practice, there’s a task for you on an open-source project.
+Whether it’s coding, user interface design, graphic design, docs, or writing content, if you’re looking for practice, there’s a task for you on an open-source project.
 
 ## Getting started
 
@@ -67,13 +66,14 @@ DEV_ENV="true" DOCKER_ENV="true" ANALYTICS="false" go run main.go
 
 #### Backend Contributions
 
-Once you have established[ memphis dev environment](how-to-contribute.md#1.-establish-memphis-dev-environment), you can start coding.
+Once your Memphis' local dev environment is ready, you can start coding!
 
-Memphis backend opportunities are -&#x20;
+Memphis backend options are -&#x20;
 
 1. Memphis Broker
-2. SDKs: [Python](https://github.com/memphisdev/memphis.py), [Go](https://github.com/memphisdev/memphis.go), [Node.js](https://github.com/memphisdev/memphis.js), or [future SDKs](https://github.com/orgs/memphisdev/projects/2/views/1?filterQuery=label%3A%22epic%3A+sdk%22)
-3. [Memphis CLI](https://github.com/memphisdev/memphis-cli)
+2. Client libraries
+3. Support/add more protocols
+4. [Memphis CLI](https://github.com/memphisdev/memphis-cli)
 
 Grab a ["Good first issue"](https://github.com/memphisdev/memphis-broker/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22), and once done - push your changes and open a "pull request"
 
