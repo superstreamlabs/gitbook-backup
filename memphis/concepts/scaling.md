@@ -17,7 +17,7 @@ On the other hand, scaling out an application involves distributing the workload
 
 Both approaches can be used to increase the capacity of an application to handle a larger workload, but they have different implications and trade-offs. Scaling up a single system can be more cost-effective, but it may reach a physical limit in terms of the resources that can be added. Scaling out requires more infrastructure and may be more complex to set up and manage, but it allows for virtually unlimited scaling potential.
 
-Below, you'll find examples, instructions and best practices on how to scale up/scale up your Memphis cluster.
+Below, you'll find examples, instructions and best practices on how to scale up/scale out your Memphis cluster.
 
 <figure><img src="../../.gitbook/assets/scale up vs out.jpeg" alt=""><figcaption></figcaption></figure>
 
