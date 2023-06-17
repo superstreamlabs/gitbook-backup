@@ -42,9 +42,19 @@ The diagram below depicts a full Kubernetes-based deployment.
 
 ## Topology and ordering
 
+Producers and consumers are the main entities in Memphis.\
+The role of the producers is to produce data into a Memphis station, and the consumers to consume the ingested data or messages.
 
+A single client or application can run multiple producers and consumers, and connect them to various stations. \
+Within the context of a single station, consumer groups encapsulate multiple consumers.\
+Each **consumer group** will consume all of the stored and unconsumed messages within the station and split the consumed messages within its internal members, similar to thread pool behavior. \
+That means that a single produced message will be consumed by all of the consumer groups, but within the consumer group itself, it will only be read by a single consumer.
 
-<figure><img src="../.gitbook/assets/Architecture 2 (1).png" alt=""><figcaption></figcaption></figure>
+Each consumer is bound to a unique consumer group, and cannot be shared across multiple CGs.
+
+The stored messages within the stations are ordered based on First-In-First-Out (Fifo) manner and will be consumed in the same order as they are produced.
+
+<figure><img src="../.gitbook/assets/Architecture 2 (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Mirroring and Replications
 
