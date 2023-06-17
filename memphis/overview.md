@@ -1,12 +1,11 @@
 ---
-description: v1.0.0 - LTS
 cover: ../.gitbook/assets/Overview..jpg
 coverY: 0
 ---
 
 # Overview
 
-## What is Memphis{dev}?
+## What is Memphis.dev?
 
 **Memphis** is a next-generation alternative to traditional message brokers.
 
