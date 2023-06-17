@@ -40,13 +40,13 @@ The diagram below depicts a full Kubernetes-based deployment.
 
 <figure><img src="../.gitbook/assets/network diagram.jpeg" alt=""><figcaption></figcaption></figure>
 
-## Ordering
+## Topology and ordering
 
-Currently, ordering is guaranteed only while working with a single consumer group.
 
-![](../.gitbook/assets/ordering.jpeg)
 
-## Mirroring
+<figure><img src="../.gitbook/assets/Architecture 2 (1).png" alt=""><figcaption></figcaption></figure>
+
+## Mirroring and Replications
 
 Memphis is designed to run as a distributed cluster for a highly available and scalable system. The consensus algorithm responsible for atomicity within Memphis is called RAFT and does not require a witness or a standalom Qorum, unlike others such as Apache ZooKeeper which is widely used by projects like Kafka. RAFT is also equivalent to [Paxos](https://en.wikipedia.org/wiki/Paxos\_\(computer\_science\)) in fault tolerance and performance.
 

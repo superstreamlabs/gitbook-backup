@@ -12,7 +12,6 @@
 
 ## ⭐ Memphis
 
-* [Overview](memphis/overview.md)
 * [Architecture](memphis/architecture.md)
 * [Key concepts](memphis/concepts/README.md)
   * [Message broker](memphis/concepts/message-broker.md)
