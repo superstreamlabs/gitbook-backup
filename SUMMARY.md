@@ -44,8 +44,8 @@
   * [AWS SQS vs Memphis](memphis/comparisons/aws-sqs-vs-memphis.md)
   * [Apache Kafka vs Memphis](memphis/comparisons/apache-kafka-vs-memphis.md)
   * [Apache Pulsar vs Memphis](memphis/comparisons/apache-pulsar-vs-memphis.md)
-  * [Apache NiFi vs Memphis](memphis/comparisons/apache-nifi-vs-memphis.md)
   * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
+  * [Apache NiFi vs Memphis](memphis/comparisons/apache-nifi-vs-memphis.md)
 * [Privacy](memphis/privacy.md)
 
 ## ☁ Memphis cloud
