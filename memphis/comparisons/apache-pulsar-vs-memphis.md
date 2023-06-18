@@ -62,3 +62,7 @@ Low footprint, highly resilient, cloud-native, and run on any Kubernetes, on any
 | Message replay, time travel | Yes                           | Yes                   |
 | Stream Enrichment           | SQL and custom code functions | SQL-based functions   |
 | Pull retry mechanism        | Yes                           | Client responsibility |
+
+## Summary
+
+Memphis.dev is a pure distributed log designed for efficient event streaming and processing at a high scale. Pulsar is not a distributed log in the true sense, but it synthesizes some similar properties, but the main difference would.
