@@ -46,7 +46,7 @@
   * [Apache Pulsar vs Memphis](memphis/comparisons/apache-pulsar-vs-memphis.md)
   * [ZeroMQ vs Memphis](memphis/comparisons/zeromq-vs-memphis.md)
   * [Apache NiFi vs Memphis](memphis/comparisons/apache-nifi-vs-memphis.md)
-* [Privacy](memphis/privacy.md)
+* [Privacy Policy](https://memphis.dev/privacy-policy/)
 
 ## ☁ Memphis cloud
 
