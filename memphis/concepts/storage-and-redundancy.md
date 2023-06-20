@@ -61,7 +61,7 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
 Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.\
 Each message that expels from the station will automatically migrate to the 2nd storage tier.\
-Possible integrations [here](../../integrations/storage/).
+Possible integrations [here](../../platform-integrations/storage/).
 
 #### Behind the scenes
 
@@ -69,7 +69,7 @@ Possible integrations [here](../../integrations/storage/).
 
 #### A growing list of options:
 
-* [**S3 (Object storage)**](../../integrations/storage/amazon-s3.md)\
+* [**S3 (Object storage)**](../../platform-integrations/storage/amazon-s3.md)\
   Built to store and retrieve any amount of data from anywhere using S3 protocol.\
   Object storage offers different storage classes with different costs and performance requirements.\
   Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and more.

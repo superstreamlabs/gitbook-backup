@@ -54,7 +54,7 @@ Each consumer is bound to a unique consumer group, and cannot be shared across m
 
 The stored messages within the stations are ordered based on First-In-First-Out (Fifo) manner and will be consumed in the same order as they are produced.
 
-<figure><img src="../.gitbook/assets/Architecture 2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Architecture 2 (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Mirroring and Replications
 

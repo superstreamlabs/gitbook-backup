@@ -89,19 +89,19 @@
 * [Users](dashboard-gui/users.md)
 * [Profile](dashboard-gui/settings.md)
 
-## 🔌 Integrations
+## 🔌 Platform Integrations
 
-* [Monitoring](integrations/monitoring/README.md)
-  * [Elasticsearch Observability](integrations/monitoring/elasticsearch-observability.md)
-  * [Datadog](integrations/monitoring/datadog.md)
-  * [Grafana](integrations/monitoring/grafana.md)
-* [Notifications](integrations/notifications/README.md)
-  * [Slack](integrations/notifications/slack.md)
-* [Storage](integrations/storage/README.md)
-  * [Amazon S3](integrations/storage/amazon-s3.md)
-* [Other platforms](integrations/other-platforms/README.md)
+* [Monitoring](platform-integrations/monitoring/README.md)
+  * [Elasticsearch Observability](platform-integrations/monitoring/elasticsearch-observability.md)
+  * [Datadog](platform-integrations/monitoring/datadog.md)
+  * [Grafana](platform-integrations/monitoring/grafana.md)
+* [Notifications](platform-integrations/notifications/README.md)
+  * [Slack](platform-integrations/notifications/slack.md)
+* [Storage](platform-integrations/storage/README.md)
+  * [Amazon S3](platform-integrations/storage/amazon-s3.md)
+* [Other platforms](platform-integrations/other-platforms/README.md)
   * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
-  * [Argo](integrations/other-platforms/argo-and-memphis.md)
+  * [Argo](platform-integrations/other-platforms/argo-and-memphis.md)
 
 ## 🗒 Release notes
 
