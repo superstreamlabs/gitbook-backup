@@ -112,7 +112,22 @@ const memphis = require("memphis-dev");
 {% endtab %}
 
 {% tab title="Go" %}
-Memphis abstracts the need for external serialization functions and embeds it within the SDK.
+Memphis abstracts the need for external serialization functions and embeds it within the SDK.\
+\
+**Example proto file:**
+
+```
+syntax = "proto3";
+option go_package = "./";
+
+message Test {
+            string field1 = 1;
+            string field2 = 2;
+            int32 field3 = 3;
+}
+```
+
+To compile the proto file run the following command : protoc --go\_out=. ./{proto file name}
 
 **Example schema:**
 
