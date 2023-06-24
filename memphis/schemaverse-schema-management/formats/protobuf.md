@@ -93,9 +93,9 @@ const { memphis } = require("memphis-dev");
             producerName: "PRODUCER_NAME"
         });
         var payload = {
-            fname: "AwesomeString",
-            lname: "AwesomeString",
-            id: 54
+            field1: "AwesomeString",
+            field2: "AwesomeString",
+            field3: 54
         };
         await producer.produce({
             message: payload
