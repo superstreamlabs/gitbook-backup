@@ -386,7 +386,8 @@ axios(config)
 {% tab title="Node.js" %}
 {% code lineNumbers="true" %}
 ```javascript
-const memphis = require("memphis-dev");
+const { memphis } = require("memphis-dev");
+
 var protobuf = require("protobufjs");
 
 (async function () {
@@ -522,8 +523,7 @@ if __name__ == '__main__':
 
 {% tab title="TypeScript" %}
 ```typescript
-import memphis from 'memphis-dev';
-import type { Memphis } from 'memphis-dev/types';
+import { memphis, Memphis } from 'memphis-dev';
 var protobuf = require("protobufjs");
 
 (async function () {
