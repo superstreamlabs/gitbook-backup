@@ -77,16 +77,18 @@ message Test {
 
 {% code lineNumbers="true" %}
 ```javascript
-const memphis = require("memphis-dev");
+const { memphis } = require("memphis-dev");
 
 (async function () {
+    let memphisConnection
+
     try {
-        await memphis.connect({
+        memphisConnection = await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
             password: "PASSWORD"
         });
-        const producer = await memphis.producer({
+        const producer = await memphisConnection.producer({
             stationName: "STATION_NAME",
             producerName: "PRODUCER_NAME"
         });
@@ -95,16 +97,14 @@ const memphis = require("memphis-dev");
             lname: "AwesomeString",
             id: 54
         };
-        try {
-            await producer.produce({
-                message: payload
-        });
-        } catch (ex) {
-            console.log(ex.message)
-        }
+        await producer.produce({
+            message: payload
+        })
+        memphisConnection.close();
+
     } catch (ex) {
         console.log(ex);
-        memphis.close();
+        if (memphisConnection) memphisConnection.close();
     }
 })();
 ```
@@ -296,8 +296,7 @@ message Test {
 **Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
 
 ```typescript
-import memphis from 'memphis-dev';
-import type { Memphis } from 'memphis-dev/types';
+import { memphis, Memphis } from 'memphis-dev';
 
 (async function () {
     let memphisConnection: Memphis;
@@ -319,7 +318,7 @@ import type { Memphis } from 'memphis-dev/types';
         const msg = {
             field1: "Hello",
             field2: "Amazing",
-            field3: "World"
+            field3: 32
         }
         await producer.produce({
             message: msg,
