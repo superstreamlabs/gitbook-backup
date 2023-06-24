@@ -205,7 +205,6 @@ func main() {
     hdrs := memphis.Headers{}
     hdrs.New()
     err = hdrs.Add("key", "value")
-
     if err != nil {
         fmt.Printf("Header failed: %v\n", err)
         os.Exit(1)
@@ -213,12 +212,11 @@ func main() {
     s1 := "Hello"
     s2 := "World"
     pbInstance := schemapb.Test{
-	Field1: &s1,
-	Field2: &s2,
+	Field1: s1,
+	Field2: s2,
     }
 
     err = p.Produce(&pbInstance, memphis.MsgHeaders(hdrs))
-
     if err != nil {
         fmt.Printf("Produce failed: %v\n", err)
         os.Exit(1)
