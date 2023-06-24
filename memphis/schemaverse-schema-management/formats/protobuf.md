@@ -240,6 +240,8 @@ message Test {
 }
 ```
 
+To compile the proto file run the following command : protoc --python\_out=. ./{proto file name}
+
 **Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
 
 ```python
@@ -260,7 +262,7 @@ async def main():
     obj = PB.Test()
     obj.field1 = "Hello"
     obj.field2 = "Amazing"
-    obj.field3 = "World"
+    obj.field3 = 32
     
     try:
         await producer.produce(obj, headers=headers)
