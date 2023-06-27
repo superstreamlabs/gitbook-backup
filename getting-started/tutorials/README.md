@@ -13,3 +13,5 @@
 {% embed url="https://memphis.dev/blog/part-2-change-data-capture-cdc-for-mongodb-with-debezium-and-memphis-dev/" %}
 
 {% embed url="https://memphis.dev/blog/part-3-transforming-mongodb-cdc-event-messages/" %}
+
+{% embed url="https://memphis.dev/blog/part-4-validating-cdc-messages-with-schemaverse/" %}
