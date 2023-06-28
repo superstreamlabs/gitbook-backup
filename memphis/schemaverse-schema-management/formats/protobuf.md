@@ -86,7 +86,8 @@ const { memphis } = require("memphis-dev");
         memphisConnection = await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            password: "PASSWORD"
+            password: "PASSWORD",
+            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
         const producer = await memphisConnection.producer({
             stationName: "STATION_NAME",
@@ -152,7 +153,12 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect(
+        "MEMPHIS_BROKER_URL", 
+        "APPLICATION_TYPE_USERNAME", 
+        memphis.Password("PASSWORD"),
+        memphis.AccountId(123456789), //*optional* In case you are using Memphis.dev cloud
+        )
     if err != nil {
         os.Exit(1)
     }
@@ -184,8 +190,7 @@ func main() {
 
 **Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
 
-```go
-package main
+<pre class="language-go"><code class="lang-go">package main
 
 import (
     "fmt"
@@ -195,7 +200,12 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
+<strong>    conn, err := memphis.Connect(
+</strong>        "MEMPHIS_BROKER_URL", 
+        "APPLICATION_TYPE_USERNAME", 
+        memphis.Password("PASSWORD"),
+        memphis.AccountId(123456789), //*optional* In case you are using Memphis.dev cloud
+        )
     if err != nil {
         os.Exit(1)
     }
@@ -216,14 +226,14 @@ func main() {
 	Field2: s2,
     }
 
-    err = p.Produce(&pbInstance, memphis.MsgHeaders(hdrs))
+    err = p.Produce(&#x26;pbInstance, memphis.MsgHeaders(hdrs))
     if err != nil {
         fmt.Printf("Produce failed: %v\n", err)
         os.Exit(1)
     }
 }
         
-```
+</code></pre>
 {% endtab %}
 
 {% tab title="Python" %}
@@ -240,7 +250,7 @@ message Test {
 }
 ```
 
-To compile the proto file run the following command : protoc --python\_out=. ./{proto file name}
+To compile the proto file, run the following command : protoc --python\_out=. ./{proto file name}
 
 **Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
 
@@ -252,7 +262,7 @@ import schema_pb2 as PB
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_BROKER_URL", username="APPLICATION_TYPE_USERNAME", password="PASSWORD")
+    await memphis.connect(host="MEMPHIS_BROKER_URL", username="APPLICATION_TYPE_USERNAME", password="PASSWORD", account_id=ACCOUNT_ID)
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -305,7 +315,8 @@ import { memphis, Memphis } from 'memphis-dev';
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            password: 'PASSWORD'
+            password: 'PASSWORD',
+            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const producer = await memphisConnection.producer({
@@ -394,8 +405,9 @@ var protobuf = require("protobufjs");
     try {
         await memphis.connect({
             host: "localhost",
-            username: "root",
-            password: "memphis"
+            username: "CLIENT_TYPE_USERNAME",
+            password: "PASSWORD"
+            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const consumer = await memphis.consumer({
@@ -505,7 +517,7 @@ async def main():
 
     try:
         memphis = Memphis()
-        await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", password="PASSWORD")
+        await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", password="PASSWORD", account_id=ACCOUNT_ID)
         consumer = await memphis.consumer(
             station_name="STATION_NAME", consumer_name="CONSUMER_NAME")
         consumer.consume(msg_handler)
@@ -532,7 +544,8 @@ var protobuf = require("protobufjs");
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            password: 'PASSWORD'
+            password: 'PASSWORD',
+            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const consumer = await memphis.consumer({
