@@ -5,12 +5,10 @@ coverY: 0
 
 # Step 2 - Hello World
 
-Create your first station, producer, and consumer in your preferred language as shown in the tabs below:
+Create your first station, producer, and consumer in your preferred language.
 
 {% tabs %}
 {% tab title="Node.js" %}
-Please make sure you have Node.js [installed](https://nodejs.org/en/download/).
-
 **Step 1:** Create an empty dir for the Node.js project
 
 ```bash
@@ -119,8 +117,6 @@ node consumer.js
 {% endtab %}
 
 {% tab title="TypeScript" %}
-Please make sure you have Node.js [installed](https://nodejs.org/en/download/).
-
 **Step 1:** Create an empty dir for the TypeScript project
 
 ```bash
@@ -228,99 +224,6 @@ import { memphis, Memphis } from "memphis-dev";
 ```bash
 node consumer.ts
 ```
-{% endtab %}
-
-{% tab title="NestJS" %}
-Please make sure you have Node.js [installed](https://nodejs.org/en/download/).
-
-**Step 1:** Create an empty dir for the NestJS project
-
-```bash
-mkdir memphis-demo && \
-cd memphis-demo
-```
-
-**Step 2:** Create a new Node project (If needed)
-
-```bash
-npm init -y
-```
-
-**Step 3:** Install memphis Node.js SDK
-
-```bash
-npm install memphis-dev
-```
-
-**Step 4:** Create a new .ts file called `producer.module.ts`
-
-{% code title="producer.module.ts" lineNumbers="true" %}
-```typescript
-import { Module } from "@nestjs/common";
-import { Memphis, MemphisModule, MemphisService } from "memphis-dev";
-
-@Module({
-  imports: [MemphisModule.register()],
-})
-export class ProducerModule {
-  constructor(private memphis: MemphisService) {}
-
-  startProducer() {
-    (async function () {
-      let memphisConnection: Memphis;
-
-      try {
-        memphisConnection = await memphis.connect({
-          host: "MEMPHIS_BROKER_HOSTNAME",
-          username: "APPLICATION_TYPE_USERNAME",
-          password: "PASSWORD",
-        });
-
-        const producer = await memphisConnection.producer({
-          stationName: "STATION_NAME",
-          producerName: "PRODUCER_NAME",
-        });
-
-        for (let index = 0; index < 100; index++) {
-          await producer.produce({
-            message: Buffer.from(`Message #${index}: Hello world`), // you can also send JS object - {}
-          });
-          console.log("Message sent");
-        }
-
-        console.log("All messages sent");
-        memphisConnection.close();
-      } catch (ex) {
-        console.log(ex);
-        if (memphisConnection) memphisConnection.close();
-      }
-    })();
-  }
-}
-```
-{% endcode %}
-
-**Step 5:** Create a new .ts file called `consumer.controller.ts`
-
-{% code title="consumer.controller.ts" lineNumbers="true" %}
-```typescript
-import { Module } from '@nestjs/common';
-import { Memphis, MemphisModule, MemphisService, MemphisConsume, Message } from 'memphis-dev';
-
-@Controller("auth")
-export class ExampleController {
-    @MemphisConsume({
-        stationName: "STATION_NAME",
-        consumerName: "CONSUMER_NAME",
-        consumerGroup: "CONSUMER_GROUP_NAME",
-    }, {}) // {} for passing the consumerContext to consumer.setContext
-    async messageHandler(message: Message, context: object) {
-        console.log(message.getData().toString());
-        message.ack();
-    }
-}
-```
-{% endcode %}
 {% endtab %}
 
 {% tab title="Go" %}

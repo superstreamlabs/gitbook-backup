@@ -58,7 +58,7 @@ Upper bar -
 {% tabs %}
 {% tab title="Go" %}
 {% hint style="warning" %}
-The full code example can be found in this [repo](https://github.com/memphisdev/memphis.go/tree/master/examples)
+Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.go/tree/master/examples)
 {% endhint %}
 
 **Step 1:** Create an empty dir for the Go project
@@ -201,7 +201,7 @@ go run consumer.go
 
 {% tab title="Python" %}
 {% hint style="warning" %}
-The full code example can be found in this [repo](https://github.com/memphisdev/memphis.py/tree/master/examples)
+Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.py/tree/master/examples)
 {% endhint %}
 
 **Step 1:** Create an empty dir for the Python project
@@ -302,19 +302,233 @@ python3 consumer.py
 {% endtab %}
 
 {% tab title="Node.js" %}
+{% hint style="warning" %}
+Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.js/tree/master/examples)
+{% endhint %}
 
+**Step 1:** Create an empty dir for the Node.js project
+
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
+
+**Step 2:** Create a new Node project (If needed)
+
+```bash
+npm init -y
+```
+
+**Step 3:** Install memphis Node.js SDK
+
+```bash
+npm install memphis-dev
+```
+
+**Step 4:** Create a new .js file called `producer.js`
+
+{% code title="producer.js" lineNumbers="true" %}
+```javascript
+const { memphis } = require("memphis-dev");
+
+(async function () {
+  let memphisConnection;
+
+  try {
+    memphisConnection = await memphis.connect({
+      host: "MEMPHIS_BROKER_HOSTNAME",
+      username: "APPLICATION_TYPE_USERNAME",
+      password: "PASSWORD",
+      accountId: ACCOUNT_ID
+    });
+
+    const producer = await memphisConnection.producer({
+      stationName: "STATION_NAME",
+      producerName: "PRODUCER_NAME",
+    });
+
+    const headers = memphis.headers();
+    headers.add("KEY", "VALUE");
+    await producer.produce({
+      message: Buffer.from("Message: Hello world"), // you can also send JS object - {}
+      headers: headers,
+    });
+
+    memphisConnection.close();
+  } catch (ex) {
+    console.log(ex);
+    if (memphisConnection) memphisConnection.close();
+  }
+})();
+```
+{% endcode %}
+
+**Step 5:** Run `producer.js`
+
+```bash
+node producer.js
+```
+
+**Step 6:** Create a new .js file called `consumer.js`
+
+{% code title="consumer.js" lineNumbers="true" %}
+```javascript
+const { memphis } = require("memphis-dev");
+
+(async function () {
+  let memphisConnection;
+
+  try {
+    memphisConnection = await memphis.connect({
+      host: "MEMPHIS_BROKER_HOSTNAME",
+      username: "APPLICATION_TYPE_USERNAME",
+      password: "PASSWORD",
+      accountId: ACCOUNT_ID
+    });
+
+    const consumer = await memphisConnection.consumer({
+      stationName: "STATION_NAME",
+      consumerName: "CONSUMER_NAME",
+      consumerGroup: "CONSUMER_GROUP_NAME",
+    });
+
+    consumer.setContext({ key: "value" });
+    consumer.on("message", (message, context) => {
+      console.log(message.getData().toString());
+      message.ack();
+      const headers = message.getHeaders();
+    });
+
+    consumer.on("error", (error) => {});
+  } catch (ex) {
+    console.log(ex);
+    if (memphisConnection) memphisConnection.close();
+  }
+})();
+```
+{% endcode %}
+
+**Step 7:** Run `consumer.js`
+
+```bash
+node consumer.js
+```
 {% endtab %}
 
 {% tab title="TypeScript" %}
+{% hint style="warning" %}
+Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.js/tree/master/examples)
+{% endhint %}
 
-{% endtab %}
+**Step 1:** Create an empty dir for the TypeScript project
 
-{% tab title="NestJS" %}
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
 
-{% endtab %}
+**Step 2:** Create a new Node project (If needed)
 
-{% tab title="REST" %}
+```bash
+npm init -y
+```
 
+**Step 3:** Install memphis Node.js SDK
+
+```bash
+npm install memphis-dev
+```
+
+**Step 4:** Create a new .ts file called `producer.ts`
+
+{% code title="producer.ts" lineNumbers="true" %}
+```typescript
+import { memphis, Memphis } from "memphis-dev";
+
+(async function () {
+  let memphisConnection: Memphis;
+
+  try {
+    memphisConnection = await memphis.connect({
+      host: "MEMPHIS_BROKER_HOSTNAME",
+      username: "APPLICATION_TYPE_USERNAME",
+      password: "PASSWORD",
+      accountId: ACCOUNT_ID
+    });
+
+    const producer = await memphisConnection.producer({
+      stationName: "STATION_NAME",
+      producerName: "PRODUCER_NAME",
+    });
+
+    const headers = memphis.headers();
+    headers.add("key", "value");
+    await producer.produce({
+      message: Buffer.from("Message: Hello world"), // you can also send JS object - {}
+      headers: headers,
+    });
+
+    memphisConnection.close();
+  } catch (ex) {
+    console.log(ex);
+    if (memphisConnection) memphisConnection.close();
+  }
+})();
+```
+{% endcode %}
+
+**Step 5:** Run `producer.ts`
+
+```bash
+node producer.ts
+```
+
+**Step 6:** Create a new .ts file called `consumer.ts`
+
+{% code title="consumer.ts" lineNumbers="true" %}
+```typescript
+import { memphis, Memphis } from "memphis-dev";
+
+(async function () {
+  let memphisConnection: Memphis;
+
+  try {
+    memphisConnection = await memphis.connect({
+      host: "MEMPHIS_BROKER_HOSTNAME",
+      username: "APPLICATION_TYPE_USERNAME",
+      password: "PASSWORD",
+      accountId: ACCOUNT_ID
+    });
+
+    const consumer = await memphisConnection.consumer({
+      stationName: "STATION_NAME",
+      consumerName: "CONSUMER_NAME",
+      consumerGroup: "CONSUMER_GROUP_NAME",
+    });
+
+    consumer.setContext({ key: "value" });
+    consumer.on("message", (message: Message, context: object) => {
+      console.log(message.getData().toString());
+      message.ack();
+      const headers = message.getHeaders();
+    });
+
+    consumer.on("error", (error) => {
+      console.log(error);
+    });
+  } catch (ex) {
+    console.log(ex);
+    if (memphisConnection) memphisConnection.close();
+  }
+})();
+```
+{% endcode %}
+
+**Step 7:** Run `consumer.ts`
+
+```bash
+node consumer.ts
+```
 {% endtab %}
 {% endtabs %}
 
