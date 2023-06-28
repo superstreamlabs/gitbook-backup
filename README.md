@@ -7,11 +7,11 @@ coverY: 0
 
 ## What is Memphis.dev?
 
-**Memphis.dev** is a next-generation alternative to traditional message brokers.
+**Memphis.dev** is a next-generation alternative to traditional streaming engines.
 
-It enables building modern queue-based applications that require large volumes of streamed and enriched data, modern protocols, zero ops, up to x9 faster development, up to x46 fewer costs, and significantly lower dev time for data-oriented developers and data engineers.
+It accelerates the development of real-time applications that require large volumes of streamed and enriched data, multiple protocols, and with minimum platform operations.
 
-Low footprint, highly resilient, cloud-native, and run on any Kubernetes, on any cloud.
+Highly resilient, distributed architecture, cloud-native, and run on any Kubernetes, on any cloud without zookeeper, bookeeper, or JVM.
 
 **Memphis focuses on four pillars -**
 
