@@ -1,6 +1,6 @@
 ---
 description: Accelerate Development of Real-Time Applications with Memphis.dev Cloud
-cover: ../.gitbook/assets/Gitbook (1).jpeg
+cover: ../.gitbook/assets/Gitbook.jpeg
 coverY: 0
 layout:
   cover:
@@ -57,8 +57,8 @@ Upper bar -
 
 {% tabs %}
 {% tab title="Go" %}
-{% hint style="info" %}
-The full code example can be found here
+{% hint style="warning" %}
+The full code example can be found in this [repo](https://github.com/memphisdev/memphis.go/tree/master/examples)
 {% endhint %}
 
 **Step 1:** Create an empty dir for the Go project
@@ -94,7 +94,11 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect("BROKER_HOSTNAME", 
+	"APPLICATION_TYPE_USERNAME", 
+	memphis.Password("PASSWORD"), // depends on how Memphis deployed - default is connection token-based authentication
+        memphis.AccountId(123456789)
+        )
     if err != nil {
         os.Exit(1)
     }
@@ -142,7 +146,11 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect("BROKER_HOSTNAME", 
+	"APPLICATION_TYPE_USERNAME", 
+	memphis.Password("PASSWORD"), // depends on how Memphis deployed - default is connection token-based authentication
+        memphis.AccountId(123456789)
+        )
     if err != nil {
         os.Exit(1)
     }
