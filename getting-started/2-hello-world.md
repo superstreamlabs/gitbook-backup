@@ -1,11 +1,10 @@
 ---
+description: Create your first station, producer, and consumer in your preferred language.
 cover: ../.gitbook/assets/Banner- Memphis.dev streaming .jpg
 coverY: 0
 ---
 
 # Step 2 - Hello World
-
-Create your first station, producer, and consumer in your preferred language.
 
 In case you are using Memphis.dev Cloud, please head [here](broken-reference)
 

@@ -20,7 +20,7 @@ layout:
 
 # Getting Started
 
-Welcome to our comprehensive guide on getting started with Memphis.dev cloud!&#x20;
+Welcome to our getting started guide with Memphis.dev cloud!&#x20;
 
 In today's fast-paced and interconnected world, event streaming is the engine behind communication. Whether you are an individual, a small business, or an enterprise, harnessing the power of the Memphis.dev Cloud can bring unparalleled scalability, flexibility, and efficiency to your operations.&#x20;
 
