@@ -200,7 +200,105 @@ go run consumer.go
 {% endtab %}
 
 {% tab title="Python" %}
+{% hint style="warning" %}
+The full code example can be found in this [repo](https://github.com/memphisdev/memphis.py/tree/master/examples)
+{% endhint %}
 
+**Step 1:** Create an empty dir for the Python project
+
+```bash
+mkdir memphis-demo && \
+cd memphis-demo
+```
+
+**Step 2:** In your project's directory, install Memphis Python SDK
+
+```bash
+pip3 install --upgrade memphis-py
+```
+
+**Step 3:** Create a new Python file called `producer.py`
+
+{% code title="producer.py" lineNumbers="true" %}
+```python
+from memphis import Memphis, Headers
+from memphis.types import Retention, Storage
+import asyncio
+
+async def main():
+    try:
+        memphis = Memphis()
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD", account_id=ACCOUNT_ID)
+        producer = await memphis.producer(station_name="STATION_NAME", producer_name="PRODUCER_NAME")
+        headers = Headers()
+        headers.add("key", "value")
+        for i in range(5):
+            await producer.produce(bytearray('Message #'+str(i)+': Hello world', 'utf-8'), headers=headers) # you can send the message parameter as dict as well
+
+    except (MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError) as e:
+        print(e)
+
+    finally:
+        await memphis.close()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+{% endcode %}
+
+**Step 4:** Run `producer.py`
+
+```bash
+python3 producer.py
+```
+
+**Step 5:** Create a new Python file called `consumer.py`
+
+{% code title="consumer.py" lineNumbers="true" %}
+```python
+from memphis import Memphis, Headers
+from memphis.types import Retention, Storage
+import asyncio
+
+async def main():
+    async def msg_handler(msgs, error, context):
+        try:
+            for msg in msgs:
+                print("message: ", msg.get_data())
+                await msg.ack()
+                headers = msg.get_headers()
+                if error:
+                    print(error)
+        except (MemphisError, MemphisConnectError, MemphisHeaderError) as e:
+            print(e)
+            return
+
+    try:
+        memphis = Memphis()
+        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD", account_id=ACCOUNT_ID)
+
+        consumer = await memphis.consumer(station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CONSUMER_GROUP_NAME")
+        consumer.set_context({"key": "value"})
+        consumer.consume(msg_handler)
+        # Keep your main thread alive so the consumer will keep receiving data
+        await asyncio.Event().wait()
+
+    except (MemphisError, MemphisConnectError) as e:
+        print(e)
+
+    finally:
+        await memphis.close()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+{% endcode %}
+
+**Step 6:** Run `consumer.py`
+
+```bash
+python3 consumer.py
+```
 {% endtab %}
 
 {% tab title="Node.js" %}
