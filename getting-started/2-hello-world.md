@@ -357,7 +357,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"),)
     if err != nil {
         os.Exit(1)
     }
@@ -405,7 +405,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_APPLICATION_USER", memphis.Password("PASSWORD"),)
     if err != nil {
         os.Exit(1)
     }
@@ -474,6 +474,7 @@ pip3 install --upgrade memphis-py
 ```python
 from memphis import Memphis, Headers
 from memphis.types import Retention, Storage
+import asyncio
 
 async def main():
     try:
@@ -509,6 +510,7 @@ python3 producer.py
 ```python
 from memphis import Memphis, Headers
 from memphis.types import Retention, Storage
+import asyncio
 
 async def main():
     async def msg_handler(msgs, error, context):
