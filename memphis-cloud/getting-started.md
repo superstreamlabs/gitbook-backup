@@ -28,9 +28,20 @@ This section aims to provide you with a solid foundation to embark on your strea
 
 Let's dive in and unlock the true potential of Memphis.dev together!
 
-### 1. Create an account
+### Create an account
 
 Head to the cloud [signup page](https://memphis.dev/cloud) to create an account.
 
 <figure><img src="../.gitbook/assets/Screen Shot 2023-06-28 at 13.03.57.png" alt=""><figcaption><p>Memphis.dev cloud signup</p></figcaption></figure>
 
+### Walkthrough
+
+To get you up and running quickly, we created the following tutorial to guide you through the different key components. Feel free to _skip it_ if you feel comfortable enough.
+
+<figure><img src="../.gitbook/assets/Screen Shot 2023-06-28 at 13.16.24.png" alt=""><figcaption></figcaption></figure>
+
+The main overview page contains the following metrics:
+
+1.
+
+<figure><img src="../.gitbook/assets/Screen Shot 2023-06-28 at 13.23.27.png" alt=""><figcaption></figcaption></figure>
