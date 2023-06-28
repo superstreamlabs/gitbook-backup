@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/LinkedIn personal (3).png
+cover: ../.gitbook/assets/Banner- Memphis.dev streaming .jpg
 coverY: 0
 ---
 
@@ -33,7 +33,6 @@ npm install memphis-dev
 **Step 4:** Create a new .js file called `producer.js`
 
 {% code title="producer.js" lineNumbers="true" %}
-
 ```javascript
 const { memphis } = require("memphis-dev");
 
@@ -66,7 +65,6 @@ const { memphis } = require("memphis-dev");
   }
 })();
 ```
-
 {% endcode %}
 
 **Step 5:** Run `producer.js`
@@ -78,7 +76,6 @@ node producer.js
 **Step 6:** Create a new .js file called `consumer.js`
 
 {% code title="consumer.js" lineNumbers="true" %}
-
 ```javascript
 const { memphis } = require("memphis-dev");
 
@@ -112,7 +109,6 @@ const { memphis } = require("memphis-dev");
   }
 })();
 ```
-
 {% endcode %}
 
 **Step 7:** Run `consumer.js`
@@ -120,7 +116,6 @@ const { memphis } = require("memphis-dev");
 ```bash
 node consumer.js
 ```
-
 {% endtab %}
 
 {% tab title="TypeScript" %}
@@ -148,7 +143,6 @@ npm install memphis-dev
 **Step 4:** Create a new .ts file called `producer.ts`
 
 {% code title="producer.ts" lineNumbers="true" %}
-
 ```typescript
 import { memphis, Memphis } from "memphis-dev";
 
@@ -181,7 +175,6 @@ import { memphis, Memphis } from "memphis-dev";
   }
 })();
 ```
-
 {% endcode %}
 
 **Step 5:** Run `producer.ts`
@@ -193,7 +186,6 @@ node producer.ts
 **Step 6:** Create a new .ts file called `consumer.ts`
 
 {% code title="consumer.ts" lineNumbers="true" %}
-
 ```typescript
 import { memphis, Memphis } from "memphis-dev";
 
@@ -229,7 +221,6 @@ import { memphis, Memphis } from "memphis-dev";
   }
 })();
 ```
-
 {% endcode %}
 
 **Step 7:** Run `consumer.ts`
@@ -237,7 +228,6 @@ import { memphis, Memphis } from "memphis-dev";
 ```bash
 node consumer.ts
 ```
-
 {% endtab %}
 
 {% tab title="NestJS" %}
@@ -265,7 +255,6 @@ npm install memphis-dev
 **Step 4:** Create a new .ts file called `producer.module.ts`
 
 {% code title="producer.module.ts" lineNumbers="true" %}
-
 ```typescript
 import { Module } from "@nestjs/common";
 import { Memphis, MemphisModule, MemphisService } from "memphis-dev";
@@ -309,13 +298,11 @@ export class ProducerModule {
   }
 }
 ```
-
 {% endcode %}
 
 **Step 5:** Create a new .ts file called `consumer.controller.ts`
 
 {% code title="consumer.controller.ts" lineNumbers="true" %}
-
 ```typescript
 import { Module } from '@nestjs/common';
 import { Memphis, MemphisModule, MemphisService, MemphisConsume, Message } from 'memphis-dev';
@@ -333,7 +320,6 @@ export class ExampleController {
     }
 }
 ```
-
 {% endcode %}
 {% endtab %}
 
@@ -360,7 +346,6 @@ go get github.com/memphisdev/memphis.go
 **Step 4:** Create a new Go file called `producer.go`
 
 {% code title="producer.go" lineNumbers="true" %}
-
 ```go
 package main
 
@@ -396,7 +381,6 @@ func main() {
     }
 }
 ```
-
 {% endcode %}
 
 **Step 4:** Run `producer.go`
@@ -408,7 +392,6 @@ go run producer.go
 **Step 5:** Create a new Go file called `consumer.go`
 
 {% code title="consumer.go" lineNumbers="true" %}
-
 ```go
 package main
 
@@ -462,7 +445,6 @@ func main() {
     time.Sleep(30 * time.Second)
 }
 ```
-
 {% endcode %}
 
 **Step 6:** Run `consumer.go`
@@ -470,7 +452,6 @@ func main() {
 ```bash
 go run consumer.go
 ```
-
 {% endtab %}
 
 {% tab title="Python" %}
@@ -490,7 +471,6 @@ pip3 install --upgrade memphis-py
 **Step 3:** Create a new Python file called `producer.py`
 
 {% code title="producer.py" lineNumbers="true" %}
-
 ```python
 from memphis import Memphis, Headers
 from memphis.types import Retention, Storage
@@ -515,7 +495,6 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ```
-
 {% endcode %}
 
 **Step 4:** Run `producer.py`
@@ -527,7 +506,6 @@ python3 producer.py
 **Step 5:** Create a new Python file called `consumer.py`
 
 {% code title="consumer.py" lineNumbers="true" %}
-
 ```python
 from memphis import Memphis, Headers
 from memphis.types import Retention, Storage
@@ -564,7 +542,6 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ```
-
 {% endcode %}
 
 **Step 6:** Run `consumer.py`
@@ -572,7 +549,6 @@ if __name__ == '__main__':
 ```bash
 python3 consumer.py
 ```
-
 {% endtab %}
 
 {% tab title="REST" %}
@@ -596,7 +572,6 @@ npm init -y
 **Step 3:** Generate a new JWT token `generate.js`
 
 {% code title="generate.js" lineNumbers="true" %}
-
 ```javascript
 var axios = require("axios");
 var data = JSON.stringify({
@@ -623,7 +598,6 @@ axios(config)
     console.log(error);
   });
 ```
-
 {% endcode %}
 
 **Step 4:** Run `generate.js` and copy the returned JWT

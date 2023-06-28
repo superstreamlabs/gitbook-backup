@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/LinkedIn personal (3).png
+cover: .gitbook/assets/Banner- Memphis.dev streaming .jpg
 coverY: 0
 ---
 
