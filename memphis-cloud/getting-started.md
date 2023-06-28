@@ -97,7 +97,7 @@ func main() {
     conn, err := memphis.Connect("BROKER_HOSTNAME", 
 	"APPLICATION_TYPE_USERNAME", 
 	memphis.Password("PASSWORD"), // depends on how Memphis deployed - default is connection token-based authentication
-        memphis.AccountId(123456789)
+        memphis.AccountId(123456789),
         )
     if err != nil {
         os.Exit(1)
@@ -149,7 +149,7 @@ func main() {
     conn, err := memphis.Connect("BROKER_HOSTNAME", 
 	"APPLICATION_TYPE_USERNAME", 
 	memphis.Password("PASSWORD"), // depends on how Memphis deployed - default is connection token-based authentication
-        memphis.AccountId(123456789)
+        memphis.AccountId(123456789),
         )
     if err != nil {
         os.Exit(1)
