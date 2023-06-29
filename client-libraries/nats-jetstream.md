@@ -6,6 +6,10 @@ coverY: -43.05148658448151
 
 # NATS Jetstream
 
+{% content-ref url="../" %}
+[..](../)
+{% endcontent-ref %}
+
 ## Introduction
 
 The motivation -
