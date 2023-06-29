@@ -22,7 +22,7 @@ The motivation -
 
 ## For NATS Jetstream users
 
-
+Soon.
 
 ## For Plain NATS users
 
