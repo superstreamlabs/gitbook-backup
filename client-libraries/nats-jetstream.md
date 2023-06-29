@@ -26,7 +26,7 @@ Simply change NATS `hostname` to Memphis `hostname`
 
 ## For NATS Core users
 
-All of NATS core features will be supported when using Memphis, but without performing the below procedure, Memphis platform will not be able to control those `subjects`.
+All of NATS core features will be supported when communicating with Memphis, but without performing the below procedure, Memphis platform will not be able to control those NATS `subjects`.
 
 Memphis operates at the stream level. For a NATS "subject" to be seen and managed by Memphis, it must first be wrapped by a stream.
 
