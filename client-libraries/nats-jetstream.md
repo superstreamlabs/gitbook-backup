@@ -16,17 +16,19 @@ The motivation -
 ## Limitations
 
 * NATS SDKs version - Compatibility with NATS Jetstream 2.9 and above.
-* Without Memphis SDK, the following Memphis features will be disabled:
-  * Producers/Consumers observability
+* Without Memphis SDK, the following Memphis features will not be supported:
+  * Producers/Consumers' observability
   * Schemaverse
 
-## Requirements
+## For NATS Jetstream users
+
+
+
+## For Plain NATS users
 
 Memphis operates at the stream level. For a NATS "subject" to be seen and managed by Memphis, it must first be wrapped by a stream.
 
-For example:
-
-#### Connection token based aut:
+#### Using Memphis Connection token-based authentication:
 
 ```markup
 nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>::<MEMPHIS_CONNECTION_TOKEN> 
@@ -48,7 +50,7 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>:
 Stream argo_event_source was created
 ```
 
-#### User password based auth:
+#### Using Memphis password-based authentication:
 
 ```
 nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER> --password=<MEMPHIS_APPLICATION_USER_PASSWORD>
