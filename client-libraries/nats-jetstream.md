@@ -22,7 +22,7 @@ The motivation -
 
 ## For NATS Jetstream users
 
-Simply to change NATS `hostname` to Memphis `hostname`
+Simply change NATS `hostname` to Memphis `hostname`
 
 ## For NATS Core users
 
