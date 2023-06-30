@@ -21,11 +21,11 @@ It provides clear human- and machine-readable documentation and offers data vali
 {% tab title="GUI" %}
 Head to the "Schemaverse" page
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.17 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.17 (1).png" alt=""><figcaption></figcaption></figure>
 
 Create a new schema by clicking on "Create from blank"
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-01-08 at 23.21.55.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-01-08 at 23.21.55.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="SDK" %}
@@ -39,9 +39,9 @@ Soon.
 {% tab title="GUI" %}
 Head to your station, and on the top-left corner, click on "+ Attach schema"
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.31.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.31.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.38.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.38.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="SDK" %}
@@ -49,7 +49,7 @@ It can be found through the different [SDKs](broken-reference) docs.
 {% endtab %}
 {% endtabs %}
 
-### Produce a message (Serialization)
+### Produce/Consume a message
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -86,7 +86,8 @@ const memphis = require("memphis-dev");
         await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            password: "PASSWORD"
+            password: "PASSWORD",
+            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -145,7 +146,12 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect(
+        "MEMPHIS_BROKER_URL", 
+        "APPLICATION_TYPE_USERNAME", 
+        memphis.Password("PASSWORD"),
+        memphis.AccountId(123456789), //*optional* In case you are using Memphis.dev cloud
+    )
     if err != nil {
         os.Exit(1)
     }
@@ -205,7 +211,7 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", password="PASSWORD")
+    await memphis.connect(host="MEMPHIS_HOST", username="MEMPHIS_USERNAME", password="PASSWORD", account_id=ACCOUNT_ID)
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -264,7 +270,8 @@ import type { Memphis } from 'memphis-dev/types';
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            password: 'PASSWORD'
+            password: 'PASSWORD',
+            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const producer = await memphisConnection.producer({
@@ -289,5 +296,62 @@ import type { Memphis } from 'memphis-dev/types';
     }
 })();
 ```
+{% endtab %}
+
+{% tab title="REST" %}
+With REST, you can simply produce an object. Behind the scenes, the object will be serialized based on the attached schema and data format - protobuf.
+
+**Example schema:**
+
+```json
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "contact_details",
+	"type": "object",
+	"properties": {
+		"fname": {
+			"type": "string"
+		},
+		"lname": {
+			"type": "string"
+		}
+	}
+}
+```
+
+**Producing a message:**
+
+{% code lineNumbers="true" %}
+```javascript
+var axios = require('axios');
+var data = JSON.stringify({
+  "field1": "foo",
+  "field2": "bar",
+  "field3": 123,
+});
+
+var config = {
+  method: 'post',
+  url: 'https://BROKER_RESTGW_URL/stations/hps/produce/single',
+  headers: { 
+    'Authorization': 'Bearer <jwt>', 
+    'Content-Type': 'application/json'
+  },
+  data: data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".NET" %}
+Soon.
 {% endtab %}
 {% endtabs %}

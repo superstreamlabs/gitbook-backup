@@ -26,15 +26,15 @@
 {% tab title="GUI" %}
 Head to the "Schemaverse" page
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.17 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.17 (1).png" alt=""><figcaption></figcaption></figure>
 
 Create a new schema by clicking on "Create from blank"
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.25 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.25 (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="SDK" %}
-Soon.
+
 {% endtab %}
 {% endtabs %}
 
@@ -44,9 +44,9 @@ Soon.
 {% tab title="GUI" %}
 Head to your station, and on the top-left corner, click on "+ Attach schema"
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.31.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.31.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.38.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.38.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="SDK" %}
@@ -62,7 +62,7 @@ Memphis abstracts the need for external serialization functions and embeds them 
 
 In node.js, we can simply produce an object. Behind the scenes, the object will be serialized based on the attached schema and data format - protobuf.
 
-**Example schema:**
+**Example schema: (No need to compile)**
 
 ```protobuf
 syntax = "proto3";
@@ -341,8 +341,12 @@ import { memphis, Memphis } from 'memphis-dev';
 ```
 {% endtab %}
 
-{% tab title="HTTP (REST)" %}
-In HTTP, we can simply produce an object. Behind the scenes, the object will be serialized based on the attached schema and data format - protobuf.
+{% tab title=".NET" %}
+Soon.
+{% endtab %}
+
+{% tab title="REST" %}
+In REST, you can simply produce an object. Behind the scenes, the object will be serialized based on the attached schema and data format - protobuf.
 
 **Example schema:**
 
@@ -577,5 +581,13 @@ var protobuf = require("protobufjs");
     }
 })();type
 ```
+{% endtab %}
+
+{% tab title=".NET" %}
+Soon.
+{% endtab %}
+
+{% tab title="REST" %}
+Currently not supported.
 {% endtab %}
 {% endtabs %}
