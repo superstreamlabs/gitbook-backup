@@ -113,11 +113,11 @@ const { memphis } = require("memphis-dev");
 {% endtab %}
 
 {% tab title="Go" %}
-Memphis abstracts the need for external serialization functions and embeds it within the SDK.\
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.\
 \
 **Example proto file:**
 
-```
+```protobuf
 syntax = "proto3";
 option go_package = "./";
 
@@ -128,17 +128,10 @@ message Test {
 }
 ```
 
-To compile the proto file run the following command : protoc --go\_out=. ./{proto file name}
+To compile the proto file, run the following command:&#x20;
 
-**Example schema:**
-
-```protobuf
-syntax = "proto3";
-message Test {
-            string field1 = 1;
-            string field2 = 2;
-            int32 field3 = 3;
-}
+```bash
+protoc --go_out=. ./{proto file name}
 ```
 
 **Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
@@ -250,7 +243,11 @@ message Test {
 }
 ```
 
-To compile the proto file, run the following command : protoc --python\_out=. ./{proto file name}
+To compile the proto file, run the following command:&#x20;
+
+```bash
+protoc --go_out=. ./{proto file name}
+```
 
 **Producing a message **<mark style="color:purple;">**with**</mark>** a local .proto file:**
 
@@ -461,7 +458,12 @@ type Test struct {
 }
 
 func main() {
-	conn, err := memphis.Connect("MEMPHIS_HOSTNAME", "MEMPHIS_USER", memphis.Password("PASSWORD"))
+	conn, err := memphis.Connect(
+        	"MEMPHIS_BROKER_URL", 
+	        "APPLICATION_TYPE_USERNAME", 
+	        memphis.Password("PASSWORD"),
+	        memphis.AccountId(123456789), //*optional* In case you are using Memphis.dev cloud
+        )
 	if err != nil {
 		os.Exit(1)
 	}
