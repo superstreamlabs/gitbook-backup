@@ -51,7 +51,7 @@
 ## ☁ Memphis cloud
 
 * [Getting Started](memphis-cloud/getting-started.md)
-* [Pricing](https://memphis.dev/cloud)
+* [Pricing](https://memphis.dev/pricing)
 
 ## 📦 Deployment
 
