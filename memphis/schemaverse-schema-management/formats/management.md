@@ -1,6 +1,10 @@
 # Management
 
-## Attach a schema
+## Create a new Schema
+
+## Detach a Schema
+
+## Enforce a Schema
 
 #### Step 1: Create a new schema
 
@@ -20,7 +24,7 @@ Create a new schema by clicking on "Create from blank"
 {% endtab %}
 {% endtabs %}
 
-#### Step 2: Attach
+#### Step 2: Enforce
 
 {% tabs %}
 {% tab title="GUI" %}
