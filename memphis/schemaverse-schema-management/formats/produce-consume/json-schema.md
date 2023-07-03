@@ -49,7 +49,7 @@ const memphis = require("memphis-dev");
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
             password: "PASSWORD",
-            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -112,7 +112,7 @@ func main() {
         "MEMPHIS_BROKER_URL", 
         "APPLICATION_TYPE_USERNAME", 
         memphis.Password("PASSWORD"),
-        memphis.AccountId(123456789), //*optional* In case you are using Memphis.dev cloud
+        // memphis.AccountId(123456789), //*optional* In case you are using Memphis.dev cloud
     )
     if err != nil {
         os.Exit(1)
@@ -233,7 +233,7 @@ import type { Memphis } from 'memphis-dev/types';
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
             password: 'PASSWORD',
-            accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const producer = await memphisConnection.producer({
@@ -258,6 +258,93 @@ import type { Memphis } from 'memphis-dev/types';
     }
 })();
 ```
+{% endtab %}
+
+{% tab title=".NET" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
+
+**Example schema:**
+
+```json
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "contact_details",
+	"type": "object",
+	"properties": {
+		"fname": {
+			"type": "string"
+		},
+		"lname": {
+			"type": "string"
+		}
+	}
+}
+```
+
+**Code:**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```aspnet
+using System.Collections.Specialized;
+using Memphis.Client;
+using Memphis.Client.Producer;
+using Newtonsoft.Json;
+using System.Text;
+
+var options = MemphisClientFactory.GetDefaultOptions();
+options.Host = "<memphis-host>";
+options.Username = "<application type username>";
+options.ConnectionToken = "<broker-token>";
+/**
+* In case you are using Memphis.dev cloud
+* options.AccountId = "<account-id>";
+*/
+
+try
+{
+    var client = await MemphisClientFactory.CreateClient(options);
+
+    var producer = await client.CreateProducer(new MemphisProducerOptions
+    {
+        StationName = "<memphis-station-name>",
+        ProducerName = "<memphis-producer-name>",
+        GenerateUniqueSuffix = true
+    });
+
+    NameValueCollection commonHeaders = new()
+    {
+        {
+            "key-1", "value-1"
+        }
+    };
+
+    ContactDetail contactDetail = new()
+    {
+        FirstName = "Bob",
+        LastName = "Marley"
+    };
+
+    string message = JsonConvert.SerializeObject(contactDetail);
+
+    await producer.ProduceAsync(Encoding.UTF8.GetBytes(message), commonHeaders);
+    client.Dispose();
+}
+catch (Exception exception)
+{
+    Console.WriteLine($"Error occured: {exception.Message}");
+}
+
+
+
+public class ContactDetail
+{
+    [JsonProperty("fname")]
+    public required string FirstName { get; set; }
+    [JsonProperty("lname")]
+    public required string LastName { get; set; }
+}
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="REST" %}
@@ -287,9 +374,8 @@ With REST, you can simply produce an object. Behind the scenes, the object will 
 ```javascript
 var axios = require('axios');
 var data = JSON.stringify({
-  "field1": "foo",
-  "field2": "bar",
-  "field3": 123,
+  "fname": "foo",
+  "lname": "bar",
 });
 
 var config = {
@@ -311,9 +397,5 @@ axios(config)
 });
 ```
 {% endcode %}
-{% endtab %}
-
-{% tab title=".NET" %}
-Soon.
 {% endtab %}
 {% endtabs %}
