@@ -16,13 +16,77 @@ More information on each format can be found under the [produce/consume](produce
 {% endtab %}
 
 {% tab title="Code" %}
-{% @github-files/github-code-block url="https://github.com/memphisdev/code-examples/blob/master/schemaverse/create-new-schema.md" %}
+{% code title="Javascript" overflow="wrap" lineNumbers="true" %}
+```javascript
+await memphisConnection.createSchema({schemaName: "<schema-name>", schemaType: "<schema-type>", schemaFilePath: "<schema-file-path>" });
+```
+{% endcode %}
+
+{% code title="Python" overflow="wrap" lineNumbers="true" %}
+```python
+await memphis.create_schema("<schema-name>", "<schema-type>", "<schema-file-path>")
+```
+{% endcode %}
+
+{% code title="Go" overflow="wrap" lineNumbers="true" %}
+```go
+err := conn.CreateSchema("<schema-name>", "<schema-type>", "<schema-file-path>")
+```
+{% endcode %}
+
+{% code title=".NET" overflow="wrap" lineNumbers="true" %}
+```aspnet
+await client.CreateSchema("<schema-name>", "<schema-type>", "<schema-file-path>")
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
 ## Detach a Schema
 
-## Enforce a Schema
+{% tabs %}
+{% tab title="GUI" %}
+Head to the designated station
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-03 at 22.57.55.png" alt=""><figcaption></figcaption></figure>
+
+Click on "Detach" on the upper-center panel
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-03 at 22.59.39.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+Please remember that detaching a schema will enable "any" events to get ingested by the station.
+{% endhint %}
+{% endtab %}
+
+{% tab title="Code" %}
+{% code title="Javascript" overflow="wrap" lineNumbers="true" %}
+```javascript
+await memphisConnection.detachSchema({ stationName: '<station-name>' });
+```
+{% endcode %}
+
+{% code title="Python" overflow="wrap" lineNumbers="true" %}
+```python
+await memphis.detach_schema("<station-name>")
+```
+{% endcode %}
+
+{% code title="Go" overflow="wrap" lineNumbers="true" %}
+```go
+err := conn.DetachSchema("<station-name>")
+```
+{% endcode %}
+
+{% code title=".NET" overflow="wrap" lineNumbers="true" %}
+```aspnet
+await client.DetachSchema(stationName: station.Name);
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## Enforce (attach) a Schema
 
 #### Step 1: Create a new schema
 
