@@ -35,7 +35,8 @@ const memphis = require("memphis-dev");
         await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            connectionToken: "CONNECTION_TOKEN"
+            connectionToken: "CONNECTION_TOKEN",
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -65,7 +66,8 @@ const memphis = require("memphis-dev");
         await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            password: "PASSWORD"
+            password: "PASSWORD",
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -97,7 +99,8 @@ const memphis = require("memphis-dev");
         await memphis.connect({
             host: "MEMPHIS_BROKER_URL",
             username: "APPLICATION_USER",
-            password: "PASSWORD"
+            password: "PASSWORD",
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
         const producer = await memphis.producer({
             stationName: "STATION_NAME",
@@ -142,6 +145,7 @@ type Query {
 
 **Code (string):**
 
+{% code overflow="wrap" lineNumbers="true" %}
 ```go
 package main
 
@@ -152,7 +156,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"), memphis.AccountId(123456789),)
     if err != nil {
         os.Exit(1)
     }
@@ -178,9 +182,11 @@ func main() {
 }
 
 ```
+{% endcode %}
 
 **Code (\[]byte):**
 
+{% code overflow="wrap" lineNumbers="true" %}
 ```go
 package main
 
@@ -191,7 +197,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"))
+    conn, err := memphis.Connect("MEMPHIS_BROKER_URL", "APPLICATION_TYPE_USERNAME", memphis.Password("PASSWORD"), memphis.AccountId(123456789),)
     if err != nil {
         os.Exit(1)
     }
@@ -217,6 +223,7 @@ func main() {
 }
 
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
@@ -248,7 +255,7 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD", account_id=ACCOUNT_ID)
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -280,7 +287,7 @@ from memphis import Memphis, Headers, MemphisError, MemphisConnectError, Memphis
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD", account_id=ACCOUNT_ID,)
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -313,7 +320,7 @@ from graphql import parse
 
 async def main():
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", connection_token="CONNECTION_TOKEN", account_id=ACCOUNT_ID)
     producer = await memphis.producer(
         station_name="STATION_NAME", producer_name="PRODUCER_NAME")
 
@@ -371,7 +378,8 @@ import type { Memphis } from 'memphis-dev/types';
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            password: 'PASSWORD'
+            password: 'PASSWORD',
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const producer = await memphisConnection.producer({
@@ -408,7 +416,8 @@ import type { Memphis } from 'memphis-dev/types';
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            connectionToken: 'CONNECTION_TOKEN'
+            password: 'PASSWORD',
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const producer = await memphisConnection.producer({
@@ -445,7 +454,8 @@ import {parse} from 'graphql'
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_TYPE_USERNAME',
-            connectionToken: 'CONNECTION_TOKEN'
+            password: 'PASSWORD',
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const producer = await memphisConnection.producer({
@@ -469,6 +479,75 @@ import {parse} from 'graphql'
 })();
 ```
 {% endtab %}
+
+{% tab title=".NET" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
+
+**Example schema:**
+
+{% code lineNumbers="true" %}
+```graphql
+type Query {
+            greeting:String
+            students:[Student]
+         }
+         
+         type Student {
+            id:ID!
+            firstName:String
+            lastName:String
+         }
+```
+{% endcode %}
+
+**Code:**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```aspnet
+using System.Collections.Specialized;
+using Memphis.Client;
+using Memphis.Client.Producer;
+using System.Text;
+
+
+var options = MemphisClientFactory.GetDefaultOptions();
+options.Host = "<memphis-host>";
+options.Username = "<application type username>";
+options.ConnectionToken = "<broker-token>";
+/**
+* In case you are using Memphis.dev cloud
+* options.AccountId = "<account-id>";
+*/
+try
+{
+    var client = await MemphisClientFactory.CreateClient(options);
+
+    var producer = await client.CreateProducer(new MemphisProducerOptions
+    {
+        StationName = "<memphis-station-name>",
+        ProducerName = "<memphis-producer-name>",
+        GenerateUniqueSuffix = true
+    });
+
+    NameValueCollection commonHeaders = new()
+    {
+        {
+            "key-1", "value-1"
+        }
+    };
+
+    string graphqlMsg = @"query myQuery { greeting } mutation msg { updateUserEmail(email: ""http://github.com"", id: 1) { id name } }";
+
+    await producer.ProduceAsync(Encoding.UTF8.GetBytes(graphqlMsg), commonHeaders);
+    client.Dispose();
+}
+catch (Exception exception)
+{
+    Console.WriteLine($"Error occured: {exception.Message}");
+}
+```
+{% endcode %}
+{% endtab %}
 {% endtabs %}
 
 ### Consume a message (Deserialization)
@@ -477,7 +556,7 @@ import {parse} from 'graphql'
 {% tab title="Node.js" %}
 In coming versions, Memphis will abstract the need for external deserialization functions and embeds them within the SDK.
 
-**Example received schema:**
+**An example of received schema:**
 
 {% code lineNumbers="true" %}
 ```graphql
@@ -507,7 +586,8 @@ const graphql = require('graphql');
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_HOSTNAME',
             username: 'MEMPHIS_USERNAME',
-            password: "PASSWORD"
+            password: "PASSWORD",
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const consumer = await memphisConnection.consumer({
@@ -534,6 +614,28 @@ const graphql = require('graphql');
 {% endtab %}
 
 {% tab title="Go" %}
+In coming versions, Memphis will abstract the need for external deserialization functions and embeds them within the SDK.
+
+**An example of received schema:**
+
+{% code lineNumbers="true" %}
+```graphql
+type Query {
+            greeting:String
+            students:[Student]
+         }
+         
+         type Student {
+            id:ID!
+            firstName:String
+            lastName:String
+         }
+```
+{% endcode %}
+
+**Code:**
+
+{% code overflow="wrap" lineNumbers="true" %}
 ```go
 package main
 
@@ -546,7 +648,7 @@ import (
 )
 
 func main() {
-    conn, err := memphis.Connect("<memphis-host>", "<application type username>", memphis.Password: "password")
+    conn, err := memphis.Connect("<memphis-host>", "<application type username>", memphis.Password: "password", memphis.AccountId(123456789), //*optional* In case you are using Memphis.dev cloud)
     if err != nil {
         os.Exit(1)
     }
@@ -581,9 +683,32 @@ func main() {
     time.Sleep(30 * time.Second)
 }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Python" %}
+In coming versions, Memphis will abstract the need for external deserialization functions and embeds them within the SDK.
+
+**An example of received schema:**
+
+{% code lineNumbers="true" %}
+```graphql
+type Query {
+            greeting:String
+            students:[Student]
+         }
+         
+         type Student {
+            id:ID!
+            firstName:String
+            lastName:String
+         }
+```
+{% endcode %}
+
+**Code:**
+
+{% code overflow="wrap" lineNumbers="true" %}
 ```python
 import asyncio
 from memphis import Memphis, MemphisError, MemphisConnectError, MemphisHeaderError
@@ -607,7 +732,7 @@ async def main():
 
   try:
     memphis = Memphis()
-    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD")
+    await memphis.connect(host="MEMPHIS_URL", username="MEMPHIS_USERNAME", password="PASSWORD", account_id=123456789)
     consumer = await memphis.consumer(
       station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CG_NAME")
     consumer.consume(msg_handler)
@@ -624,9 +749,11 @@ async def main():
 if __name__ == '__main__':
   asyncio.run(main())
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="TypeScript" %}
+{% code overflow="wrap" lineNumbers="true" %}
 ```typescript
 import memphis from 'memphis-dev';
 import {Memphis, Message} from 'memphis-dev/types';
@@ -640,7 +767,8 @@ import {parse} from 'graphql'
         memphisConnection = await memphis.connect({
             host: 'MEMPHIS_BROKER_URL',
             username: 'APPLICATION_USER',
-            password: 'PASSWORD'
+            password: 'PASSWORD',
+            // accountId: ACCOUNT_ID //*optional* In case you are using Memphis.dev cloud
         });
 
         const consumer = await memphisConnection.consumer({
@@ -669,5 +797,87 @@ import {parse} from 'graphql'
     }
 })();
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".NET" %}
+In coming versions, Memphis will abstract the need for external deserialization functions and embeds them within the SDK.
+
+**An example of received schema:**
+
+{% code lineNumbers="true" %}
+```graphql
+type Query {
+            greeting:String
+            students:[Student]
+         }
+         
+         type Student {
+            id:ID!
+            firstName:String
+            lastName:String
+         }
+```
+{% endcode %}
+
+**Code:**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```aspnet
+using Memphis.Client.Consumer;
+using Memphis.Client;
+using ProtoBuf;
+
+var options = MemphisClientFactory.GetDefaultOptions();
+options.Host = "<memphis-host>";
+options.Username = "<application type username>";
+options.ConnectionToken = "<broker-token>";
+
+/**
+* In case you are using Memphis.dev cloud
+* options.AccountId = "<account-id>";
+*/
+
+try
+{
+    var client = await MemphisClientFactory.CreateClient(options);
+
+    var consumer = await client.CreateConsumer(new MemphisConsumerOptions
+    {
+        StationName = "<station-name>",
+        ConsumerName = "<consumer-name>",
+        ConsumerGroup = "<consumer-group-name>",
+    });
+
+    consumer.MessageReceived += (sender, args) =>
+    {
+        if (args.Exception is not null)
+        {
+            Console.Error.WriteLine(args.Exception);
+            return;
+        }
+
+        foreach (var msg in args.MessageList)
+        {
+            var data = msg.GetData();
+            if (data is { Length: > 0 })
+            {
+                Console.WriteLine(data);net
+            }
+        }
+    };
+
+    consumer.ConsumeAsync();
+
+    await Task.Delay(TimeSpan.FromMinutes(1));
+    await consumer.DestroyAsync();
+    client.Dispose();
+}
+catch (Exception exception)
+{
+    Console.WriteLine($"Error occured: {exception.Message}");
+}
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
