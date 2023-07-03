@@ -88,36 +88,41 @@ await client.DetachSchema(stationName: station.Name);
 
 ## Enforce (attach) a Schema
 
-#### Step 1: Create a new schema
-
 {% tabs %}
 {% tab title="GUI" %}
-Head to the "Schemaverse" page
+Head to the designated station.\
+On the top-left corner, click on "Enforce schema"
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.17 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-03 at 23.05.21.png" alt=""><figcaption></figcaption></figure>
 
-Create a new schema by clicking on "Create from blank"
+Choose the required schema.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 15.22.25 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-03 at 23.06.28.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Code" %}
+{% code title="Javascript" overflow="wrap" lineNumbers="true" %}
+```javascript
+await memphisConnection.enforceSchema({ name: '<schema-name>', stationName: '<station-name>' });
+```
+{% endcode %}
 
-{% endtab %}
-{% endtabs %}
+{% code title="Python" overflow="wrap" lineNumbers="true" %}
+```python
+await memphis.enforce_schema("<schema-name>", "<station-name>")
+```
+{% endcode %}
 
-#### Step 2: Enforce
+{% code title="Go" overflow="wrap" lineNumbers="true" %}
+```go
+err := conn.EnforceSchema("<schema-name>", "<station-name>")
+```
+{% endcode %}
 
-{% tabs %}
-{% tab title="GUI" %}
-Head to your station, and on the top-left corner, click on "+ Attach schema"
-
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.31.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-11-10 at 16.02.38.png" alt=""><figcaption></figcaption></figure>
-{% endtab %}
-
-{% tab title="Code" %}
-It can be found through the different [SDKs](broken-reference) docs.
+{% code title=".NET" overflow="wrap" lineNumbers="true" %}
+```aspnet
+await client.EnforceSchema(stationName: "<station-name>", schemaName: "<schema-name>");
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
