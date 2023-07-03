@@ -16,9 +16,7 @@ More information on each format can be found under the [produce/consume](produce
 {% endtab %}
 
 {% tab title="Code" %}
-{% embed url="https://github.com/memphisdev/code-examples/blob/master/schemaverse/create-new-schema.md" %}
-
-{% embed url="https://github.com/memphisdev/code-examples/blob/master/schemaverse/create-new-schema.md" %}
+{% @github-files/github-code-block url="https://github.com/memphisdev/code-examples/blob/master/schemaverse/create-new-schema.md" %}
 {% endtab %}
 {% endtabs %}
 
