@@ -18,7 +18,7 @@
 
 ## Getting started
 
-### Produce a message (Serialization)
+### Produce a message
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -306,7 +306,88 @@ import { memphis, Memphis } from 'memphis-dev';
 {% endtab %}
 
 {% tab title=".NET" %}
-Soon.
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
+
+**Example schema:**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```protobuf
+syntax = "proto3";
+message Test {
+            string field1 = 1;
+            string field2 = 2;
+            int32 field3 = 3;
+}
+```
+{% endcode %}
+
+**Producing a message **<mark style="color:purple;">**without**</mark>** a local .proto file:**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```aspnet
+using Memphis.Client.Producer;
+using System.Collections.Specialized;
+using Memphis.Client;
+using ProtoBuf;
+
+var options = MemphisClientFactory.GetDefaultOptions();
+options.Host = "<memphis-host>";
+options.Username = "<application type username>";
+options.ConnectionToken = "<broker-token>";
+
+/**
+* In case you are using Memphis.dev cloud
+* options.AccountId = "<account-id>";
+*/
+
+try
+{
+    var client = await MemphisClientFactory.CreateClient(options);
+
+    var producer = await client.CreateProducer(new MemphisProducerOptions
+    {
+        StationName = "<memphis-station-name>",
+        ProducerName = "<memphis-prodcducer-name>",
+        GenerateUniqueSuffix = true
+    });
+
+    NameValueCollection commonHeaders = new()
+    {
+        {
+            "key-1", "value-1"
+        }
+    };
+
+    Test test = new()
+    {
+        Field1 = "Hello",
+        Field2 = "Amazing",
+        Field3 = 32
+    };
+    using var memoryStream = new MemoryStream();
+    Serializer.Serialize(memoryStream, test);
+    var message = memoryStream.ToArray();
+
+    await producer.ProduceAsync(message, commonHeaders);
+    client.Dispose();
+}
+catch (Exception exception)
+{
+    Console.WriteLine($"Error occured: {exception.Message}");
+}
+
+[ProtoContract]
+class Test
+{
+    [ProtoMember(1, Name = "field1")]
+    public required string Field1 { get; set; }
+    [ProtoMember(2, Name = "field2")]
+    public required string Field2 { get; set; }
+    [ProtoMember(3, Name = "field3")]
+    public int Field3 { get; set; }
+}
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="REST" %}
@@ -548,7 +629,82 @@ var protobuf = require("protobufjs");
 {% endtab %}
 
 {% tab title=".NET" %}
-Soon.
+**Example schema:**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```protobuf
+syntax = "proto3";
+message Test {
+            string field1 = 1;
+            string field2 = 2;
+            int32 field3 = 3;
+}
+```
+{% endcode %}
+
+**Consumption**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```aspnet
+using Memphis.Client.Consumer;
+using Memphis.Client;
+using ProtoBuf;
+
+var options = MemphisClientFactory.GetDefaultOptions();
+options.Host = "<memphis-host>";
+options.Username = "<application type username>";
+options.ConnectionToken = "<broker-token>";
+
+/**
+* In case you are using Memphis.dev cloud
+* options.AccountId = "<account-id>";
+*/
+
+try
+{
+    var client = await MemphisClientFactory.CreateClient(options);
+
+    var consumer = await client.CreateConsumer(new MemphisConsumerOptions
+    {
+        StationName = "<station-name>",
+        ConsumerName = "<consumer-name>",
+        ConsumerGroup = "<consumer-group-name>",
+    });
+
+    consumer.MessageReceived += (sender, args) =>
+    {
+        if (args.Exception is not null)
+        {
+            Console.Error.WriteLine(args.Exception);
+            return;
+        }
+
+        foreach (var msg in args.MessageList)
+        {
+            var data = msg.GetData();
+            if (data is { Length: > 0 })
+            {
+                using var stream = new MemoryStream(data);
+                var test = Serializer.Deserialize<Test>(stream);
+                Console.WriteLine($"Field1: {test.Field1}");
+                Console.WriteLine($"Field2: {test.Field2}");
+                Console.WriteLine($"Field3: {test.Field3}");
+            }
+        }
+    };
+
+    consumer.ConsumeAsync();
+
+    await Task.Delay(TimeSpan.FromMinutes(1));
+    await consumer.DestroyAsync();
+    client.Dispose();
+}
+catch (Exception exception)
+{
+    Console.WriteLine($"Error occured: {exception.Message}");
+}
+```
+{% endcode %}
 {% endtab %}
 
 {% tab title="REST" %}
