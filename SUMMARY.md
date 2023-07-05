@@ -79,7 +79,7 @@
 * [.NET](https://github.com/memphisdev/memphis.net)
 * [Java](https://github.com/memphisdev/memphis.java)
 * [Rust (Community)](https://github.com/turulix/memphis-rust-community)
-* [NATS Jetstream](client-libraries/nats-jetstream.md)
+* [NATS](client-libraries/nats-jetstream.md)
 * [Scala](client-libraries/scala.md)
 
 ## Dashboard (GUI)

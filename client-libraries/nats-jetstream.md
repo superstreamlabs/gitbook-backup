@@ -1,10 +1,10 @@
 ---
-description: NATS Jetstream API Compatibility
+description: NATS API Compatibility
 cover: ../.gitbook/assets/NATS + Memphis.jpeg
 coverY: -43.05148658448151
 ---
 
-# NATS Jetstream
+# NATS
 
 {% content-ref url="../" %}
 [..](../)
