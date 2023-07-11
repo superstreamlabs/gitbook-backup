@@ -1,5 +1,5 @@
 ---
-description: Procedure for upgrading memphis
+description: How to upgrade Memphis on K8S
 ---
 
 # 3 - Upgrade
