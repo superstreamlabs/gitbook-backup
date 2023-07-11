@@ -4,7 +4,7 @@ description: Procedure for upgrading memphis
 
 # 3 - Upgrade
 
-## Below v1.0.0 (Not included)
+## Before v1.0.0 (Not included)
 
 ### Step 0: Obtain user-supplied values.
 
@@ -63,7 +63,7 @@ helm install memphis --set connectionToken=$CT,rootPwd=$ROOT_PASSWORD memphis/me
 
 </details>
 
-## Above v1.0.0 (Included)
+## After v1.0.0 (Included)
 
 ### Step 0: Obtain user-supplied values.
 
