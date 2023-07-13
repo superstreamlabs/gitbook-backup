@@ -101,7 +101,7 @@
 * [Notifications](platform-integrations/notifications/README.md)
   * [Slack](platform-integrations/notifications/slack.md)
 * [Storage](platform-integrations/storage/README.md)
-  * [Amazon S3](platform-integrations/storage/amazon-s3.md)
+  * [S3-Compatible Object Storage](platform-integrations/storage/amazon-s3.md)
 * [Other platforms](platform-integrations/other-platforms/README.md)
   * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
   * [Argo](platform-integrations/other-platforms/argo-and-memphis.md)
