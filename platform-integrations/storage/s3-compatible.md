@@ -1,6 +1,6 @@
 ---
 description: Offload out-of-retention messages to any S3-Compatible Object Storage
-cover: ../../.gitbook/assets/Amazon S3 + Memphis.jpeg
+cover: ../../.gitbook/assets/Amazon S3 + Memphis.jpg
 coverY: 0
 ---
 
