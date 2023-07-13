@@ -69,7 +69,7 @@ Possible integrations [here](../../platform-integrations/storage/).
 
 #### A growing list of options:
 
-* [**S3 (Object storage)**](../../platform-integrations/storage/amazon-s3.md)\
+* [**S3 (Object storage)**](../../platform-integrations/storage/s3-compatible.md)\
   Built to store and retrieve any amount of data from anywhere using S3 protocol.\
   Object storage offers different storage classes with different costs and performance requirements.\
   Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and more.
