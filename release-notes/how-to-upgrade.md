@@ -4,22 +4,46 @@ description: How to upgrade Memphis on K8S
 
 # 3 - Upgrade
 
-## Before v1.0.0 (Not included)
+## Best practice procedure for production environments
 
-### Step 0: Obtain user-supplied values.
+### Step 1: Deploy the new Memphis server in parallel to the existing one
+
+<figure><img src="../.gitbook/assets/migration #1.jpeg" alt=""><figcaption></figcaption></figure>
+
+### Step 2: Create a second connection for the consumers
+
+Create a second `connection` and `consumer` entities in each existing consumer to the newly created Memphis, so the consumers will consume messages from both the existing Memphis and the newer version.
+
+<figure><img src="../.gitbook/assets/migration #2.jpeg" alt=""><figcaption></figcaption></figure>
+
+### Step 3: Shift the producers to the newer version
+
+Reconnect the producers to produce messages to the newly created Memphis.
+
+<figure><img src="../.gitbook/assets/migration #3.jpeg" alt=""><figcaption></figcaption></figure>
+
+### Step 4: Disconnect the old consumer connections
+
+Once all the existing messages on the older memphis server are read, it is safe to disconnect the older memphis connections and complete the migration.
+
+<figure><img src="../.gitbook/assets/migration #4.jpeg" alt=""><figcaption></figcaption></figure>
+
+### Before v1.0.0 (Not included)
+
+#### Step 0: Obtain user-supplied values.
 
 ```bash
 helm get values memphis --namespace memphis
 ```
 
-### Step 1: Obtain the credentials of your current deployment.
+#### Step 1: Obtain the credentials of your current deployment.
 
 ```bash
 export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
 export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
 ```
 
-### Step 2: Uninstall existing helm installation
+#### Step 2: Uninstall existing helm installation
 
 ```
 helm uninstall memphis -n memphis
@@ -29,13 +53,13 @@ helm uninstall memphis -n memphis
 **Data will not be lost!** PVCs are not removed and will be re-attached to the new installation
 {% endhint %}
 
-### Step 3: Upgrade Memphis helm repo
+#### Step 3: Upgrade Memphis helm repo
 
 ```
 helm repo update
 ```
 
-### Step 4: Reinstall Memphis
+#### Step 4: Reinstall Memphis
 
 <details>
 
@@ -63,15 +87,15 @@ helm install memphis --set connectionToken=$CT,rootPwd=$ROOT_PASSWORD memphis/me
 
 </details>
 
-## After v1.0.0 (Included)
+### After v1.0.0 (Included)
 
-### Step 0: Obtain user-supplied values.
+#### Step 0: Obtain user-supplied values.
 
 ```bash
 helm get values memphis --namespace memphis
 ```
 
-### Step 1: Obtain the credentials of your current deployment.
+#### Step 1: Obtain the credentials of your current deployment.
 
 <pre class="language-bash"><code class="lang-bash">export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
 export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
@@ -80,7 +104,7 @@ export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o
 export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
 </code></pre>
 
-### Step 2: Uninstall existing helm installation
+#### Step 2: Uninstall existing helm installation
 
 ```
 helm uninstall memphis --namespace memphis
@@ -90,13 +114,13 @@ helm uninstall memphis --namespace memphis
 **Data will not be lost!** PVCs are not removed and will be re-attached to the new installation
 {% endhint %}
 
-### Step 3: Upgrade Memphis helm repo
+#### Step 3: Upgrade Memphis helm repo
 
 ```
 helm repo update
 ```
 
-### Step 4: Reinstall Memphis
+#### Step 4: Reinstall Memphis
 
 <details>
 
