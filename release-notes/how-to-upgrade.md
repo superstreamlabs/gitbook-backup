@@ -102,6 +102,7 @@ export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o
 <strong>export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
 </strong>export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
 export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
+export ENCRYPTION_SECRET_KEY=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ENCRYPTION_SECRET_KEY}" | base64 -d)
 </code></pre>
 
 ### Step 2: Uninstall existing helm installation
@@ -130,7 +131,7 @@ Production-grade Memphis with a minimum of three memphis brokers configured in c
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set global.cluster.enabled="true",metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD  memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis --set global.cluster.enabled="true",metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,memphis.creds.connectionToken=$CT,memphis.creds.rootPwd=$ROOT_PASSWORD,memphis.creds.encryptionSecretKey=$ENCRYPTION_SECRET_KEY  memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
@@ -143,7 +144,7 @@ Standalone installation of Memphis with a single broker. Add user-supplied value
 
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
-helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,connectionToken=$CT,rootPwd=$ROOT_PASSWORD  memphis/memphis --create-namespace --namespace memphis --wait
+helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,memphis.creds.connectionToken=$CT,memphis.creds.rootPwd=$ROOT_PASSWORD,memphis.creds.encryptionSecretKey=$ENCRYPTION_SECRET_KEY  memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 </details>
