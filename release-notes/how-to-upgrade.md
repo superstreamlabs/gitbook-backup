@@ -148,3 +148,40 @@ helm install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postg
 ```
 
 </details>
+
+
+
+## Upgrade Memphis cluster with "helm upgrade" using manual rolling upgrade&#x20;
+
+### Step 0: Obtain user-supplied values. <a href="#step-0-obtain-user-supplied-values." id="step-0-obtain-user-supplied-values."></a>
+
+```
+helm get values memphis --namespace memphis
+```
+
+### Step 1: Obtain the credentials of your current deployment <a href="#step-1-obtain-the-credentials-of-your-current-deployment" id="step-1-obtain-the-credentials-of-your-current-deployment"></a>
+
+```bash
+export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
+export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
+export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
+export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
+export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
+export ENCRYPTION_SECRET_KEY=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ENCRYPTION_SECRET_KEY}" | base64 -d)
+```
+
+### Step 2: Delete the statefulset with cascade=orphan option <a href="#step-2-delete-the-statefulset-with-cascade-orphan-option" id="step-2-delete-the-statefulset-with-cascade-orphan-option"></a>
+
+```bash
+kubectl delete statefulset memphis --cascade=orphan -n memphis
+```
+
+### Step 3: Run helm upgrade with all the values you need + updateStrategy=OnDelete <a href="#step-3-run-helm-upgrade-with-all-the-values-you-need-+-updatestrategy-ondelete" id="step-3-run-helm-upgrade-with-all-the-values-you-need-+-updatestrategy-ondelete"></a>
+
+```
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&helm upgrade --install memphis --set global.cluster.enabled=true,metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,memphis.creds.connectionToken=$CT,memphis.creds.rootPwd=$ROOT_PASSWORD,memphis.creds.encryptionSecretKey=$ENCRYPTION_SECRET_KEY memphis/memphis --create-namespace --namespace memphis --wait
+```
+
+### Step 4: Upgrade brokers. Delete one by one and validate each one to get back to the online state. <a href="#step-4-upgrade-brokers.-delete-one-by-one-and-validate-each-one-to-get-back-to-the-online-state." id="step-4-upgrade-brokers.-delete-one-by-one-and-validate-each-one-to-get-back-to-the-online-state."></a>
+
+###
