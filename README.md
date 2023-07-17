@@ -5,6 +5,12 @@ coverY: 0
 
 # Step 1 - Installation
 
+We are happy to announce Memphis #1 hackathon [#SaveZakar](https://memphis.dev/blog/save-zakar-hackathon/)!📣 📣 📣&#x20;
+
+<figure><img src=".gitbook/assets/Hackathon banner.png" alt=""><figcaption></figcaption></figure>
+
+For more information and sign up enter [#SaveZaker hackathon](https://memphis.dev/blog/save-zakar-hackathon/).
+
 ## What is Memphis.dev?
 
 **Memphis.dev** is a next-generation alternative to traditional streaming engines.
