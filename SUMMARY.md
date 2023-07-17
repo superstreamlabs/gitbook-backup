@@ -94,19 +94,19 @@
 
 ## 🔌 Integrations Center
 
-* [CDC](integrations-center/cdc/README.md)
-  * [Debezium](integrations-center/cdc/debezium.md)
-* [Monitoring](integrations-center/monitoring/README.md)
-  * [Elasticsearch Observability](integrations-center/monitoring/elasticsearch-observability.md)
-  * [Datadog](integrations-center/monitoring/datadog.md)
-  * [Grafana](integrations-center/monitoring/grafana.md)
-* [Notifications](integrations-center/notifications/README.md)
-  * [Slack](integrations-center/notifications/slack.md)
-* [Storage](integrations-center/storage/README.md)
-  * [S3-Compatible Object Storage](integrations-center/storage/s3-compatible.md)
-* [Other platforms](integrations-center/other-platforms/README.md)
+* [CDC](platform-integrations/cdc/README.md)
+  * [Debezium](platform-integrations/cdc/debezium.md)
+* [Monitoring](platform-integrations/monitoring/README.md)
+  * [Elasticsearch Observability](platform-integrations/monitoring/elasticsearch-observability.md)
+  * [Datadog](platform-integrations/monitoring/datadog.md)
+  * [Grafana](platform-integrations/monitoring/grafana.md)
+* [Notifications](platform-integrations/notifications/README.md)
+  * [Slack](platform-integrations/notifications/slack.md)
+* [Storage](platform-integrations/storage/README.md)
+  * [S3-Compatible Object Storage](platform-integrations/storage/s3-compatible.md)
+* [Other platforms](platform-integrations/other-platforms/README.md)
   * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
-  * [Argo](integrations-center/other-platforms/argo-and-memphis.md)
+  * [Argo](platform-integrations/other-platforms/argo-and-memphis.md)
 
 ## 🗒 Release notes
 

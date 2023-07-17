@@ -19,8 +19,8 @@ Please make sure your **SDKs** are **updated** to the latest version to enjoy ne
 * [Tiered storage](broken-reference) - second storage class for out-of-retention messages to enable a better cost-efficient and longer message retention.
 * Station name length increased to 128 characters.
 * Throughput visualization has improved.
-* [Datadog integration](../../integrations-center/monitoring/datadog.md) has been added to enable external monitoring over Memphis.
-* [Grafana integration](../../integrations-center/monitoring/grafana.md) has been added to enable external monitoring over Memphis.
+* [Datadog integration](../../platform-integrations/monitoring/datadog.md) has been added to enable external monitoring over Memphis.
+* [Grafana integration](../../platform-integrations/monitoring/grafana.md) has been added to enable external monitoring over Memphis.
 * `http proxy` Renamed to `rest gateway` to make the comoponent more understandable for new users.
 * Ability to produce message without creating an explicit producer object (Available in Go/Python/Node.js SDKs)
 * [Memphis configuration](../../memphis/memphis-configuration.md) - ability to configure host names for display purposes

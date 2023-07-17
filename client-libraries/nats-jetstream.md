@@ -60,6 +60,6 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>$
 
 ## Instructions for specific integrations
 
-{% content-ref url="../integrations-center/other-platforms/argo-and-memphis.md" %}
-[argo-and-memphis.md](../integrations-center/other-platforms/argo-and-memphis.md)
+{% content-ref url="../platform-integrations/other-platforms/argo-and-memphis.md" %}
+[argo-and-memphis.md](../platform-integrations/other-platforms/argo-and-memphis.md)
 {% endcontent-ref %}
