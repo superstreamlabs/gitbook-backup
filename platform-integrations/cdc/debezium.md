@@ -10,7 +10,7 @@ coverY: 0
 
 [Debezium](https://debezium.io/) is one of the most popular frameworks for collecting Change Data Capture (CDC) events from various databases and can now be easily integrated with Memphis.dev for collecting CDC events from various databases.
 
-In this article, you will learn how to integrate Debezium with Memphis.dev
+In this article, you will learn how to integrate Debezium with Memphis.dev [REST Gateway](https://github.com/memphisdev/memphis-rest-gateway).
 
 {% hint style="info" %}
 A full series of articles on "How to build a fully functional CDC pipeline using Postgres, Debezium, and Memphis.dev" can be found [here](https://memphis.dev/blog/part-1-integrating-debezium-server-and-memphis-dev-for-streaming-change-data-capture-cdc-events/).
