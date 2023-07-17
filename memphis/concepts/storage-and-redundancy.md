@@ -63,16 +63,8 @@ Memphis offers a 2nd storage tier for longer, possibly infinite retention for st
 Each message that expels from the station will automatically migrate to the 2nd storage tier.\
 Possible integrations [here](../../platform-integrations/storage/).
 
-#### Behind the scenes
+#### "Behind the scenes"
 
 <figure><img src="../../.gitbook/assets/storage tier arch (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-#### A growing list of options:
-
-* [**S3 (Object storage)**](../../platform-integrations/storage/s3-compatible.md)\
-  Built to store and retrieve any amount of data from anywhere using S3 protocol.\
-  Object storage offers different storage classes with different costs and performance requirements.\
-  Popular S3-based storage providers are: AWS S3, MinIO, IBM Cloud Object Storage, and more.
-* **MinIO \*soon\***
-* **Azure blob storage \*soon\***
-* **GCP cloud storage \*soon\***
+Offloading iteration cycles can be configured through the Web Console via the environment configuration.

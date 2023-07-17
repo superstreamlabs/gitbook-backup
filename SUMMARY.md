@@ -112,7 +112,8 @@
 
 * [KB](release-notes/kb.md)
 * [Releases](release-notes/releases/README.md)
-  * [v1.1.0-latest](release-notes/releases/v1.1.0-latest.md)
+  * [v1.1.1-latest](release-notes/releases/v1.1.1-latest.md)
+  * [v1.1.0](release-notes/releases/v1.1.0.md)
   * [v1.0.3-stable](release-notes/releases/v1.0.3-stable.md)
   * [v1.0.2](release-notes/releases/v1.0.2.md)
   * [v1.0.1](release-notes/releases/v1.0.1.md)
