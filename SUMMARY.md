@@ -94,6 +94,8 @@
 
 ## 🔌 Platform Integrations
 
+* [CDC](platform-integrations/cdc/README.md)
+  * [Debezium](platform-integrations/cdc/debezium.md)
 * [Monitoring](platform-integrations/monitoring/README.md)
   * [Elasticsearch Observability](platform-integrations/monitoring/elasticsearch-observability.md)
   * [Datadog](platform-integrations/monitoring/datadog.md)
