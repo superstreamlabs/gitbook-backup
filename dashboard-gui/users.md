@@ -1,22 +1,19 @@
 ---
-description: User management
+description: This section describes how to perform user management in Memphis.dev
 ---
 
 # Users
 
-### Users list
+## Introduction
 
-This list shows all users and their corresponding types.
+There are two types of users in Memphis:
 
-![Users list](<../.gitbook/assets/Screenshot 2022-12-11 at 16.44.28.png>)
+* Management: For management purposes only. It cannot be used for client authentication.
+* Client: For applications and clients which produce and consume data to and from Memphis.
 
-### Create a new user
+{% hint style="info" %}
+[RBAC](https://github.com/memphisdev/memphis/issues/271) will be added soon.
+{% endhint %}
 
-To create a new user, click "Add new user".\
-![](<../.gitbook/assets/add new user button>)
-
-![User details](<../.gitbook/assets/user details>)
-
-* Choose the type of user (the default is "Management").
-* Add a custom password or auto-generate one.
+<figure><img src="../.gitbook/assets/Screenshot 2023-07-17 at 18.30.42.png" alt=""><figcaption></figcaption></figure>
 
