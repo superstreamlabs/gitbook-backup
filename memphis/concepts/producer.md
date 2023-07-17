@@ -60,17 +60,12 @@ await producer.produce({
 
 **Producer**
 
-* `stationName`: The name of the station to be connected&#x20;
-* `producerName`: In a station resolution, each connected producer must have a unique identity
+* `stationName`: The name of the station to connect with
+* `producerName`: Producer's name
 
 {% hint style="info" %}
-For more information about how to connect a producer to Memphis, please head [here](broken-reference)
+Full API guide and code examples can be found here [Broken link](broken-reference "mention")
 {% endhint %}
-
-## Scale considerations
-
-A producer is a logical entity that writes data to a Memphis station.\
-By adding more producers, the throughput will be increased accordingly due to the additional writers.
 
 ## Supported Protocols
 

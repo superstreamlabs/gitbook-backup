@@ -22,7 +22,7 @@ Memphis consumers are “long-polling” by design and will wait for infinite ti
 
 ## Broker Data Format
 
-Memphis started from NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
+Memphis started from NATS, which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
 
 When consumers consume messages to Memphis station, they should be converted from binary to string or any other type needed.
 
@@ -38,7 +38,7 @@ consumer.on('message', (message) => {
 <figure><img src="../../.gitbook/assets/consume 1.jpeg" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-**Unexist stations** will be created **automatically** through the SDK on the first producer/consumer connection.
+**Unexist stations** will be created **automatically** through the SDK on first producer/consumer connection.
 {% endhint %}
 
 ## Parameters
@@ -60,8 +60,8 @@ consumer.on('message', (message) => {
 
 **Consumer**
 
-* `the stationName`: The name of the station to be connected.
-* `consumerName`: In a station resolution, each connected consumer must have a unique identity.
+* `stationName`: The name of the station to be connected.
+* `consumerName`: Consumer name.
 * `consumerGroup`: Consumers are grouped under an object called "Consumer group." If not specified, a default CG will be created using the _consumerName._
 * `pullIntervalMs`: Configured in milliseconds, this parameter defines the intervals of each consume operation. For example, if the value is set to 1000, it means that every 1000 ms, the consumer will try to pull new messages.
 * `batchSize`: Defines how many messages will be collected per pull operation.
