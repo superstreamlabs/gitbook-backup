@@ -48,7 +48,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm ins
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:latest",global.cluster.enabled="true" memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:1.1.1",global.cluster.enabled="true" memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 {% endcode %}
 
@@ -72,7 +72,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm ins
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:latest" memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:1.1.1" memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 {% endcode %}
 
