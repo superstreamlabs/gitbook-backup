@@ -179,7 +179,7 @@ kubectl delete statefulset memphis --cascade=orphan -n memphis
 ### Step 3: Run helm upgrade with all the values you need + updateStrategy=OnDelete <a href="#step-3-run-helm-upgrade-with-all-the-values-you-need-+-updatestrategy-ondelete" id="step-3-run-helm-upgrade-with-all-the-values-you-need-+-updatestrategy-ondelete"></a>
 
 ```
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&helm upgrade --install memphis --set global.cluster.enabled=true,metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,memphis.creds.connectionToken=$CT,memphis.creds.rootPwd=$ROOT_PASSWORD,memphis.creds.encryptionSecretKey=$ENCRYPTION_SECRET_KEY memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&helm upgrade --install memphis --set metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,memphis.creds.connectionToken=$CT,memphis.creds.rootPwd=$ROOT_PASSWORD,memphis.creds.encryptionSecretKey=$ENCRYPTION_SECRET_KEY memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
 ### Step 4: Upgrade brokers. Delete one by one and validate each one to get back to the online state. <a href="#step-4-upgrade-brokers.-delete-one-by-one-and-validate-each-one-to-get-back-to-the-online-state." id="step-4-upgrade-brokers.-delete-one-by-one-and-validate-each-one-to-get-back-to-the-online-state."></a>
