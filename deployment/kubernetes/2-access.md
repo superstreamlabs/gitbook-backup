@@ -11,7 +11,7 @@ description: How to access Memphis after installation
 Run the following to expose Memphis via `port-forward`
 
 ```
-kubectl port-forward service/memphis-cluster 6666:6666 9000:9000 7770:7770 --namespace memphis > /dev/null &
+kubectl port-forward service/memphis 6666:6666 9000:9000 7770:7770 --namespace memphis > /dev/null &
 ```
 
 Credentials
@@ -45,7 +45,7 @@ kubectl create secret generic tls-secret --from-file=memphis.pem --from-file=mem
 3\. Reinstall Memphis with the cert
 
 ```
-helm install my-memphis memphis --set analytics="false",global.cluster.enabled="true",websocket.tls.cert="memphis.pem",websocket.tls.key="memphis-key.pem",websocket.tls.secret.name="tls-secret" --create-namespace --namespace memphis --wait
+helm install my-memphis memphis --set global.cluster.enabled="true",websocket.tls.cert="memphis.pem",websocket.tls.key="memphis-key.pem",websocket.tls.secret.name="tls-secret" --create-namespace --namespace memphis --wait
 ```
 
 #### Step 2: Create the LB
@@ -54,9 +54,9 @@ helm install my-memphis memphis --set analytics="false",global.cluster.enabled="
 
 {% code lineNumbers="true" %}
 ```
-kubectl expose service memphis-cluster --port=9000,7770  --name=external-service --type=LoadBalancer -n memphis
-kubectl expose service memphis-http-proxy --port=4444  --name=http-external-service --type=LoadBalancer -n memphis
-kubectl -n memphis-sandbox patch svc external-service -p '{"spec":{"ports": [{"port": 443,"name":"https","targetPort": 9000}]}}'
+kubectl expose service memphis --port=9000,7770,6666  --name=external-service --type=LoadBalancer -n memphis
+kubectl expose service memphis-rest-gateway --port=4444  --name=http-external-service --type=LoadBalancer -n memphis
+kubectl -n memphis patch svc external-service -p '{"spec":{"ports": [{"port": 443,"name":"https","targetPort": 9000}]}}'
 ```
 {% endcode %}
 
