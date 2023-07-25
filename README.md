@@ -9,7 +9,7 @@ We are happy to announce Memphis #1 hackathon [#SaveZakar](https://memphis.dev/b
 
 <figure><img src=".gitbook/assets/Hackathon banner.png" alt=""><figcaption></figcaption></figure>
 
-For more information and sign up enter [#SaveZaker hackathon](https://memphis.dev/blog/save-zakar-hackathon/).
+For more information and to sign up, enter the [#SaveZaker hackathon](https://memphis.dev/blog/save-zakar-hackathon/).
 
 ## What is Memphis.dev?
 
@@ -26,8 +26,6 @@ Highly resilient, distributed architecture, cloud-native, and run on any Kuberne
 3. Developer Experience - Enable rapid development and ultra-short time-to-production.
 4. Observability - Increase observability, integrations with 3rd-party monitoring tools, real-time notifications, stream lineage, and therefore troubleshooting time reduction.
 
-## **Quick Start**
-
 ## Walkthrough
 
 {% embed url="https://app.storylane.io/share/upo0paxdvynz" %}
@@ -35,3 +33,14 @@ Highly resilient, distributed architecture, cloud-native, and run on any Kuberne
 ## High-level diagram
 
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
+
+## Use cases examples
+
+* Async task management
+* Real-time streaming pipelines
+* Data ingestion
+* Async communication between services on k8s
+* Queuing
+* Multiple destinations to a single message
+* Ingest Grafana loki logs
+* Stream video frames

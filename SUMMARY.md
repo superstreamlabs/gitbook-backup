@@ -5,8 +5,7 @@
 * [Introduction](README.md)
 * [Quick start](getting-started/2-hello-world.md)
 * [Tutorials](getting-started/tutorials/README.md)
-* [Use cases](getting-started/3-use-cases.md)
-* [Public Case Studies](getting-started/public-case-studies.md)
+* [How others use Memphis](getting-started/public-case-studies.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
 * [Roadmap](https://memphis.dev/roadmap)
 
