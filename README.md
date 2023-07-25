@@ -1,4 +1,5 @@
 ---
+description: What is Memphis.dev
 cover: .gitbook/assets/Banner- Memphis.dev streaming .jpg
 coverY: 0
 ---
@@ -11,15 +12,41 @@ We are happy to announce Memphis #1 hackathon [#SaveZakar](https://memphis.dev/b
 
 For more information and to sign up, enter the [#SaveZaker hackathon](https://memphis.dev/blog/save-zakar-hackathon/).
 
-## What is Memphis.dev?
+## 🫣 A world without Memphis.dev
 
-**Memphis.dev** is a next-generation alternative to traditional streaming engines.
+When your application requires a message broker or a queue,\
+Implementing one will require you to -
 
-It accelerates the development of real-time applications that require large volumes of streamed and enriched data, multiple protocols, and with minimum platform operations.
+* Build a dead-letter queue, create observability, and a retry mechanism
+* Build a scalable environment
+* Create client wrappers
+* Tag events to achieve multi-tenancy
+* Enforce schemas and handle transformations
+* Handle back pressure. Client or queue side
+* Configure monitoring and real-time alerts
+* Create a cloud-agnostic implementation
+* Create config alignment between production to a dev environment
+* Spent weeks and months learning the internals through archival documentation, ebooks, and courses
+* Onboard your developers
+
+And the list continues...
+
+## So, What is Memphis.dev?
+
+Memphis.dev is more than a broker. It's a new streaming stack.&#x20;
+
+It accelerates the development of real-time applications that require high throughput, low latency, small footprint, and multiple protocols, with minimum platform operations, and all the observability you can think of.&#x20;
 
 Highly resilient, distributed architecture, cloud-native, and run on any Kubernetes, on any cloud without zookeeper, bookeeper, or JVM.
 
-**Memphis focuses on four pillars -**
+### The four main components of Memphis
+
+1. Memphis Broker.
+2. Memphis Functions.
+3. Schemaverse.
+4. Memphis Connect.
+
+### **Core** characteristics**.**
 
 1. Reliability - Queues and brokers are a mission-critical component in the modern application architecture and should be highly available and stable as possible.
 2. Performance and Efficiency - Provide great performance while maintaining efficient resource consumption.
