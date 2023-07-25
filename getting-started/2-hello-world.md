@@ -4,9 +4,54 @@ cover: ../.gitbook/assets/Banner- Memphis.dev streaming .jpg
 coverY: 0
 ---
 
-# Step 2 - Hello World
+# Quick start
 
+## 1. Self-hosted Installation
+
+### **Kubernetes**
+
+Stable -
+
+{% code lineNumbers="true" %}
+```bash
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
+helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
+```
+{% endcode %}
+
+Latest -
+
+<pre class="language-bash" data-line-numbers><code class="lang-bash">helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &#x26;&#x26; 
+<strong>helm install --set memphis.image="memphisos/memphis:1.1.1" memphis memphis/memphis --create-namespace --namespace memphis --wait
+</strong></code></pre>
+
+More information can be found in the [Memphis k8s deployment](../deployment/kubernetes/) documentation.
+
+### **Docker compose (Syntax for v2)**
+
+Stable -&#x20;
+
+{% code overflow="wrap" %}
+```bash
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
+{% endcode %}
+
+Latest -
+
+{% code overflow="wrap" %}
+```bash
+curl -s https://memphisdev.github.io/memphis-docker/docker-compose-latest.yml -o docker-compose-latest.yml && docker compose -f docker-compose-latest.yml -p memphis up
+```
+{% endcode %}
+
+More information can be found in the [Memphis Docker deployment](../deployment/docker-compose.md) documentation.
+
+## 2. Hello world
+
+{% hint style="info" %}
 In case you are using Memphis.dev Cloud, please head [here](broken-reference)
+{% endhint %}
 
 {% tabs %}
 {% tab title="Node.js" %}

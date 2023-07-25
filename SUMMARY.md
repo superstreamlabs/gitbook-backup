@@ -2,8 +2,8 @@
 
 ## 👉 Getting Started
 
-* [Step 1 - Installation](README.md)
-* [Step 2 - Hello World](getting-started/2-hello-world.md)
+* [Introduction](README.md)
+* [Quick start](getting-started/2-hello-world.md)
 * [Tutorials](getting-started/tutorials/README.md)
 * [Use cases](getting-started/3-use-cases.md)
 * [Public Case Studies](getting-started/public-case-studies.md)
