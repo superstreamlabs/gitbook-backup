@@ -12,7 +12,7 @@ We are happy to announce Memphis #1 hackathon [#SaveZakar](https://memphis.dev/b
 
 For more information and to sign up, enter the [#SaveZaker hackathon](https://memphis.dev/blog/save-zakar-hackathon/).
 
-## 🫣 A world without Memphis.dev
+## The challenges
 
 When your application requires a message broker or a queue,\
 Implementing one will require you to -
@@ -35,16 +35,16 @@ And the list continues...
 
 Memphis.dev is more than a broker. It's a new streaming stack.&#x20;
 
-It accelerates the development of real-time applications that require high throughput, low latency, small footprint, and multiple protocols, with minimum platform operations, and all the observability you can think of.&#x20;
+It accelerates the development of real-time applications that require high throughput, low latency, small footprint, fast troubleshooting, self-healing, and multiple protocols, with minimum platform operations, and all the observability you can think of.
 
 Highly resilient, distributed architecture, cloud-native, and run on any Kubernetes, on any cloud without zookeeper, bookeeper, or JVM.
 
 ### The four main components of Memphis
 
-1. Memphis Broker.
-2. Memphis Functions.
-3. Schemaverse.
-4. Memphis Connect.
+1. Memphis Broker. A distributed engine, which also acts as the primary storage layer for produced events or data.
+2. Memphis Functions. Developer-first serverless stream processing to transform and enrich ingested events on-the-fly.
+3. Schemaverse. Schema management and enforcement tool built within Memphis to help users increase data quality and avoid upstream breaks.
+4. Memphis Connect. A modular framework to enable fast pull and push of data to and from different sources and destinations.
 
 ### **Core** characteristics**.**
 
