@@ -38,7 +38,6 @@
   * [Comparison](memphis/schemaverse-schema-management/comparison.md)
   * [KB](memphis/schemaverse-schema-management/kb.md)
 * [Memphis configuration](memphis/memphis-configuration.md)
-* [Benchmark](memphis/benchmark.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [NATS Jetstream vs Memphis](memphis/comparisons/nats-vs-memphis.md)
   * [RabbitMQ vs Memphis](memphis/comparisons/rabbitmq-vs-memphis.md)
@@ -81,15 +80,13 @@
 * [NATS](client-libraries/nats-jetstream.md)
 * [Scala](client-libraries/scala.md)
 
-## Dashboard (GUI)
+## 🖥 Web Console (GUI)
 
-* [General](dashboard-gui/general.md)
-* [Signup](dashboard-gui/signup.md)
-* [Login](dashboard-gui/login.md)
-* [Overview](dashboard-gui/overview.md)
-* [Stations](dashboard-gui/stations.md)
-* [Users](dashboard-gui/users.md)
-* [Profile](dashboard-gui/settings.md)
+* [Overview](web-console-gui/overview.md)
+* [Stations](web-console-gui/stations.md)
+* [Users](web-console-gui/users.md)
+* [Profile](web-console-gui/settings.md)
+* [Access](web-console-gui/access.md)
 
 ## 🔌 Integrations Center
 

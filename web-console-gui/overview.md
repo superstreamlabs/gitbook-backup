@@ -1,3 +1,8 @@
+---
+cover: ../.gitbook/assets/Web Console.jpeg
+coverY: 0
+---
+
 # Overview
 
 ## Purpose

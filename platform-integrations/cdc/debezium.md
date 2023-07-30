@@ -18,7 +18,7 @@ A full series of articles on "How to build a fully functional CDC pipeline using
 
 ## Getting started
 
-### Step 1: [**Create**](../../dashboard-gui/users.md) **a client-type Memphis user to be used by Debezium**
+### Step 1: [**Create**](../../web-console-gui/users.md) **a client-type Memphis user to be used by Debezium**
 
 ### Step 2: Setup Debezium
 
