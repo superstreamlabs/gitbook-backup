@@ -90,15 +90,16 @@
 
 ## 🔌 Integrations Center
 
-* [CDC](platform-integrations/cdc/README.md)
-  * [Debezium](platform-integrations/cdc/debezium.md)
+* [Index](integrations-center/index.md)
+* [Change data Capture (CDC)](integrations-center/change-data-capture-cdc/README.md)
+  * [Debezium](integrations-center/change-data-capture-cdc/debezium.md)
 * [Monitoring](platform-integrations/monitoring/README.md)
   * [Elasticsearch Observability](platform-integrations/monitoring/elasticsearch-observability.md)
   * [Datadog](platform-integrations/monitoring/datadog.md)
   * [Grafana](platform-integrations/monitoring/grafana.md)
 * [Notifications](platform-integrations/notifications/README.md)
   * [Slack](platform-integrations/notifications/slack.md)
-* [Storage](platform-integrations/storage/README.md)
+* [Storage tiering](platform-integrations/storage/README.md)
   * [S3-Compatible Object Storage](platform-integrations/storage/s3-compatible.md)
 * [Other platforms](platform-integrations/other-platforms/README.md)
   * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
