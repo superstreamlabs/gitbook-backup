@@ -78,11 +78,19 @@ The total amount of existing stations across the platform.
 
 ### Slow consumption station
 
-Stations with a growing slowness of consumption vs production rate. Meaning that in specific stations, producers produce messages much faster than the consumers are able to consume, and a delay is starting the get created.
+Stations with a growing slowness of consumption vs production rate. In specific stations, producers produce messages much faster than the consumers can consume, and a delay is starting the get created.
 
-### Total dead-letter
+### Stored events
+
+The total amount of stored events across the platform.
+
+### Dead-letter messages
 
 The total amount of dead-letter messages across the different stations.
+
+### Throughput
+
+The total read/write throughput of the system over the span of 10 minutes.
 
 ### Live throughput
 
