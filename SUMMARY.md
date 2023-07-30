@@ -82,7 +82,7 @@
 
 ## 🖥 Web Console (GUI)
 
-* [Overview](web-console-gui/overview.md)
+* [Dashboard](web-console-gui/overview.md)
 * [Stations](web-console-gui/stations.md)
 * [Users](web-console-gui/users.md)
 * [Profile](web-console-gui/settings.md)
