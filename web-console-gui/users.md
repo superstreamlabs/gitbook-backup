@@ -1,5 +1,7 @@
 ---
-description: This section describes how to perform user management in Memphis.dev
+description: This section describes how to do user management in Memphis.dev
+cover: ../.gitbook/assets/Web Console (1).jpeg
+coverY: 0
 ---
 
 # Users

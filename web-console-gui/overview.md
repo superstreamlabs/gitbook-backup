@@ -13,6 +13,34 @@ Memphis dashboard is designed to provide a quick snapshot of the platform's heal
 Operators can check if there are any unhealthy stations, determine the general status of the system, and in the case of a self-hosted Memphis - monitor system resources.
 
 {% tabs %}
+{% tab title="Cloud" %}
+<figure><img src="../.gitbook/assets/Screen Shot 2023-06-28 at 13.23.27.png" alt=""><figcaption></figcaption></figure>
+
+### Stations
+
+The total amount of existing stations across the platform.
+
+### Slow consumption station
+
+Stations with a growing slowness of consumption vs production rate. In specific stations, producers produce messages much faster than the consumers can consume, and a delay is starting the get created.
+
+### Stored events
+
+The total amount of stored events across the platform.
+
+### Dead-letter messages
+
+The total amount of dead-letter messages across the different stations.
+
+### Throughput
+
+The total read/write throughput of the system over the span of 10 minutes.
+
+### Live throughput
+
+The total read/write throughput of the system over the span of 10 minutes.
+{% endtab %}
+
 {% tab title="Open-source" %}
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -67,33 +95,5 @@ Compatibility matrix:
 <table><thead><tr><th width="165.33333333333331">Metrics Server</th><th>Metrics API group/version</th><th>Supported Kubernetes version</th></tr></thead><tbody><tr><td>0.6.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>*1.19+</td></tr><tr><td>0.5.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>*1.8+</td></tr><tr><td>0.4.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>*1.8+</td></tr><tr><td>0.3.x</td><td><code>metrics.k8s.io/v1beta1</code></td><td>1.8-1.21</td></tr></tbody></table>
 
 \*For <1.16 requires passing `--authorization-always-allow-paths=/livez,/readyz` command line flag
-{% endtab %}
-
-{% tab title="Cloud" %}
-<figure><img src="../.gitbook/assets/Screen Shot 2023-06-28 at 13.23.27.png" alt=""><figcaption></figcaption></figure>
-
-### Stations
-
-The total amount of existing stations across the platform.
-
-### Slow consumption station
-
-Stations with a growing slowness of consumption vs production rate. In specific stations, producers produce messages much faster than the consumers can consume, and a delay is starting the get created.
-
-### Stored events
-
-The total amount of stored events across the platform.
-
-### Dead-letter messages
-
-The total amount of dead-letter messages across the different stations.
-
-### Throughput
-
-The total read/write throughput of the system over the span of 10 minutes.
-
-### Live throughput
-
-The total read/write throughput of the system over the span of 10 minutes.
 {% endtab %}
 {% endtabs %}

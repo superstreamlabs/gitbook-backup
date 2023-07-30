@@ -1,18 +1,14 @@
 ---
-description: >-
-  On this page, you can see all factory stations with their corresponding
-  details
+description: This section describes how to handle stations using the Web Console
+cover: ../.gitbook/assets/Web Console (1).jpeg
+coverY: 0
 ---
 
 # Stations
 
-RabbitMQ has queues, Kafka has topics, and Memphis has stations.
+## What is a station?
 
-In its simplest form, a station provides a powerful yet easy-to-use messaging queue for apps.
-
-Its true power lies in offloading the business logic from the producers and consumers and embedding it inside the station.
-
-Instead of endless amounts of producers, consumers, orchestrations, manual scaling, and scattered monitoring - just create a station.
+A station is a distributed unit that stores messages. Similar to Kafka's topics and RabbitMQ's queues. Each station has a retention policy, which defines when and how messages will be removed from the station—for example, by the number of stored messages, store time, or total size of stored messages.
 
 <div align="center">
 
@@ -59,6 +55,6 @@ Press the SDK button to display the station's connection details.
 
 <figure><img src="../.gitbook/assets/Screenshot 2022-12-11 at 15.05.57.png" alt=""><figcaption></figcaption></figure>
 
-* In this section, Memphis provides data-level observability to the messages within a station
+* In this section, Memphis provides data-level observability of the messages within a station
 * The right and left panels show lists of producers and consumers.
 * The center panel represents the last 100 messages that are currently stored in the station.
