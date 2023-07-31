@@ -1,3 +1,9 @@
+---
+description: List of integrations categories
+cover: ../.gitbook/assets/Integration center gitbook.jpg
+coverY: 0
+---
+
 # Index
 
 
