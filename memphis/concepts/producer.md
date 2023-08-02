@@ -8,21 +8,19 @@ coverY: 0
 
 ## What is a producer?
 
-A producer is the source application/service that pushes data or messages to the broker or more specifically, to the station.&#x20;
+A producer is the source application/service that pushes data or messages to the broker.
 
-As the user configures a client connection to Memphis, it comprises several objects
+When a client connection to Memphis gets created, it comprises multiple objects:
 
-* Connection - An open socket between the client to Memphis. Only required once as the client/application gets initialized for the first time.
-* Producer - A producer entity must be declared to write data/messages into Memphis.
-* (And/Or) Consumer - A consumer entity must be declared to read data/messages from Memphis.
+* Connection - An open socket between the client to Memphis.
+* Producer - A producer entity must be declared to write data/messages into a Memphis station.
+* (And/Or) Consumer - A consumer entity must be declared to read data/messages from a Memphis station.
 
 <figure><img src="../../.gitbook/assets/Producer.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Broker's Data Format
 
-Memphis forked NATS which receives, stores, and sends data in binary format for performance, format alignment, and efficient memory allocations.
-
-When a producer produces messages to Memphis station, they should be converted into binary.
+Memphis reads, stores, and writes data in a binary format for performance, format alignment, and efficient memory allocations. When a producer produces a message to a Memphis station, it will be converted into binary.
 
 An example from the `node.js` SDK using `Buffer.from` -
 
@@ -38,42 +36,42 @@ await producer.produce({
 **Unexist stations** will be created **automatically** through the SDK on the first producer/consumer connection.
 {% endhint %}
 
-### Parameters
-
-(\*) Names might be a bit different from one SDK to another. Meanings are the same.
-
-**Connection**
-
-* `a host`: Memphis URL
-* `port`: Memphis port
-* `username`: Can be root or any other application-type user
-* `password`: Each application-type user comprises both a username and a password
-* `connectionToken`: \*Valid only in case connection-token-based authentication was chosen\*\
-  The token received when the user created. Will change in the future to more robust credentials and authentication system
-* `reconnect`: The connection entity will try to reconnect to Memphis in case of a disconnection
-* `maxReconnect`: Amount of time the client will try to reconnect before backing off
-* `reconnectIntervalMs`: Time window between one retry to another
-* `timeoutMs`: Ability to kill a dead connection after explicit time
-* `keyFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<key-client.pem>'
-* `certFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<cert-client.pem>'
-* `caFile`: In case [encrypted client-Memphis](../../deployment/kubernetes/) communication is used. '\<rootCA.pem>'
-
-**Producer**
-
-* `stationName`: The name of the station to connect with
-* `producerName`: Producer's name
-
 {% hint style="info" %}
 Full API guide and code examples can be found here [Broken link](broken-reference "mention")
 {% endhint %}
+
+## Performance Optimizations
+
+### 1. Non-blocking producer
+
+By choosing a non-blocking type of producer, the client will not block the next system call or message producing until an acknowledgment has been received by the client from the broker requesting to send the message.&#x20;
+
+Using that option enables the client's CPU to utilize its resources in greater parallelism and avoid idle waiting.
+
+The parameter is called `asyncProduce` and can be found in any supported client library [here](broken-reference) or through the following example -&#x20;
+
+```java
+await producer.produce({
+    message: 'test'
+    asyncProduce: true // true for non-blocking, false for blocking
+});
+```
+
+### 2. Partitions
+
+Memphis uses partitions.
+
+Partitions are the main method of concurrency for stations. \
+The used station will be broken into multiple partitions or parts among one or more memphis brokers.
+
+Memphis' current partitions architecture has implemented a 1:1 station-to-partition ratio, meaning that in the current version of Memphis (1.0.2), to be able to benefit from the partitions' concurrency ability, the user needs to consider a station as a single partition, meaning if more concurrency is needed, than you should add use more stations as the number of partitions needed.
+
+This will be fixed by 1.1.
+
+<figure><img src="../../.gitbook/assets/partitions 1.jpeg" alt=""><figcaption><p>Future partitions</p></figcaption></figure>
 
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
 * [HTTP](https://github.com/memphisdev/memphis-http-proxy)
-* [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
-* gRPC \* Soon \*
-* MQTT \* Soon \*
-* AMQP \* Soon \*
-* Kafka \* Soon \*
 
