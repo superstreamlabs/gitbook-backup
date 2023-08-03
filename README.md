@@ -33,11 +33,10 @@ And the list continues...
 
 ## So, What is Memphis.dev?
 
-Memphis.dev is more than a broker. It's a new streaming stack.&#x20;
-
-It accelerates the development of real-time applications that require high throughput, low latency, small footprint, fast troubleshooting, self-healing, and multiple protocols, with minimum platform operations, and all the observability you can think of.
-
-Highly resilient, distributed architecture, cloud-native, and run on any Kubernetes, on any cloud without zookeeper, bookeeper, or JVM.
+Memphis.dev is more than a broker. It's a new streaming stack. \
+\
+It significantly accelerates the development of real-time applications that require a streaming platform with high throughput, low latency, easy troubleshooting, fast time-to-value,\
+minimal platform operations, and all the observability you can think of.
 
 ### The four main components of Memphis
 
