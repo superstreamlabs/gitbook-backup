@@ -10,7 +10,9 @@ coverY: 0
 
 {% tabs %}
 {% tab title="Cloud" %}
-Sign up for Memphis Cloud [here](https://cloud.memphis.dev).
+**Step 1:** Sign up for Memphis Cloud [here](https://cloud.memphis.dev).
+
+**Step 2:** [Hello world](../memphis-cloud/getting-started.md#hello-world)
 {% endtab %}
 
 {% tab title="Open-source" %}
@@ -56,10 +58,6 @@ More information can be found in the [Memphis Docker deployment](../deployment/d
 {% endtabs %}
 
 ## 2. Hello world
-
-{% hint style="info" %}
-In case you are using Memphis.dev Cloud, please head [here](broken-reference)
-{% endhint %}
 
 {% tabs %}
 {% tab title="Node.js" %}
