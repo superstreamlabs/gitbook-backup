@@ -417,117 +417,292 @@ node consumer.js
 
 {% tab title="TypeScript" %}
 {% hint style="warning" %}
-Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.js/tree/master/examples)
+Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.net/tree/master/examples)
 {% endhint %}
 
-**Step 1:** Create an empty dir for the TypeScript project
+**Step 1:** Create an empty dir for the new project
 
 ```bash
 mkdir memphis-demo && \
 cd memphis-demo
 ```
 
-**Step 2:** Create a new Node project (If needed)
+**Step 2:** Install memphis Node.js SDK
 
 ```bash
-npm init -y
+dotnet add package Memphis.Client
 ```
 
-**Step 3:** Install memphis Node.js SDK
+**Step 3:** Create a new .cs file called `Producer.cs`
 
-```bash
-npm install memphis-dev
-```
+{% code title="Producer.cs" lineNumbers="true" %}
+```javascript
+using System.Collections.Specialized;
+using System.Text;
+using Memphis.Client;
+using Memphis.Client.Producer;
 
-**Step 4:** Create a new .ts file called `producer.ts`
+namespace Producer
+{
+    class ProducerApp
+    {
+        public static async Task Main(string[] args)
+        {
+            try
+            {
+                var options = MemphisClientFactory.GetDefaultOptions();
+                options.Host = "aws-us-east-1.cloud.memphis.dev";
+                options.Username = "client_type_username";
+                options.Password = "client_type_password";
+                var client = await MemphisClientFactory.CreateClient(options);
+                options.AccountId = 123456789;
 
-{% code title="producer.ts" lineNumbers="true" %}
-```typescript
-import { memphis, Memphis } from "memphis-dev";
+                var producer = await client.CreateProducer(new MemphisProducerOptions
+                {
+                    StationName = "station_name",
+                    ProducerName = "producer_name",
+                });
 
-(async function () {
-  let memphisConnection: Memphis;
+                var commonHeaders = new NameValueCollection();
+                commonHeaders.Add("key-1", "value-1");
 
-  try {
-    memphisConnection = await memphis.connect({
-      host: "MEMPHIS_BROKER_HOSTNAME",
-      username: "APPLICATION_TYPE_USERNAME",
-      password: "PASSWORD",
-      accountId: ACCOUNT_ID
-    });
+                for (int i = 0; i < 10_000000; i++)
+                {
+                    await Task.Delay(1_000);
+                    var text = $"Message #{i}: Welcome to Memphis";
+                    await producer.ProduceAsync(Encoding.UTF8.GetBytes(text), commonHeaders);
+                    Console.WriteLine($"Message #{i} sent successfully");
+                }
 
-    const producer = await memphisConnection.producer({
-      stationName: "STATION_NAME",
-      producerName: "PRODUCER_NAME",
-    });
-
-    const headers = memphis.headers();
-    headers.add("key", "value");
-    await producer.produce({
-      message: Buffer.from("Message: Hello world"), // you can also send JS object - {}
-      headers: headers,
-    });
-
-    memphisConnection.close();
-  } catch (ex) {
-    console.log(ex);
-    if (memphisConnection) memphisConnection.close();
-  }
-})();
+                await producer.DestroyAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("Exception: " + ex.Message);
+                Console.Error.WriteLine(ex);
+            }
+        }
+    }
+}
+        
 ```
 {% endcode %}
 
-**Step 5:** Run `producer.ts`
+**Step 4:** Create a new .ts file called `Consumer.cs`
+
+{% code title="Consumer.cs" lineNumbers="true" %}
+```typescript
+using System.Text;
+using Memphis.Client;
+using Memphis.Client.Consumer;
+
+namespace Consumer
+{
+    class ConsumerApp
+    {
+        public static async Task Main(string[] args)
+        {
+            try
+            {
+                var options = MemphisClientFactory.GetDefaultOptions();
+                options.Host = "aws-us-east-1.cloud.memphis.dev";
+                options.Username = "client_type_username";
+                options.Password = "client_type_password";
+                var client = await MemphisClientFactory.CreateClient(options);
+                options.AccountId = 123456789;
+
+                var consumer = await client.CreateConsumer(new MemphisConsumerOptions
+                {
+                    StationName = "STATION_NAME",
+                    ConsumerName = "CONSUMER_NAME",
+                    ConsumerGroup = "CONSUMER_GROUP_NAME",
+                });
+
+                consumer.MessageReceived += (sender, args) =>
+                {
+                    if (args.Exception != null)
+                    {
+                        Console.Error.WriteLine(args.Exception);
+                        return;
+                    }
+
+                    foreach (var msg in args.MessageList)
+                    {
+                        //print message itself
+                        Console.WriteLine("Received data: " + Encoding.UTF8.GetString(msg.GetData()));
+
+
+                        // print message headers
+                        foreach (var headerKey in msg.GetHeaders().Keys)
+                        {
+                            Console.WriteLine(
+                                $"Header Key: {headerKey}, value: {msg.GetHeaders()[headerKey.ToString()]}");
+                        }
+
+                        Console.WriteLine("---------");
+                        msg.Ack();
+                    }
+                    Console.WriteLine("destroyed");
+                };
+
+                consumer.ConsumeAsync();
+
+                // Wait 10 seconds, consumer starts to consume, if you need block main thread use await keyword.
+                await Task.Delay(10_000);
+                await consumer.DestroyAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("Exception: " + ex.Message);
+                Console.Error.WriteLine(ex);
+            }
+        }
+    }
+}
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".NET" %}
+{% hint style="warning" %}
+Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.go/tree/master/examples)
+{% endhint %}
+
+**Step 1:** Create an empty dir for the Go project
 
 ```bash
-node producer.ts
+mkdir memphis-demo && \
+cd memphis-demo
 ```
 
-**Step 6:** Create a new .ts file called `consumer.ts`
+**Step 2:** Init the newly created project
 
-{% code title="consumer.ts" lineNumbers="true" %}
-```typescript
-import { memphis, Memphis } from "memphis-dev";
+```
+go mod init memphis-demo
+```
 
-(async function () {
-  let memphisConnection: Memphis;
+**Step 3:** In your project's directory, install Memphis Go SDK
 
-  try {
-    memphisConnection = await memphis.connect({
-      host: "MEMPHIS_BROKER_HOSTNAME",
-      username: "APPLICATION_TYPE_USERNAME",
-      password: "PASSWORD",
-      accountId: ACCOUNT_ID
-    });
+```
+go get github.com/memphisdev/memphis.go
+```
 
-    const consumer = await memphisConnection.consumer({
-      stationName: "STATION_NAME",
-      consumerName: "CONSUMER_NAME",
-      consumerGroup: "CONSUMER_GROUP_NAME",
-    });
+**Step 4:** Create a new Go file called `producer.go`
 
-    consumer.setContext({ key: "value" });
-    consumer.on("message", (message: Message, context: object) => {
-      console.log(message.getData().toString());
-      message.ack();
-      const headers = message.getHeaders();
-    });
+{% code title="producer.go" lineNumbers="true" %}
+```go
+package main
 
-    consumer.on("error", (error) => {
-      console.log(error);
-    });
-  } catch (ex) {
-    console.log(ex);
-    if (memphisConnection) memphisConnection.close();
-  }
-})();
+import (
+    "fmt"
+    "os"
+
+    "github.com/memphisdev/memphis.go"
+)
+
+func main() {
+    conn, err := memphis.Connect("BROKER_HOSTNAME", 
+	"APPLICATION_TYPE_USERNAME", 
+	memphis.Password("PASSWORD"), // depends on how Memphis deployed - default is connection token-based authentication
+        memphis.AccountId(123456789),
+        )
+    if err != nil {
+        os.Exit(1)
+    }
+    defer conn.Close()
+    p, err := conn.CreateProducer("STATION_NAME", "PRODUCER_NAME")
+
+    hdrs := memphis.Headers{}
+    hdrs.New()
+    err = hdrs.Add("key", "value")
+
+    if err != nil {
+        fmt.Errorf("Header failed: %v", err)
+        os.Exit(1)
+    }
+
+    err = p.Produce([]byte("You have a message!"), memphis.MsgHeaders(hdrs))
+
+    if err != nil {
+        fmt.Errorf("Produce failed: %v", err)
+        os.Exit(1)
+    }
+}
 ```
 {% endcode %}
 
-**Step 7:** Run `consumer.ts`
+**Step 4:** Run `producer.go`
 
 ```bash
-node consumer.ts
+go run producer.go
+```
+
+**Step 5:** Create a new Go file called `consumer.go`
+
+{% code title="consumer.go" lineNumbers="true" %}
+```go
+package main
+
+import (
+    "fmt"
+    "context"
+    "os"
+    "time"
+
+    "github.com/memphisdev/memphis.go"
+)
+
+func main() {
+    conn, err := memphis.Connect("BROKER_HOSTNAME", 
+	"APPLICATION_TYPE_USERNAME", 
+	memphis.Password("PASSWORD"), // depends on how Memphis deployed - default is connection token-based authentication
+        memphis.AccountId(123456789),
+        )
+    if err != nil {
+        os.Exit(1)
+    }
+    defer conn.Close()
+
+    consumer, err := conn.CreateConsumer("STATION_NAME", "CONSUMER_NAME", memphis.PullInterval(15*time.Second))
+
+    if err != nil {
+        fmt.Printf("Consumer creation failed: %v
+", err)
+        os.Exit(1)
+    }
+
+    handler := func(msgs []*memphis.Msg, err error, ctx context.Context) {
+        if err != nil {
+            fmt.Printf("Fetch failed: %v
+", err)
+            return
+        }
+
+        for _, msg := range msgs {
+            fmt.Println(string(msg.Data()))
+            msg.Ack()
+            headers := msg.GetHeaders()
+            fmt.Println(headers)
+        }
+    }
+
+    ctx := context.Background()
+    ctx = context.WithValue(ctx, "key", "value")
+    consumer.SetContext(ctx)
+    consumer.Consume(handler)
+
+    // The program will close the connection after 30 seconds,
+    // the message handler may be called after the connection closed
+    // so the handler may receive a timeout error
+    time.Sleep(30 * time.Second)
+}
+```
+{% endcode %}
+
+**Step 6:** Run `consumer.go`
+
+```bash
+go run consumer.go
 ```
 {% endtab %}
 {% endtabs %}
