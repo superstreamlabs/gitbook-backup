@@ -6,9 +6,15 @@ coverY: 0
 
 # Quick start
 
-## 1. Self-hosted Installation
+## Which Memphis deployment are you using?
 
-### **Kubernetes**
+{% tabs %}
+{% tab title="Cloud" %}
+Sign up for Memphis Cloud [here](https://cloud.memphis.dev).
+{% endtab %}
+
+{% tab title="Open-source" %}
+### **For Kubernetes**
 
 Stable -
 
@@ -46,6 +52,8 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose-latest.yml -o
 {% endcode %}
 
 More information can be found in the [Memphis Docker deployment](../deployment/docker-compose.md) documentation.
+{% endtab %}
+{% endtabs %}
 
 ## 2. Hello world
 
