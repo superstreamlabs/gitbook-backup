@@ -117,8 +117,9 @@
   * [Slack](platform-integrations/notifications/slack.md)
 * [Storage tiering](platform-integrations/storage/README.md)
   * [S3-Compatible Object Storage](platform-integrations/storage/s3-compatible.md)
+* [Source code](integrations-center/source-code/README.md)
+  * [GitHub](integrations-center/source-code/github.md)
 * [Other platforms](platform-integrations/other-platforms/README.md)
-  * [PostHog](https://github.com/PostHog/posthog-memphisdev-app)
   * [Argo](platform-integrations/other-platforms/argo-and-memphis.md)
 
 ## 🗒 Release notes
