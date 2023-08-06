@@ -66,6 +66,10 @@
 * [Comparison](memphis-schemaverse/comparison.md)
 * [KB](memphis-schemaverse/kb.md)
 
+## ⭐ Memphis Functions
+
+* [Overview](memphis-functions/overview.md)
+
 ## 📦 Deployment
 
 * [Terraform](deployment/cloud-deployment/README.md)

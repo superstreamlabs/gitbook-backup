@@ -41,11 +41,13 @@ minimal platform operations, and all the observability you can think of.
 ### The four main components of Memphis
 
 1. Memphis Broker. A distributed engine, which also acts as the primary storage layer for produced events or data.
-2. Memphis Functions. Developer-first serverless stream processing to transform and enrich ingested events on-the-fly.
-3. Schemaverse. Schema management and enforcement tool built within Memphis to help users increase data quality and avoid upstream breaks.
+2. Memphis Schemaverse. Schema management and enforcement tool built within Memphis to help users increase data quality and avoid upstream breaks.
+3. Memphis Functions. Developer-first serverless stream processing to transform and enrich ingested events on-the-fly.
 4. Memphis Connect. A modular framework to enable fast pull and push of data to and from different sources and destinations.
 
-### **Core** characteristics**.**
+<figure><img src=".gitbook/assets/Ways to Compare Different Event Sources (1).jpg" alt=""><figcaption></figcaption></figure>
+
+### **Core** characteristics
 
 1. Reliability - Queues and brokers are a mission-critical component in the modern application architecture and should be highly available and stable as possible.
 2. Performance and Efficiency - Provide great performance while maintaining efficient resource consumption.
@@ -60,7 +62,7 @@ minimal platform operations, and all the observability you can think of.
 
 <figure><img src=".gitbook/assets/overview (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-## Use cases examples
+## Common use cases
 
 * Async task management
 * Real-time streaming pipelines
