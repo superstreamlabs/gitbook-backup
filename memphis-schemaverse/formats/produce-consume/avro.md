@@ -1,7 +1,3 @@
----
-description: Soon to be supported.
----
-
 # Avro
 
 ## Introduction
