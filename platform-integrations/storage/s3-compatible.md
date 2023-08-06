@@ -29,5 +29,5 @@ Each station can be managed and use the 2nd storage tier independently.
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-02-20 at 16.48.26.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-For further reading, head [here](../../memphis/concepts/storage-and-redundancy.md#storage-tiering)
+For further reading, head [here](../../memphis-broker/concepts/storage-and-redundancy.md#storage-tiering)
 {% endhint %}

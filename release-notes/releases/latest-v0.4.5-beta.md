@@ -23,7 +23,7 @@ Please make sure your **SDKs** are **updated** to the latest version to enjoy ne
 * [Grafana integration](../../platform-integrations/monitoring/grafana.md) has been added to enable external monitoring over Memphis.
 * `http proxy` Renamed to `rest gateway` to make the comoponent more understandable for new users.
 * Ability to produce message without creating an explicit producer object (Available in Go/Python/Node.js SDKs)
-* [Memphis configuration](../../memphis/memphis-configuration.md) - ability to configure host names for display purposes
+* [Memphis configuration](../../memphis-broker/memphis-configuration.md) - ability to configure host names for display purposes
 * Broker performance improvements.&#x20;
 * Node.js SDK (0.5.1) Go SDK (0.2.1) Python SDK (0.3.2)
 
