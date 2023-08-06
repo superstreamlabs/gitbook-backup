@@ -68,10 +68,7 @@ Memphis brokers should run on different nodes to ensure data consistency and zer
 
 * [TCP-based SDKs](../client-libraries/nats-jetstream.md)
 * [HTTP](https://github.com/memphisdev/memphis-http-proxy)
-* [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452) \* Soon \*
-* gRPC \* Soon \*
-* MQTT \* Soon \*
-* AMQP \* Soon \*
+* [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452)
 
 ## Deployment sequence
 
@@ -104,6 +101,10 @@ Memphis brokers should run on different nodes to ensure data consistency and zer
 | CPU      | 1 CPU                 |
 | Memory   | 4GB                   |
 | Storage  | 6GB                   |
+{% endtab %}
+
+{% tab title="Cloud" %}
+More [here](../memphis-cloud/getting-started.md).
 {% endtab %}
 {% endtabs %}
 

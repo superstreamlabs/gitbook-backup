@@ -64,13 +64,9 @@ Memphis uses partitions.
 Partitions are the main method of concurrency for stations. \
 The used station will be broken into multiple partitions or parts among one or more memphis brokers.
 
-Memphis' current partitions architecture has implemented a 1:1 station-to-partition ratio, meaning that in the current version of Memphis (1.0.2), to be able to benefit from the partitions' concurrency ability, the user needs to consider a station as a single partition, meaning if more concurrency is needed, than you should add use more stations as the number of partitions needed.
+<figure><img src="../../.gitbook/assets/partitions 1.jpeg" alt=""><figcaption><p>Memphis partitions</p></figcaption></figure>
 
-Next-gen Memphis partitions will be refactored by version 1.1.4.
-
-The future Memphis partitions will be implemented based on the below diagram.
-
-<figure><img src="../../.gitbook/assets/partitions 1.jpeg" alt=""><figcaption><p>Future partitions</p></figcaption></figure>
+Read [here](station.md#partitions) to learn more and how to use it.
 
 ## Supported Protocols
 
