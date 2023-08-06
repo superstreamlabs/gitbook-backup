@@ -86,6 +86,6 @@ await producer.produce({
 
 To avoid the situation, it is recommended to use idempotence producers and set `maxMsgDeliveries` to 1 on the consumer side.
 
-By configuring `maxMsgDeliveries` to 1, in a sudden failure of the consumer in a CG, the entire CG will not receive the same message again, and it will be stored automatically in the [DLS](dead-letter.md) for supervised retries.
+By configuring `maxMsgDeliveries` to 1, in a sudden failure of the consumer in a CG, the entire CG will not receive the same message again, and it will be stored automatically in the [DLS](../../dashboard-ui/troubleshooting/dead-letter.md) for supervised retries.
 
 Search terms: Consumed multiple times, duplicate message

@@ -14,7 +14,7 @@ Schema = Structure.
 
 Schema defines the structure of a "message" and follows a specific format to ensure effective communication between different applications/services/electronic entities.
 
-Schemas can be found in both SQL & NoSQL databases, providing the structure expected by the database to receive data. For example, `first\_name:string` or `first.name` etc. An unfamiliar or noncompliant schema will result in data being dropped, and the database will not save the record. 
+Schemas can be found in both SQL & NoSQL databases, providing the structure expected by the database to receive data. For example, `first\_name:string` or `first.name` etc. An unfamiliar or noncompliant schema will result in data being dropped, and the database will not save the record.
 
 Likewise, schemas are critical in communication between two logical entities, such as two microservices. Consider a scenario where Service A writes a message to Service B, which expects a specific format like Protobuf, and its logic or code depends on specific keys and value types. Even a simple typo in a column name or an unexpected schema or format can cause issues for the consumer.
 
@@ -39,9 +39,9 @@ Main components of AWS Glue are the Data Catalog which stores metadata, and an E
 
 ## What is Confluent Schema Registry?
 
-Confluent Schema Registry provides a serving layer for your metadata.&#x20;
+Confluent Schema Registry provides a serving layer for your metadata.
 
-It provides a RESTful interface for storing and retrieving your Avro®, JSON Schema, and [Protobuf](https://developers.google.com/protocol-buffers/) [schemas](https://docs.confluent.io/platform/current/schema-registry/schema\_registry\_onprem\_tutorial.html#schema-registry-tutorial-definition).&#x20;
+It provides a RESTful interface for storing and retrieving your Avro®, JSON Schema, and [Protobuf](https://developers.google.com/protocol-buffers/) [schemas](https://docs.confluent.io/platform/current/schema-registry/schema\_registry\_onprem\_tutorial.html#schema-registry-tutorial-definition).
 
 It stores a versioned history of all schemas based on a specified subject name strategy, provides multiple compatibility settings and allows evolution of schemas according to the configured compatibility settings and expanded support for these schema types.
 
@@ -51,14 +51,14 @@ It provides serializers that plug into Apache Kafka® clients that handle schema
 
 Schema Registry lives outside of and separately from your Kafka brokers.
 
-Your producers and consumers still talk to Kafka to publish and read data (messages) to topics.&#x20;
+Your producers and consumers still talk to Kafka to publish and read data (messages) to topics.
 
 Concurrently, they can also talk to Schema Registry to send and retrieve schemas that describe the data models for the messages.
 
 ## What is Memphis.dev Schemaverse?
 
-Memphis Schemaverse provides a robust schema store and schema management layer on top of Memphis broker without a standalone compute unit or dedicated resources. \
-With a unique & modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations and choose if the schema should be enforced or not.&#x20;
+Memphis Schemaverse provides a robust schema store and schema management layer on top of Memphis broker without a standalone compute unit or dedicated resources.\
+With a unique & modern UI and programmatic approach, technical and non-technical users can create and define different schemas, attach the schema to multiple stations and choose if the schema should be enforced or not.
 
 Memphis' low-code approach removes the serialisation part as it is embedded within the producer library. Schemaverse supports versioning, GitOps methodologies, and schema evolution.
 
@@ -91,7 +91,7 @@ Schemaverse's main purpose is to act as an automatic gatekeeper and ensure the f
 
 When data streaming applications are integrated with a schema management, schemas used for data production are validated against schemas within a central registry, allowing you to control data quality centrally.
 
-**AWS Glue** offers enforcement and validation using Glue schema registry for Java-based applications using Apache Kafka, AWS MSK, Amazon Kinesis Data Streams, Apache Flink, Amazon Kinesis Data Analytics for Apache Flink, and AWS Lambda.&#x20;
+**AWS Glue** offers enforcement and validation using Glue schema registry for Java-based applications using Apache Kafka, AWS MSK, Amazon Kinesis Data Streams, Apache Flink, Amazon Kinesis Data Analytics for Apache Flink, and AWS Lambda.
 
 [https://docs.aws.amazon.com/glue/latest/dg/schema-registry-gs.html](https://docs.aws.amazon.com/glue/latest/dg/schema-registry-gs.html)
 
@@ -106,10 +106,10 @@ Schemaverse also makes the serialisation/deserialization transparent to the clie
 When sending data over the network it needs to be encoded into bytes before.
 
 AWS Glue and Schema Registry works similarly. Each created schema has an ID.\
-When the application producing data has registered its schema, the Schema Registry serializer validates that the record being produced by the application is structured with the fields and data types matching a registered schema.&#x20;
+When the application producing data has registered its schema, the Schema Registry serializer validates that the record being produced by the application is structured with the fields and data types matching a registered schema.
 
 Deserialization will take place by a similar process by fetching the needed schema based on the given ID within the message.
 
 In AWS Glue and Schema Registry, It is the client responsibility to implement and deal with the serialisation while in Schemaverse it is fully transparent and all is needed by the client is to produce a message that complies with the required structure.
 
-\
+\\

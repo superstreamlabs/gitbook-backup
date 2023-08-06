@@ -1,5 +1,5 @@
 ---
-description: Released on v0.4.0
+description: This section describes Memphis Schemaverse for Schema enforcement
 cover: ../.gitbook/assets/schema - overview.jpeg
 coverY: 0
 ---
@@ -82,7 +82,7 @@ A quick overview of the most popular formats supported by Schemaverse.
 
 The very first step would be to create a schema, based on the required data model, and apply it over a station.
 
-When creating a schema, the creator must choose a data format that will also determine the data format of the ingested messages and several more characteristics. Each format has its own advantages, as described [here](../memphis-broker/schemaverse-schema-management/formats/).
+When creating a schema, the creator must choose a data format that will also determine the data format of the ingested messages and several more characteristics. Each format has its own advantages, as described [here](../memphis/schemaverse-schema-management/formats/).
 
 #### 2. Validation
 
@@ -104,7 +104,7 @@ That process establishes the message's initial validation before it reaches the 
 
 ## Getting Started
 
-For code producer/consumer code examples, choose a [data format](../memphis-broker/schemaverse-schema-management/formats/).
+For code producer/consumer code examples, choose a [data format](../memphis/schemaverse-schema-management/formats/).
 
 ## To consider
 
