@@ -40,7 +40,7 @@ The first type of storage each message will initially be stored at.
 
 The options are Memory or Disk. Each with its strengths and weaknesses.
 
-* **Memory.**\
+* **Memory**\
   For faster performance.\
   Due to its nature as a volatile type of storage, the risk of losing data in case of failure is higher because it resides in the broker's memory, and in the case of a station without configured replicas, data can be lost.
 
@@ -48,7 +48,7 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 
 <figure><img src="../../.gitbook/assets/mem ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
-* **Disk.**\
+* **Disk**\
   For higher availability.\
   Disk storage might be slower than memory, but it offers greater availability and resiliency to broker failures.
 

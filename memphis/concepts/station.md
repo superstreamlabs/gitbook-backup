@@ -47,16 +47,16 @@ Message broker, by design, has a "temporary" nature. Messages can, but not by de
 
 To avoid filling out the station, we must choose a retention policy per station that defines the condition that will trigger Memphis to remove messages from a station.
 
-* **Number of messages.**\
+* **Number of messages**\
   The station will only retain the last X-produced messages.&#x20;
 
 <figure><img src="../../.gitbook/assets/retention.jpeg" alt=""><figcaption></figcaption></figure>
 
-* **Size.**\
+* **Size**\
   High threshold for station capacity in bytes.
-* **Time.**\
+* **Time**\
   Each produced message receives a dedicated timer and will be removed after hitting the configured time.
-* **Ack.**\
+* **Ack**\
   Only available in the [Memphis Cloud](../../memphis-cloud/getting-started.md).\
   Messages will be removed from a station once acknowledged by all the connected consumer groups. Great for _exactly-once_ semantics.
 
@@ -74,6 +74,8 @@ The used station will be broken into multiple partitions or parts among one or m
 **Limitations**
 
 1. The number of partitions cannot be changed after station creation. It will be available in the future.
+2. Currently, producers cannot select which partition to write.
+3. Currently, consumers cannot select which partition to read, and it will take place in a round-robin manner.
 
 ### Ordering and delivery
 
