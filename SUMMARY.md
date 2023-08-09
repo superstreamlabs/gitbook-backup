@@ -59,6 +59,7 @@
 ## ⭐ Memphis Functions
 
 * [Overview](memphis-functions/overview.md)
+* [Getting Started](memphis-functions/getting-started.md)
 
 ## 📦 Deployment
 
