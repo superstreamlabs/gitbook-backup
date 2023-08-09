@@ -1,5 +1,5 @@
 ---
-description: What is Memphis.dev
+description: The source of Memphis.dev
 cover: .gitbook/assets/Banner- Memphis.dev streaming .jpg
 coverY: 0
 ---
