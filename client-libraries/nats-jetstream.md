@@ -67,10 +67,11 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCO
 
 ## Combining Nats utils (SDKs/CLI) with Memphis utils (UI/SDKs)
 
-When creating stations using one of the Memphis utils and trying to interact with it using Nats utils the following migt happen on the Memphis UI:
+When creating stations using one of the Memphis utils and trying to interact with it using Nats utils the following might happen on the Memphis UI:
 
 * Producer names for messages will reflect as "Unknown"
 * Stream name in Nats are case sensitive while in Memphis they are being lower cased so please consider to use only lower cased stream names
+* In case the station has been created with Memphis UI/SDK and you want to produce messages into it you will have to send the messages into subject named '\<stream name>$\<partition number(starts from 1)>.final"
 
 ## Instructions for specific integrations
 
