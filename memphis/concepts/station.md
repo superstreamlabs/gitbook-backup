@@ -69,8 +69,6 @@ The used station will be broken into multiple partitions or parts among one or m
 
 <figure><img src="../../.gitbook/assets/partitions.jpeg" alt=""><figcaption></figcaption></figure>
 
-\*Explanation on how to use it in the coming days\*
-
 **Limitations**
 
 1. The number of partitions cannot be changed after station creation. It will be available in the future.
