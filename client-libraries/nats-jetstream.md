@@ -61,7 +61,7 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCO
 
 ## Allowed characters for stream name
 
-* a-z
+* a-z/A-Z
 * 0-9
 * \_ -&#x20;
 
@@ -70,7 +70,7 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCO
 When creating stations using one of the Memphis utils and trying to interact with it using Nats utils the following migt happen on the Memphis UI:
 
 * Producer names for messages will reflect as "Unknown"
-* Stream name in Nats are case sensitive while in Memphis they are being lower cased
+* Stream name in Nats are case sensitive while in Memphis they are being lower cased so please consider to use only lower cased stream names
 
 ## Instructions for specific integrations
 
