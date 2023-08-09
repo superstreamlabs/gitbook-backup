@@ -4,10 +4,6 @@ description: Deploy Memphis over Kubernetes
 
 # 1 - Installation
 
-{% hint style="info" %}
-If you prefer using **Terraform**, head [here](../cloud-deployment/)
-{% endhint %}
-
 Helm is a k8s package manager that allows users to deploy apps in a single, configurable command. More information about Helm can be found [here](https://helm.sh/docs/topics/charts/).
 
 Memphis is cloud-native and cloud-agnostic to any Kubernetes on **any cloud**.
