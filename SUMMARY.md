@@ -93,7 +93,6 @@
 * [Dashboard](web-console-gui/overview.md)
 * [Stations](web-console-gui/stations.md)
 * [Users](web-console-gui/users.md)
-* [Schemaverse](https://docs.memphis.dev/memphis/memphis/schemaverse-schema-management)
 
 ## 🔌 Integrations Center
 
