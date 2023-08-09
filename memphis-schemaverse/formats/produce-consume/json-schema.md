@@ -11,7 +11,7 @@ It provides clear human- and machine-readable documentation and offers data vali
 * Import packages (soon)
 * Import types (soon)
 
-### Produce/Consume a message
+### How to Produce and Consume a message
 
 {% tabs %}
 {% tab title="Node.js" %}

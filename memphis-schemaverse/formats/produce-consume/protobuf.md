@@ -18,7 +18,7 @@
 
 ## Getting started
 
-### Produce a message
+### How to produce a message
 
 {% tabs %}
 {% tab title="Node.js" %}
@@ -437,7 +437,7 @@ axios(config)
 {% endtab %}
 {% endtabs %}
 
-### Consume a message (Deserialization)
+### How to consume a message (Deserialization)
 
 {% tabs %}
 {% tab title="Node.js" %}
