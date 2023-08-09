@@ -23,6 +23,7 @@ The motivation -
 * Without Memphis SDK, the following Memphis features will not be supported:
   * Producers/Consumers' observability
   * Schemaverse
+  * DLS - resend of anacked messages
 
 ## For NATS Jetstream users
 
@@ -46,17 +47,30 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>:
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
-nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER> --password=<MEMPHIS_APPLICATION_USER_PASSWORD>
+nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
 ```
 {% endcode %}
 
-### (Cloud) Using Memphis password-based authentication:
+### (Cloud) Using Memphis password-based authentication (with account ID indication):
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
-nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>$<ACCOUNT_ID> --password=<MEMPHIS_APPLICATION_USER_PASSWORD>
+nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCOUNT_ID> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
 ```
 {% endcode %}
+
+## Allowed characters for stream name
+
+* a-z
+* 0-9
+* \_ -&#x20;
+
+## Combining Nats utils (SDKs/CLI) with Memphis utils (UI/SDKs)
+
+When creating stations using one of the Memphis utils and trying to interact with it using Nats utils the following migt happen on the Memphis UI:
+
+* Producer names for messages will reflect as "Unknown"
+* Stream name in Nats are case sensitive while in Memphis they are being lower cased
 
 ## Instructions for specific integrations
 
