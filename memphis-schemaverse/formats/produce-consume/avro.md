@@ -254,4 +254,87 @@ import type { Memphis } from 'memphis-dev/types';
 {% endcode %}
 {% endtab %}
 
+{% tab title=".NET" %}
+Memphis abstracts the need for external serialization functions and embeds them within the SDK.
+
+**Example schema:**
+    
+{% code lineNumbers="true" %}
+```json
+{
+    "type": "record",
+    "namespace": "com.example",
+    "name": "contact_details",
+    "fields": [
+        { "name": "username", "type": "string" },
+        { "name": "age", "type": "int" }
+    ]
+}
+```
+{% endcode %}
+
+**Code:**
+
+{% code overflow="wrap" lineNumbers="true" %}
+```aspnet
+using Memphis.Client;
+using Memphis.Client.Producer;
+
+using System.Runtime.Serialization;
+using System.Collections.Specialized;
+
+var options = MemphisClientFactory.GetDefaultOptions();
+options.Host = "<memphis-host>";
+options.Username = "<username>";
+options.ConnectionToken = "<broker-token>";
+/**
+* In case you are using Memphis.dev cloud
+* options.AccountId = "<account-id>";
+*/
+
+try
+{
+    var client = await MemphisClientFactory.CreateClient(options);
+
+    var producer = await client.CreateProducer(new MemphisProducerOptions
+    {
+        StationName = "<memphis-station-name>",
+        ProducerName = "<memphis-producer-name>",
+        GenerateUniqueSuffix = true
+    });
+
+    NameValueCollection commonHeaders = new()
+    {
+        {
+            "key-1", "value-1"
+        }
+    };
+
+    ContactDetail contactDetail = new()
+    {
+        Username = "John Doe",
+        Age = 20
+    };
+
+    await producer.ProduceAsync(contactDetail, commonHeaders);
+    client.Dispose();
+}
+catch (Exception exception)
+{
+    Console.WriteLine($"Error occurred: {exception.Message}");
+}
+
+
+public class ContactDetail
+{
+    [DataMember(Name = "username")]
+	public string Username { get; set; }
+
+    [DataMember(Name = "age")]
+	public int Age { get; set; }
+}
+```
+{% endcode %}
+{% endtab %}
+
 {% endtabs %}
