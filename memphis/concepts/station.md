@@ -60,20 +60,38 @@ To avoid filling out the station, we must choose a retention policy per station 
   Only available in the [Memphis Cloud](../../memphis-cloud/getting-started.md).\
   Messages will be removed from a station once acknowledged by all the connected consumer groups. Great for _exactly-once_ semantics.
 
-### Partitions
+### Partitions v1
 
-Memphis uses partitions. Released on v1.1.2.
+A partition is a division of a station or its constituent elements into distinct independent parts. Partitioning is normally done for manageability, performance, and/or availability reasons, and for load balancing.
+
+It is popular in distributed systems, where each partition may be spread over multiple nodes, with users of a station performing local transactions on the partition.
+
+Memphis uses partitions as well. Released on v1.1.2.
+
+<figure><img src="../../.gitbook/assets/partitions (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 Partitions are the main method of concurrency for stations. \
 The used station will be broken into multiple partitions or parts among one or more memphis brokers.
 
-<figure><img src="../../.gitbook/assets/partitions.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/partitions (2).jpeg" alt=""><figcaption></figcaption></figure>
 
-**Limitations**
+#### How to use partitions
+
+Within each client library manual, you can find where and how to define partitions.
+
+Partitions are defined during station creation, and currently, there is no change needed from the client's side to work with the created partitions.
+
+#### **Limitations**
 
 1. The number of partitions cannot be changed after station creation. It will be available in the future.
 2. Currently, producers cannot select which partition to write.
 3. Currently, consumers cannot select which partition to read, and it will take place in a round-robin manner.
+4. Ordering is guaranteed on the partition level. In case a station is configured with more than one partition, ordering will be transformed into partition level and not the station.
+
+#### Coming up in v2
+
+1. Partition-level produce and consumption.
+2. Partition's key assignment. To enable dynamic consumer listening.
 
 ### Ordering and delivery
 
