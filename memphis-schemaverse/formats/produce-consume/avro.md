@@ -122,7 +122,7 @@ func main() {
         Username string `avro:"username"`
         Age      int    `avro:"age"`
     }
-    msg := myDataStruct{
+    msg := msgStruct{
         Username: "Daniel Craig",
         Age:      36,
     }
