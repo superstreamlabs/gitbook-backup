@@ -5,7 +5,11 @@ coverY: 0
 
 # memphis.yaml
 
-c. The yaml file should includes required fields: function\_name(string), language(string) and optional fields: description(string), tags(array of string)
+c. The yaml file should includes&#x20;
+
+required fields: function\_name(string), language(string)
+
+optional fields: description(string), tags(array of string)
 
 Each function in you repository is a memphis function
 
@@ -15,4 +19,5 @@ function\_name: function name description: function description tags:
 
 * tag1
 * tag2
-* tag3 language: golang
+* tag3&#x20;
+* language: golang
