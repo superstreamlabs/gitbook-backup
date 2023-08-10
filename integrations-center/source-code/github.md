@@ -21,6 +21,7 @@ To align with that mindset and to ease the development of Memphis Functions, as 
 1. Go to `settings` in GitHub -> `developer settings` -> `personal access token` -> `Fine-grained tokens` -> `generate a new token`.
 2. The following permissions are needed per integrated repository:&#x20;
    * Contents: Read-only
+3. Copy the generated token into the proper input in the GitHub integration box.
 
 {% hint style="warning" %}
 Please be aware that all keys and credentials are encrypted both in transit and at rest using **AES-256**
