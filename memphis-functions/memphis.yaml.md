@@ -5,19 +5,24 @@ coverY: 0
 
 # memphis.yaml
 
-c. The yaml file should includes&#x20;
+## Parameters table
 
-required fields: function\_name(string), language(string)
+| Key            | Required / Optional | Description                                                                 | Value type       |
+| -------------- | ------------------- | --------------------------------------------------------------------------- | ---------------- |
+| function\_name | Required            | Name of the function                                                        | String           |
+| language       | Required            | <p>Coding language: <br>Java, Go, PowerShell, Node.js, C#, Python, Ruby</p> | String           |
+| description    | Optional            | Function description                                                        | String           |
+| tags           | Optional            | Which tags should describe the function                                     | Array of strings |
 
-optional fields: description(string), tags(array of string)
+## File example
 
-Each function in you repository is a memphis function
-
-Example for yaml file:
-
-function\_name: function name description: function description tags:
-
-* tag1
-* tag2
-* tag3&#x20;
-* language: golang
+{% code title="memphis.yaml" lineNumbers="true" %}
+```yaml
+function_name: concat keys
+description: This function concatenates two keys
+tags:
+- tag: Production
+- tag: strings
+language: golang
+```
+{% endcode %}

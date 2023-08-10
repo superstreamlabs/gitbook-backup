@@ -20,22 +20,22 @@ Organizations shift to process events and logs on the fly before they reach the 
 
 #### The problems with existing solutions -&#x20;
 
-* Forcing devs to use SQL or other dedicated vendor-locking languages.
+* It is forcing devs to use SQL or other dedicated vendor-locking languages.
 * Do not support custom logic.
 * Increase infrastructure complexity at scale.
 * Do not enable code reuse or share.
-* At the end of the day, it still takes a great amount of time to build a real-time app/pipeline.
+* It still takes a significant amount of time to build a real-time app/pipeline.
 
 ## Memphis Functions
 
 &#x20;Memphis platform comprises four decoupled components:&#x20;
 
-1. Memphis broker as the engine and storage layer.
+1. Memphis Broker as the engine and storage layer.
 2. Schemaverse for schema management and enforcement.
-3. Memphis functions for serverless stream processing.
-4. Memphis connect for pulling and pushing data using ready-to-use connectors.
+3. Memphis Functions for serverless stream processing.
+4. Memphis Connect for pulling and pushing data using ready-to-use connectors.
 
-Memphis functions enable data analysts, developers, and data engineers to collaborate, and process, transform, and enrich ingested events “on the fly” in a serverless, low-code/no-code manner, meaning without boilerplate or infrastructure in any supported language, including Go, Python, JS, .NET, Java, SQL, and more.
+Memphis functions enable data analysts, developers, and data engineers to collaborate and process, transform, and enrich ingested events “on the fly” in a serverless, low-code/no-code manner, meaning without boilerplate or infrastructure in any supported language, including Go, Python, JS, .NET, Java, SQL, and more.
 
 \
-Wants to be among the firsts who get to use Memphis Functions? Contact us!
+Wants to be among the firsts who get to use Memphis Functions? [Contact us!](http://127.0.0.1:5000/u/wn77tNYOpAQUEM6yGQyhhhnAYun2)
