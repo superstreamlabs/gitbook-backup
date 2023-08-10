@@ -6,8 +6,8 @@ description: 'Release date: 21 February 2023'
 
 Upgrade procedure for production users (Kubernetes deployments)
 
-{% content-ref url="../how-to-upgrade.md" %}
-[how-to-upgrade.md](../how-to-upgrade.md)
+{% content-ref url="../../open-source-installation/kubernetes/how-to-upgrade.md" %}
+[how-to-upgrade.md](../../open-source-installation/kubernetes/how-to-upgrade.md)
 {% endcontent-ref %}
 
 {% hint style="warning" %}

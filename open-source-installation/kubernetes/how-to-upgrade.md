@@ -8,25 +8,25 @@ description: How to upgrade Memphis on K8S
 
 ### Step 1: Deploy the new Memphis server in parallel to the existing one
 
-<figure><img src="../.gitbook/assets/migration #1.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/migration #1.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Create a second connection for the consumers
 
 Create a second `connection` and `consumer` entities in each existing consumer to the newly created Memphis, so the consumers will consume messages from both the existing Memphis and the newer version.
 
-<figure><img src="../.gitbook/assets/migration #2.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/migration #2.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Step 3: Shift the producers to the newer version
 
 Reconnect the producers to produce messages to the newly created Memphis.
 
-<figure><img src="../.gitbook/assets/migration #3.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/migration #3.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Step 4: Disconnect the old consumer connections
 
 Once all the existing messages on the older memphis server are read, it is safe to disconnect the older memphis connections and complete the migration.
 
-<figure><img src="../.gitbook/assets/migration #4.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/migration #4.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## One-to-one replacement: Before v1.0.0 (Not included)
 

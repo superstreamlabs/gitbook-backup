@@ -33,7 +33,7 @@ Latest -
 <strong>helm install --set memphis.image="memphisos/memphis:1.1.1" memphis memphis/memphis --create-namespace --namespace memphis --wait
 </strong></code></pre>
 
-More information can be found in the [Memphis k8s deployment](../deployment/kubernetes/) documentation.
+More information can be found in the [Memphis k8s deployment](../open-source-installation/kubernetes/) documentation.
 
 ### **Docker compose (Syntax for v2)**
 
@@ -53,7 +53,7 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose-latest.yml -o
 ```
 {% endcode %}
 
-More information can be found in the [Memphis Docker deployment](../deployment/docker-compose.md) documentation.
+More information can be found in the [Memphis Docker deployment](../open-source-installation/docker-compose.md) documentation.
 {% endtab %}
 {% endtabs %}
 

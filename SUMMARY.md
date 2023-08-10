@@ -61,19 +61,19 @@
 * [Overview](memphis-functions/overview.md)
 * [Getting Started](memphis-functions/getting-started.md)
 
-## 📦 Deployment
+## 📦 Open-Source Installation
 
-* [Terraform](deployment/cloud-deployment/README.md)
-  * [Deploy on AWS](deployment/cloud-deployment/deploy-on-aws.md)
-  * [Deploy on GCP](deployment/cloud-deployment/deploy-on-gcp.md)
-  * [Deploy on DigitalOcean](deployment/cloud-deployment/deploy-on-digitalocean.md)
-  * [Deploy on Azure](deployment/cloud-deployment/deploy-on-azure.md)
-* [Kubernetes](deployment/kubernetes/README.md)
-  * [1 - Installation](deployment/kubernetes/1-installation.md)
-  * [2 - Access](deployment/kubernetes/2-access.md)
-  * [3 - Upgrade](release-notes/how-to-upgrade.md)
-* [Docker](deployment/docker-compose.md)
-* [Production Best Practices](deployment/production-best-practices.md)
+* [Kubernetes](open-source-installation/kubernetes/README.md)
+  * [1 - Installation](open-source-installation/kubernetes/1-installation.md)
+  * [2 - Access](open-source-installation/kubernetes/2-access.md)
+  * [3 - Upgrade](open-source-installation/kubernetes/how-to-upgrade.md)
+* [Docker](open-source-installation/docker-compose.md)
+* [Terraform](open-source-installation/cloud-deployment/README.md)
+  * [Deploy on AWS](open-source-installation/cloud-deployment/deploy-on-aws.md)
+  * [Deploy on GCP](open-source-installation/cloud-deployment/deploy-on-gcp.md)
+  * [Deploy on DigitalOcean](open-source-installation/cloud-deployment/deploy-on-digitalocean.md)
+  * [Deploy on Azure](open-source-installation/cloud-deployment/deploy-on-azure.md)
+* [Production Best Practices](open-source-installation/production-best-practices.md)
 
 ## Client Libraries
 
