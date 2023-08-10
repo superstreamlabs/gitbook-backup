@@ -71,7 +71,7 @@ When creating stations using one of the Memphis utils and trying to interact wit
 
 * Producer names for messages will reflect as "Unknown"
 * Stream name in Nats are case sensitive while in Memphis they are being lower cased so please consider to use only lower cased stream names
-* In case the station has been created with Memphis UI/SDK and you want to produce messages into it you will have to send the messages into subject named '\<stream name>$\<partition number(starts from 1)>.final"
+* In case the station has been created with Memphis UI/SDK and you want to produce messages into it you will have to send the messages into subject named '\<stream name>$\<partition number(starts from 1)>.final". In case your station name contains '.' sign replace it with '#' sign in the subject name.
 
 ## Instructions for specific integrations
 
