@@ -66,7 +66,7 @@ A partition is a division of a station or its constituent elements into distinct
 
 It is popular in distributed systems, where each partition may be spread over multiple nodes, with users of a station performing local transactions on the partition.
 
-Memphis uses partitions as well. Released on v1.1.2.
+Memphis uses partitions as well. Released on v1.2.
 
 <figure><img src="../../.gitbook/assets/partitions (1).jpeg" alt=""><figcaption></figcaption></figure>
 
