@@ -30,7 +30,7 @@ helm install memphis memphis/memphis --create-namespace --namespace memphis --wa
 Latest -
 
 <pre class="language-bash" data-line-numbers><code class="lang-bash">helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &#x26;&#x26; 
-<strong>helm install --set memphis.image="memphisos/memphis:1.1.1" memphis memphis/memphis --create-namespace --namespace memphis --wait
+<strong>helm install --set memphis.image="memphisos/memphis:1.2.0" memphis memphis/memphis --create-namespace --namespace memphis --wait
 </strong></code></pre>
 
 More information can be found in the [Memphis k8s deployment](../open-source-installation/kubernetes/) documentation.
