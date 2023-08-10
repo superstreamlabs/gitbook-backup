@@ -16,17 +16,14 @@ To align with that mindset and to ease the development of Memphis Functions, as 
 
 ## Getting started
 
-### 1. Create GitHub access token
+### 1. Create a GitHub access token
 
-1. Go to "`user settings`" in GitHub -> `developer settings` -> `personal access token` -> token -> `generate a new token`.
+1. Go to `settings` in GitHub -> `developer settings` -> `personal access token` -> `Fine-grained tokens` -> `generate a new token`.
 2. The following permissions are needed per integrated repository:&#x20;
-   * _user-only read_ permission.
+   * Contents: Read-only
 
 {% hint style="warning" %}
 Please be aware that all keys and credentials are encrypted both in transit and at rest using **AES-256**
 {% endhint %}
 
-```
-```
-
-![Community Verified icon](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAABDUlEQVR4AYXRgUZDYRjH4TegFTKgpEqiFJgoWAoMEQGBgBboChaaAKxLKAhAhQqAdAmpBIQolkCFqp2nITvNKXuA7+/Hhzey5OWjE4Nq3rzY1f9/NGHPB549492+8Ww060iCS2XdctZdI3GsECmb+HJoIX6x6EgDm+lURTH+YB7V9nAqE5WNme4YKuOiY6iMe6PaQxUUIuTbswgFVNJwA8sO3Bn6yR6bWZMSNtJwDtuWfHpQxaPx9C9zadil7jrCigbq6UXceNIVKTWUIqypm2ytJdTiNyNeXclF6GttOVfeDEc7qzjR23r3OMFqZKng1kw0mXGLrfibHTScOZWgGv9TdC6ROFeMTgwYiIxvJzMRWQbeGZUAAAAASUVORK5CYII=)\
+{% embed url="https://app.storylane.io/share/tfefsxzuclc7" %}
