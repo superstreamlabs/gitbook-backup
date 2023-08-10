@@ -195,8 +195,6 @@ if __name__ == '__main__':
 {% tab title="TypeScript" %}
 Memphis abstracts the need for external serialization functions and embeds them within the SDK.
 
-In node.js, we can simply produce an object. Behind the scenes, the object will be serialized based on the attached schema and data format.
-
 **Example schema:**
 
 {% code lineNumbers="true" %}
