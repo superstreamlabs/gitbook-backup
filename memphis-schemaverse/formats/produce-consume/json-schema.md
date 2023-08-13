@@ -180,8 +180,7 @@ async def main():
     headers = Headers()
     headers.add("key", "value")
 
-    msg = '{ "fname":"John", "lname":"Mayer"}'
-    msg = json.loads(msg)
+    msg = { "fname":"John", "lname":"Mayer"}
 
     try:
         await producer.produce(msg, headers=headers)
