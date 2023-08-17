@@ -56,15 +56,25 @@ The options are Memory or Disk. Each with its strengths and weaknesses.
 
 <figure><img src="../../.gitbook/assets/disk ack.jpeg" alt=""><figcaption><p>Ack process</p></figcaption></figure>
 
-### Tier 2 (Remote storage) \* Optional \*
+### Tier 2 (Remote storage)
 
-The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
-Memphis offers a 2nd storage tier for longer, possibly infinite retention for stored messages.\
-Each message that expels from the station will automatically migrate to the 2nd storage tier.\
-Possible integrations [here](../../platform-integrations/storage/).
+The typical pattern of message brokers is to delete messages after passing a defined retention policy, like time/size/number of records.
 
-#### "Behind the scenes"
+Memphis offers a second storage tier for longer, possibly infinite retention for stored messages.\
+Each message that expels from the station will automatically migrate to the second storage tier.
+
+{% hint style="info" %}
+[Here is how](../../platform-integrations/storage/) to enable Memphis storage tiering
+{% endhint %}
+
+#### Architecture
 
 <figure><img src="../../.gitbook/assets/storage tier arch (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-Offloading iteration cycles can be configured through the Web Console via the environment configuration.
+#### Step-by-step explanation
+
+1. Once supported remote storage is connected, storage tiering will be available for the entire cluster.
+2. The activation and enablement of the storage tiering takes place per station.
+3. Once storage tiering is enabled for specific stations, out-of-retention records (messages) will be migrated to an internal buffer where every 8 seconds (default), an async task will pack the buffer and migrate it to the second storage tier. \
+   \
+   The packing interval can change via the "Environment configuration"

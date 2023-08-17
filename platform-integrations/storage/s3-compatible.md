@@ -45,9 +45,9 @@ Each station can be managed and use the second storage tier independently.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-02-20 at 16.48.26.png" alt=""><figcaption></figcaption></figure>
 
-## How to read the migrated data
+## How to read migrated data
 
-### Step 1:
+### Step 1:&#x20;
 
 ## How to restore data from an S3 bucket to a Memphis station
 
