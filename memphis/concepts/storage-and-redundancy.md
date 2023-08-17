@@ -86,8 +86,8 @@ Each message that expels from the station will automatically migrate to the seco
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```json
-[{"payload":"7b2263697479223a224e657720596f726b222c22636f756e747279223a22555341222c22656d61696c223a226a6f686e406578616d706c652e636f6d222c22686f626279223a22436f6f6b696e67222c226f636375706174696f6e223a22536f66747761726520456e67696e656572222c2270686f6e65223a223535352d313234227d","headers":{"$memphis_connectionid":"b2742350-3017-43a5-a34f-adc421a88acc","$memphis_producedby":"ui"}}]
+[{"payload":"7b2263697479223a224e657720596f726b222c22636f756e747279223a22555341222c22656d61696c223a226a6f686e406578616d706c652e636f6d222c22686f626279223a22436f6f6b696e67222c226f636375706174696f6e223a22536f66747761726520456e67696e656572222c2270686f6e65223a223535352d313234227d","headers":{"$memphis_connectionid":"b2742350-cccc-aaaa-ffff-adc421a88acc","$memphis_producedby":"ui"}}]
 ```
 {% endcode %}
 
-Each array item is a message migrated from Memphis station. The payload is encoded in Hex and should be decode into the original format (JSON / Protobuf / Avro).
+Each array item is a message migrated from Memphis station. The payload is encoded in Hex and should be decoded into the original format (JSON / Protobuf / Avro).
