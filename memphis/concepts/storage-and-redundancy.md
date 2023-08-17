@@ -77,4 +77,17 @@ Each message that expels from the station will automatically migrate to the seco
 2. The activation and enablement of the storage tiering takes place per station.
 3. Once storage tiering is enabled for specific stations, out-of-retention records (messages) will be migrated to an internal buffer where every 8 seconds (default), an async task will pack the buffer and migrate it to the second storage tier. \
    \
-   The packing interval can change via the "Environment configuration"
+   The packing interval can change via the "Environment configuration."
+4.  At the object storage, a directory within the selected bucket will be created under the name "`memphis`"; within the `memphis` directory, a nested directory will be created for each enabled station.\
+
+
+    <figure><img src="../../.gitbook/assets/Background.png" alt=""><figcaption></figcaption></figure>
+5. Within Each directory, a JSON file will be created with the latest buffer content mentioned in Step 3. The name of the file is a generated hash to avoid duplications. Content example:
+
+{% code overflow="wrap" lineNumbers="true" %}
+```json
+[{"payload":"7b2263697479223a224e657720596f726b222c22636f756e747279223a22555341222c22656d61696c223a226a6f686e406578616d706c652e636f6d222c22686f626279223a22436f6f6b696e67222c226f636375706174696f6e223a22536f66747761726520456e67696e656572222c2270686f6e65223a223535352d313234227d","headers":{"$memphis_connectionid":"b2742350-3017-43a5-a34f-adc421a88acc","$memphis_producedby":"ui"}}]
+```
+{% endcode %}
+
+Each array item is a message migrated from Memphis station. The payload is encoded in Hex and should be decode into the original format (JSON / Protobuf / Avro).
