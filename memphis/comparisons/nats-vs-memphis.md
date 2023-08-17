@@ -17,33 +17,30 @@ Jetstream is built-in to nats-server; therefore, you only need 1 (or 3 or 5 if y
 
 ## **What is Memphis.dev?**
 
-After years of operating and researching NATS, Memphis refactored NATS Jetstream to create a fully-fledged event-processing platform for developers.
+Memphis.dev is more than a broker. It's a new streaming stack built with NATS as its core.\
+\
+It significantly accelerates the development of real-time applications that require a streaming platform with high throughput, low latency, easy troubleshooting, fast time-to-value,\
+minimal platform operations, and all the observability you can think of.
 
-Memphis.dev enables building next-generation applications that require large volumes of streamed and enriched data, modern protocols, zero ops, rapid development, extreme cost reduction, and a significantly lower amount of dev time for data-oriented developers and data engineers.
+### The four main components of Memphis
 
-### **Memphis focuses on four pillars**
-
-1. Stability - Queues and brokers play a critical part in the modern application's structure and should be highly available and stable as possible.
-2. Performance and Efficiency - Provide good performance while maintaining efficient resource consumption.
-3. Observability - Reduces troubleshooting time to near zero.
-4. Developer Experience - Rapid Development, Modularity, inline processing, Schema management.
+1. Memphis Broker. A distributed engine, which also acts as the primary storage layer for produced events or data.
+2. Memphis Schemaverse. Schema management and enforcement tool built within Memphis to help users increase data quality and avoid upstream breaks.
+3. Memphis Functions. Developer-first serverless stream processing to transform and enrich ingested events on-the-fly.
+4. Memphis Connect. A modular framework to enable fast pull and push of data to and from different sources and destinations.
 
 ## General
 
-| Parameter                 | Memphis.dev                              | NATS Jetstream          |
-| ------------------------- | ---------------------------------------- | ----------------------- |
-| License                   | BSL 1.0                                  | Apache 2.0              |
-| Components                | Memphis + MongoDB (MDB is being removed) | NATS Server + Jetstream |
-| Message consumption model | Pull                                     | Pull                    |
-| Storage architecture      | Log                                      | Log                     |
+| Parameter                 | Memphis.dev | NATS Jetstream          |
+| ------------------------- | ----------- | ----------------------- |
+| License                   | BSL 1.0     | Apache 2.0              |
+| Components                | Memphis     | NATS Server + Jetstream |
+| Message consumption model | Pull        | Pull                    |
+| Storage architecture      | Log         | Log                     |
 
 ### License
 
 Both technologies are available under fully open-source licenses. Memphis also has a commercial-based distribution with added security, tiered storage, and more.
-
-### Components
-
-Memphis uses MongoDB for GUI state management only and will be removed soon, making Memphis without any external dependency. Both Memphis and Jetstream achieve consensus by using RAFT.
 
 ### Message Consumption Model
 
@@ -59,14 +56,14 @@ Memphis also offers storage tiering for offloading messages to S3-compatible sto
 
 ## Ecosystem and User Experience
 
-| Parameter                            | Memphis.dev             | NATS Jetstream                  |
-| ------------------------------------ | ----------------------- | ------------------------------- |
-| Deployment                           | Helm, Docker, Terraform | Binary, Helm, Docker, Terraform |
-| Enterprise support                   | Yes                     | Synadia                         |
-| Managed cloud offerings              | Yes                     | Synadia                         |
-| Self-Healing                         | Yes                     | No                              |
-| Notifications                        | Yes                     | Partial                         |
-| Message tracing (aka Stream lineage) | Yes                     | No                              |
+| Parameter                            | Memphis.dev                    | NATS Jetstream                         |
+| ------------------------------------ | ------------------------------ | -------------------------------------- |
+| Deployment                           | Helm, Docker, Terraform, Cloud | Binary, Helm, Docker, Terraform, Cloud |
+| Enterprise support                   | Yes                            | Synadia                                |
+| Managed cloud offerings              | Yes                            | Synadia                                |
+| Self-Healing                         | Yes                            | No                                     |
+| Notifications                        | Yes                            | Partial                                |
+| Message tracing (aka Stream lineage) | Yes                            | No                                     |
 
 ### Deployment
 
@@ -76,17 +73,17 @@ NATS Jetstream and Memphis have a lightweight yet robust cloud-native architectu
 
 Enterprise-grade support and managed cloud offerings for NATS are available from Synadia.
 
-Memphis provides enterprise support and managed cloud offering that includes features like enhanced security, stream research abilities, an ML-based resource scheduler for better cost savings, and more.
+Memphis [Cloud](https://cloud.memphis.dev) provides enterprise support and managed cloud offering that includes features like enhanced security, stream research abilities, an ML-based resource scheduler for better cost savings, and more.
 
 ### Self-healing
 
-When deploying NATS Jetstream over Kubernetes, the natural life-cycle management of Kubernetes is received by default like automatic broker restoration, PVC claim, data restoration, and more.
+When deploying NATS Jetstream over Kubernetes, the natural life-cycle management of Kubernetes is received by default, like automatic broker restoration, PVC claim, data restoration, and more.
 
 In addition to the above, one of Memphis' core features is to remove frictions of management and autonomously make sure it's alive and performing well using periodic self-checks and proactive rebalancing tasks, as well as fencing the users from misusing the system. In parallel, every aspect of the system can be configured on-the-fly without downtime, including upgrades and reboots.
 
 ### Notifications
 
-The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial support for passing JetStream metrics to Prometheus, dashboards and more will be added toward the final release.
+The [NATS Surveyor](https://github.com/nats-io/nats-surveyor) system has initial support for passing JetStream metrics to Prometheus. Dashboards and more will be added toward the final release.
 
 Memphis has a built-in notification center that can push real-time alerts based on defined triggers like client disconnections, resource depletion, schema violation, and more.
 
@@ -96,7 +93,7 @@ Memphis has a built-in notification center that can push real-time alerts based 
 
 Tracking stream lineage is the ability to understand the full path of a message from the very first producer through the final consumer, including the trail and evolvement of a message between topics. This ability is extremely handy in a troubleshooting process.
 
-NATS Jetstream does not provide a native ability for stream lineage, but it can be achieved using OpenTelemetry or OpenLineage frameworks, as well as integrating 3rd party applications such as datadog, epsagon, and more.
+NATS Jetstream does not provide a native ability for stream lineage, but it can be achieved using OpenTelemetry or OpenLineage frameworks, as well as integrating 3rd party applications such as Datadog, New Relic, and more.
 
 Memphis provides stream lineage per message with out-of-the-box visualization for each stamped message using a generated header by the Memphis SDK.
 
@@ -140,7 +137,7 @@ Both Jetstream and Memphis store data durably and reliably, much like a normal d
 ### Idempotency
 
 Both Jetstream and Memphis provide default support in idempotent producers.\
-On the consumer side, in Jetstream, its the client's responsibility to build a retry mechanism that will retransmit a batch of messages exactly once, while in Memphis, it is provided natively within the SDK with a parameter called `maxMsgDeliveries`.
+On the consumer side, in Jetstream, it's the client's responsibility to build a retry mechanism that will retransmit a batch of messages exactly once, while in Memphis, it is provided natively within the SDK with a parameter called `maxMsgDeliveries`.
 
 ### Geo-Replication (Multi-region)
 
@@ -163,14 +160,13 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 | Parameter                            | Memphis.dev                          | NATS Jetstream          |
 | ------------------------------------ | ------------------------------------ | ----------------------- |
 | GUI                                  | Yes                                  | No                      |
-| Schema Management                    | Yes                                  | No                      |
+| Schema Enforcement                   | Yes                                  | No                      |
 | Stream enrichment                    | Yes                                  | No                      |
-| Delivery Policy                      | Manual Ack                           | Different options       |
-| Consumer group                       | Yes                                  | Yes                     |
+| Delivery Policy                      | Manual Ack                           | Manual and Automatic    |
 | Ready-to-use source/sinks connectors | Yes                                  | No                      |
 | Stream lineage                       | Yes                                  | No                      |
 | Data-Level Observability             | Yes                                  | No                      |
-| Wildcard subscribe                   | No                                   | Yes                     |
+| Wildcard Consume                     | Yes                                  | Yes                     |
 | Deduplication                        | Content-level. Modified bloom filter | Message ID-level        |
 | Dead-letter queue                    | Yes                                  | Notification event only |
 | REST Gateway                         | Yes                                  | No                      |
@@ -182,11 +178,13 @@ Memphis cloud users can create more standard Memphis clusters and form a super c
 
 ### GUI
 
-A GUI for NATS and NATS Jetstream can be achieved via Synadia cloud offering.
+A GUI for NATS and NATS Jetstream can be achieved via the Synadia cloud offering.
 
-Memphis provides a native state-of-the-art GUI, hosted inside the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
+Memphis provides a native state-of-the-art GUI hosted within the broker, built to act as a management layer of all Memphis aspects, including cluster config, resources, data observability, notifications, processing, and more.
 
 <figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>Memphis GUI</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-08-17 at 7.24.20.png" alt=""><figcaption></figcaption></figure>
 
 ### Schema Management
 
