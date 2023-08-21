@@ -6,6 +6,10 @@ coverY: 0
 
 # S3-Compatible Object Storage
 
+{% hint style="info" %}
+To learn more about the architecture behind storage tiering, please head [here](../../memphis/concepts/storage-and-redundancy.md).
+{% endhint %}
+
 ## Introduction
 
 The common pattern of message brokers is to delete messages after passing the defined retention policy, like time/size/number of messages.\
@@ -45,16 +49,10 @@ Each station can be managed and use the second storage tier independently.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-02-20 at 16.48.26.png" alt=""><figcaption></figcaption></figure>
 
-##
-
 ## How to read migrated data
 
 Currently, to enable migration of JSON, protobuf, and Avro into a flat format in case Schemaverse is activated, data is being formatted into Hex format.
 
-## How to restore data from an S3 bucket to a Memphis station
-
-### Step 1:
-
 {% hint style="info" %}
-To understand the architecture behind storage tiering, please head [here](../../memphis/concepts/storage-and-redundancy.md).
+To learn more about the architecture behind storage tiering, please head [here](../../memphis/concepts/storage-and-redundancy.md).
 {% endhint %}
