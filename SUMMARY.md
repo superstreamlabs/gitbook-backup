@@ -13,6 +13,7 @@
 
 * [Getting Started](memphis-cloud/getting-started.md)
 * [Pricing](https://memphis.dev/pricing)
+* [Legal hub](https://memphis.dev/privacy-policy)
 
 ## ⭐ Memphis Broker
 
