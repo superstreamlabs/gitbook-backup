@@ -5,8 +5,10 @@
 * [Introduction](README.md)
 * [Quick start](getting-started/2-hello-world.md)
 * [Tutorials](getting-started/tutorials/README.md)
-* [How others use Memphis](getting-started/public-case-studies.md)
+* [Public case studies](getting-started/public-case-studies.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
+* [Quick start by a use case](getting-started/quick-start-by-a-use-case/README.md)
+  * [Microservices communication](getting-started/quick-start-by-a-use-case/microservices-communication.md)
 * [Roadmap](https://memphis.dev/roadmap)
 
 ## ☁ Memphis cloud
