@@ -46,7 +46,7 @@ honor_labels: true
 helm install memphis memphis \
 --create-namespace --namespace memphis --wait \
 --set \
-cluster.enabled="true",\
+global.cluster.enabled="true",\
 exporter.enabled="true"
 ```
 
