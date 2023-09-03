@@ -4,9 +4,6 @@
 
 * [Introduction](README.md)
 * [Quick start](getting-started/2-hello-world.md)
-* [Tutorials](getting-started/tutorials/README.md)
-* [Public case studies](getting-started/public-case-studies.md)
-* [How to contribute?](getting-started/how-to-contribute.md)
 * [Quick start by a use case](getting-started/quick-start-by-a-use-case/README.md)
   * [Microservices communication](getting-started/quick-start-by-a-use-case/microservices-communication.md)
   * [Stream processing](getting-started/quick-start-by-a-use-case/stream-processing.md)
@@ -19,6 +16,9 @@
   * [Real-time data pipeline](getting-started/quick-start-by-a-use-case/real-time-data-pipeline.md)
   * [Change-data-Capture pipelines](getting-started/quick-start-by-a-use-case/change-data-capture-pipelines.md)
   * [Task scheduling](getting-started/quick-start-by-a-use-case/task-scheduling.md)
+* [Tutorials](getting-started/tutorials/README.md)
+* [Public case studies](getting-started/public-case-studies.md)
+* [How to contribute?](getting-started/how-to-contribute.md)
 * [Roadmap](https://memphis.dev/roadmap)
 
 ## ☁ Memphis cloud
