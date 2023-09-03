@@ -10,7 +10,7 @@
 * [Quick start by a use case](getting-started/quick-start-by-a-use-case/README.md)
   * [Microservices communication](getting-started/quick-start-by-a-use-case/microservices-communication.md)
   * [Stream processing](getting-started/quick-start-by-a-use-case/stream-processing.md)
-  * [Edge](getting-started/quick-start-by-a-use-case/edge.md)
+  * [Edge compute](getting-started/quick-start-by-a-use-case/edge-compute.md)
   * [NATS Replacement](getting-started/quick-start-by-a-use-case/nats-replacement.md)
   * [Message broker](getting-started/quick-start-by-a-use-case/message-broker.md)
   * [Queueing](getting-started/quick-start-by-a-use-case/queueing.md)
