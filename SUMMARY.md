@@ -9,6 +9,16 @@
 * [How to contribute?](getting-started/how-to-contribute.md)
 * [Quick start by a use case](getting-started/quick-start-by-a-use-case/README.md)
   * [Microservices communication](getting-started/quick-start-by-a-use-case/microservices-communication.md)
+  * [Stream processing](getting-started/quick-start-by-a-use-case/stream-processing.md)
+  * [Edge](getting-started/quick-start-by-a-use-case/edge.md)
+  * [NATS Replacement](getting-started/quick-start-by-a-use-case/nats-replacement.md)
+  * [Message broker](getting-started/quick-start-by-a-use-case/message-broker.md)
+  * [Queueing](getting-started/quick-start-by-a-use-case/queueing.md)
+  * [Log collection](getting-started/quick-start-by-a-use-case/log-collection.md)
+  * [Logstash replacement](getting-started/quick-start-by-a-use-case/logstash-replacement.md)
+  * [Real-time data pipeline](getting-started/quick-start-by-a-use-case/real-time-data-pipeline.md)
+  * [Change-data-Capture pipelines](getting-started/quick-start-by-a-use-case/change-data-capture-pipelines.md)
+  * [Task scheduling](getting-started/quick-start-by-a-use-case/task-scheduling.md)
 * [Roadmap](https://memphis.dev/roadmap)
 
 ## ☁ Memphis cloud
