@@ -81,12 +81,12 @@
   * [1 - Installation](open-source-installation/kubernetes/1-installation.md)
   * [2 - Access](open-source-installation/kubernetes/2-access.md)
   * [3 - Upgrade](open-source-installation/kubernetes/how-to-upgrade.md)
+  * [Terraform](open-source-installation/kubernetes/cloud-deployment/README.md)
+    * [Deploy on AWS](open-source-installation/kubernetes/cloud-deployment/deploy-on-aws.md)
+    * [Deploy on GCP](open-source-installation/kubernetes/cloud-deployment/deploy-on-gcp.md)
+    * [Deploy on DigitalOcean](open-source-installation/kubernetes/cloud-deployment/deploy-on-digitalocean.md)
+    * [Deploy on Azure](open-source-installation/kubernetes/cloud-deployment/deploy-on-azure.md)
 * [Docker](open-source-installation/docker-compose.md)
-* [Terraform](open-source-installation/cloud-deployment/README.md)
-  * [Deploy on AWS](open-source-installation/cloud-deployment/deploy-on-aws.md)
-  * [Deploy on GCP](open-source-installation/cloud-deployment/deploy-on-gcp.md)
-  * [Deploy on DigitalOcean](open-source-installation/cloud-deployment/deploy-on-digitalocean.md)
-  * [Deploy on Azure](open-source-installation/cloud-deployment/deploy-on-azure.md)
 * [Production Best Practices](open-source-installation/production-best-practices.md)
 
 ## Client Libraries

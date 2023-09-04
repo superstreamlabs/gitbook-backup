@@ -1,6 +1,6 @@
 ---
 description: Using Terraform
-cover: ../../.gitbook/assets/GCP and Memphis.jpeg
+cover: ../../../.gitbook/assets/GCP and Memphis.jpeg
 coverY: 0
 ---
 
@@ -42,7 +42,7 @@ gcloud services enable compute.googleapis.com container.googleapis.com
 
 ### Terraform Installation Flow
 
-<figure><img src="../../.gitbook/assets/gcp memphis terraform.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gcp memphis terraform.png" alt=""><figcaption></figcaption></figure>
 
 ### Step 0: Clone Memphis-Terraform repo
 

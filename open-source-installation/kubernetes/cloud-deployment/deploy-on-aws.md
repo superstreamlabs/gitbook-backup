@@ -1,6 +1,6 @@
 ---
 description: Using Terraform
-cover: ../../.gitbook/assets/AWS and Memphis (1).jpeg
+cover: ../../../.gitbook/assets/AWS and Memphis (1).jpeg
 coverY: 0
 ---
 
@@ -61,7 +61,7 @@ $ aws configure
 
 ### Terraform Installation Flow
 
-<figure><img src="../../.gitbook/assets/aws memphis terraform (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/aws memphis terraform (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 0: Clone Memphis-Terraform repo
 
