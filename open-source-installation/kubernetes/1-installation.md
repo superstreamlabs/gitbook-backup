@@ -147,10 +147,9 @@ tls:
 
 ### 2. Deploy Memphis with the generated certificate
 
-{% code overflow="wrap" lineNumbers="true" %}
-```bash
-helm install memphis memphis \
---create-namespace --namespace memphis --wait \
+<pre class="language-bash" data-overflow="wrap" data-line-numbers><code class="lang-bash">helm repo add memphis https://k8s.memphis.dev/charts/ --force-update
+<strong>helm install memphis memphis/memphis \
+</strong>--create-namespace --namespace memphis --wait \
 --set \
 global.cluster.enabled="true",\
 memphis.tls.verify="true",\
@@ -158,8 +157,7 @@ memphis.tls.cert="memphis_client.pem",\
 memphis.tls.key="memphis-key_client.pem",\
 memphis.tls.secret.name="memphis-client-tls-secret",\
 memphis.tls.ca="rootCA.pem"
-```
-{% endcode %}
+</code></pre>
 
 ## Upgrade existing deployment
 
@@ -177,7 +175,8 @@ kubectl create secret generic memphis-client-tls-secret \
 2. Upgrade Memphis to use the TLS certs
 
 ```bash
-helm upgrade memphis memphis -n memphis --reuse-values \
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update
+helm upgrade memphis memphis/memphis -n memphis --reuse-values \
 --set \
 memphis.tls.verify="true",\
 memphis.tls.cert="memphis_client.pem",\
@@ -206,7 +205,7 @@ metadata:
 ### Step 2: Deploy Memphis cluster with external PostgreSQL:
 
 ```bash
-helm install memphis memphis -f postgresql_values.yaml \
+helm install memphis memphis/memphis -f postgresql_values.yaml \
 --create-namespace --namespace memphis --wait \
 --set \
 global.cluster.enabled="true"
