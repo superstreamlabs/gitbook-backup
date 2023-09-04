@@ -220,7 +220,20 @@ global.cluster.enabled="true"
 
 {% tabs %}
 {% tab title="Red Hat OpenShift" %}
+To deploy the Memphis cluster on top of  **Red Hat Openshift** it's necessary to configure default security context parameters as follows:
 
+{% code overflow="wrap" %}
+```bash
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && 
+helm install memphis memphis/memphis --set \
+global.cluster.enabled="true",\
+metadata.postgresql.containerSecurityContext.enabled="false",\
+metadata.postgresql.podSecurityContext.enabled="false",\
+metadata.pgpool.containerSecurityContext.enabled="false",\
+metadata.pgpool.podSecurityContext.enabled="false" \
+--create-namespace --namespace memphis --wait
+```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
