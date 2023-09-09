@@ -4,20 +4,20 @@ cover: ../.gitbook/assets/NATS + Memphis.jpeg
 coverY: -43.05148658448151
 ---
 
-# NATS
+# NATS Compatible
 
 ## Introduction
 
-The motivation behind adding compatibility to NATS API -
+The motivation behind adding compatibility to NATS API is to
 
-* To enable Memphis users to enjoy the broad reach and integrations of the NATS ecosystem.
-* To enable a lift & shift migration from NATS to Memphis.
+* Enable Memphis users to enjoy the broad reach and integrations of the NATS ecosystem.
+* Enable a lift & shift type of migration from NATS to Memphis.
 
 ## Limitations
 
 * NATS SDKs version - Compatibility with NATS Jetstream 2.9 and above.
 * The following Memphis features will not be supported when using NATS SDK:
-  * Producers/Consumers observability
+  * Producers/Consumers' observability
   * Schemaverse
   * Dead-letter station - resend unacked messages
 
