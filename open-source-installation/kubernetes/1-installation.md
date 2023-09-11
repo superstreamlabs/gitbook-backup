@@ -68,7 +68,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm ins
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 {% endcode %}
 
