@@ -36,7 +36,7 @@ Production-ready Memphis deployment with initial three memphis brokers configure
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --set global.cluster.enabled="true" --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --set global.cluster.enabled="true" --create-namespace --namespace memphis --wait --version=1.2.2
 ```
 {% endcode %}
 
@@ -44,7 +44,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm ins
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:1.2.0",global.cluster.enabled="true" memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set global.cluster.enabled="true" memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 {% endcode %}
 
@@ -60,7 +60,7 @@ Minimal deployment of Memphis with a single broker
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --create-namespace --namespace memphis --wait --version=1.2.2
 ```
 {% endcode %}
 
@@ -68,7 +68,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm ins
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis.image="memphisos/memphis:1.2.0" memphis memphis/memphis --create-namespace --namespace memphis --wait
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install --set memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
 {% endcode %}
 
