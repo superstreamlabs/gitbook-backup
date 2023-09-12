@@ -90,6 +90,8 @@ Future types:
    Specify a partition ID or a subset of IDs for the producer/consumer to work with.\
    If a number of IDs are given, producers/consumers will work in a round-robin fashion with the specified partitions.
 
+If a station has only one partition, messages will be produced/consumed from that partition only. Specifying a partition key or a custom function will be ignored and won’t break the described behavior.
+
 #### How to use partitions
 
 Within each client library manual, you can find where and how to define partitions.
