@@ -59,7 +59,7 @@ To avoid filling out the station, we must choose a retention policy per station 
 * **Ack**\
   Messages will be removed from a station once acknowledged by all the connected consumer groups. Great for _exactly-once_ semantics.
 
-### Partitions v1
+### Partitions
 
 A partition is a division of a station or its constituent elements into distinct independent parts. Partitioning is normally done for manageability, performance, and/or availability reasons, and for load balancing.
 
