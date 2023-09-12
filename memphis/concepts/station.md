@@ -65,14 +65,18 @@ A partition is a division of a station or its constituent elements into distinct
 
 It is popular in distributed systems, where each partition may be spread over multiple nodes, with users of a station performing local transactions on the partition.
 
-Memphis uses partitions as well. Released on v1.2.
+Memphis partitions were released on v1.2.
 
 <figure><img src="../../.gitbook/assets/partitions (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 Partitions are the main method of concurrency for stations. \
-The used station will be broken into multiple partitions or parts among one or more memphis brokers.
+A station will be broken into multiple partitions across one or more memphis brokers.
 
 <figure><img src="../../.gitbook/assets/partitions (2).jpeg" alt=""><figcaption></figcaption></figure>
+
+#### Produce/consume messages when using multiple partitions
+
+
 
 #### How to use partitions
 
