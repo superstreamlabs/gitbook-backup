@@ -57,7 +57,6 @@ To avoid filling out the station, we must choose a retention policy per station 
 * **Time**\
   Each produced message receives a dedicated timer and will be removed after hitting the configured time.
 * **Ack**\
-  Only available in the [Memphis Cloud](../../memphis-cloud/getting-started.md).\
   Messages will be removed from a station once acknowledged by all the connected consumer groups. Great for _exactly-once_ semantics.
 
 ### Partitions v1
