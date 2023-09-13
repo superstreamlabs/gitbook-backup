@@ -224,7 +224,13 @@ Walkthrough example
 ```
 {% endcode %}
 
-Replacements in the client's code -
+Allowed characters for `stream` name. Any other character will not be accepted.
+
+* a-z/A-Z
+* 0-9
+* \_ -
+
+**Replacements in the client's code -**
 
 1. Redirect the `servers` parameter to Memphis Cloud broker `hostname`.\
    It can be found in the main dashboard.
@@ -329,13 +335,71 @@ nats stream add -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>::
 ```
 {% endcode %}
 
-#### Allowed characters for `stream` name
+Allowed characters for `stream` name. Any other character will not be accepted.
 
 * a-z/A-Z
 * 0-9
 * \_ -
 
-Any other character will not be accepted.
+**Replacements in the client's code -**
+
+1. Redirect the `servers` parameter to Memphis broker `hostname`.
+2. Change port 4222 to 6666
+3. In Memphis GUI, create a client-type user based on the one you are (or not) using with NATS
+
+Code Example (Before)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "localhost:4222",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"nats", # Optional in NATS. Mandatory in Memphis.
+        "password":"natspassword" # Optional in NATS. Mandatory in Memphis.
+    }
+    conn = await nats.connect(**connection_opts)
+
+    await conn.publish("test", "hello world".encode())
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+{% endcode %}
+
+Code Example (After)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "localhost:6666",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"nats", # Optional in NATS. Mandatory in Memphis.
+        "password":"natspassword" # Optional in NATS. Mandatory in Memphis.
+    }
+    conn = await nats.connect(**connection_opts)
+
+    await conn.publish("test", "hello world".encode())
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+{% endcode %}
 
 </details>
 
