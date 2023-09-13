@@ -532,7 +532,7 @@ var data = JSON.stringify({
 
 var config = {
   method: "post",
-  url: "BROKER_RESTGW_URL",
+  url: "localhost:4444",
   headers: {
     "Content-Type": "application/json",
   },
@@ -565,7 +565,7 @@ var data = JSON.stringify({
 
 var config = {
   method: "post",
-  url: "https://BROKER_RESTGW_URL/stations/hps/produce/single",
+  url: "http://localhost:4444/stations/hps/produce/single",
   headers: {
     Authorization: "Bearer <jwt>",
     "Content-Type": "application/json",
@@ -582,6 +582,6 @@ axios(config)
   });
 ```
 
-**Consume** messages via REST will soon be released.
+More code examples [here](https://github.com/memphisdev/memphis-rest-gateway)
 {% endtab %}
 {% endtabs %}
