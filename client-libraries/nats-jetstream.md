@@ -29,15 +29,12 @@ The motivation behind adding compatibility with NATS API is to
 
 <summary>Cloud</summary>
 
+1. Redirect the `servers` parameter to Memphis Cloud broker `hostname`.\
+   It can be found in the main dashboard.
 
+<img src="../.gitbook/assets/Screenshot 2023-09-13 at 15.13.48.png" alt="" data-size="line">
 
-</details>
-
-<details>
-
-<summary>Open-source</summary>
-
-1. Redirect the `servers` parameter to Memphis `hostname`
+2. In Memphis GUI, create a client-type user based on the one you are (or not) using with NATS and concatenate "$MEMPHIS\_ACCOUNT\_ID" to it.
 
 Code Example (Before)
 
@@ -53,8 +50,78 @@ async def main():
         "max_reconnect_attempts": 10,
         "reconnect_time_wait": 3,
         "connect_timeout": 15,
-        "user":"root",
+        "user":"nats", # Optional in NATS. Mandatory in Memphis.
+        "password":"natspassword" # Optional in NATS. Mandatory in Memphis.
+    }
+    conn = await nats.connect(**connection_opts)
+
+    js = conn.jetstream()
+    await js.add_stream(name="test", subjects=["test"])
+    await js.publish("test", "hello world".encode())
+
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+{% endcode %}
+
+Code Example (After)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "aws-eu-central-1.cloud.memphis.dev:6666",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"nats$123456789",
         "password":"natspassword"
+    }
+    conn = await nats.connect(**connection_opts)
+
+    js = conn.jetstream()
+    await js.add_stream(name="test", subjects=["test"])
+    await js.publish("test", "hello world".encode())
+
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+{% endcode %}
+
+</details>
+
+<details>
+
+<summary>Open-source</summary>
+
+1. Redirect the `servers` parameter to Memphis `hostname`
+2. Change port 4222 to 6666
+3. In Memphis GUI, create a client-type user based on the one you are (or not) using with NATS
+
+Code Example (Before)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "localhost:4222",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"nats", # Optional in NATS. Mandatory in Memphis.
+        "password":"natspassword" # Optional in NATS. Mandatory in Memphis.
     }
     conn = await nats.connect(**connection_opts)
 
@@ -83,8 +150,8 @@ async def main():
         "max_reconnect_attempts": 10,
         "reconnect_time_wait": 3,
         "connect_timeout": 15,
-        "user":"root",
-        "password":"memphis"
+        "user":"nats",
+        "password":"natspassword"
     }
     conn = await nats.connect(**connection_opts)
 
@@ -103,14 +170,38 @@ if __name__ == "__main__":
 
 ### For NATS Core clients
 
-All of NATS core features will be supported when communicating with Memphis, but without performing the below procedure, the Memphis platform will not be able to control the created objects.
+All of NATS core features will be supported when communicating with Memphis, but without performing the below procedure, the Memphis platform will not be able to control and display the created objects, and therefore it is not recommended.&#x20;
 
 Memphis operates at the stream level. For a NATS `subject` to be visible and managed by Memphis, it must first be wrapped by a `stream`.
 
-1. Install [NATS CLI](https://docs.nats.io/using-nats/nats-tools/nats\_cli).
-2. Follow the below instructions based on your Memphis type of authentication:
+<img src="../.gitbook/assets/image (10).png" alt="" data-size="original">
 
-#### When using Memphis password-based authentication (Default for the OS and Cloud):
+Follow the below instructions based on your Memphis deployment type:
+
+<details>
+
+<summary>Cloud</summary>
+
+1. Install [NATS CLI](https://docs.nats.io/using-nats/nats-tools/nats\_cli).
+2. Perform the below instructions.\
+   Needed information can be found in the main dashboard.
+
+<img src="../.gitbook/assets/Screenshot 2023-09-13 at 15.13.48.png" alt="" data-size="original">
+
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+nats stream add -s <MEMPHIS_BROKER_HOSTNAME>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCOUNT_ID> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
+```
+{% endcode %}
+
+</details>
+
+<details>
+
+<summary>Open-source</summary>
+
+1. Install [NATS CLI](https://docs.nats.io/using-nats/nats-tools/nats\_cli).
+2. Perform the below instructions based on your Memphis type of authentication:
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
@@ -139,14 +230,6 @@ Walkthrough example
 ```
 {% endcode %}
 
-#### (Cloud only) Using Memphis password-based authentication (with account ID indication):
-
-{% code overflow="wrap" lineNumbers="true" %}
-```bash
-nats stream add -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCOUNT_ID> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
-```
-{% endcode %}
-
 #### When using Memphis Connection token-based authentication (Legacy OS):
 
 {% code overflow="wrap" lineNumbers="true" %}
@@ -163,11 +246,13 @@ nats stream add -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>::
 
 Any other character will not be accepted.
 
+</details>
+
 ## Important to know
 
 * Messages' producers' names will be displayed as "Unknown".
 * `stream` names in NATS are case sensitive, while in Memphis, they are lower-cased, so please consider using only lower-cased names.
-* In case a station has been created using Memphis GUI/SDK, and you want to produce some messages into it using NATS CLI, you will have to send the messages into a subject called `<stream_name>$<partition_number(starts from 1)>.final`.&#x20;
+* In case a station has been created using Memphis GUI/SDK, and you want to produce messages to the same created station, you will have to send the messages into a subject called `<stream_name>$<partition_number(starts from 1)>.final`.&#x20;
 * In case your station name contains a '`.`' sign replace it with '`#`' sign in the subject name level.
 
 ## Example
