@@ -434,15 +434,11 @@ import asyncio
 async def main():
     try:
         memphis = Memphis()
-        await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD")
+        await memphis.connect(host="localhost", username="root", password="memphis")
+        producer = await memphis.producer(station_name="memphis-test", producer_name="producer-test")
+        await producer.produce(bytearray('Hello world', 'utf-8')) # you can send the message parameter as dict as well
 
-        producer = await memphis.producer(station_name="STATION_NAME", producer_name="PRODUCER_NAME")
-        headers = Headers()
-        headers.add("key", "value")
-        for i in range(5):
-            await producer.produce(bytearray('Message #'+str(i)+': Hello world', 'utf-8'), headers=headers) # you can send the message parameter as dict as well
-
-    except (MemphisError, MemphisConnectError, MemphisHeaderError, MemphisSchemaError) as e:
+    except Exception as e:
         print(e)
 
     finally:
@@ -473,7 +469,6 @@ async def main():
             for msg in msgs:
                 print("message: ", msg.get_data())
                 await msg.ack()
-                headers = msg.get_headers()
                 if error:
                     print(error)
         except (MemphisError, MemphisConnectError, MemphisHeaderError) as e:
@@ -483,11 +478,8 @@ async def main():
     try:
         memphis = Memphis()
         await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD")
-
         consumer = await memphis.consumer(station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CONSUMER_GROUP_NAME")
-        consumer.set_context({"key": "value"})
         consumer.consume(msg_handler)
-        # Keep your main thread alive so the consumer will keep receiving data
         await asyncio.Event().wait()
 
     except (MemphisError, MemphisConnectError) as e:
