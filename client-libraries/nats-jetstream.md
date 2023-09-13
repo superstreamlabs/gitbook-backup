@@ -35,6 +35,7 @@ The motivation behind adding compatibility with NATS API is to
 <img src="../.gitbook/assets/Screenshot 2023-09-13 at 15.13.48.png" alt="" data-size="line">
 
 2. In Memphis GUI, create a client-type user based on the one you are (or not) using with NATS and concatenate "$MEMPHIS\_ACCOUNT\_ID" to it.
+3. Replace port 4222 with 6666.
 
 Code Example (Before)
 
@@ -190,7 +191,97 @@ Follow the below instructions based on your Memphis deployment type:
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
-nats stream add -s <MEMPHIS_BROKER_HOSTNAME>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCOUNT_ID> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
+nats stream add -s <MEMPHIS_BROKER_HOSTNAME>:6666 --user='<MEMPHIS_CLIENT_USER>$<ACCOUNT_ID>' --password='<MEMPHIS_CLIENT_USER_PASSWORD>' --timeout=10s
+```
+{% endcode %}
+
+Example:
+
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+nats stream add -s aws-eu-central-1.cloud.memphis.dev:6666 --user='nats$123456789' --password='natsmemphis!@#' --timeout=10s
+```
+{% endcode %}
+
+Walkthrough example
+
+{% code lineNumbers="true" %}
+```bash
+? Subjects test
+? Storage file
+? Replication 1
+? Retention Policy Limits
+? Discard Policy New
+? Stream Messages Limit -1
+? Per Subject Messages Limit -1
+? Total Stream Size -1
+? Message TTL -1
+? Max Message Size -1
+? Duplicate tracking time window 2m0s
+? Allow message Roll-ups Yes
+? Allow message deletion Yes
+? Allow purging subjects or the entire stream Yes
+```
+{% endcode %}
+
+Replacements in the client's code -
+
+1. Redirect the `servers` parameter to Memphis Cloud broker `hostname`.\
+   It can be found in the main dashboard.
+2. Change port 4222 to 6666
+3. In Memphis GUI, create a client-type user based on the one you are (or not) using with NATS
+
+Code Example (Before)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "localhost:4222",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"nats", # Optional in NATS. Mandatory in Memphis.
+        "password":"natspassword" # Optional in NATS. Mandatory in Memphis.
+    }
+    conn = await nats.connect(**connection_opts)
+
+    await conn.publish("test", "hello world".encode())
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+{% endcode %}
+
+Code Example (After)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "aws-eu-central-1.cloud.memphis.dev:6666",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"nats$123456789", # Optional in NATS. Mandatory in Memphis.
+        "password":"natspassword" # Optional in NATS. Mandatory in Memphis.
+    }
+    conn = await nats.connect(**connection_opts)
+
+    await conn.publish("test", "hello world".encode())
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
 ```
 {% endcode %}
 
