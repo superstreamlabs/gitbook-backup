@@ -1,14 +1,14 @@
 ---
-description: NATS API Compatibility
+description: Migrate NATS clients to Memphis
 cover: ../.gitbook/assets/NATS + Memphis.jpeg
 coverY: -43.05148658448151
 ---
 
-# NATS Compatible
+# NATS
 
 ## Introduction
 
-The motivation behind adding compatibility to NATS API is to
+The motivation behind adding compatibility with NATS API is to
 
 * Enable Memphis users to enjoy the broad reach and integrations of the NATS ecosystem.
 * Enable a lift & shift type of migration from NATS to Memphis.
@@ -21,25 +21,121 @@ The motivation behind adding compatibility to NATS API is to
   * Schemaverse
   * Dead-letter station - resend unacked messages
 
-## Getting Started
+## Replacement process
 
-### For NATS Jetstream users
+### For NATS Jetstream clients
 
-1. Change NATS `hostname` to Memphis `hostname`
+<details>
 
-### For NATS Core users
+<summary>Cloud</summary>
 
-All of NATS core features will be supported when communicating with Memphis, but without performing the below procedure, Memphis platform will not be able to control the created objects.
+
+
+</details>
+
+<details>
+
+<summary>Open-source</summary>
+
+1. Redirect the `servers` parameter to Memphis `hostname`
+
+Code Example (Before)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "localhost:4222",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"root",
+        "password":"natspassword"
+    }
+    conn = await nats.connect(**connection_opts)
+
+    js = conn.jetstream()
+    await js.add_stream(name="test", subjects=["test"])
+    await js.publish("test", "hello world".encode())
+
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+{% endcode %}
+
+Code Example (After)
+
+{% code title="main.py" lineNumbers="true" %}
+```python
+import asyncio
+import nats
+
+async def main():
+    connection_opts = {
+        "servers": "localhost:6666",
+        "allow_reconnect": True,
+        "max_reconnect_attempts": 10,
+        "reconnect_time_wait": 3,
+        "connect_timeout": 15,
+        "user":"root",
+        "password":"memphis"
+    }
+    conn = await nats.connect(**connection_opts)
+
+    js = conn.jetstream()
+    await js.add_stream(name="test", subjects=["test"])
+    await js.publish("test", "hello world".encode())
+
+    await conn.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+{% endcode %}
+
+</details>
+
+### For NATS Core clients
+
+All of NATS core features will be supported when communicating with Memphis, but without performing the below procedure, the Memphis platform will not be able to control the created objects.
 
 Memphis operates at the stream level. For a NATS `subject` to be visible and managed by Memphis, it must first be wrapped by a `stream`.
 
-Follow the below instructions based on your Memphis type of authentication:
+1. Install [NATS CLI](https://docs.nats.io/using-nats/nats-tools/nats\_cli).
+2. Follow the below instructions based on your Memphis type of authentication:
 
 #### When using Memphis password-based authentication (Default for the OS and Cloud):
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
-nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
+nats stream add -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
+```
+{% endcode %}
+
+Walkthrough example
+
+{% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
+```bash
+? Subjects test
+? Storage file
+? Replication 1
+? Retention Policy Limits
+? Discard Policy New
+? Stream Messages Limit -1
+? Per Subject Messages Limit -1
+? Total Stream Size -1
+? Message TTL -1
+? Max Message Size -1
+? Duplicate tracking time window 2m0s
+? Allow message Roll-ups Yes
+? Allow message deletion Yes
+? Allow purging subjects or the entire stream Yes
 ```
 {% endcode %}
 
@@ -47,7 +143,7 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER> --pas
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
-nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCOUNT_ID> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
+nats stream add -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCOUNT_ID> --password=<MEMPHIS_CLIENT_USER_PASSWORD>
 ```
 {% endcode %}
 
@@ -55,7 +151,7 @@ nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_CLIENT_USER>$<ACCO
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
-nats stream add  -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>::<MEMPHIS_CONNECTION_TOKEN> 
+nats stream add -s <MEMPHIS_BROKER_URL>:6666 --user=<MEMPHIS_APPLICATION_USER>::<MEMPHIS_CONNECTION_TOKEN> 
 ```
 {% endcode %}
 
