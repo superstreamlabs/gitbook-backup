@@ -203,7 +203,7 @@ nats stream add -s aws-eu-central-1.cloud.memphis.dev:6666 --user='nats$12345678
 ```
 {% endcode %}
 
-Walkthrough example
+**Important to know!** Memphis.dev Cloud only supports `Replication factor` **3** and `storage type` **file**
 
 {% code lineNumbers="true" %}
 ```bash
