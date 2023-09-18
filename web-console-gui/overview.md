@@ -6,6 +6,10 @@ coverY: 0
 
 # Dashboard
 
+{% hint style="info" %}
+[Click here for Memphis.dev Cloud](https://memphis.dev/pricing/?utm\_source=docs+nats\&utm\_medium=docs\&utm\_campaign=Cloud+NATS+landing+page\&utm\_id=Cloud+NATS+landing+page)
+{% endhint %}
+
 ## Introduction
 
 Memphis dashboard is designed to provide a quick snapshot of the platform's health.&#x20;
