@@ -27,8 +27,6 @@ The motivation behind adding compatibility with NATS API is to
 
 ## Replacement process
 
-{% embed url="https://youtu.be/biRhzum_KWQ?si=UUd3u7Bo6EaqouPn" %}
-
 ### For NATS Jetstream clients
 
 <details>
@@ -176,6 +174,8 @@ if __name__ == "__main__":
 </details>
 
 ### For NATS Core clients
+
+{% embed url="https://youtu.be/biRhzum_KWQ?si=UUd3u7Bo6EaqouPn" %}
 
 All of NATS core features will be supported when communicating with Memphis, but without performing the below procedure, the Memphis platform will not be able to control and display the created objects, and therefore it is not recommended.&#x20;
 
