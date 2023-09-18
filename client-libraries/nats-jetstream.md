@@ -7,7 +7,7 @@ coverY: -43.05148658448151
 # NATS
 
 {% hint style="info" %}
-[Click here for Memphis.dev Cloud](https://memphis.dev/pricing/?utm\_source=docs+nats\&utm\_medium=docs\&utm\_campaign=Cloud+NATS+landing+page\&utm\_id=Cloud+NATS+landing+page)
+Have you already tried [Memphis.dev Cloud](https://memphis.dev/pricing/?utm\_source=docs+nats\&utm\_medium=docs\&utm\_campaign=Cloud+NATS+landing+page\&utm\_id=Cloud+NATS+landing+page)?
 {% endhint %}
 
 ## Introduction
@@ -26,6 +26,8 @@ The motivation behind adding compatibility with NATS API is to
   * Dead-letter station - resend unacked messages
 
 ## Replacement process
+
+{% embed url="https://youtu.be/biRhzum_KWQ?si=UUd3u7Bo6EaqouPn" %}
 
 ### For NATS Jetstream clients
 
