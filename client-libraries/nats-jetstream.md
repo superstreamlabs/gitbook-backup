@@ -6,6 +6,10 @@ coverY: -43.05148658448151
 
 # NATS
 
+{% hint style="info" %}
+[Click here for Memphis.dev cloud ](https://memphis.dev/pricing/)
+{% endhint %}
+
 ## Introduction
 
 The motivation behind adding compatibility with NATS API is to
