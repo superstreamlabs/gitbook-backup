@@ -50,7 +50,7 @@ minimal platform operations, and all the observability you can think of.
 
 ## Walkthrough
 
-{% @storylane/embed subdomain="app" linkValue="upo0paxdvynz" url="https://app.storylane.io/share/upo0paxdvynz" %}
+{% @storylane/embed subdomain="app" linkValue="py6hwmsyvgox" url="https://app.storylane.io/demo/py6hwmsyvgox" %}
 
 ## High-level diagram
 
