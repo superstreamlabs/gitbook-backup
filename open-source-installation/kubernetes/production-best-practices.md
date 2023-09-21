@@ -57,3 +57,7 @@ metadata:
 ```bash
 helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install -f postgresql_values_tls.yaml memphis memphis/memphis --create-namespace --namespace memphis --wait
 ```
+
+
+
+Search terms: "what are the best practices for running memphis in production?"

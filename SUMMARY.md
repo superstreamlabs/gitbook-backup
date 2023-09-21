@@ -86,8 +86,8 @@
     * [Deploy on GCP](open-source-installation/kubernetes/cloud-deployment/deploy-on-gcp.md)
     * [Deploy on DigitalOcean](open-source-installation/kubernetes/cloud-deployment/deploy-on-digitalocean.md)
     * [Deploy on Azure](open-source-installation/kubernetes/cloud-deployment/deploy-on-azure.md)
+  * [Production Best Practices](open-source-installation/kubernetes/production-best-practices.md)
 * [Docker](open-source-installation/docker-compose.md)
-* [Production Best Practices](open-source-installation/production-best-practices.md)
 
 ## Client Libraries
 
