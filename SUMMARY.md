@@ -124,6 +124,7 @@
 * [Source code](integrations-center/source-code/README.md)
   * [GitHub](integrations-center/source-code/github.md)
 * [Other platforms](platform-integrations/other-platforms/README.md)
+  * [Zapier](integrations-center/other-platforms/zapier.md)
   * [Argo](platform-integrations/other-platforms/argo-and-memphis.md)
 
 ## 🗒 Release notes
