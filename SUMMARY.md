@@ -45,6 +45,8 @@
   * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
   * [Troubleshooting process](memphis/key-concepts/troubleshooting-process.md)
+* [Best practices](memphis-broker/best-practices/README.md)
+  * [Producer optimization](memphis-broker/best-practices/producer-optimization.md)
 * [Memphis configuration](memphis/memphis-configuration.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [NATS Jetstream vs Memphis](memphis/comparisons/nats-vs-memphis.md)
