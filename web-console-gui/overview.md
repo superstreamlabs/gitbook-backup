@@ -46,7 +46,7 @@ The total read/write throughput of the system over the span of 10 minutes.
 {% endtab %}
 
 {% tab title="Open-source" %}
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Total stations
 
