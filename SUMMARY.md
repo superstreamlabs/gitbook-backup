@@ -16,8 +16,8 @@
   * [Real-time data pipeline](getting-started/quick-start-by-a-use-case/real-time-data-pipeline.md)
   * [Change-data-Capture pipelines](getting-started/quick-start-by-a-use-case/change-data-capture-pipelines.md)
   * [Task scheduling](getting-started/quick-start-by-a-use-case/task-scheduling.md)
-* [Tutorials](getting-started/tutorials/README.md)
-* [Public case studies](getting-started/public-case-studies.md)
+* [Learn by example](getting-started/tutorials/README.md)
+* [Case studies](getting-started/case-studies.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
 * [Roadmap](https://memphis.dev/roadmap)
 

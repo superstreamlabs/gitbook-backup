@@ -64,17 +64,17 @@ Memphis brokers should run on different nodes to ensure data consistency and zer
 
 ![](../.gitbook/assets/replications.jpeg)
 
-## Supported Protocols
+## Communication types
 
-* [TCP-based SDKs](../client-libraries/nats-jetstream.md)
-* [HTTP](https://github.com/memphisdev/memphis-http-proxy)
+* [SDKs](broken-reference)
+* [REST](https://github.com/memphisdev/memphis-rest-gateway)
 * [WebSockets](https://github.com/orgs/memphisdev/projects/2/views/1?pane=issue\&itemId=14008452)
 
 ## Deployment sequence
 
 <figure><img src="../.gitbook/assets/deployment.jpeg" alt=""><figcaption></figcaption></figure>
 
-## Requirements
+## Self-hosted requirements
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -101,10 +101,6 @@ Memphis brokers should run on different nodes to ensure data consistency and zer
 | CPU      | 1 CPU                 |
 | Memory   | 4GB                   |
 | Storage  | 6GB                   |
-{% endtab %}
-
-{% tab title="Cloud" %}
-More [here](../memphis-cloud/getting-started.md).
 {% endtab %}
 {% endtabs %}
 

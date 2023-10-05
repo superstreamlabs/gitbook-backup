@@ -6,7 +6,7 @@ coverY: 0
 
 # Quick start
 
-## Which Memphis deployment are you using?
+## 1. Which Memphis deployment are you using?
 
 {% tabs %}
 {% tab title="Cloud" %}
@@ -16,7 +16,9 @@ coverY: 0
 {% endtab %}
 
 {% tab title="Open-source" %}
-### **For Kubernetes**
+### **Installation**
+
+#### **For Kubernetes**
 
 Stable -
 
@@ -35,7 +37,7 @@ Latest -
 
 More information can be found in the [Memphis k8s deployment](../open-source-installation/kubernetes/) documentation.
 
-### **Docker compose (Syntax for v2)**
+#### **Docker compose (Syntax for v2)**
 
 Stable -&#x20;
 
