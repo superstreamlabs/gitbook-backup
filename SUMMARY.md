@@ -17,7 +17,7 @@
   * [Change-data-Capture pipelines](getting-started/quick-start-by-a-use-case/change-data-capture-pipelines.md)
   * [Task scheduling](getting-started/quick-start-by-a-use-case/task-scheduling.md)
 * [Learn by example](getting-started/tutorials/README.md)
-* [Case studies](getting-started/case-studies.md)
+* [Case studies](getting-started/public-case-studies.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
 * [Roadmap](https://memphis.dev/roadmap)
 
@@ -97,12 +97,6 @@
 * [Rust (Community)](https://github.com/turulix/memphis-rust-community)
 * [NATS](client-libraries/nats-jetstream.md)
 * [Scala](client-libraries/scala.md)
-
-## 🖥 Web Console (GUI)
-
-* [Dashboard](web-console-gui/overview.md)
-* [Stations](web-console-gui/stations.md)
-* [Users](web-console-gui/users.md)
 
 ## 🔌 Integrations Center
 
