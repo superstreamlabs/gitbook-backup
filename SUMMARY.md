@@ -71,12 +71,6 @@
 * [Comparison](memphis-schemaverse/comparison.md)
 * [KB](memphis-schemaverse/kb.md)
 
-## ⭐ Memphis Functions
-
-* [Overview](memphis-functions/overview.md)
-* [Getting Started](memphis-functions/getting-started.md)
-* [memphis.yaml](memphis-functions/memphis.yaml.md)
-
 ## 📦 Open-Source Installation
 
 * [Kubernetes](open-source-installation/kubernetes/README.md)
