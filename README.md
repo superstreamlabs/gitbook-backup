@@ -1,5 +1,4 @@
 ---
-description: The source of Memphis.dev
 cover: .gitbook/assets/Banner- Memphis.dev streaming .jpg
 coverY: 0
 ---
@@ -27,7 +26,7 @@ And the list continues...
 
 ## So, What is Memphis.dev?
 
-Memphis.dev is more than a broker. It's a new streaming stack. \
+Memphis.dev is more than a broker. It's a new streaming stack.\
 \
 It significantly accelerates the development of real-time applications that require a streaming platform with high throughput, low latency, easy troubleshooting, fast time-to-value,\
 minimal platform operations, and all the observability you can think of.
@@ -50,7 +49,7 @@ minimal platform operations, and all the observability you can think of.
 
 ## Walkthrough
 
-{% @storylane/embed subdomain="app" linkValue="py6hwmsyvgox" url="https://app.storylane.io/demo/py6hwmsyvgox" %}
+{% @storylane/embed subdomain="app" linkvalue="py6hwmsyvgox" url="https://app.storylane.io/demo/py6hwmsyvgox" %}
 
 ## High-level diagram
 
