@@ -5,6 +5,8 @@ coverY: 0
 
 # Introduction
 
+<figure><img src=".gitbook/assets/Docs (1).png" alt=""><figcaption></figcaption></figure>
+
 ## Where it all started - the challenges
 
 When your application requires a message broker or a queue,\
