@@ -6,6 +6,10 @@ coverY: 0
 
 # Introduction
 
+<figure><img src=".gitbook/assets/Docs.png" alt="Memphis.dev funcrions"><figcaption></figcaption></figure>
+
+&#x20;                                                                 Click [**here**](https://memphis.dev/memphis-functions-private-beta/) to sign up!
+
 ## Where it all started - the challenges
 
 When your application requires a message broker or a queue,\
