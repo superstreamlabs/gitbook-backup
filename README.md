@@ -5,7 +5,7 @@ coverY: 0
 
 # Introduction
 
-<a href="https://memphis.dev/memphis-functions-private-beta"><img src="https://gcdnb.pbrd.co/images/v0fx7khYZiRh.png?o=1" alt="Docs-1" border="0"></a>
+<figure><img src="https://gcdnb.pbrd.co/images/v0fx7khYZiRh.png?o=1" alt=""><figcaption></figcaption></figure>
 
 ## Where it all started - the challenges
 
