@@ -7,6 +7,8 @@ coverY: 0
 
 <figure><img src="https://gcdnb.pbrd.co/images/v0fx7khYZiRh.png?o=1" alt=""><figcaption></figcaption></figure>
 
+Click [here](https://memphis.dev/memphis-functions-private-beta/) to sign up!
+
 ## Where it all started - the challenges
 
 When your application requires a message broker or a queue,\
