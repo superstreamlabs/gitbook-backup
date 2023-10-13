@@ -20,8 +20,3 @@ Great for auditing, notifications, webhooks that might require custom handling, 
 ### Integration Authentication
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-10-10 at 18.28.44.png" alt=""><figcaption></figcaption></figure>
-
-#### How to fill in the required information:
-
-* Memphis REST Gateway URL:
-  * Cloud:&#x20;
