@@ -35,9 +35,9 @@ Sometimes, messages can't be processed because of various possible issues, such 
 
 Occasionally, producers and consumers might fail to interpret aspects of the protocol that they use to communicate, causing message corruption or loss. Also, the consumer's hardware errors might corrupt the message payload or break the consumer itself.
 
-A message will be flagged as "Poison" and sent to the dead-letter station **when passing the `maxAckDeliveries` value.**
+A message will be flagged as "Poison" and sent to the dead-letter station **when passing the** `maxMsgDeliveries` **value.**
 
-`maxAckDeliveries` is the parameter that defines how many times the broker will try to redeliver the same message to the same CG until receiving an "Ack."
+`maxMsgDeliveries` is the parameter that defines how many times the broker will try to redeliver the same message to the same CG until receiving an "Ack."
 
 <figure><img src="../../.gitbook/assets/dls.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -45,7 +45,7 @@ A message will be flagged as "Poison" and sent to the dead-letter station **when
 
 The DLS will automatically (based on user decision) catch messages of the following types -
 
-* **Unacknowledged**. Messages that passed the `maxAckDeliveries` parameter.
+* **Unacknowledged**. Messages that passed the `maxMsgDeliveries` parameter.
 * **Schema violation.** Messages that did not pass the attached schema validation. As Memphis mission is to narrow data loss, and increase observability, messages that did not pass schema validation can be important and indicate some producer issues. Therefore, Memphis supports storing such messages.
 
 <img src="../../.gitbook/assets/Screen Shot 2023-01-07 at 21.10.04.png" alt="" data-size="original">
