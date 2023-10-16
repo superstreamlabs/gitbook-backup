@@ -12,10 +12,14 @@ With Zapier / Memphis integration, you create automation workflows that will be 
 
 Great for auditing, notifications, webhooks that might require custom handling, and in-house applications and clients that are not available through Zapier.
 
-### Capabilities
+#### Capabilities
 
 * Trigger a zap when a new message/record gets ingested into a Memphis station
 * Produce a message/record
+
+### Getting Started with Zapier
+
+Sign up for a free [Zapier](https://zapier.com/apps/APP/integrations) account, and from there, you can jump right in.&#x20;
 
 ### Integration Authentication
 
