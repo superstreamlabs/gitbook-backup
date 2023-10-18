@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/Banner- Memphis.dev streaming .jpg
+cover: .gitbook/assets/Docs (2) (1).png
 coverY: 0
 ---
 
