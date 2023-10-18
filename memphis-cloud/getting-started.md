@@ -1,6 +1,6 @@
 ---
 description: Accelerate Development of Real-Time Applications with Memphis.dev Cloud
-cover: ../.gitbook/assets/Gitbook (1).jpeg
+cover: ../.gitbook/assets/Docs (3).png
 coverY: 0
 layout:
   cover:
