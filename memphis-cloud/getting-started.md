@@ -26,6 +26,8 @@ In today's fast-paced and interconnected world, event streaming is the engine be
 
 This section aims to provide a solid foundation to embark on your streaming journey with Memphis.dev, offering clear explanations, step-by-step instructions, and valuable insights into the key concepts, services, and best practices that will empower you to make the most of the Memphis platform.&#x20;
 
+Memphis.dev Cloud is GDPR, SOC2 type I, and II compliant.
+
 Let's dive in and unlock the true potential of Memphis.dev together!
 
 ### Create an account
