@@ -26,7 +26,9 @@ In today's fast-paced and interconnected world, event streaming is the engine be
 
 This section aims to provide a solid foundation to embark on your streaming journey with Memphis.dev, offering clear explanations, step-by-step instructions, and valuable insights into the key concepts, services, and best practices that will empower you to make the most of the Memphis platform.&#x20;
 
-Memphis.dev Cloud is GDPR, SOC2 type I, and II compliant.
+Memphis.dev is fully compliant with GDPR and SOC2 type I & II regulations. Our team undergoes monthly/quarterly/annually regular training to ensure that Memphis.dev policies and activities are updated with the latest data protection regulations, and we also perform regular audits and assessments to ensure that we remain compliant with all relevant standards. We value our users’ privacy and security, and we are committed to maintaining the highest level of data protection possible.
+
+More in our [Legal Hub](https://memphis.dev/privacy-policy).
 
 Let's dive in and unlock the true potential of Memphis.dev together!
 
