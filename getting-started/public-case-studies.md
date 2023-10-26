@@ -8,6 +8,6 @@ Made by Gastromatic.de
 
 {% embed url="https://memphis.dev/blog/how-dstny-building-the-future-of-in-house-communication-using-memphis-dev/" %}
 
-{% embed url="https://memphis.dev/blog/how-cactusfire-handles-millions-of-daily-discord-messages-using-memphis-dev/" %}
+{% embed url="https://memphis.dev/blog/how-gastromatic-integrates-systems-using-memphis-dev/" %}
 
 Search terms: Gastromatic, gastromatic
