@@ -569,7 +569,7 @@ namespace Consumer
 
 {% tab title=".NET" %}
 {% hint style="warning" %}
-Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.go/tree/master/examples)
+Full code examples can be found in this [repo](https://github.com/memphisdev/memphis.net/tree/master/examples)
 {% endhint %}
 
 **Step 1:** Create an empty dir for the Go project
