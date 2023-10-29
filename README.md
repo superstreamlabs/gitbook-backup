@@ -28,7 +28,7 @@ And the list continues...
 
 Memphis.dev is more than a broker. It's a new streaming stack.
 
-Memphis.dev is a highly scalable event streaming and processing engine. Before Memphis came alon, handling ingestion and processing of events on a large scale took months to adopt and was a capability reserved for the top 20% of mega-companies. Now, Memphis opens the door for the other 80% to unleash their event and data streaming superpowers quickly, easily, and without breaking the bank.
+Memphis.dev is a highly scalable event streaming and processing engine. Before Memphis came along, handling ingestion and processing of events on a large scale took months to adopt and was a capability reserved for the top 20% of mega-companies. Now, Memphis opens the door for the other 80% to unleash their event and data streaming superpowers quickly, easily, and without breaking the bank.
 
 ### The Core Elements of Memphis:
 
