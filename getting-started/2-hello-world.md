@@ -6,6 +6,10 @@ coverY: 0
 
 # Quick start
 
+{% hint style="info" %}
+To learn by practice, you can find a sample application [**here**](https://github.com/memphisdev/onboarding-app).
+{% endhint %}
+
 ## 1. Which Memphis deployment are you using?
 
 {% tabs %}
