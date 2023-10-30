@@ -17,8 +17,7 @@ This manual will guide you through the process of migrating your Memphis.dev sel
    * Step 1: Assess Your Open-Source Deployment Requirements
    * Step 2: Configure your Memphis.dev Cloud Accordingly
    * Step 3: Configure your Clients
-   * Step 4: Migrate Data and Applications
-   * Step 5: Testing and Validation
+   * Step 4: Migrate Data and Clients
 
 ### 1. Introduction
 
@@ -83,3 +82,15 @@ memphis.connect({
 });
 ```
 
+Clients can be adjusted prior to the migration process and still function with the additional parameter in the self-hosted deployment, as this parameter will be seamlessly ignored.
+
+#### Step 4: Migrate Data and Clients
+
+1. By the time you reach step 4, you should find yourself in a comparable situation: a fully configured and operational Memphis.dev Cloud alongside your active self-hosted deployment.\
+   <img src="../.gitbook/assets/image (11).png" alt="" data-size="original">
+2. Create a second connection and consumer entities in each existing consumer to the newly created Memphis, so the consumers will consume messages from both the existing Memphis and the newer version.\
+   ![](<../.gitbook/assets/image (12).png>)
+3. Reconnect the producers to produce messages to the newly created Memphis.\
+   ![](<../.gitbook/assets/image (13).png>)
+4. Once all the existing messages on the older memphis server are read, it is safe to disconnect the older memphis connections and complete the migration.\
+   ![](<../.gitbook/assets/image (14).png>)

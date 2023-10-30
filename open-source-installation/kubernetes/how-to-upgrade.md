@@ -4,33 +4,33 @@ description: How to upgrade Memphis on K8S
 
 # 3 - Upgrade
 
-## Best practice procedure for production environments
+Discover step-by-step instructions and best practices for safely and efficiently updating your Memphis installation to the latest version.
 
-### Step 1: Deploy the new Memphis server in parallel to the existing one
+### Step 1: Deploy the new Memphis version
 
 <figure><img src="../../.gitbook/assets/migration #1.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Create a second connection for the consumers
 
-Create a second `connection` and `consumer` entities in each existing consumer to the newly created Memphis, so the consumers will consume messages from both the existing Memphis and the newer version.
+Establish an additional connection and consumer entities within each existing consumer, enabling them to consume messages from both the existing Memphis and the newly created version.
 
 <figure><img src="../../.gitbook/assets/migration #2.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Step 3: Shift the producers to the newer version
+### Step 3: Shift producers to the newer version
 
-Reconnect the producers to produce messages to the newly created Memphis.
+Reestablish the connections for the producers to send messages to the newly created Memphis.
 
 <figure><img src="../../.gitbook/assets/migration #3.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Step 4: Disconnect the old consumer connections
+### Step 4: Disconnect old consumers' connections
 
-Once all the existing messages on the older memphis server are read, it is safe to disconnect the older memphis connections and complete the migration.
+After ensuring that all the existing messages on the older Memphis server have been processed, it is secure to disconnect the connections to the older Memphis server and finalize the migration.
 
 <figure><img src="../../.gitbook/assets/migration #4.jpeg" alt=""><figcaption></figcaption></figure>
 
 
 
-## One-to-one replacement: After v1.0.0 (Included)
+## 1:1 replacement for >= v1.0.0
 
 ### Step 0: Obtain user-supplied values.
 
@@ -127,9 +127,7 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&helm upgr
 
 ### Step 4: Upgrade brokers. Delete one by one and validate each one to get back to the online state. <a href="#step-4-upgrade-brokers.-delete-one-by-one-and-validate-each-one-to-get-back-to-the-online-state." id="step-4-upgrade-brokers.-delete-one-by-one-and-validate-each-one-to-get-back-to-the-online-state."></a>
 
-##
-
-## One-to-one replacement: Before v1.0.0 (Not included)
+## 1:1 replacement for versions < v1.0.0
 
 ### Step 0: Obtain user-supplied values.
 
