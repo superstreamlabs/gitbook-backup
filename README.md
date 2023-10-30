@@ -1,6 +1,6 @@
 ---
 description: What is Memphis.dev? The challenges it solves and how
-cover: .gitbook/assets/Docs (3).png
+cover: .gitbook/assets/Docs (4).png
 coverY: 0
 ---
 
