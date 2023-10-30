@@ -24,6 +24,7 @@
 ## ☁ Memphis cloud
 
 * [Getting Started](memphis-cloud/getting-started.md)
+* [Self-hosted to Cloud](memphis-cloud/self-hosted-to-cloud.md)
 * [Pricing](https://memphis.dev/pricing)
 * [Legal hub](https://memphis.dev/privacy-policy)
 

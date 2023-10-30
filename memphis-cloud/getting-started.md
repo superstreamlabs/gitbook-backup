@@ -26,15 +26,24 @@ In today's fast-paced and interconnected world, event streaming is the engine be
 
 This section aims to provide a solid foundation to embark on your streaming journey with Memphis.dev, offering clear explanations, step-by-step instructions, and valuable insights into the key concepts, services, and best practices that will empower you to make the most of the Memphis platform.&#x20;
 
-Memphis.dev is fully compliant with GDPR and SOC2 type I & II regulations. Our team undergoes monthly/quarterly/annually regular training to ensure that Memphis.dev policies and activities are updated with the latest data protection regulations, and we also perform regular audits and assessments to ensure that we remain compliant with all relevant standards. We value our users’ privacy and security, and we are committed to maintaining the highest level of data protection possible.
+Memphis.dev is fully compliant with GDPR and SOC2 type I & II regulations. Our team undergoes monthly/quarterly/annually regular training to ensure that Memphis.dev policies and activities are updated with the latest data protection regulations, and we also perform regular audits and assessments to ensure that we remain compliant with all relevant standards. We value our users’ privacy and security, and we are committed to maintaining the highest level of data protection possible. More in our [Legal Hub](https://memphis.dev/privacy-policy).
 
-More in our [Legal Hub](https://memphis.dev/privacy-policy).
+### Why migrate from self-hosted to Cloud?
+
+Memphis.dev Cloud offers several advantages over self-hosted Memphis.dev deployments. These benefits include:
+
+* **Seamless Scalability:** Experience limitless growth potential with Memphis.dev Cloud. Easily scale to meet your evolving needs without the hassle of managing hardware.
+* **Enhanced Performance:** Enjoy lightning-fast response times and superior performance with our optimized cloud infrastructure.
+* **Automatic Updates:** Stay at the forefront of Memphis.dev with automatic updates and enhancements. Our cloud version ensures you're always running the latest and greatest version of Memphis.
+* **Effortless Maintenance:** Leave server maintenance and monitoring to us. Focus on what matters most, while we handle the backend tasks, ensuring your nervous system is always up and running.
+* **Data Security:** Protect your valuable data with our top-notch cloud security measures. Benefit from data encryption, regular backups, and industry-standard security protocols.
+* **Global Accessibility:** Access your data from anywhere in the world. Memphis.dev cloud ensures that your data is accessible whenever and wherever your apps need it.
 
 Let's dive in and unlock the true potential of Memphis.dev together!
 
 ### Create an account
 
-Head to the cloud [signup page](https://memphis.dev/cloud) to create an account.
+Head to the Cloud's [Sign-up](https://cloud.memphis.dev) page to create an account.
 
 <figure><img src="../.gitbook/assets/Screenshot (770).png" alt=""><figcaption><p>Memphis.dev cloud signup</p></figcaption></figure>
 
