@@ -85,6 +85,7 @@
     * [Deploy on Azure](open-source-installation/kubernetes/cloud-deployment/deploy-on-azure.md)
   * [Production Best Practices](open-source-installation/kubernetes/production-best-practices.md)
 * [Docker](open-source-installation/docker-compose.md)
+* [Open-source Support Bundle](open-source-installation/open-source-support-bundle.md)
 
 ## Client Libraries
 
