@@ -103,6 +103,8 @@
 ## 🔌 Integrations Center
 
 * [Index](integrations-center/index.md)
+* [Processing](integrations-center/processing/README.md)
+  * [Zapier](integrations-center/processing/zapier.md)
 * [Change data Capture (CDC)](integrations-center/change-data-capture-cdc/README.md)
   * [Debezium](integrations-center/change-data-capture-cdc/debezium.md)
 * [Monitoring](platform-integrations/monitoring/README.md)
@@ -116,7 +118,6 @@
 * [Source code](integrations-center/source-code/README.md)
   * [GitHub](integrations-center/source-code/github.md)
 * [Other platforms](platform-integrations/other-platforms/README.md)
-  * [Zapier](integrations-center/other-platforms/zapier.md)
   * [Argo](platform-integrations/other-platforms/argo-and-memphis.md)
 
 ## 🗒 Release notes
