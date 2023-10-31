@@ -1,3 +1,0 @@
-# Microservices communication
-
-Under development.

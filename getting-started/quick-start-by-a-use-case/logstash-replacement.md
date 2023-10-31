@@ -1,3 +1,0 @@
-# Logstash replacement
-
-Under development.

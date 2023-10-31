@@ -1,3 +1,0 @@
-# Log collection
-
-Under development.

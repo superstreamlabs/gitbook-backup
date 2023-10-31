@@ -1,3 +1,0 @@
-# Stream processing
-
-Under development.

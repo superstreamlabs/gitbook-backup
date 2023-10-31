@@ -1,3 +1,0 @@
-# NATS Replacement
-
-Under development.

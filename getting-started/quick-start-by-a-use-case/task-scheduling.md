@@ -1,3 +1,0 @@
-# Task scheduling
-
-Under development.

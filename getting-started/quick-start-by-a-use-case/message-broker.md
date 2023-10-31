@@ -1,3 +1,0 @@
-# Message broker
-
-Under development.

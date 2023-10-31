@@ -1,3 +1,0 @@
-# Queueing
-
-Under development.
