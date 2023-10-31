@@ -1,5 +1,21 @@
 ---
 description: Enhance Your Journey with Enterprise-Grade Support
+cover: ../.gitbook/assets/Open-source support bundle banner.jpeg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Open-source Support Bundle
