@@ -1,5 +1,5 @@
 ---
-description: This section describes Memphis Station entity
+description: This section describes the Memphis.dev Station
 cover: ../../.gitbook/assets/Memphis concepts (2).jpeg
 coverY: 0
 ---
@@ -8,56 +8,49 @@ coverY: 0
 
 ## What is a station?
 
-A station is a distributed unit that stores messages. Similar to Kafka's topics and RabbitMQ's queues. Each station has a retention policy, which defines when and how messages will be removed from the station—for example, by the number of stored messages, store time, or total size.
+The Memphis.dev station functions as a distributed storage unit for messages, resembling the concept of topics in Kafka. Each station is governed by a retention policy, which specifies the criteria for the removal of messages from the station. This policy can be based on factors such as the number of stored messages, storage time, or total size.
 
-Each station is distributed across one or more Memphis brokers, depending on the number of configured station replicas. Data will be poured in a RAID-1 manner.
+Multiple Memphis brokers host each station, the quantity of which depends on the number of configured station replicas. The data distribution within these stations follows a RAID-0 (partitioning) and/or RAID-1 (mirroring) approach, ensuring redundancy and data protection.
 
 <figure><img src="../../.gitbook/assets/station.jpeg" alt=""><figcaption><p>How replicas work</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/station_2.jpeg" alt=""><figcaption><p>Produce/Consume data</p></figcaption></figure>
 
-A station is a virtual entity that resides on a type of file called "stream" which stores the data. Stream files are stored on the broker's memory or non-volatile storage, based on the user's configuration per station.&#x20;
+A station represents a logical entity hosted on a file type known as a "stream," which serves as the storage medium for the data. The storage of stream files can be either in the broker's memory or non-volatile storage, as per the user's configuration for each station.
 
 ### Leaders and followers
 
-the Memphis is based on NATS Jetstream, which makes use of RAFT algorithm as a non-quorum consensus algorithm.
+Memphis is built upon NATS Jetstream, which employs the RAFT algorithm as a non-quorum consensus mechanism. Raft is specifically designed as an alternative to the Paxos family of algorithms.
 
-Raft is a consensus algorithm designed as an alternative to the Paxos family of algorithms.\
-Raft offers a generic way to distribute a state machine across a cluster of computing systems, ensuring that each node in the cluster agrees upon the same state transitions.
+Raft provides a versatile means to distribute a state machine across a cluster of computing systems, ensuring unanimous agreement on state transitions among every node in the cluster.
 
-Raft is not a Byzantine fault-tolerant algorithm: the nodes trust the elected leader.
+It's important to note that Raft is not a Byzantine fault-tolerant algorithm; the nodes rely on the leader elected within the system.
 
-Each station stores a stream component with a single leader on the most available broker for consensus reasons. In case of broker failure, the leader role will be transferred to a follower in configured replicas.
+In the Memphis architecture, each station maintains a stream component with a single leader residing on the most readily available broker for the sake of consensus. In the event of a broker failure, the leader role will be seamlessly transferred to a follower within the configured replicas.
 
-Choosing memory persistency will improve performance, while disk-based persistency will provide higher availability.
+Users have the option to choose memory-based persistency, which enhances performance, or opt for disk-based persistency, which provides increased availability.
 
 <figure><img src="../../.gitbook/assets/stream.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Replicas (Mirroring)
 
-Available in cluster mode only. During station creation, the user can choose the number of station replicas. Replicas are an exact mirror of the entire station data, and each produced message will be mirrored across the configured replicas. Each replica will be stored on a different broker; therefore, the maximum number of replicas is derived from the number of brokers in a cluster.
+This feature is exclusively available in cluster mode. When creating a station, users have the option to specify the number of station replicas. Replicas serve as complete duplicates of all station data, ensuring that every message produced is mirrored across the configured replicas. Each replica is stored on a distinct broker, and the maximum number of replicas is determined by the count of brokers within the cluster.
 
-Replicas can be defined using the SDK, GUI, or CLI.
+Replicas can be defined through the SDK, GUI, or CLI interfaces. It's worth noting that, although not currently possible, there are plans to allow changes to the number of replicas after station creation in the future.
 
-The number of replicas cannot be changed after station creation. (Will be in the future)
+### Message Retention
 
-### Retention
+Message brokers are inherently designed with a "transient" characteristic. By default, messages are not automatically deleted upon acknowledgment to allow new consumers or consumers from different groups to access the stored messages.
 
-Message broker, by design, has a "temporary" nature. Messages can, but not by default deleted when acknowledged to enable new or other consumers from different consumer groups to consume the stored messages.
+To prevent overloading the station and ensure efficient message management, it's imperative to select a retention policy for each station. This policy dictates the conditions that will prompt Memphis to remove messages from the station.
 
-To avoid filling out the station, we must choose a retention policy per station that defines the condition that will trigger Memphis to remove messages from a station.
-
-* **Number of messages**\
-  The station will only retain the last X-produced messages.&#x20;
+* Message Count Limit: The station will retain only the most recent X-produced messages.
 
 <figure><img src="../../.gitbook/assets/retention.jpeg" alt=""><figcaption></figcaption></figure>
 
-* **Size**\
-  High threshold for station capacity in bytes.
-* **Time**\
-  Each produced message receives a dedicated timer and will be removed after hitting the configured time.
-* **Ack**\
-  Messages will be removed from a station once acknowledged by all the connected consumer groups. Great for _exactly-once_ semantics.
+* Size: A cap on station capacity, typically defined in bytes, with a high threshold.
+* Time: Every produced message is assigned its own timer and will be automatically removed once it reaches the specified configured time limit.
+* Ack: Messages within a station will be eliminated when acknowledged by all connected consumer groups, providing robust support for achieving exactly-once semantics.
 
 ### Partitions
 
@@ -69,8 +62,7 @@ Memphis partitions were released on v1.2.
 
 <figure><img src="../../.gitbook/assets/partitions (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-Partitions are the main method of concurrency for stations. \
-A station will be broken into multiple partitions across one or more memphis brokers.
+Partitioning is the primary approach to achieving concurrency within stations. A station is divided into multiple partitions, distributed across one or more Memphis brokers.
 
 <figure><img src="../../.gitbook/assets/partitions (2).jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -94,9 +86,7 @@ If a station has only one partition, messages will be produced/consumed from tha
 
 #### How to use partitions
 
-Within each client library manual, you can find where and how to define partitions.
-
-Partitions are defined during station creation, and currently, there is no change needed from the client's side to work with the created partitions.
+Instructions on how to define and employ partitions can be located within each client library's manual. Partitions are established when creating a station, and presently, no additional action is required on the client's part to interact with the generated partitions.
 
 #### **Limitations**
 
@@ -110,11 +100,13 @@ Partitions are defined during station creation, and currently, there is no chang
 1. Partition-level produce and consumption.
 2. Partition's key assignment. To enable dynamic consumer listening.
 
-### Ordering and delivery
+### Ordering and delivery guarantee
 
-Ordering is guaranteed only while working with a single consumer group.
+Memphis.dev provides a strong guarantee of ordering and delivery, ensuring that messages are delivered reliably and in the order in which they were produced. This guarantee is particularly important when working with a single consumer or within a single consumer group, where message order is preserved.&#x20;
 
-As seen in the illustration below, each **consumer group** will receive **all** the messages stored within the station.
+In scenarios involving multiple consumer groups, the guarantee of ordering might not hold, as Memphis.dev focuses on delivering high throughput and low latency, potentially sacrificing strict ordering for improved performance. This flexibility allows developers to choose the right trade-off between performance and ordering based on their specific application requirements.
+
+
 
 <figure><img src="../../.gitbook/assets/ordering.jpeg" alt=""><figcaption></figcaption></figure>
 
