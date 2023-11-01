@@ -36,6 +36,7 @@
   * [Troubleshooting process](memphis/key-concepts/troubleshooting-process.md)
 * [Best practices](memphis-broker/best-practices/README.md)
   * [Producer optimization](memphis-broker/best-practices/producer-optimization.md)
+  * [Compression](memphis-broker/best-practices/compression.md)
 * [Memphis configuration](memphis/memphis-configuration.md)
 * [Comparisons](memphis/comparisons/README.md)
   * [NATS Jetstream vs Memphis](memphis/comparisons/nats-vs-memphis.md)
