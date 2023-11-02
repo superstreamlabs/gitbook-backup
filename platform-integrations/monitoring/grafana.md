@@ -55,15 +55,18 @@ exporter.enabled="true"
 #### Obtain the credentials used to hold the Metadata data on your current release:
 
 ```bash
+export CT=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.CONNECTION_TOKEN}" | base64 -d)
+export ROOT_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ROOT_PASSWORD}" | base64 -d)
 export PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.password}" | base64 -d)
 export REPMGR_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata -o jsonpath="{.data.repmgr-password}" | base64 -d)
 export ADMIN_PASSWORD=$(kubectl get secret --namespace "memphis" memphis-metadata-coordinator -o jsonpath="{.data.admin-password}" | base64 -d)
+export ENCRYPTION_SECRET_KEY=$(kubectl get secret --namespace "memphis" memphis-creds -o jsonpath="{.data.ENCRYPTION_SECRET_KEY}" | base64 -d)
 ```
 
 #### Use helm upgrade to add exporter to the deployment:
 
 ```
-helm upgrade memphis memphis/memphis -n memphis --set exporter.enabled=true,metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD
+helm upgrade memphis memphis/memphis -n memphis --set exporter.enabled=true,metadata.postgresql.password=$PASSWORD,metadata.postgresql.repmgrPassword=$REPMGR_PASSWORD,metadata.pgpool.adminPassword=$ADMIN_PASSWORD,memphis.creds.connectionToken=$CT,memphis.creds.rootPwd=$ROOT_PASSWORD,memphis.creds.encryptionSecretKey=$ENCRYPTION_SECRET_KEY
 ```
 
 ### Step 2: Import Memphis dashboard
