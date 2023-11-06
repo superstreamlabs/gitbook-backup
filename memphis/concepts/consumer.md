@@ -85,7 +85,7 @@ This unique feature allows the flexibility of revisiting and re-reading an ackno
 
 ## Prefetching
 
-(Exclusive to GO SDK)
+(Available for Go and Python SDKs)
 
 The prefetching feature is a performance enhancement exclusive to the GO SDK, designed to boost throughput. When utilizing this optimization, the consumer primes the next round of fetches before presenting a set of records to the user through the consume() function. By doing so, it effectively overlaps the overhead of fetching data with the message processing phase.
 
