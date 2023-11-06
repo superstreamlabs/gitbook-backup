@@ -73,14 +73,12 @@ Existing types:
 1. Round-Robin (Default) - Messages will be produced or consumed to or from a station in a round-robin fashion, meaning each time, a message will be produced or consumed from a different partition. In this way, without a specific logic in place, data will be striped across the created partitions.
 2. Partition Key - Producing / Consuming messages with a specified partition key that will allow producers/consumers to work with a single partition. Memphis uses the popular `Murmur3` hash function to convert partition keys into a partition ID.\
    \*Note - Changing the number of partitions will affect the partition key calculation.
+3. Index-based - Allowing you to produce and consume messages to and from specific partitions.
 
 Future types:
 
 1. Custom Partition Key Function -\
    Ability to provide a custom callback function to calculate the partition ID from a given partition key.
-2. Partition IDs -\
-   Specify a partition ID or a subset of IDs for the producer/consumer to work with.\
-   If a number of IDs are given, producers/consumers will work in a round-robin fashion with the specified partitions.
 
 If a station has only one partition, messages will be produced/consumed from that partition only. Specifying a partition key or a custom function will be ignored and won’t break the described behavior.
 

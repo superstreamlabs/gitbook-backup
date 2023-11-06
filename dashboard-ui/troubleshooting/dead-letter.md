@@ -10,24 +10,22 @@ coverY: 0
 
 ## Introduction
 
-Dead-letter station will often be named "Dead-letter queue" in other messaging systems.
+Dead-letter stations, also referred to as "Dead-letter queues" in some messaging systems, serve as both a concept and a practical solution essential for client debugging. They enable you to effectively isolate and "recycle" unconsumed messages, rather than discarding them, to diagnose why their processing was unsuccessful.
 
-Dead-letter station (=queue) is both a concept and a solution that is useful for debugging clients because it lets you isolate and "recycle" instead of drop unconsumed messages to determine why their processing doesn't succeed.
+Upon the creation of a Memphis station, a default dead-letter station is established. It remains resource and storage-free until messages accumulate within it.
 
-Upon creation of a Memphis station, a dead-letter station will be created by default since it does not consume any resources or storage unless there are messages.
+After the user has successfully debugged the consumer application or when the consumer application becomes available to process the messages, retransmission can occur directly from the dead-letter station using the following methods:
 
-Once the user has debugged the consumer application or the consumer application is available to consume the message, a retransmit can take place directly from the dead-letter station according in the following methods
+1. Move the messages back to the source station with a simple click in the Memphis GUI.
+2. Retransmit the message directly to the intended consumer that initially failed to consume it.
+3. Consume the message directly through the SDK from any consumer.
+4. Optionally, drop the message from the Dead-letter station.
 
-* Move the messages back to the source station with just a click of a button on the Memphis GUI
-* Retransmit the message directly to the unconsumed consumer
-* Consume the message directly through the SDK from any consumer
-* Drop the message from the Dead-letter station
+## What are "dead-letter" messages?
 
-## Terminology
+**"Dead-letter" messages** are defined as messages that lead to a consumer group continuously demanding delivery, possibly due to a consumer failure, preventing the message from being fully processed and acknowledged. Consequently, these messages persistently reoccur in the same consumer's queue.
 
-**Poison messages** = Messages that cause a consumer group to repeatedly require a delivery (possibly due to a consumer failure) such that the message is never processed completely and acknowledged so that it can be stopped being sent again to the same consumer.
-
-**Example**: Some message on an arbitrary station pulled by a consumer of a certain consumer group. That consumer, for some reason, doesn't succeed in handling it. It can be due to a bug, an unknown schema, a resource issue, etc…
+Example: Consider a scenario where a message from an arbitrary station is retrieved by a consumer belonging to a specific consumer group. For various reasons, this consumer fails to process the message, whether due to a software bug, an unrecognized schema, resource constraints, or other factors.
 
 ## How do dead-letter stations work?
 
@@ -52,14 +50,26 @@ The DLS will automatically (based on user decision) catch messages of the follow
 
 <figure><img src="../../.gitbook/assets/schemaverse.jpeg" alt=""><figcaption><p>How "Schema violation" messages reach DLS</p></figcaption></figure>
 
-### How to recover (=resend) a DLS message
+### How to recover (=consume) a Dead-letter message
 
-Message recovery or "resend" does not require any code change or downtime to the consumers. Memphis will push the message over the same "station connection."
+#### Using the GUI
 
-Every type of stored DLS message has a unique recovery strategy.
+Recovering or "resending" a dead-letter message can be accomplished without any code modifications or causing downtime for the consumers. Memphis facilitates this by retransmitting the message over the same "station connection."
 
-* For **"Unacknowledged"** message - The message will be resent directly to the unacknowledged consumer group/s. Traditional message brokers usually reproduce the message back to the queue, but that behavior will produce an already ACK message to all of the consumer groups, both the ones that ACK the message and those who do not and can bring duplicate processing. Memphis implemented a mechanism to resend the message only to unacknowledged consumer groups to avoid such a scenario.
-* For "**Schema violation**" message - Observability only. Resend is currently not available. Future releases will enable the user to change the schema if needed and push the message back to the station as it did not consume by any CG.&#x20;
+Each type of stored dead-letter station (DLS) message is associated with a distinct recovery strategy:
+
+* For "Unacknowledged" messages: The message is retransmitted directly to the unacknowledged consumer group(s). This approach differs from traditional message brokers, which typically return the message to the queue, potentially leading to already acknowledged messages for all consumer groups, including those that have already acknowledged the message and those that have not, thereby causing duplicate processing. Memphis employs a mechanism to resend the message exclusively to unacknowledged consumer groups, mitigating the risk of duplicate processing.
+* For "Schema violation" messages: Currently, the only action available is observability. Message resend is not supported at present. Future releases will empower users to modify the schema if necessary and retransmit the message to the station if it has not been consumed by any consumer group.
+
+#### Using the SDK
+
+If you wish to consume all your dead-letter messages, you should establish a second station and establish a connection between the designated station and the new one to facilitate dead-letter message consumption.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-06 at 16.42.34.png" alt=""><figcaption></figcaption></figure>
+
+After establishing the link, dead-letter messages will be moved to the specified station, allowing Consumer Groups (CGs) to consume them.
+
+It's important to note that the designated dead-letter station functions as a standard station and can be utilized accordingly.
 
 ### Message Journey
 
