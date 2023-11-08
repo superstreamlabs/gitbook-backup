@@ -6,10 +6,6 @@ coverY: 0
 
 # Overview
 
-{% hint style="info" %}
-[Click here for Memphis.dev Cloud](https://memphis.dev/pricing/?utm\_source=docs+nats\&utm\_medium=docs\&utm\_campaign=Cloud+NATS+landing+page\&utm\_id=Cloud+NATS+landing+page)
-{% endhint %}
-
 ## Introduction
 
 In a federated data platform, in which responsibilities are distributed between stakeholders, teams, and sources, it’s harder to control and establish a single standard. This is where the data contracts concept comes into play. Why do data contracts matter? Because they:
@@ -57,7 +53,7 @@ Also includes -
 * Import & Export schemas
 * Low/no-code validation and serialization
 * No configuration needed
-* Native support in Python, Go, Node.js
+* Native support in Python, Go, Node.js, .NET
 
 ### Key features
 
@@ -65,7 +61,7 @@ Also includes -
 * Unaligned messages will be dropped immediately as the schema gets attached
 * Schemas can be modified without rebooting producers
 * Producer-level validation - to reduce resources needed from the broker
-* Supported SDKs: Go, Python, Node.js (Nest / Typescript)
+* Supported SDKs: Go, Python, Node.js (Nest / Typescript), .NET
 
 ### Supported formats
 

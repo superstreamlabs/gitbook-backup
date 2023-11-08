@@ -445,8 +445,6 @@ axios(config)
 ```javascript
 const { memphis } = require("memphis-dev");
 
-var protobuf = require("protobufjs");
-
 (async function () {
     try {
         await memphis.connect({
@@ -465,13 +463,8 @@ var protobuf = require("protobufjs");
             genUniqueSuffix: true
         });
 
-        const root = await protobuf.load("schema.proto");
-        var TestMessage = root.lookupType("Test");
-
         consumer.on("message", message => {
-            const x = message.getData()
-            var msg = TestMessage.decode(x);
-            console.log(msg)
+            console.log(message.getDataDeserialized());
             message.ack();
         });
         consumer.on("error", error => {
@@ -491,20 +484,12 @@ var protobuf = require("protobufjs");
 package main
 
 import (
-	"demo/schemapb" // local protobuf struct
 	"fmt"
 	"os"
 	"time"
 
 	"github.com/memphisdev/memphis.go"
-	"google.golang.org/protobuf/proto"
 )
-
-type Test struct {
-	Name string
-	LastName string
-
-}
 
 func main() {
 	conn, err := memphis.Connect(
@@ -531,13 +516,7 @@ func main() {
 		}
 
 		for _, msg := range msgs {
-			var message schemapb.Test
-			err := proto.Unmarshal(msg.Data(), &message)
-			if err != nil {
-				fmt.Println(err)
-			}			
-
-			fmt.Println(&message)
+			fmt.Println(string(msg.DataDeserialized()))	
 			msg.Ack()
 		}
 	}
@@ -552,14 +531,12 @@ func main() {
 ```python
 import asyncio
 from memphis import Memphis
-import schema_pb2 as PB # protobuf class // .proto file
 
 async def main():
     async def msg_handler(msgs, error):
         try:
             for msg in msgs:
-                obj = PB.Message()
-                obj.ParseFromString(msg.get_data())
+                print("message: ", await msg.get_data_deserialized())
                 await msg.ack()
             if error:
                 print(error)
@@ -587,7 +564,6 @@ if __name__ == '__main__':
 {% tab title="TypeScript" %}
 ```typescript
 import { memphis, Memphis } from 'memphis-dev';
-var protobuf = require("protobufjs");
 
 (async function () {
     let memphisConnection: Memphis;
@@ -608,13 +584,8 @@ var protobuf = require("protobufjs");
             genUniqueSuffix: true
         });
 
-        const root = await protobuf.load("schema.proto");
-        var TestMessage = root.lookupType("Test");
-
         consumer.on("message", message => {
-            const x = message.getData()
-            var msg = TestMessage.decode(x);
-            console.log(msg)
+            console.log(message.getDataDeserialized());
             message.ack();
         });
         consumer.on("error", error => {
@@ -648,7 +619,6 @@ message Test {
 ```aspnet
 using Memphis.Client.Consumer;
 using Memphis.Client;
-using ProtoBuf;
 
 var options = MemphisClientFactory.GetDefaultOptions();
 options.Host = "<memphis-host>";
@@ -681,15 +651,7 @@ try
 
         foreach (var msg in args.MessageList)
         {
-            var data = msg.GetData();
-            if (data is { Length: > 0 })
-            {
-                using var stream = new MemoryStream(data);
-                var test = Serializer.Deserialize<Test>(stream);
-                Console.WriteLine($"Field1: {test.Field1}");
-                Console.WriteLine($"Field2: {test.Field2}");
-                Console.WriteLine($"Field3: {test.Field3}");
-            }
+            Console.WriteLine($"Received data: {msg.GetDeserializedData()}");
         }
     };
 
@@ -705,9 +667,5 @@ catch (Exception exception)
 }
 ```
 {% endcode %}
-{% endtab %}
-
-{% tab title="REST" %}
-Currently not supported.
 {% endtab %}
 {% endtabs %}
