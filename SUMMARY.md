@@ -9,13 +9,6 @@
 * [How to contribute?](getting-started/how-to-contribute.md)
 * [Roadmap](https://memphis.dev/roadmap)
 
-## ☁ Memphis cloud
-
-* [Getting Started](memphis-cloud/getting-started.md)
-* [Self-hosted to Cloud](memphis-cloud/self-hosted-to-cloud.md)
-* [Pricing](https://memphis.dev/pricing)
-* [Legal hub](https://memphis.dev/privacy-policy)
-
 ## ⭐ Memphis Broker
 
 * [Architecture](memphis/architecture.md)
@@ -60,6 +53,13 @@
     * [Avro](memphis-schemaverse/formats/produce-consume/avro.md)
 * [Comparison](memphis-schemaverse/comparison.md)
 * [KB](memphis-schemaverse/kb.md)
+
+## ☁ Memphis cloud
+
+* [Getting Started](memphis-cloud/getting-started.md)
+* [Self-hosted to Cloud](memphis-cloud/self-hosted-to-cloud.md)
+* [Pricing](https://memphis.dev/pricing)
+* [Legal hub](https://memphis.dev/privacy-policy)
 
 ## 📦 Open-Source Installation
 
