@@ -45,7 +45,7 @@ Let's dive in and unlock the true potential of Memphis.dev together!
 
 Head to the Cloud's [Sign-up](https://cloud.memphis.dev) page to create an account.
 
-<figure><img src="../.gitbook/assets/Screenshot (770).png" alt=""><figcaption><p>Memphis.dev cloud signup</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot (808).png" alt=""><figcaption><p>Memphis.dev cloud signup</p></figcaption></figure>
 
 ### Walkthrough
 
