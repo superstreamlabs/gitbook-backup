@@ -115,12 +115,12 @@ To deploy Memphis in a Kubernetes environment, allocate one dedicated worker nod
 
 ##
 
-## TLDR
+## TL;DR
 
-1. Use Memphis in cluster mode to enable parallel usage across multiple brokers
-2. Spread the workloads across as many partitions as possible (if possible) to spread leaders across different brokers
+1. Use Memphis in cluster mode to enable parallel usage across multiple brokers.
+2. Spread the workloads across as many partitions as possible (if possible) to spread leaders across different brokers.
 3. Use NVMe disks for storage.
-4. Stretch the retention to days/hours
+4. Stretch the retention to days/hours.
 5. Make sure to utilize as many cores as possible within the app itself. For example, in node.js - use threads.
-6. Use affinity rules and separate the client K8s worker from the memphis workers
+6. Use affinity rules and separate the client K8s worker from the memphis workers.
 
