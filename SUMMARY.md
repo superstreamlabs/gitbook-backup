@@ -57,7 +57,7 @@
 ## ☁ Memphis cloud
 
 * [Getting Started](memphis-cloud/getting-started.md)
-* [Self-hosted to Cloud](memphis-cloud/self-hosted-to-cloud.md)
+* [Self-hosted to Cloud Guide](memphis-cloud/self-hosted-to-cloud-guide.md)
 * [Pricing](https://memphis.dev/pricing)
 * [Legal hub](https://memphis.dev/privacy-policy)
 
@@ -82,7 +82,7 @@
     * [TLS - Memphis TLS websocket configuration](open-source-installation/kubernetes/guides/tls-memphis-tls-websocket-configuration.md)
     * [TLS - Securing Memphis Client with TLS](open-source-installation/kubernetes/guides/tls-securing-memphis-client-with-tls.md)
 * [Docker](open-source-installation/docker-compose.md)
-* [Open-source Support Bundle](open-source-installation/open-source-support-bundle.md)
+* [Open-source Support](open-source-installation/open-source-support.md)
 
 ## Client Libraries
 
