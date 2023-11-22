@@ -51,11 +51,9 @@ Head to the Cloud's [Sign-up](https://cloud.memphis.dev) page to create an accou
 
 To get you up and running quickly, we created the following tutorial to guide you through the different key components. Feel free to _skip it_ if you feel comfortable enough.
 
-<figure><img src="../.gitbook/assets/Screen Shot 2023-06-28 at 13.16.24.png" alt=""><figcaption></figcaption></figure>
-
 #### Main overview
 
-<figure><img src="../.gitbook/assets/Screen Shot 2023-06-28 at 13.23.27.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Group 1000003258.jpg" alt=""><figcaption></figcaption></figure>
 
 Upper bar -
 
