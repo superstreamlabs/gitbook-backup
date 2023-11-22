@@ -62,7 +62,7 @@ Memphis.dev is a highly scalable event streaming and processing engine. Before M
 
 ## Walkthrough
 
-{% @storylane/embed subdomain="app" linkValue="py6hwmsyvgox" url="https://app.storylane.io/demo/py6hwmsyvgox" %}
+{% embed url="https://www.youtube.com/watch?t=7s&v=mDbGnMC1hig" %}
 
 ## High-level diagram
 
