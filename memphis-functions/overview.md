@@ -60,10 +60,24 @@ Now, each station has the capability to effortlessly integrate functions for pro
 
 It is built for all, super fast to develop, and easy to maintain.
 
+* You are not changing anything in your coding environment. You continue pushing code to the same good old repository of your choice, and you do not need to learn any "Memphis" language.
 * Multi-language support: Memphis Functions allows you to process events in the most popular programming language of your choice.
 * Get to Value Faster: Eliminate the hassle of error handling, dead-letter queues, retries, and offsets. Just write clients using "Functions."
 * No Boilerplate, just logic: Say goodbye to crafting wrappers, clients, schemas, and libraries. Let Functions handle that for you.
 * Use AI For Writing New Functions: Leverage AI for a rapid development of new processing functions.
+* Share functions with your entire organization and reduce duplicate work
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-11-25 at 0.34.35.png" alt=""><figcaption></figcaption></figure>
+
+<div>
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-11-25 at 0.34.44 (1).png" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-11-25 at 0.35.04 (1).png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 ### Alpha version
 
@@ -72,3 +86,7 @@ Please bear in mind that Memphis Functions is currently in its Alpha version, so
 Our current focus is directed at enhancing stability, developer experience, and observability. Once these facets are well-established, our attention will pivot towards optimizing performance and dynamism.
 
 Your feedback is critical for its success. Please share it with us through [Discord](https://memphis.dev/discord) or team@memphis.dev
+
+{% content-ref url="getting-started.md" %}
+[getting-started.md](getting-started.md)
+{% endcontent-ref %}

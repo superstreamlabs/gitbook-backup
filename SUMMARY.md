@@ -57,6 +57,7 @@
 ## ⭐ Memphis Functions (Alpha) <a href="#memphis-functions" id="memphis-functions"></a>
 
 * [Overview](memphis-functions/overview.md)
+* [Getting started](memphis-functions/getting-started.md)
 
 ## ☁ Memphis cloud
 
