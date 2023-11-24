@@ -46,7 +46,7 @@ Memphis Functions works great with other streaming platforms like Kafka, SQS, Pu
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-11-24 at 23.50.49.png" alt=""><figcaption></figcaption></figure>
 
-But works perfectly with Memphis Broker
+And works even better with Memphis Broker
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-11-24 at 23.50.58.png" alt=""><figcaption></figcaption></figure>
 
