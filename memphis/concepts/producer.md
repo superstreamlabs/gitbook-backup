@@ -65,6 +65,18 @@ Memphis incorporates a partitioning system, which is fundamental to enhancing co
 
 Read [here](station.md#partitions) to learn more and how to use it.
 
+### Produce messages to multiple stations simultaneously&#x20;
+
+<figure><img src="../../.gitbook/assets/image (15).png" alt="" width="563"><figcaption></figcaption></figure>
+
+When specifying a producer, you have the option to send a message simultaneously to multiple stations.
+
+An example from the [Node.js SDK](https://github.com/memphisdev/memphis.js#produce-to-multiple-stations):
+
+```
+stationName: ['<station-name>', '<station-name>']
+```
+
 ## Supported Protocols
 
 * [TCP-based SDKs](broken-reference)
