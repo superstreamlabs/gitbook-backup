@@ -1,4 +1,8 @@
-# Tutorials
+# Learn by example
+
+{% hint style="info" %}
+[Memphis Academy](https://github.com/memphisdev/memphis-dev-academy) is now available!
+{% endhint %}
 
 {% embed url="https://memphis.dev/blog/task-scheduling-with-a-message-broker/" %}
 
