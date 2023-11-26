@@ -40,7 +40,7 @@ It's not scalable, no code reuse, it takes time you don't have, and it's hard to
 
 ## Meet Memphis Functions
 
-A Dev-first Platform, Created To Equip Any Developer With Data Engineering Superpowers By Developing Or Employing Serverless Functions For Instant Stream Processing.
+A Dev-first Framework, Created To Equip Any Developer With Data Engineering Superpowers By Developing Or Employing Serverless Functions For Instant Stream Processing.
 
 Memphis Functions works great with other streaming platforms like Kafka, SQS, Pulsar, and others
 
