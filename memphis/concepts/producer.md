@@ -65,7 +65,7 @@ Memphis incorporates a partitioning system, which is fundamental to enhancing co
 
 Read [here](station.md#partitions) to learn more and how to use it.
 
-### Produce messages to multiple stations simultaneously&#x20;
+## Produce messages to multiple stations simultaneously&#x20;
 
 <figure><img src="../../.gitbook/assets/image (15).png" alt="" width="563"><figcaption></figcaption></figure>
 
