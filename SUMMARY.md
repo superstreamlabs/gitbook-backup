@@ -78,6 +78,7 @@
     * [Deploy on DigitalOcean](open-source-installation/kubernetes/cloud-deployment/deploy-on-digitalocean.md)
     * [Deploy on Azure](open-source-installation/kubernetes/cloud-deployment/deploy-on-azure.md)
   * [Guides](open-source-installation/kubernetes/guides/README.md)
+    * [Monitoring/Alerts Recommendations](open-source-installation/kubernetes/guides/monitoring-alerts-recommendations.md)
     * [Production Best Practices](open-source-installation/kubernetes/guides/production-best-practices.md)
     * [NGINX Ingress Controller and Cloud-Agnostic Memphis Deployments](open-source-installation/kubernetes/guides/nginx-ingress-controller-and-cloud-agnostic-memphis-deployments.md)
     * [Migrate Memphis storage between storageClass's](open-source-installation/kubernetes/guides/migrate-memphis-storage-between-storageclasss.md)
