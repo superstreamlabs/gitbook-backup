@@ -14,10 +14,29 @@ Learn, get inspired, and build better pipelines using architectural best practic
 <figure><img src="../.gitbook/assets/Card 1 - Apply schemas to Kafka Topics. (1).jpg" alt=""><figcaption></figcaption></figure>
 
 Memphis Functions works great next to Kafka and simplifies the needed code around it.\
-In this use case, Memphis Functions acts as a consumer group to a certain Kafka topic (can be for specific partitions).
+In this scenario, it operates as a consumer group for a specific Kafka topic, potentially targeting specific partitions.
 
-* Each received event gets consumed by Functions CG, goes through schema validation defined in [Schemaverse](broken-reference)
-* Validated events continue their journey to the next Topic by Functions. Unvalidated events will be dropped, enter Memphis Dead-letter and the user will be notified through email or Slack
-* Although we did add an extra hop, both the movement and validation take place quickly and efficiently + separating raw, unvalidated data from the validated one in two different topics, creating an extra layer of insurance for the consumers
+* Functions CG consumes each received event and subjects it to schema validation as defined in [Schemaverse](broken-reference).
+* After validation, approved events proceed to the next Topic through Functions. Unapproved ones are discarded, directed to the Memphis Dead-letter, and trigger user notifications via email or Slack.
+* Despite introducing an additional step, both the movement and validation occur rapidly and efficiently. This segregation of raw, unvalidated data and validated data into separate topics adds an extra protective layer for consumers.
 
-Use case
+### Use case: Prepare and enrich traces before entering BigQuery
+
+<figure><img src="../.gitbook/assets/Card 2 - Prepare and enrich user traces (1).jpg" alt=""><figcaption></figcaption></figure>
+
+Preparing real-time data presents a significant challenge when inserting it into BQ due to the necessary transformations before aligning with the specified schema.&#x20;
+
+One approach involves crafting a substantial client that consumes events, parses their types, and performs corresponding transformations. However, this method lacks scalability, and any code modifications may disrupt others due to its monolithic nature. Moreover, the constant changes in schemas, tables, and requirements exacerbate these challenges.
+
+Memphis Functions enable the distribution of logic, enabling the creation of dedicated pipelines for each event type across multiple stations.
+
+**How?**
+
+* Memphis producers can produce the same message to multiple stations [simultaneously](../memphis/concepts/producer.md#produce-messages-to-multiple-stations-simultaneously).
+* A dedicated function sequence will be attached for each station.
+
+**Benefits**
+
+* Individual handling for each event type
+* Fully distributed and highly decoupled
+* Processing issues won't impact all pipelines
