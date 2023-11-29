@@ -17,7 +17,7 @@ By default, the Memphis SDK produces messages synchronously. In other words, the
 
 Imagine that we have a two-lane highway connecting two cities, Pizza Land and Hungry People Village. Pizza delivery drivers use the highway to deliver pizzas from Pizza Land to customers in Hungry People Village. Unfortunately, Pizza Land only has one delivery driver and that driver can only deliver to one customer per trip.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 The orders are added to a queue. Each order sits in the queue until the preceding orders have been delivered. Assume that RTT is the round-trip time it takes for the driver to complete one delivery. The first delivery will take RTT time to deliver. The second delivery will take 2\*RTT time to deliver. The third delivery will take 3\*RTT time to deliver. In other words, the delivery of each order is delayed by its position in the queue. The time to deliver all N orders is N \* RTT.
 
@@ -29,7 +29,7 @@ But what if the distance is greater? Let's assume that it takes 10 ms or 10^-2 s
 
 The Memphis SDKs also support producing messages using non-blocking I/O. In this model, Pizza Land has multiple delivery drivers. Each order sits in the queue until the preceding orders have been delivered, but now multiple orders can be delivered in parallel. If there are 5 delivery drivers, then it takes RTT time to deliver orders 1 through 5. Order 6 will need to wait until the first delivery driver returns, so the delivery time is 2 \* RTT. If there are C delivery drivers, then it takes N \* RTT / C to deliver all N orders.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To enable non-blocking message production in the Python SDK, use the nonblocking=True flag:
 

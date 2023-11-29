@@ -58,6 +58,8 @@
 
 * [Overview](memphis-functions/overview.md)
 * [Getting started](memphis-functions/getting-started.md)
+* [Use cases and best practices](memphis-functions/use-cases-and-best-practices.md)
+* [Functions library](memphis-functions/functions-library.md)
 
 ## ☁ Memphis cloud
 
