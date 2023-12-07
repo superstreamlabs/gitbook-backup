@@ -6,21 +6,19 @@ description: This section describes what are delayed messages and how to create 
 
 ## Introduction
 
-Delayed messages let you "return" a received message to the broker for a period when your consumer application needs additional time to process messages.
+Delayed messages allow you to send a received message back to the broker when your consumer application requires extra processing time.
 
-The uniqueness of Memphis implementation is&#x20;
+What sets apart Memphis' implementation is the consumer's capability to control this delay independently and atomically.&#x20;
 
-1. The ability of the consumer to control the delay.
-2. The number of unacked messages within the station does not affect the delayed message's consumption. For example, if a delay of 60 seconds is needed, this is exactly the amount of invisibility time that will be configured for that message.
+Within the station, the count of unconsumed messages doesn't impact the consumption of delayed messages. For instance, if a 60-second delay is necessary, it precisely configures the invisibility time for that specific message.
 
 ## Flow
 
-1. Consumer group receives a message
-2. Some event caused the consumer group to hold the processing of the message
-3. Given the `maxMsgDeliveries` has not reached its max value, the consumer will trigger \
-   `message.delay(delayInMilliseconds)` , ignore the message, and instead of having the same message right after the first try, the broker will hold the message for the requested period of time
-4. The next message will be consumed
-5. After crossing the requested `delayInMilliseconds` the broker will stop the main stream of messages and push the delayed message again
+1. A message is received by the consumer group.
+2. An event occurs, prompting the consumer group to pause processing the message.
+3. Assuming the `maxMsgDeliveries` hasn't hit its limit, the consumer will activate `message.delay(delayInMilliseconds)`, bypassing the message. Instead of immediately reprocessing the same message, the broker will retain it for the specified duration.
+4. The subsequent message will be consumed.
+5. Once the requested `delayInMilliseconds` has passed, the broker will halt the primary message flow and reintroduce the delayed message into circulation.
 
 <figure><img src="../../.gitbook/assets/delayed queues.jpeg" alt=""><figcaption></figcaption></figure>
 
