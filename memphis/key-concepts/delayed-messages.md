@@ -54,5 +54,5 @@ const { memphis } = require('memphis-dev');
         console.log(ex);
         if (memphisConnection) memphisConnection.close();
     }
-})();ava
+})();
 ```
