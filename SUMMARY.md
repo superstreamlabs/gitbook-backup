@@ -7,7 +7,6 @@
 * [Learn by example](getting-started/tutorials/README.md)
 * [Case studies](getting-started/public-case-studies.md)
 * [How to contribute?](getting-started/how-to-contribute.md)
-* [Roadmap](https://memphis.dev/roadmap)
 
 ## ⭐ Memphis Broker
 
