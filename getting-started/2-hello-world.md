@@ -59,7 +59,7 @@ curl -s https://memphisdev.github.io/memphis-docker/docker-compose-latest.yml -o
 ```
 {% endcode %}
 
-More information can be found in the [Memphis Docker deployment](../open-source-installation/docker-compose.md) documentation.
+More information can be found in the [Memphis Docker deployment](../open-source-installation/docker-compose/) documentation.
 {% endtab %}
 {% endtabs %}
 

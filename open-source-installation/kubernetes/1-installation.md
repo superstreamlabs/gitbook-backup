@@ -93,7 +93,13 @@ For more information on each component, please head to the [architecture section
 
 Currently, you can use this for creating users during deployment.
 
-\*Command example\*
+### Execute Helm install with the created values file:
+
+{% code overflow="wrap" %}
+```
+helm install my-memphis memphis -f config.yaml --create-namespace --namespace memphis --wait
+```
+{% endcode %}
 
 ### Creating users&#x20;
 
@@ -101,7 +107,10 @@ Currently, you can use this for creating users during deployment.
 
 {% code title="config.yaml" overflow="wrap" lineNumbers="true" %}
 ```yaml
-users:
+auth:
+#By default, Memphis sets this option to "false," enabling first user creation during the initial login.
+  enabled: true
+  users:
     mgmt:
     - user: admin
       password: Admin123456!
@@ -116,6 +125,10 @@ users:
       password: Test123456@!
 ```
 {% endcode %}
+
+{% hint style="info" %}
+Refer to the example file for guidance: [example/initial\_config\_values.yaml](https://github.com/memphisdev/memphis-k8s/blob/master/examples/initial\_config\_values.yaml)
+{% endhint %}
 
 ## Appendix B: Dedicated options per specific K8S distributions
 

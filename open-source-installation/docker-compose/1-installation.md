@@ -2,7 +2,7 @@
 description: Deploy Memphis over Docker using Docker compose
 ---
 
-# Docker
+# 1 - Installation
 
 ## Requirements
 
@@ -49,75 +49,52 @@ Output:
 * **memphis-metadata-1:** Responsible for storing the platform metadata only, such as general information, monitoring, GUI state, and pointers to dead-letter messages. The metadata store uses Postgres.
 * **memphis-rest-gateway-1:** Responsible for exposing Memphis management and data ingestion through REST requests.
 
-### Step 2: Access via UI / CLI / SDK
 
-{% tabs %}
-{% tab title="UI" %}
-The default port of the UI is 9000:
 
-```
-http://localhost:9000
-```
+## Appendix A: Install Memphis using predefined parameters
 
-**Default Username:** root
+Currently, you can use this for creating users during deployment.
 
-**Default Password**: memphis
-{% endtab %}
-
-{% tab title="SDK" %}
-For more detailed information, head to the SDKs section below.
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-####
-
-#### Memphis Node.JS SDK can be used to demonstrate the required parameters.
-
-```
-await memphis.connect({
-            host: "broker.sandbox.memphis.dev",
-            port: <port>, // defaults to 6666
-            username: "<application type username>",
-            connectionToken: "<connection_token>"
-});
-```
-
-* **host:** Usually the control plane or through the UI URL. For example "https://memphis-ui.test.com/api".
-* **username:** Usually "root". Head to the users' section via the UI or CLI to add more.
-* **connectionToken:** Each app that produces and/or consumer data with Memphis uses token authentication. <mark style="color:green;">**The default value is "memphis".**</mark>
-{% endtab %}
-{% endtabs %}
-
-## How to upgrade?
-
-### Step 1: shutdown Memphis containers
-
-```bash
-docker rm -f $(docker ps -a | grep -i memphis | awk '{print $1}')
-```
-
-### Step 2: remove memphis docker images
-
-```bash
-docker image rm -f $(docker image ls | grep -i memphis)
-```
-
-### Step 3: Reinstall memphis according to the version you upgrade to:
-
-Stable -&#x20;
+### Deploy Memphis using the modified docker-compose file:
 
 {% code overflow="wrap" %}
-```bash
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+```
+docker compose -f docker-compose-dev-with-users.yml -p memphis up
 ```
 {% endcode %}
 
-Latest -
+### Creating users&#x20;
 
-{% code overflow="wrap" %}
-```bash
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-latest.yml -o docker-compose-latest.yml && docker compose -f docker-compose-latest.yml -p memphis up
+#### Integrate the user list into the docker-compose file within Memphis variables:
+
+(Based on Memphis password policy: at least 8 characters long, contains both uppercase and lowercase, and at least one number and one special character(!?-@#$%):
+
+{% code title="docker-compose-dev-with-users.yml" overflow="wrap" lineNumbers="true" %}
+```yaml
+    environment:
+      ROOT_PASSWORD: memphis
+      DOCKER_ENV: true
+      ENV: staging
+      USER_PASS_BASED_AUTH: true
+      CONNECTION_TOKEN: memphis
+      METADATA_DB_HOST: memphis-metadata
+      INITIAL_CONFIG_FILE: |
+          users:
+            mgmt:
+            - user: admin
+              password: Admin123456!
+            - user: test_mgmt
+              password: Test123456!
+            - user: test
+              password: Test123456@
+            client:
+            - user: test_app
+              password: Test123456!@
+            - user: test_app2
+              password: Test123456@!
 ```
 {% endcode %}
+
+{% hint style="info" %}
+Refer to the example file for guidance: [example/docker-compose-dev-with-users.yml](https://github.com/memphisdev/memphis-docker/blob/master/examples/docker-compose-dev-with-users.yml)
+{% endhint %}

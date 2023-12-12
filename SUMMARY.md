@@ -88,7 +88,10 @@
     * [TLS - Deploy Memphis with TLS Connection to Metadata Frontend](open-source-installation/kubernetes/guides/tls-deploy-memphis-with-tls-connection-to-metadata-frontend.md)
     * [TLS - Memphis TLS websocket configuration](open-source-installation/kubernetes/guides/tls-memphis-tls-websocket-configuration.md)
     * [TLS - Securing Memphis Client with TLS](open-source-installation/kubernetes/guides/tls-securing-memphis-client-with-tls.md)
-* [Docker](open-source-installation/docker-compose.md)
+* [Docker](open-source-installation/docker-compose/README.md)
+  * [1 - Installation](open-source-installation/docker-compose/1-installation.md)
+  * [2 - Access](open-source-installation/docker-compose/2-access.md)
+  * [3 - Upgrade](open-source-installation/docker-compose/3-upgrade.md)
 * [Open-source Support](open-source-installation/open-source-support.md)
 
 ## Client Libraries
