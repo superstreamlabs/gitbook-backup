@@ -6,7 +6,7 @@ coverY: 0
 
 # Getting started
 
-### How to develop a new private function
+## How to develop a new private function
 
 Memphis functions offers two types of function libraries: Public, and private.\
 The public library is available by default for each account and is powered by Memphis.dev Functions [repository](https://github.com/memphisdev/memphis-dev-functions).
@@ -17,9 +17,7 @@ A function comprises code files (based on [Memphis template](https://github.com/
 The directory ought to be included in a Git repository that's linked with Memphis.\
 Here is a brief hierarchy diagram of how a compatible function file tree should be constructed:&#x20;
 
-<figure><img src="https://private-user-images.githubusercontent.com/70286779/284149937-57591907-ce74-454c-a9e3-f7348db88c48.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDA4NjY1MTIsIm5iZiI6MTcwMDg2NjIxMiwicGF0aCI6Ii83MDI4Njc3OS8yODQxNDk5MzctNTc1OTE5MDctY2U3NC00NTRjLWE5ZTMtZjczNDhkYjg4YzQ4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFJV05KWUFYNENTVkVINTNBJTJGMjAyMzExMjQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjMxMTI0VDIyNTAxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFhZjU0ZjNiY2VlNTM5Y2RjNDFmYmVjOGZkMTQ1NGYwMTU4NmU1ZWRiY2JjOTRiMzc2MzdlYjYxMjYxNDE0NmEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.Z6gIZd5mzaC2OFKT84-yf2BEC1J3_1Y0pB6TPnf9pAQ" alt=""><figcaption></figcaption></figure>
-
-#### 🚀  Step-by-step Guide:
+### 🚀  Step-by-step Guide:
 
 1. Clone or create a new repository (At the moment, support is exclusively available for GitHub.)
 2. Within this repository, establish a fresh directory and initialize it to your chosen programming language
@@ -28,7 +26,7 @@ Here is a brief hierarchy diagram of how a compatible function file tree should 
 mkdir my-function && cd my-function && npm init -y
 ```
 
-3. [Copy](https://github.com/memphisdev/function-templates) one of the Memphis Functions templates. For this guide, we chose Node.js
+3. [Generate a template](https://github.com/memphisdev/memphis-cli?tab=readme-ov-file#create-a-basic-memphis-function-template) or [Copy](https://github.com/memphisdev/function-templates) one of the Memphis Functions templates. For this guide, we chose Node.js
 4. _**Required**_**.** Write your logic inside the `eventHandler` block.\
    Incoming events will be accumulated and dispatched to a function collectively in a batch; therefore, the wrapper
 

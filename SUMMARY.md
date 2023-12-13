@@ -26,6 +26,7 @@
   * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
   * [Troubleshooting process](memphis/key-concepts/troubleshooting-process.md)
+  * [Connectors](memphis-broker/concepts/connectors.md)
 * [Best practices](memphis-broker/best-practices/README.md)
   * [Producer optimization](memphis-broker/best-practices/producer-optimization.md)
   * [Compression](memphis-broker/best-practices/compression.md)
@@ -131,7 +132,8 @@
 
 * [KB](release-notes/kb.md)
 * [Releases](release-notes/releases/README.md)
-  * [v1.4.0](release-notes/releases/v1.4.0.md)
+  * [v1.4.1 - latest](release-notes/releases/v1.4.1-latest.md)
+  * [v1.4.0 - Stable](release-notes/releases/v1.4.0-stable.md)
   * [v1.3.1](release-notes/releases/v1.3.1-stable.md)
   * [v1.3.0](release-notes/releases/v1.3.0-latest.md)
   * [v1.2.0](release-notes/releases/v1.2.0-latest.md)
