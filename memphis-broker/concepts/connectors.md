@@ -16,7 +16,9 @@ Memphis Connectors are available to [Cloud](https://cloud.memphis.dev) users onl
 
 ### Combining connectors and functions
 
+The integration of connectors and functions offers remarkable capabilities. An exemplary case would be establishing a connection from a Memphis station to a Kafka Topic.&#x20;
 
+This setup involves initiating the ingestion of events at the partition level. Subsequently, a function is applied to transform, enrich, or filter these events. The processed events are then forwarded to another Kafka Topic or clients. This approach harnesses the unique power and superior developer experience provided by Functions, showcasing their efficiency and versatility in data handling and processing.
 
 ### Getting started
 
