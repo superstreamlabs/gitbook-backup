@@ -80,6 +80,7 @@
     * [Deploy on DigitalOcean](open-source-installation/kubernetes/cloud-deployment/deploy-on-digitalocean.md)
     * [Deploy on Azure](open-source-installation/kubernetes/cloud-deployment/deploy-on-azure.md)
   * [Guides](open-source-installation/kubernetes/guides/README.md)
+    * [Deploy/Upgrade Memphis utilizing predefined secrets.](open-source-installation/kubernetes/guides/deploy-upgrade-memphis-utilizing-predefined-secrets..md)
     * [Monitoring/Alerts Recommendations](open-source-installation/kubernetes/guides/monitoring-alerts-recommendations.md)
     * [Production Best Practices](open-source-installation/kubernetes/guides/production-best-practices.md)
     * [NGINX Ingress Controller and Cloud-Agnostic Memphis Deployments](open-source-installation/kubernetes/guides/nginx-ingress-controller-and-cloud-agnostic-memphis-deployments.md)
