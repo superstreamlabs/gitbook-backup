@@ -23,6 +23,7 @@
   * [Ordering](memphis/concepts/ordering.md)
   * [Dead-letter Station (DLS)](dashboard-ui/troubleshooting/dead-letter.md)
   * [Delayed messages](memphis/key-concepts/delayed-messages.md)
+  * [Data exchange](memphis-broker/concepts/data-exchange.md)
   * [Idempotency (Duplicate processing)](memphis/concepts/idempotency.md)
   * [Failover Scenarios](memphis/concepts/failover-scenarios.md)
   * [Troubleshooting process](memphis/key-concepts/troubleshooting-process.md)
