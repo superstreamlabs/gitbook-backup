@@ -151,14 +151,19 @@ const { memphis } = require("memphis-dev");
       consumerGroup: "CONSUMER_GROUP_NAME",
     });
 
-    consumer.setContext({ key: "value" });
-    consumer.on("message", (message, context) => {
-      console.log(message.getData().toString());
-      message.ack();
-      const headers = message.getHeaders();
-    });
+    consumer.setContext({ key: "value" }); // Optional
 
-    consumer.on("error", (error) => {});
+    let messages = await consumer.fetch(); // Fetches 10 messages
+
+    for (let message of messages){
+        const messageObject = JSON.parse(message.getData().toString());
+        // Do something with the message
+        console.log(messageObject["Hello"]);
+        message.ack();
+    }
+
+    memphisConnection.close();
+
   } catch (ex) {
     console.log(ex);
     if (memphisConnection) memphisConnection.close();
@@ -241,7 +246,7 @@ node producer.ts
 
 {% code title="consumer.ts" lineNumbers="true" %}
 ```typescript
-import { memphis, Memphis } from "memphis-dev";
+import { memphis, Memphis, Message } from "memphis-dev";
 
 (async function () {
   let memphisConnection: Memphis;
@@ -260,15 +265,18 @@ import { memphis, Memphis } from "memphis-dev";
     });
 
     consumer.setContext({ key: "value" });
-    consumer.on("message", (message: Message, context: object) => {
-      console.log(message.getData().toString());
-      message.ack();
-      const headers = message.getHeaders();
-    });
 
-    consumer.on("error", (error) => {
-      console.log(error);
-    });
+    let messages: Message[] = await consumer.fetch(); // Fetches 10 messages
+
+    for (let message of messages){
+        const messageObject: Record<string, any> = JSON.parse(message.getData().toString());
+        // Do something with the message
+        console.log(messageObject["Hello"]);
+        message.ack();
+    }
+
+    memphisConnection.close();
+
   } catch (ex) {
     console.log(ex);
     if (memphisConnection) memphisConnection.close();
@@ -375,30 +383,30 @@ func main() {
     consumer, err := conn.CreateConsumer("STATION_NAME", "CONSUMER_NAME", memphis.PullInterval(15*time.Second))
 
     if err != nil {
-        fmt.Printf("Consumer creation failed: %v
-", err)
+        fmt.Printf("Consumer creation failed: %v", err)
         os.Exit(1)
     }
 
-    handler := func(msgs []*memphis.Msg, err error, ctx context.Context) {
-        if err != nil {
-            fmt.Printf("Fetch failed: %v
-", err)
-            return
-        }
-
-        for _, msg := range msgs {
-            fmt.Println(string(msg.Data()))
-            msg.Ack()
-            headers := msg.GetHeaders()
-            fmt.Println(headers)
-        }
-    }
-
-    ctx := context.Background()
-    ctx = context.WithValue(ctx, "key", "value")
     consumer.SetContext(ctx)
-    consumer.Consume(handler)
+    
+    messages, err := consumer.Fetch()
+
+    var msg_map map[string]any
+    for _, message := range messages{
+      err = json.Unmarshal(message.Data(), &msg_map)
+      if err != nil{
+        fmt.Print(err)
+        continue
+      }
+
+      // Do something with the message
+
+      err = message.Ack()
+      if err != nil{
+        fmt.Print(err)
+        continue
+      }
+    }
 
     // The program will close the connection after 30 seconds,
     // the message handler may be called after the connection closed
@@ -467,26 +475,23 @@ python3 producer.py
 ```python
 from memphis import Memphis, Headers
 from memphis.types import Retention, Storage
+from memphis.message import Message
 import asyncio
 
 async def main():
-    async def msg_handler(msgs, error, context):
-        try:
-            for msg in msgs:
-                print("message: ", msg.get_data())
-                await msg.ack()
-                if error:
-                    print(error)
-        except (MemphisError, MemphisConnectError, MemphisHeaderError) as e:
-            print(e)
-            return
-
     try:
         memphis = Memphis()
         await memphis.connect(host="MEMPHIS_HOSTNAME", username="MEMPHIS_APPLICATION_USER", password="PASSWORD")
         consumer = await memphis.consumer(station_name="STATION_NAME", consumer_name="CONSUMER_NAME", consumer_group="CONSUMER_GROUP_NAME")
-        consumer.consume(msg_handler)
-        await asyncio.Event().wait()
+        
+        messages: list[Message] = await consumer.fetch() # Type-hint the return here for LSP integration
+        
+        for consumed_message in messages:
+            msg_data = json.loads(consumed_message.get_data())
+
+            # Do something with the message data
+
+            await consumed_message.ack()
 
     except (MemphisError, MemphisConnectError) as e:
         print(e)
