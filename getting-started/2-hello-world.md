@@ -511,6 +511,142 @@ python3 consumer.py
 ```
 {% endtab %}
 
+{% tab title="C#" %}
+
+**Step 1:** Create a new C# project through Visual Studio or using the dotnet CLI
+
+```bash
+dotnet new console -n MyC#Project
+```
+
+If you are using top level statements, you will have to create two of these projects.
+
+**Step 2:** In your project's directory(s), install Memphis C# SDK
+
+```bash
+dotnet add package Memphis.Client -v ${MEMPHIS_CLIENT_VERSION}
+```
+
+**Step 3:** In your Producer file/project copy this quickstart inside of it
+
+{% code title="producer.cs" lineNumbers="true" %}
+```C#
+using Memphis.Client;
+using System.Collections.Specialized;
+using System.Text;
+using System.Text.Json;
+
+try
+{
+    var options = MemphisClientFactory.GetDefaultOptions();
+    options.Host = "aws-us-east-1.cloud.memphis.dev";
+    options.AccountId = int.Parse(Environment.GetEnvironmentVariable("memphis_account_id"));
+    options.Username = "test_user";
+    options.Password = Environment.GetEnvironmentVariable("memphis_pass");
+
+    var memphisClient = await MemphisClientFactory.CreateClient(options);
+
+    var producer = await memphisClient.CreateProducer(
+    new Memphis.Client.Producer.MemphisProducerOptions
+    {
+        StationName = "test_station",
+        ProducerName = "producer"
+    });
+
+    Message message = new()
+    {
+        Hello = "World!"
+    };
+
+    var headers = new NameValueCollection();
+
+    for (int i = 0; i < 3; i++)
+    {
+        var msgBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
+        await producer.ProduceAsync(msgBytes, headers);
+    }
+
+    memphisClient.Dispose();
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine(ex.Message);
+}
+
+public class Message
+{
+    public string Hello { get; set; }
+}
+```
+{% endcode %}
+
+**Step 4:** Run `producer.cs`
+
+```bash
+dotnet run
+```
+
+**Step 5:** Create a new C# project/file called `consumer.cs`
+
+{% code title="consumer.cs" lineNumbers="true" %}
+```c#
+using Memphis.Client;
+using Memphis.Client.Core;
+using System.Text.Json;
+
+try
+{
+    var options = MemphisClientFactory.GetDefaultOptions();
+    options.Host = "aws-us-east-1.cloud.memphis.dev";
+    options.AccountId = int.Parse(Environment.GetEnvironmentVariable("memphis_account_id"));
+    options.Username = "test_user";
+    options.Password = Environment.GetEnvironmentVariable("memphis_pass");
+
+    var memphisClient = await MemphisClientFactory.CreateClient(options);
+
+    var consumer = await memphisClient.CreateConsumer(
+       new Memphis.Client.Consumer.MemphisConsumerOptions
+       {
+           StationName = "test_station",
+           ConsumerName = "consumer"
+       });
+
+    var messages = consumer.Fetch(3, false);
+
+    foreach (MemphisMessage message in messages)
+    {
+        var messageData = message.GetData();
+        var messageOBJ = JsonSerializer.Deserialize<Message>(messageData);
+
+        // Do something with the message here
+        Console.WriteLine(JsonSerializer.Serialize(messageOBJ));
+
+        message.Ack();
+    }
+
+    memphisClient.Dispose();
+
+}
+catch (Exception ex)
+{
+    Console.Error.WriteLine(ex.Message);
+}
+
+public class Message
+{
+    public string Hello { get; set; }
+}
+```
+{% endcode %}
+
+**Step 6:** Run `consumer.cs`
+
+```bash
+dotnet run
+```
+
+{% endtab %}
+
 {% tab title="REST" %}
 Producing messages to Memphis via REST API can be implemented using any REST-supported language like Go, Python, Java, Node.js, .NET, etc...
 
