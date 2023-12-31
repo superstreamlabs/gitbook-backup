@@ -53,7 +53,7 @@ To get you up and running quickly, we created the following tutorial to guide yo
 
 #### Main overview
 
-<figure><img src="../.gitbook/assets/Group 1000003258.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Group 1000004325.png" alt=""><figcaption></figcaption></figure>
 
 Upper bar -
 

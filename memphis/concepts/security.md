@@ -27,6 +27,6 @@ When deploying Memphis, there is an option to choose the authentication method. 
 * **Username + connection token (Deprecated)**\
   Each new application-type user gets created with a dedicated username and a connection-token
 
-### Role-based access (RBAC)
+### Role-based access control (RBAC)
 
 Soon.
