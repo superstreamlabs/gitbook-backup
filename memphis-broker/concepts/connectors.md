@@ -30,3 +30,15 @@ head to any station -> Click on the "+" button at the top of the producers/consu
 **Step 2:** Choose a direction and type
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-12-13 at 17.20.34.png" alt=""><figcaption></figcaption></figure>
+
+### Catalog of Source Connectors
+
+* Apache Kafka
+* S3
+
+### Catalog of Sink Connectors
+
+* Apache Kafka
+* S3
+* Redis
+* Memphis station
