@@ -1,4 +1,4 @@
-# Deploy/Upgrade Memphis utilizing predefined secrets.
+# Deploy/Upgrade Memphis utilizing predefined secrets
 
 Memphis allows users to utilize predefined Kubernetes secrets containing credentials that remain unchanged during upgrades or other operations. Several variables must be stored in the Kubernetes secret and created before the initial deployment.
 
@@ -23,7 +23,7 @@ Memphis advises creating randomly generated credentials with the following restr
 * ROOT\_PASSWORD - comprising a maximum of 72 characters.
 {% endhint %}
 
-#### Step 2: Create an additional secret file for Memphis-metadata. Ensure it is named "memphis-metadata" and kept distinct from the previous one:
+#### Step 2: Create an additional secret file for Memphis-metadata:
 
 ```
 kubectl create secret generic memphis-metadata -n memphis \
@@ -38,8 +38,8 @@ kubectl create secret generic memphis-metadata -n memphis \
 helm install memphis memphis/memphis \
 --set memphis.creds.secretConfig.name="external-creds",\
 memphis.creds.secretConfig.existingSecret="true",\
-global.postgresql.existingSecret="memphis-metadata",\
-global.pgpool.existingSecret="memphis-metadata" \
+metadata.postgresql.existingSecret="memphis-metadata",\
+metadata.pgpool.existingSecret="memphis-metadata" \
 --create-namespace --namespace memphis --wait
 ```
 
@@ -66,8 +66,8 @@ helm repo add memphis https://k8s.memphis.dev/charts/ --force-update &&\
 helm upgrade --install memphis \
 --set memphis.creds.secretConfig.name="external-creds",\
 memphis.creds.secretConfig.existingSecret="true",\
-global.postgresql.existingSecret="memphis-metadata",\
-global.pgpool.existingSecret="memphis-metadata" \
+metadata.postgresql.existingSecret="memphis-metadata",\
+metadata.pgpool.existingSecret="memphis-metadata" \
 memphis/memphis --create-namespace --namespace memphis --wait
 ```
 
