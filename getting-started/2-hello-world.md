@@ -20,9 +20,9 @@ To learn by practice, you can find a sample application [**here**](https://githu
 {% endtab %}
 
 {% tab title="Open-source" %}
-### **Installation**
+#### **Installation**
 
-#### **For Kubernetes**
+**For Kubernetes**
 
 Stable -
 
@@ -41,9 +41,9 @@ Latest -
 
 More information can be found in the [Memphis k8s deployment](../open-source-installation/kubernetes/) documentation.
 
-#### **Docker compose (Syntax for v2)**
+**Docker compose (Syntax for v2)**
 
-Stable -&#x20;
+Stable -
 
 {% code overflow="wrap" %}
 ```bash
@@ -512,7 +512,6 @@ python3 consumer.py
 {% endtab %}
 
 {% tab title="C#" %}
-
 **Step 1:** Create a new C# project through Visual Studio or using the dotnet CLI
 
 ```bash
@@ -644,7 +643,6 @@ public class Message
 ```bash
 dotnet run
 ```
-
 {% endtab %}
 
 {% tab title="REST" %}
