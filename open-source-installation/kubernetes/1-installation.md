@@ -36,7 +36,7 @@ Production-ready Memphis deployment with initial three memphis brokers configure
 
 {% code overflow="wrap" %}
 ```bash
-helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --set global.cluster.enabled="true" --create-namespace --namespace memphis --wait --version=1.3.0
+helm repo add memphis https://k8s.memphis.dev/charts/ --force-update && helm install memphis memphis/memphis --set global.cluster.enabled="true" --create-namespace --namespace memphis --wait --version=1.4.0
 ```
 {% endcode %}
 
