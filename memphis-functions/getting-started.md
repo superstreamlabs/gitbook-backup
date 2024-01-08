@@ -1,6 +1,6 @@
 ---
 description: A "Getting started" guide for Memphis Functions
-cover: ../.gitbook/assets/Github.png
+cover: ../.gitbook/assets/Memphis Functions (2).jpg
 coverY: 0
 ---
 

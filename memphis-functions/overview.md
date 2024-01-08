@@ -1,6 +1,6 @@
 ---
 description: Meet Memphis Functions. Write Your Code, And Let the Platform Handle the Rest.
-cover: ../.gitbook/assets/Github.png
+cover: ../.gitbook/assets/Memphis Functions (2).jpg
 coverY: 0
 layout:
   cover:
@@ -19,6 +19,8 @@ layout:
 ---
 
 # Overview
+
+## Why?
 
 More and more organizations are leveraging real-time events Serving multiple use cases and a growing number of in-house customers with real-time events than ever before.
 
@@ -79,9 +81,9 @@ It is built for all, super fast to develop, and easy to maintain.
 
 </div>
 
-### Alpha version
+### Beta version
 
-Please bear in mind that Memphis Functions is currently in its Alpha version, so there might be bugs and unexpected behavior that could arise.
+Please bear in mind that Memphis Functions is currently in its Beta version, so there might be bugs and unexpected behavior that could arise.
 
 Our current focus is directed at enhancing stability, developer experience, and observability. Once these facets are well-established, our attention will pivot towards optimizing performance and dynamism.
 

@@ -55,7 +55,7 @@
 * [Comparison](memphis-schemaverse/comparison.md)
 * [KB](memphis-schemaverse/kb.md)
 
-## ⭐ Memphis Functions (Alpha) <a href="#memphis-functions" id="memphis-functions"></a>
+## ⭐ Memphis Functions (Beta) <a href="#memphis-functions" id="memphis-functions"></a>
 
 * [Overview](memphis-functions/overview.md)
 * [Getting started](memphis-functions/getting-started.md)
