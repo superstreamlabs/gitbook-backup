@@ -42,3 +42,5 @@ RBAC settings can be adjusted via the Web Console during the creation of a new c
 #### How to configure write (produce) permissions
 
 * This can be done either by selecting particular stations or by defining a pattern. For instance, using `prod.*` will include all stations beginning with `prod.` . Additionally, multiple patterns can be specified.
+
+Station names must include the character `.`, and the character `*` should only appear after `.` to utilize the wildcard pattern.
