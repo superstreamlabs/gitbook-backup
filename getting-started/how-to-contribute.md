@@ -1,7 +1,10 @@
-# How to contribute?
+---
+description: >-
+  Please pay attention that Memphis.dev is no longer supported officially by the
+  Superstream (formerly Memphis.dev. team) and was released to the public.
+---
 
-Memphis is and always will be open-source and community-driven. \
-Our community is our power. [💙](https://emojipedia.org/blue-heart/)
+# How to contribute?
 
 ## Why should you become a contributor?
 
