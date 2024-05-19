@@ -16,7 +16,7 @@ To learn by practice, you can find a sample application [**here**](https://githu
 {% tab title="Cloud" %}
 **Step 1:** Sign up for Memphis Cloud [here](https://cloud.memphis.dev).
 
-**Step 2:** [Hello world](../memphis-cloud/getting-started.md#hello-world)
+**Step 2:** [Hello world](broken-reference)
 {% endtab %}
 
 {% tab title="Open-source" %}

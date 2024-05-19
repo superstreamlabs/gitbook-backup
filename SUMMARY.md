@@ -55,20 +55,6 @@
 * [Comparison](memphis-schemaverse/comparison.md)
 * [KB](memphis-schemaverse/kb.md)
 
-## ⭐ Memphis Functions (Beta) <a href="#memphis-functions" id="memphis-functions"></a>
-
-* [Overview](memphis-functions/overview.md)
-* [Getting started](memphis-functions/getting-started.md)
-* [Use cases and best practices](memphis-functions/use-cases-and-best-practices.md)
-* [Functions library](memphis-functions/functions-library.md)
-
-## ☁ Memphis cloud
-
-* [Getting Started](memphis-cloud/getting-started.md)
-* [Self-hosted to Cloud Guide](memphis-cloud/self-hosted-to-cloud-guide.md)
-* [Pricing](https://memphis.dev/pricing)
-* [Legal hub](https://memphis.dev/privacy-policy)
-
 ## 📦 Open-Source Installation
 
 * [Kubernetes](open-source-installation/kubernetes/README.md)
@@ -131,7 +117,7 @@
 * [Other platforms](platform-integrations/other-platforms/README.md)
   * [Argo](platform-integrations/other-platforms/argo-and-memphis.md)
 
-## 🗒 Release notes
+## 🗒️ Release notes
 
 * [KB](release-notes/kb.md)
 * [Releases](release-notes/releases/README.md)
