@@ -1,5 +1,7 @@
 ---
-description: How to integrate GitHub with Memphis Platform
+description: >-
+  Please pay attention that Memphis.dev is no longer supported officially by the
+  Superstream team (formerly Memphis.dev ) and was released to the public.
 cover: ../../.gitbook/assets/GitHub + Memphis.jpg
 coverY: 0
 ---
@@ -27,4 +29,4 @@ To align with that mindset and to ease the development of Memphis Functions, as 
 Please be aware that all keys and credentials are encrypted both in transit and at rest using **AES-256**
 {% endhint %}
 
-{% embed url="https://app.storylane.io/share/tfefsxzuclc7" %}
+{% @storylane/embed subdomain="app" linkValue="tfefsxzuclc7" url="https://app.storylane.io/share/tfefsxzuclc7" %}
