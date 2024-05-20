@@ -1,5 +1,7 @@
 ---
-description: What is Memphis.dev? The challenges it solves and how
+description: >-
+  Please pay attention that Memphis.dev is no longer supported officially by the
+  Superstream (formerly Memphis.dev. team) and was released to the public.
 cover: .gitbook/assets/Docs (4).png
 coverY: 0
 ---
