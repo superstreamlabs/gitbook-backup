@@ -1,5 +1,7 @@
 ---
-description: This page describes how to integrate Zapier with Memphis.dev
+description: >-
+  Please pay attention that Memphis.dev is no longer supported officially by the
+  Superstream team (formerly Memphis.dev ) and was released to the public.
 cover: ../../.gitbook/assets/Zapier + Memphis.jpg
 coverY: 0
 ---
