@@ -6,6 +6,8 @@ coverY: 0
 
 # S3-Compatible Object Storage
 
+**Please pay attention that Memphis.dev is no longer supported officially by the Superstream team (formerly Memphis.dev ) and was released to the public**.
+
 {% hint style="info" %}
 To learn more about the architecture behind storage tiering, please head [here](../../memphis/concepts/storage-and-redundancy.md).
 {% endhint %}
