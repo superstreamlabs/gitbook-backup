@@ -1,5 +1,7 @@
 ---
-description: Enhance Your Journey with Enterprise-Grade Support
+description: >-
+  Please pay attention that Memphis.dev is no longer supported officially by the
+  Superstream (formerly Memphis.dev. team) and was released to the public.
 cover: ../.gitbook/assets/Open-source support bundle banner.jpeg
 coverY: 0
 layout:
@@ -18,13 +20,13 @@ layout:
     visible: true
 ---
 
-# Open-source Support Bundle
+# Open-source Support
 
 Discover the power of our Open Source Support Bundle, your gateway to worry-free self-hosted deployment.&#x20;
 
 Access expert guidance, priority assistance, and peace of mind as you harness the full potential of your Memphis.dev deployment.
 
-### 12  Justifications for Acquiring the Support Bundle
+### 12 Justifications for Acquiring the Support Bundle
 
 1. **Enhanced Reliability:** An open-source support bundle ensures that you have a dedicated team to provide timely support, improving the reliability and availability of your self-hosted deployment.
 2. **Faster Issue Resolution:** Gain access to expert assistance, reducing downtime by quickly resolving issues and bugs.
