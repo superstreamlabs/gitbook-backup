@@ -105,7 +105,6 @@
 * [Change data Capture (CDC)](integrations-center/change-data-capture-cdc/README.md)
   * [Debezium](integrations-center/change-data-capture-cdc/debezium.md)
 * [Monitoring](platform-integrations/monitoring/README.md)
-  * [Elasticsearch Observability](platform-integrations/monitoring/elasticsearch-observability.md)
   * [Datadog](platform-integrations/monitoring/datadog.md)
   * [Grafana](platform-integrations/monitoring/grafana.md)
 * [Notifications](platform-integrations/notifications/README.md)
