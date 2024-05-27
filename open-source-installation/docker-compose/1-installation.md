@@ -22,7 +22,7 @@ Stable -&#x20;
 
 {% code overflow="wrap" %}
 ```bash
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
+curl -s https://superstreamlabs.github.io/memphis-docker/docker-compose.yml -o docker-compose.yml && docker compose -f docker-compose.yml -p memphis up
 ```
 {% endcode %}
 
@@ -30,7 +30,7 @@ Latest -
 
 {% code overflow="wrap" %}
 ```bash
-curl -s https://memphisdev.github.io/memphis-docker/docker-compose-latest.yml -o docker-compose-latest.yml && docker compose -f docker-compose-latest.yml -p memphis up
+curl -s https://superstreamlabs.github.io/memphis-docker/docker-compose-latest.yml -o docker-compose-latest.yml && docker compose -f docker-compose-latest.yml -p memphis up
 ```
 {% endcode %}
 
